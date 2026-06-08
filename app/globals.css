@@ -1,0 +1,196 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+  --font-sans: "Avenir Next", "Segoe UI", "Helvetica Neue", "Arial Nova", "Nimbus Sans", Arial, sans-serif;
+  --font-serif:
+    "Iowan Old Style", "Palatino Linotype", "Book Antiqua", "Cormorant Garamond", Georgia, serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: #ffffff;
+  scroll-behavior: auto;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    linear-gradient(180deg, rgba(246, 246, 242, 0.72), rgba(255, 255, 255, 0) 10rem),
+    #ffffff;
+  color: #171717;
+  font-family: var(--font-sans);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+::selection {
+  background: rgba(23, 23, 23, 0.12);
+  color: #171717;
+}
+
+@layer components {
+  .shell {
+    @apply mx-auto w-full max-w-shell px-4 sm:px-6 lg:px-8;
+  }
+
+  .section-space {
+    @apply py-16 sm:py-24 lg:py-28;
+  }
+
+  .section-rule {
+    @apply pt-6;
+  }
+
+  .eyeline {
+    @apply rounded-[1.75rem] border border-line bg-white;
+  }
+
+  .editorial-card {
+    @apply rounded-[1.6rem] border border-line bg-white;
+  }
+
+  .display-title {
+    @apply text-[clamp(2.95rem,7vw,5.6rem)] font-medium leading-[0.92] tracking-[-0.06em] text-text;
+  }
+
+  .hero-title {
+    @apply text-[clamp(4.2rem,8vw,7rem)] font-medium leading-[0.9] tracking-[-0.04em] text-text;
+  }
+
+  .section-title {
+    @apply text-[clamp(2rem,4.2vw,3.5rem)] font-medium leading-[0.95] tracking-[-0.05em] text-text;
+  }
+
+  .body-copy {
+    @apply text-base leading-7 text-muted sm:text-lg;
+  }
+
+  .caption {
+    @apply text-[0.72rem] uppercase tracking-[0.22em] text-muted;
+  }
+
+  .section-label {
+    @apply text-[1rem] font-bold uppercase tracking-[0.18em] text-muted;
+  }
+
+  .pill {
+    @apply inline-flex items-center rounded-full border border-line px-3 py-1 text-[0.7rem] uppercase tracking-[0.16em] text-muted;
+  }
+}
+
+.magnetic-link {
+  display: inline-flex;
+  transform: translate3d(var(--magnetic-x, 0px), var(--magnetic-y, 0px), 0);
+  transition:
+    transform 220ms ease,
+    background-color 220ms ease,
+    border-color 220ms ease,
+    box-shadow 220ms ease,
+    color 220ms ease;
+  will-change: transform;
+}
+
+.magnetic-link__inner {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.interactive-card {
+  transition:
+    transform 180ms ease,
+    border-color 260ms ease,
+    background-color 260ms ease,
+    box-shadow 220ms ease;
+}
+
+.interactive-card:hover {
+  transform: none;
+  border-color: rgba(23, 23, 23, 0.12);
+  box-shadow: 0 16px 40px rgba(23, 23, 23, 0.06);
+}
+
+.phone-frame {
+  border: 2px solid rgba(23, 23, 23, 0.9);
+  border-radius: 2rem;
+  background: #ffffff;
+  box-shadow: 0 20px 45px rgba(23, 23, 23, 0.1);
+}
+
+.phone-notch {
+  width: 34%;
+  height: 0.45rem;
+  border-radius: 999px;
+  background: rgba(23, 23, 23, 0.88);
+}
+
+.project-grid-lines {
+  background-image:
+    linear-gradient(rgba(23, 23, 23, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(23, 23, 23, 0.08) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+.paper-tint {
+  background:
+    linear-gradient(180deg, rgba(246, 246, 242, 0.92), rgba(255, 255, 255, 0.9)),
+    #ffffff;
+}
+
+.sage-tint {
+  background:
+    linear-gradient(180deg, rgba(239, 245, 234, 0.92), rgba(255, 255, 255, 0.9)),
+    #ffffff;
+}
+
+.blush-tint {
+  background:
+    linear-gradient(180deg, rgba(250, 236, 239, 0.92), rgba(255, 255, 255, 0.9)),
+    #ffffff;
+}
+
+.contact-link {
+  @apply flex items-center justify-between gap-4 border-b border-line py-4 text-sm text-text transition-colors duration-200 hover:text-[#244de8];
+}
+
+.certification-link {
+  @apply inline-flex items-center gap-2 text-sm leading-7 text-text transition-colors duration-200 hover:text-[#244de8];
+}
+
+.meta-grid {
+  @apply grid gap-5 sm:grid-cols-3;
+}
+
+.meta-card {
+  @apply rounded-[1.2rem] border border-line bg-white p-5;
+}
+
+.editorial-image {
+  @apply overflow-hidden rounded-[1.4rem] bg-panel;
+}
+
+.link-chip {
+  @apply inline-flex items-center rounded-full bg-text px-4 py-2 text-sm font-medium text-canvas transition-transform duration-200 hover:-translate-y-0.5;
+}
+
+.link-chip--secondary {
+  @apply border border-line bg-white text-text;
+}
