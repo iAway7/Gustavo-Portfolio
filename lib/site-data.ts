@@ -32,6 +32,14 @@ export type Certification = {
   href: string;
 };
 
+export type TestimonialEntry = {
+  name: string;
+  role: string;
+  company?: string;
+  image?: string;
+  quote: string;
+};
+
 export type ProjectVisual =
   | {
       type: "image";
@@ -93,6 +101,7 @@ export const homeSections: HomeSection[] = [
   { id: "home", label: "Home" },
   { id: "work-preview", label: "Work" },
   { id: "credibility", label: "Proof" },
+  { id: "testimonials", label: "Testimonials" },
   { id: "experience-snapshot", label: "Experience" },
   { id: "contact-cta", label: "Contact" }
 ];
@@ -124,6 +133,65 @@ export const capabilityTags = [
   "Usability Testing",
   "HTML/CSS",
   "SEO & Infrastructure"
+] as const;
+
+export const testimonials: TestimonialEntry[] = [
+  {
+    name: "Luis Arguello Herrera",
+    role: ".Net Full-Stack Developer, Project Lead",
+    image: "/Luis.jpeg",
+    quote:
+      "Gus is a talented UI/UX designer who excels at creating user-friendly and visually stunning designs. His creativity and attention to detail make him a key asset to any project. He's highly responsible and always meets deadlines, making him a reliable and valuable team member!"
+  },
+  {
+    name: "Nicolas Mastromarino",
+    role: "SEO Analyst / Email Marketing / Automation",
+    image: "/Nico.jpeg",
+    quote:
+      "I had the privilege of working alongside Gustavo for over 6 years, where he played a pivotal role as our lead UX/UI designer. His ability to merge user-centric design with striking visuals is exceptional. Always ahead of UX/UI trends and a joy to work with, I highly recommend Gus for any design-driven project or team."
+  },
+  {
+    name: "Edwin Morales Madrigal",
+    role: "Analista y Desarrollador de Sistemas",
+    image: "/Edwin.jpeg",
+    quote:
+      "Gustavo is a highly talented and dedicated professional with a strong background in interface design and user experience. His set of technical skills, ability to collaborate, and focus on continuous improvement make him a valuable asset to any digital product development team. I have no doubt that Gustavo will continue to have a positive impact wherever he chooses to apply his skills and knowledge in the future."
+  },
+  {
+    name: "Jared White",
+    role: "JBZ Beats Inc.",
+    image: "/Jared.jpeg",
+    quote:
+      "It has been a privilege to work alongside Gustavo for over half a decade, both at SteadyContent and AgencyHub. In the realm of UI design, I have seldom come across a talent as profound and consistent as his. Over the years, I've been fortunate to witness the hundreds of websites he's meticulously crafted. Each one not only showcases his expertise but is a testament to his innate ability to align design with functionality, ensuring an intuitive and seamless user experience."
+  },
+  {
+    name: "Katrina Robinson, LMSW",
+    role: "Clinical Social Worker - Therapist - Professional Writer and Editor",
+    image: "/Katrina.jpeg",
+    quote:
+      "Gustavo is not only knowledgeable in his field, he is a gem and pleasure to work with. He approaches his work with professionalism and much-appreciated kindness and humor. If I have the chance to work with Gus again, I will take it with enthusiasm!"
+  },
+  {
+    name: "Ezequiel Cenicola",
+    role: "Product Designer | Especialista en UX/UI | Innovador en Soluciones Digitales @ICBC",
+    image: "/Eze.jpeg",
+    quote:
+      "En el tiempo que trabaje con Gustavo conocí a un profesional muy responsable, autodidacta y dedicado. Trata de explotar sus aptitudes al máximo y estar en constante capacitación, forjando así, un conocimiento más sólido. Me gustaría volver a trabajar con él en un futuro."
+  },
+  {
+    name: "Yaseen Chaudhary",
+    role: "The Data Guy!",
+    image: "/Yaseen.jpeg",
+    quote:
+      "Gustavo is a determined individual who worked on one of our key projects for the launch of Apartments.com. His detailed and analytical work was highly credited for our launch. It was very impressive that he came on board later than his coworkers, but was synced up and ready to perform. I highly recommend him for any HTML development position and I wish him all the best for his future endeavors."
+  },
+  {
+    name: "Kelsey Rogers",
+    role: "Operations Manager @ InstallPros | Operations Management, Project Coordination",
+    image: "/Kelsey.jpeg",
+    quote:
+      "I had the pleasure of working with Gustavo at InstallPros, where he served as our UX/UI Designer. What set Gustavo apart was his ability to take complex, multi-layered processes and distill them into intuitive, user-friendly experiences. He had a deep understanding of not just design, but the operational workflows behind it, which made him an incredibly effective collaborator across teams. He worked closely with developers and stakeholders alike, translating business needs and technical requirements into designs that were both functional and thoughtful. Gustavo approached every project with clarity and intention. He wasn't just focused on how something looked, but on how it worked and how it could work better. His contributions genuinely improved the way our teams operated and made systems easier for everyone to navigate. He is the kind of designer who makes the people around him better at their jobs. Any team would be lucky to have him."
+  }
 ] as const;
 
 export const experienceEntries: ExperienceEntry[] = [
@@ -300,18 +368,18 @@ export const certifications: Certification[] = [
 export const projectCaseStudies: ProjectCaseStudy[] = [
   {
     slug: "installpros-technician-app",
-    title: "InstallPros Technician App",
+    title: "Field Operations Platform",
     clientOrBrand: "Install Pros",
     role: "Product Designer / UX/UI Designer",
     period: "2024 - Present",
     summary:
       "A field-service experience designed to help technicians move faster, reduce uncertainty, and complete tasks with more confidence in real installation scenarios.",
-    tags: ["Mobile UX", "Field workflows", "Product design", "Task efficiency"],
+    tags: ["Field Operations", "Mobile Product", "Product Design", "Task Efficiency"],
     featured: true,
     href: "/work/installpros-technician-app",
     cardVisual: {
       type: "image",
-      src: "/projects/installpros-app/cover.png",
+      src: "/projects/installpros-app/Portfolio - Cover - InstallPros.png",
       alt: "InstallPros technician app cover showing the mobile product direction",
       tone: "paper",
       imageClassName: "scale-[1.14] object-center"
@@ -392,12 +460,12 @@ export const projectCaseStudies: ProjectCaseStudy[] = [
     period: "2020 - 2024",
     summary:
       "SaaS and platform design work focused on systems, workflow clarity, research, and product coherence across multiple surfaces.",
-    tags: ["SaaS", "Design systems", "UX workflows", "Product thinking"],
+    tags: ["B2B SaaS", "Design Systems", "UX Workflows", "Product Thinking"],
     featured: false,
     href: "/work/agencyhub-platform",
     cardVisual: {
       type: "image",
-      src: "/projects/agencyhub/cover.png",
+      src: "/projects/agencyhub/Cover - Agencyhub Website.png",
       alt: "AgencyHub portfolio cover",
       tone: "paper",
       imageClassName: "scale-[1.12] object-center"
@@ -471,13 +539,13 @@ export const projectCaseStudies: ProjectCaseStudy[] = [
   },
   {
     slug: "installpros-website",
-    title: "InstallPros Website",
+    title: "InstallPros",
     clientOrBrand: "Install Pros",
     role: "UX/UI Designer",
     period: "2024 - Present",
     summary:
       "A service-led website redesign built to improve trust, conversion, and product clarity across residential and business installation services.",
-    tags: ["Digital experience", "Conversion", "Service presentation", "User journeys"],
+    tags: ["Service Business", "Conversion", "Service Presentation", "User Journeys"],
     featured: false,
     href: "/work/installpros-website",
     cardVisual: {
@@ -571,7 +639,7 @@ export const projectCaseStudies: ProjectCaseStudy[] = [
     period: "2023 - Present",
     summary:
       "Brand, UX/UI, and growth-oriented digital work built to help service businesses communicate value and convert attention into action.",
-    tags: ["Branding", "UX/UI", "Marketing systems", "Business growth"],
+    tags: ["Business Growth", "Digital Strategy", "Marketing Systems", "UX/UI"],
     featured: false,
     href: "/work/emmvi-growth-platform",
     cardVisual: {

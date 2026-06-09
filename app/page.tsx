@@ -1,6 +1,7 @@
 import { MagneticLink } from "@/components/magnetic-link";
 import { ProjectCard } from "@/components/project-card";
 import { Reveal } from "@/components/reveal";
+import { TestimonialsCarousel } from "@/components/testimonials-carousel";
 import { credibilityPoints, experienceEntries, projectIndex } from "@/lib/site-data";
 
 const homeProjectSlugs = [
@@ -97,6 +98,31 @@ export default function HomePage() {
                 ))}
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="testimonials" className="section-space">
+        <div className="shell">
+          <div className="section-rule">
+            <div className="mb-10 flex items-end justify-between gap-6 pt-8">
+              <Reveal>
+                <h2 className="section-title">Testimonials</h2>
+              </Reveal>
+              <Reveal delay={0.04}>
+                <a
+                  href="https://www.linkedin.com/in/gustavo-polin/details/recommendations/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-2 text-lg text-text transition-colors duration-200 hover:text-[#244de8]"
+                >
+                  View all
+                  <span aria-hidden="true">-&gt;</span>
+                </a>
+              </Reveal>
+            </div>
+
+            <TestimonialsCarousel />
           </div>
         </div>
       </section>
