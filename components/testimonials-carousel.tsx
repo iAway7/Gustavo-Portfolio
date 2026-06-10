@@ -62,7 +62,6 @@ export function TestimonialsCarousel() {
   }, []);
 
   const maxIndex = Math.max(0, testimonials.length - visibleCount);
-  const pageCount = maxIndex + 1;
 
   useEffect(() => {
     setCurrentIndex((index) => Math.min(index, maxIndex));
@@ -72,25 +71,33 @@ export function TestimonialsCarousel() {
     return `${(currentIndex * 100) / visibleCount}%`;
   }, [currentIndex, visibleCount]);
 
+  const activeIndices = useMemo(() => {
+    return new Set(
+      Array.from({ length: visibleCount }, (_, offset) => currentIndex + offset).filter(
+        (index) => index < testimonials.length
+      )
+    );
+  }, [currentIndex, visibleCount]);
+
   return (
     <div className="space-y-8">
-      <div className="overflow-hidden">
+      <div className="-mx-px overflow-hidden px-px">
         <div
-          className="flex gap-6 transition-transform duration-500 ease-out"
+          className="flex items-start gap-6 transition-transform duration-500 ease-out"
           style={{ transform: `translate3d(-${translate}, 0, 0)` }}
         >
           {testimonials.map((testimonial, index) => (
             <Reveal
               key={testimonial.name}
               delay={index * 0.04}
-              className="editorial-card flex min-h-[34rem] shrink-0 flex-col justify-between p-8 sm:p-10"
+              className="editorial-card flex min-h-[26rem] shrink-0 flex-col p-8 sm:min-h-[28rem] sm:p-10"
               style={{ width: `calc((100% - ${(visibleCount - 1) * 24}px) / ${visibleCount})` } as CSSProperties}
             >
-              <p className="text-[1.8rem] leading-[1.45] tracking-[-0.04em] text-text sm:text-[2rem]">
+              <p className="text-[1.45rem] leading-[1.42] tracking-[-0.04em] text-text sm:text-[1.7rem]">
                 {testimonial.quote}
               </p>
 
-              <div className="mt-10 flex items-center gap-4">
+              <div className="mt-10 flex items-center gap-4 pt-8">
                 <TestimonialAvatar testimonial={testimonial} />
                 <div>
                   <p className="text-[1.1rem] font-medium text-text">{testimonial.name}</p>
@@ -102,24 +109,34 @@ export function TestimonialsCarousel() {
         </div>
       </div>
 
-      <div className="flex items-center justify-between gap-4">
-        <div className="flex items-center gap-2">
-          {Array.from({ length: pageCount }).map((_, index) => {
-            const isActive = index === currentIndex;
+      <div className="flex flex-wrap items-center justify-between gap-4">
+        <div className="flex items-center gap-4">
+          <p className="text-sm text-muted">
+            <span className="font-medium text-text">
+              {String(Math.min(currentIndex + 1, testimonials.length)).padStart(2, "0")}
+            </span>
+            <span className="mx-2 text-black/20">/</span>
+            <span>{String(testimonials.length).padStart(2, "0")}</span>
+          </p>
 
-            return (
-              <button
-                key={index}
-                type="button"
-                aria-label={`Go to testimonial ${index + 1}`}
-                onClick={() => setCurrentIndex(index)}
-                className={cn(
-                  "h-2.5 rounded-full transition-all duration-200",
-                  isActive ? "w-8 bg-text" : "w-2.5 bg-black/12 hover:bg-black/22"
-                )}
-              />
-            );
-          })}
+          <div className="flex items-center gap-2">
+            {testimonials.map((testimonial, index) => {
+              const isActive = activeIndices.has(index);
+
+              return (
+                <button
+                  key={testimonial.name}
+                  type="button"
+                  aria-label={`Go to testimonial ${index + 1}`}
+                  onClick={() => setCurrentIndex(Math.min(index, maxIndex))}
+                  className={cn(
+                    "h-2.5 rounded-full transition-all duration-200",
+                    isActive ? "w-8 bg-text" : "w-2.5 bg-black/12 hover:bg-black/22"
+                  )}
+                />
+              );
+            })}
+          </div>
         </div>
 
         <div className="flex items-center gap-3">
