@@ -17,7 +17,7 @@ const homeProjects = homeProjectSlugs
 
 export default function HomePage() {
   return (
-    <main className="pb-8 pt-10 sm:pt-14">
+    <main id="main-content" tabIndex={-1} className="pb-8 pt-10 sm:pt-14">
       <section id="home" className="section-space pt-20 sm:pt-24 lg:min-h-[78vh] lg:pt-24">
         <div className="shell">
           <div className="max-w-[72rem]">
@@ -114,6 +114,7 @@ export default function HomePage() {
                   href="https://www.linkedin.com/in/gustavo-polin/details/recommendations/"
                   target="_blank"
                   rel="noreferrer"
+                  aria-label="View all testimonials on LinkedIn (opens in a new tab)"
                   className="inline-flex items-center gap-2 text-lg text-text transition-colors duration-200 hover:text-[#244de8]"
                 >
                   View all

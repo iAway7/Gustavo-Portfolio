@@ -18,6 +18,10 @@ html {
   scroll-behavior: auto;
 }
 
+html:focus-within {
+  scroll-behavior: auto;
+}
+
 body {
   margin: 0;
   min-height: 100vh;
@@ -44,6 +48,41 @@ textarea {
 ::selection {
   background: rgba(23, 23, 23, 0.12);
   color: #171717;
+}
+
+.skip-link {
+  position: fixed;
+  left: 1rem;
+  top: 1rem;
+  z-index: 100;
+  border-radius: 999px;
+  background: #171717;
+  color: #ffffff;
+  padding: 0.85rem 1.1rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  transform: translateY(-200%);
+  transition: transform 180ms ease;
+}
+
+.skip-link:focus-visible {
+  transform: translateY(0);
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+summary:focus-visible {
+  outline: 3px solid #244de8;
+  outline-offset: 3px;
+}
+
+.interactive-card:focus-within,
+.editorial-card:focus-within,
+.eyeline:focus-within {
+  border-color: rgba(36, 77, 232, 0.42);
+  box-shadow: 0 0 0 3px rgba(36, 77, 232, 0.16);
 }
 
 @layer components {
@@ -193,4 +232,15 @@ textarea {
 
 .link-chip--secondary {
   @apply border border-line bg-white text-text;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
 }

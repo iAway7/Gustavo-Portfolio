@@ -1,7 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useMemo, useRef, useState, type CSSProperties } from "react";
+import { useEffect, useId, useMemo, useRef, useState, type CSSProperties, type KeyboardEvent } from "react";
+import { useReducedMotion } from "motion/react";
 
 import { Reveal } from "@/components/reveal";
 import { cn } from "@/lib/utils";
@@ -49,10 +50,11 @@ function TestimonialAvatar({ testimonial }: { testimonial: TestimonialEntry }) {
   );
 }
 
-function TestimonialQuote({ quote }: { quote: string }) {
+function TestimonialQuote({ name, quote }: { name: string; quote: string }) {
   const [expanded, setExpanded] = useState(false);
   const [isClamped, setIsClamped] = useState(false);
   const quoteRef = useRef<HTMLParagraphElement>(null);
+  const quoteId = useId();
 
   useEffect(() => {
     const element = quoteRef.current;
@@ -84,6 +86,7 @@ function TestimonialQuote({ quote }: { quote: string }) {
   return (
     <div>
       <p
+        id={quoteId}
         ref={quoteRef}
         style={clampStyle}
         className="text-[1.45rem] leading-[1.42] tracking-[-0.04em] text-text sm:text-[1.7rem]"
@@ -95,6 +98,9 @@ function TestimonialQuote({ quote }: { quote: string }) {
         <button
           type="button"
           onClick={() => setExpanded((value) => !value)}
+          aria-expanded={expanded}
+          aria-controls={quoteId}
+          aria-label={expanded ? `Read less of ${name}'s testimonial` : `Read more of ${name}'s testimonial`}
           className="mt-4 text-sm font-medium text-muted underline underline-offset-4 transition-colors duration-200 hover:text-text"
         >
           {expanded ? "Read less" : "Read more"}
@@ -107,6 +113,7 @@ function TestimonialQuote({ quote }: { quote: string }) {
 export function TestimonialsCarousel() {
   const [visibleCount, setVisibleCount] = useState(2);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const reduceMotion = useReducedMotion();
 
   useEffect(() => {
     const updateVisibleCount = () => {
@@ -142,11 +149,34 @@ export function TestimonialsCarousel() {
     );
   }, [currentIndex, visibleCount]);
 
+  const currentLabel = testimonials[currentIndex]
+    ? `${currentIndex + 1} of ${testimonials.length}: ${testimonials[currentIndex].name}`
+    : `0 of ${testimonials.length}`;
+
+  const handleKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
+    if (event.key === "ArrowLeft") {
+      event.preventDefault();
+      setCurrentIndex((index) => Math.max(0, index - 1));
+    }
+
+    if (event.key === "ArrowRight") {
+      event.preventDefault();
+      setCurrentIndex((index) => Math.min(maxIndex, index + 1));
+    }
+  };
+
   return (
-    <div className="space-y-8">
+    <div
+      role="region"
+      aria-roledescription="carousel"
+      aria-label="Testimonials"
+      tabIndex={0}
+      onKeyDown={handleKeyDown}
+      className="space-y-8 overflow-x-clip"
+    >
       <div className="-mx-px overflow-hidden px-px">
         <div
-          className="flex items-start transition-transform duration-500 ease-out"
+          className={cn("flex items-start ease-out", reduceMotion ? "transition-none" : "transition-transform duration-500")}
           style={{ gap: `${CAROUSEL_GAP}px`, transform: `translate3d(${translate}, 0, 0)` }}
         >
           {testimonials.map((testimonial, index) => (
@@ -156,15 +186,24 @@ export function TestimonialsCarousel() {
               className="editorial-card flex min-h-[27rem] shrink-0 flex-col p-8 sm:min-h-[30rem] sm:p-10"
               style={{ width: `calc((100% - ${(visibleCount - 1) * CAROUSEL_GAP}px) / ${visibleCount})` } as CSSProperties}
             >
-              <TestimonialQuote quote={testimonial.quote} />
+              <article
+                role="group"
+                aria-roledescription="slide"
+                aria-label={`${index + 1} of ${testimonials.length}: ${testimonial.name}`}
+                aria-hidden={!activeIndices.has(index)}
+                style={{ visibility: activeIndices.has(index) ? "visible" : "hidden" }}
+                className="flex h-full flex-col"
+              >
+                <TestimonialQuote name={testimonial.name} quote={testimonial.quote} />
 
-              <div className="mt-auto flex items-center gap-4 pt-10">
-                <TestimonialAvatar testimonial={testimonial} />
-                <div>
-                  <p className="text-[1.1rem] font-medium text-text">{testimonial.name}</p>
-                  <p className="text-[1rem] text-muted">{testimonial.role}</p>
+                <div className="mt-auto flex items-center gap-4 pt-10">
+                  <TestimonialAvatar testimonial={testimonial} />
+                  <div>
+                    <p className="text-[1.1rem] font-medium text-text">{testimonial.name}</p>
+                    <p className="text-[1rem] text-muted">{testimonial.role}</p>
+                  </div>
                 </div>
-              </div>
+              </article>
             </Reveal>
           ))}
         </div>
@@ -172,15 +211,16 @@ export function TestimonialsCarousel() {
 
       <div className="flex flex-wrap items-center justify-between gap-4">
         <div className="flex items-center gap-4">
-          <p className="text-sm text-muted">
+          <p role="status" aria-live="polite" aria-atomic="true" className="text-sm text-muted">
             <span className="font-medium text-text">
               {String(Math.min(currentIndex + 1, testimonials.length)).padStart(2, "0")}
             </span>
             <span className="mx-2 text-black/20">/</span>
             <span>{String(testimonials.length).padStart(2, "0")}</span>
+            <span className="sr-only">{currentLabel}</span>
           </p>
 
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2" aria-label="Choose testimonial">
             {testimonials.map((testimonial, index) => {
               const isActive = activeIndices.has(index);
 
@@ -188,13 +228,22 @@ export function TestimonialsCarousel() {
                 <button
                   key={testimonial.name}
                   type="button"
-                  aria-label={`Go to testimonial ${index + 1}`}
+                  aria-label={`Go to testimonial ${index + 1}: ${testimonial.name}`}
+                  aria-current={isActive ? "true" : undefined}
                   onClick={() => setCurrentIndex(Math.min(index, maxIndex))}
                   className={cn(
-                    "h-2.5 rounded-full transition-all duration-200",
-                    isActive ? "w-8 bg-text" : "w-2.5 bg-black/12 hover:bg-black/22"
+                    "inline-flex h-10 w-10 items-center justify-center rounded-full transition-all duration-200",
+                    isActive ? "bg-black/[0.06]" : "hover:bg-black/[0.04]"
                   )}
-                />
+                >
+                  <span
+                    aria-hidden="true"
+                    className={cn(
+                      "block h-2.5 rounded-full transition-all duration-200",
+                      isActive ? "w-8 bg-text" : "w-2.5 bg-black/12"
+                    )}
+                  />
+                </button>
               );
             })}
           </div>

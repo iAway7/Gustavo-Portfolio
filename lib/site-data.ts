@@ -283,7 +283,8 @@ export const experienceEntries: ExperienceEntry[] = [
     role: "UX/UI Designer",
     logo: "/logos/agencyhub.svg",
     summary:
-      "Designed a two-sided B2B marketplace end to end and turned a fragmented platform into one product language."
+      "Designed a two-sided B2B marketplace end to end and turned a fragmented platform into one product language.",
+    tags: ["B2B SaaS", "Marketplace"]
   },
   {
     tier: "before",
@@ -292,7 +293,8 @@ export const experienceEntries: ExperienceEntry[] = [
     role: "Web Designer",
     logo: "/logos/agencyhub.svg",
     summary:
-      "Web delivery and infrastructure: hosting, DNS, migrations. The technical base I still design with."
+      "Built and launched 30+ websites with Elementor, while handling Cloudflare, DNS, migrations, hosting, email authentication, and SSL setup.",
+    tags: ["Elementor", "Cloudflare", "DNS", "Migrations", "Email setup", "SSL"]
   },
   {
     tier: "before",

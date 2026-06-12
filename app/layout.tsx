@@ -46,6 +46,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={hostGrotesk.variable}>
+        <a href="#main-content" className="skip-link">
+          Skip to main content
+        </a>
         <SmoothScrollProvider />
         <SiteHeader />
         {children}

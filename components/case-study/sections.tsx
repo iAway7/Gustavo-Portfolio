@@ -33,7 +33,7 @@ export function CaseStudySection({
     <section className="section-space pt-0">
       <div className="shell grid gap-12 lg:grid-cols-[0.7fr_1.3fr]">
         <Reveal className="section-rule lg:border-t-0 lg:pt-0">
-          <p className="section-label lg:sticky lg:top-28">{label}</p>
+          <h2 className="section-label lg:sticky lg:top-28">{label}</h2>
         </Reveal>
         <div className="section-rule lg:pt-0">{children}</div>
       </div>
@@ -102,6 +102,7 @@ export function GlanceSection({ glance }: { glance: CaseStudyGlance }) {
     <section className="section-space pt-0">
       <div className="shell">
         <Reveal className="grid gap-5 md:grid-cols-3">
+          <h2 className="sr-only">Project at a glance</h2>
           {items.map((item) => (
             <div key={item.label} className="editorial-card p-6">
               <p className="section-label">{item.label}</p>

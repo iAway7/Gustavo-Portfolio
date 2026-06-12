@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState, type KeyboardEvent } from "react";
+import { useReducedMotion } from "motion/react";
 
 import { ProjectCard } from "@/components/project-card";
 import { cn } from "@/lib/utils";
@@ -38,6 +39,7 @@ export function ProjectCarousel({ projects }: ProjectCarouselProps) {
   const [visibleCount, setVisibleCount] = useState(3);
   const [peekFraction, setPeekFraction] = useState(0.28);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const reduceMotion = useReducedMotion();
 
   useEffect(() => {
     const updateMetrics = () => {
@@ -70,20 +72,50 @@ export function ProjectCarousel({ projects }: ProjectCarouselProps) {
     return `${100 / (visibleCount + peekFraction)}%`;
   }, [peekFraction, visibleCount]);
 
+  const activeIndices = useMemo(() => {
+    return new Set(
+      Array.from({ length: visibleCount }, (_, offset) => currentIndex + offset).filter(
+        (index) => index < projects.length
+      )
+    );
+  }, [currentIndex, projects.length, visibleCount]);
+
+  const handleKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
+    if (event.key === "ArrowLeft") {
+      event.preventDefault();
+      setCurrentIndex((index) => Math.max(0, index - 1));
+    }
+
+    if (event.key === "ArrowRight") {
+      event.preventDefault();
+      setCurrentIndex((index) => Math.min(maxIndex, index + 1));
+    }
+  };
+
   return (
-    <div className="space-y-5">
+    <div
+      role="region"
+      aria-roledescription="carousel"
+      aria-label="Projects"
+      tabIndex={0}
+      onKeyDown={handleKeyDown}
+      className="space-y-5 overflow-x-clip"
+    >
       <div className={desktopPeek ? "overflow-hidden pr-8 xl:pr-10" : "overflow-hidden"}>
         <div
-          className="flex transition-transform duration-500 ease-out"
+          className={cn("flex ease-out", reduceMotion ? "transition-none" : "transition-transform duration-500")}
           style={{ transform: `translate3d(-${translate}, 0, 0)` }}
         >
-          {projects.map((project) => (
+          {projects.map((project, index) => (
             <div
               key={project.slug}
               className="shrink-0 px-3"
               style={{ width: cardWidth }}
+              aria-hidden={!activeIndices.has(index)}
             >
-              <ProjectCard project={project} compact />
+              <div style={{ visibility: activeIndices.has(index) ? "visible" : "hidden" }}>
+                <ProjectCard project={project} compact />
+              </div>
             </div>
           ))}
         </div>
@@ -102,10 +134,18 @@ export function ProjectCarousel({ projects }: ProjectCarouselProps) {
                 aria-current={isActive ? "true" : undefined}
                 onClick={() => setCurrentIndex(index)}
                 className={cn(
-                  "h-2.5 rounded-full transition-all duration-200",
-                  isActive ? "w-8 bg-text" : "w-2.5 bg-black/12 hover:bg-black/22"
+                  "inline-flex h-10 w-10 items-center justify-center rounded-full transition-all duration-200",
+                  isActive ? "bg-black/[0.06]" : "hover:bg-black/[0.04]"
                 )}
-              />
+              >
+                <span
+                  aria-hidden="true"
+                  className={cn(
+                    "block h-2.5 rounded-full transition-all duration-200",
+                    isActive ? "w-8 bg-text" : "w-2.5 bg-black/12"
+                  )}
+                />
+              </button>
             );
           })}
         </div>

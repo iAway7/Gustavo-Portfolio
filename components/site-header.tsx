@@ -16,7 +16,7 @@ export function SiteHeader() {
           Gustavo Polin
         </Link>
 
-        <nav className="flex flex-wrap items-center gap-2 sm:justify-end">
+        <nav aria-label="Primary" className="flex flex-wrap items-center gap-2 sm:justify-end">
           {navItems.map((item) => {
             const isActive =
               item.href === "/"
@@ -31,6 +31,7 @@ export function SiteHeader() {
                   "rounded-full px-3 py-2 text-base transition-colors duration-200",
                   isActive ? "bg-text text-white" : "text-muted hover:text-[#244de8]"
                 )}
+                aria-current={isActive ? "page" : undefined}
               >
                 {item.label}
               </Link>

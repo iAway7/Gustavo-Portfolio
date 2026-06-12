@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 import { contactChannels, navItems } from "@/lib/site-data";
 
 export function SiteFooter() {
@@ -14,18 +16,22 @@ export function SiteFooter() {
           </div>
 
           <div className="grid gap-8 sm:grid-cols-2">
-            <div>
+            <nav aria-label="Footer pages">
               <p className="caption">Pages</p>
               <div className="mt-4 grid gap-3">
                 {navItems.map((item) => (
-                  <a key={item.href} href={item.href} className="text-base text-muted transition-colors hover:text-[#244de8]">
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className="text-base text-muted transition-colors hover:text-[#244de8]"
+                  >
                     {item.label}
-                  </a>
+                  </Link>
                 ))}
               </div>
-            </div>
+            </nav>
 
-            <div>
+            <nav aria-label="Footer contact links">
               <p className="caption">Contact</p>
               <div className="mt-4 grid gap-3">
                 {contactChannels.map((channel) => (
@@ -40,7 +46,7 @@ export function SiteFooter() {
                   </a>
                 ))}
               </div>
-            </div>
+            </nav>
           </div>
         </div>
 

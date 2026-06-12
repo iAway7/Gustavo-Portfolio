@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
-    <main className="pb-8 pt-10 sm:pt-14">
+    <main id="main-content" tabIndex={-1} className="pb-8 pt-10 sm:pt-14">
       <section className="section-space">
         <div className="shell">
           <div className="section-rule">

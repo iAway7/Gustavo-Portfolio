@@ -21,16 +21,18 @@ export function ProjectCard({
 }: ProjectCardProps) {
   return (
     <Link href={project.href} className="group block">
-      <div className="interactive-card rounded-[1.75rem] border border-line bg-white p-3 sm:p-4">
-        <ProjectVisual
-          visual={project.cardVisual}
-          bordered={visualBordered}
-          imageClassName={visualImageClassName}
-          className={[compact ? "aspect-[16/11]" : undefined, visualClassName].filter(Boolean).join(" ")}
-        />
+      <article className="interactive-card rounded-[1.75rem] border border-line bg-white p-3 sm:p-4">
+        <div aria-hidden="true">
+          <ProjectVisual
+            visual={project.cardVisual}
+            bordered={visualBordered}
+            imageClassName={visualImageClassName}
+            className={[compact ? "aspect-[16/11]" : undefined, visualClassName].filter(Boolean).join(" ")}
+          />
+        </div>
         <div className="px-1 pb-2 pt-5 sm:px-2 sm:pb-3 sm:pt-6">
           <div>
-            <p className="text-[1.4rem] font-medium leading-[1.05] tracking-[-0.03em] text-text">{project.title}</p>
+            <h3 className="text-[1.4rem] font-medium leading-[1.05] tracking-[-0.03em] text-text">{project.title}</h3>
             <p className="mt-4 text-[1rem] leading-[1.45] text-muted">{project.summary}</p>
           </div>
           <div className="mt-4 flex flex-wrap gap-2">
@@ -41,7 +43,7 @@ export function ProjectCard({
             ))}
           </div>
         </div>
-      </div>
+      </article>
     </Link>
   );
 }

@@ -2,7 +2,7 @@
 
 import Link, { type LinkProps } from "next/link";
 import type { PropsWithChildren, MouseEvent } from "react";
-import { motion, useReducedMotion } from "motion/react";
+import { useReducedMotion } from "motion/react";
 
 import { cn } from "@/lib/utils";
 
@@ -42,16 +42,14 @@ export function MagneticLink({
   };
 
   return (
-    <motion.div whileTap={reduceMotion ? undefined : { scale: 0.985 }}>
-      <Link
-        {...props}
-        data-cursor={cursor}
-        className={cn("magnetic-link", className)}
-        onMouseMove={handleMove}
-        onMouseLeave={handleLeave}
-      >
-        <span className="magnetic-link__inner">{children}</span>
-      </Link>
-    </motion.div>
+    <Link
+      {...props}
+      data-cursor={cursor}
+      className={cn("magnetic-link", className)}
+      onMouseMove={handleMove}
+      onMouseLeave={handleLeave}
+    >
+      <span className="magnetic-link__inner">{children}</span>
+    </Link>
   );
 }

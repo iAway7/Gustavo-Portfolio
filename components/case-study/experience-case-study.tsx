@@ -26,7 +26,7 @@ type ExperienceCaseStudyProps = {
  */
 export function ExperienceCaseStudy({ project, nextProject }: ExperienceCaseStudyProps) {
   return (
-    <main className="pb-8 pt-10 sm:pt-14">
+    <main id="main-content" tabIndex={-1} className="pb-8 pt-10 sm:pt-14">
       <CaseStudyHero project={project} />
       <GlanceSection glance={project.glance} />
 

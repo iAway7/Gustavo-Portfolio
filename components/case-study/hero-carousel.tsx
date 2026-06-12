@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useCallback, useState, type KeyboardEvent } from "react";
+import { useReducedMotion } from "motion/react";
 
 import type { HeroSlide } from "@/lib/site-data";
 
@@ -18,6 +19,7 @@ type CaseStudyHeroCarouselProps = {
 export function CaseStudyHeroCarousel({ slides, title }: CaseStudyHeroCarouselProps) {
   const [index, setIndex] = useState(0);
   const count = slides.length;
+  const reduceMotion = useReducedMotion();
 
   const goPrev = useCallback(() => {
     setIndex((current) => Math.max(0, current - 1));
@@ -49,12 +51,15 @@ export function CaseStudyHeroCarousel({ slides, title }: CaseStudyHeroCarouselPr
     >
       <div className="editorial-image paper-tint relative aspect-[16/11] w-full overflow-hidden">
         <div
-          className="flex h-full transition-transform duration-500 ease-out"
+          className={reduceMotion ? "flex h-full" : "flex h-full transition-transform duration-500 ease-out"}
           style={{ transform: `translate3d(-${index * 100}%, 0, 0)` }}
         >
           {slides.map((slide, slideIndex) => (
             <div
               key={slide.src}
+              role="group"
+              aria-roledescription="slide"
+              aria-label={`${slideIndex + 1} of ${count}: ${slide.label}`}
               aria-hidden={slideIndex !== index}
               className="h-full w-full shrink-0 p-3 sm:p-4"
             >
@@ -74,7 +79,7 @@ export function CaseStudyHeroCarousel({ slides, title }: CaseStudyHeroCarouselPr
       </div>
 
       <div className="flex items-center justify-between gap-4">
-        <p aria-live="polite" className="text-sm text-muted">
+        <p role="status" aria-live="polite" aria-atomic="true" className="text-sm text-muted">
           <span className="font-medium text-text">{String(index + 1).padStart(2, "0")}</span>
           <span className="mx-2 text-black/20">/</span>
           <span>{String(count).padStart(2, "0")}</span>

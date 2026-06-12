@@ -49,6 +49,7 @@ export function WorkGallery({ featuredProject, supportingProjects }: WorkGallery
                 key={filter}
                 type="button"
                 onClick={() => setActiveFilter(filter)}
+                aria-pressed={isActive}
                 className={cn(
                   "rounded-full px-8 py-4 text-[1.05rem] font-medium tracking-[-0.03em] transition-colors duration-200",
                   isActive
