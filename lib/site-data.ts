@@ -252,7 +252,7 @@ export const experienceEntries: ExperienceEntry[] = [
     tier: "now",
     period: "2024 - Present",
     company: "Install Pros",
-    role: "Product Designer",
+    role: "UX/UI Designer",
     summary:
       "Designing the technician platform behind a network that has completed 9,163 installations and processed $7.1M+ in revenue.",
     tags: ["Field operations", "Mobile platform", "Design system"]
@@ -270,7 +270,7 @@ export const experienceEntries: ExperienceEntry[] = [
     tier: "before",
     period: "2020 - 2024",
     company: "AgencyHub",
-    role: "Product Designer",
+    role: "UX/UI Designer",
     summary:
       "Designed a two-sided B2B marketplace end to end and turned a fragmented platform into one product language."
   },
@@ -405,7 +405,7 @@ export const projectCaseStudies: ProjectCaseStudy[] = [
     slug: "installpros-technician-app",
     title: "Field Operations Platform",
     clientOrBrand: "Install Pros",
-    role: "Product Designer",
+    role: "UX/UI Designer",
     period: "2024 - Present",
     scope: "Technician mobile app: scheduling, installs, job completion",
     summary:
@@ -540,7 +540,7 @@ export const projectCaseStudies: ProjectCaseStudy[] = [
     slug: "agencyhub-platform",
     title: "AgencyHub",
     clientOrBrand: "AgencyHub",
-    role: "Product Designer",
+    role: "UX/UI Designer",
     period: "3 months",
     scope: "Marketplace, checkout, orders, provider tools",
     summary:
@@ -687,7 +687,7 @@ export const projectCaseStudies: ProjectCaseStudy[] = [
     slug: "installpros-website",
     title: "Digital Service Experience",
     clientOrBrand: "Install Pros",
-    role: "Product Designer",
+    role: "UX/UI Designer",
     period: "2024 - Present",
     scope: "Web system: homepage, service pages, campaign landings",
     summary:
