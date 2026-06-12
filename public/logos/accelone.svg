@@ -1,11 +1,12 @@
 <svg width="300" height="300" viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg">
 <defs>
-<linearGradient id="accelone-bg" x1="0" y1="0" x2="300" y2="300" gradientUnits="userSpaceOnUse">
-<stop offset="0" stop-color="#B12BE3"/>
-<stop offset="1" stop-color="#5E0F9E"/>
-</linearGradient>
+<radialGradient id="accelone-bg" cx="0.22" cy="0.18" r="1.25" gradientUnits="objectBoundingBox">
+<stop offset="0" stop-color="#AE2BD9"/>
+<stop offset="0.55" stop-color="#8A14C4"/>
+<stop offset="1" stop-color="#5C0D9C"/>
+</radialGradient>
 </defs>
-<rect width="300" height="300" rx="56" fill="url(#accelone-bg)"/>
-<path d="M68 96C118 62 182 62 232 96" stroke="#F2C200" stroke-width="17" stroke-linecap="round" fill="none"/>
-<text x="150" y="238" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-weight="700" font-size="172" fill="#FFFFFF">A</text>
+<rect width="300" height="300" rx="64" fill="url(#accelone-bg)"/>
+<path d="M58 98C102 56 198 56 242 98C198 72 102 72 58 98Z" fill="#F0C400"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M136 116H164L236 256H199L183 222H117L101 256H64L136 116ZM150 153L172 196H128L150 153Z" fill="#FFFFFF"/>
 </svg>
