@@ -33,24 +33,22 @@ export default function ExperiencePage() {
                   delay={index * 0.05}
                   className="border-t border-line py-10"
                 >
-                  <div className="grid gap-4 lg:grid-cols-[minmax(0,1fr)_auto]">
-                    <div>
-                      <h2 className="text-2xl font-medium tracking-[-0.04em] text-text sm:text-3xl">
-                        {entry.role}
-                      </h2>
-                      <p className="mt-1 text-base text-muted">{entry.company}</p>
-                      <p className="body-copy mt-4 max-w-2xl">{entry.summary}</p>
-                      {entry.tags ? (
-                        <div className="mt-5 flex flex-wrap gap-2">
-                          {entry.tags.map((tag) => (
-                            <span key={tag} className="pill">
-                              {tag}
-                            </span>
-                          ))}
-                        </div>
-                      ) : null}
-                    </div>
-                    <p className="text-sm text-muted lg:pt-3 lg:text-right">{entry.period}</p>
+                  <div>
+                    <h2 className="text-2xl font-medium tracking-[-0.04em] text-text sm:text-3xl">
+                      {entry.role}
+                    </h2>
+                    <p className="mt-1 text-base text-muted">{entry.company}</p>
+                    <p className="mt-1 text-sm text-muted">{entry.period}</p>
+                    <p className="body-copy mt-4 max-w-2xl">{entry.summary}</p>
+                    {entry.tags ? (
+                      <div className="mt-5 flex flex-wrap gap-2">
+                        {entry.tags.map((tag) => (
+                          <span key={tag} className="pill">
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                    ) : null}
                   </div>
                 </Reveal>
               ))}
