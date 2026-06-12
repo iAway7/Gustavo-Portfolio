@@ -15,15 +15,10 @@ function CompanyLogo({
   company: string;
   size: "lg" | "sm";
 }) {
-  const frame =
-    size === "lg"
-      ? "h-14 w-14 rounded-2xl p-2"
-      : "h-10 w-10 rounded-xl p-1.5";
+  const frame = size === "lg" ? "h-14 w-14 rounded-2xl" : "h-10 w-10 rounded-xl";
 
   return (
-    <div
-      className={`flex shrink-0 items-center justify-center overflow-hidden border border-line bg-white ${frame}`}
-    >
+    <div className={`flex shrink-0 items-center justify-center overflow-hidden ${frame}`}>
       {logo ? (
         <Image
           src={logo}
@@ -33,7 +28,11 @@ function CompanyLogo({
           className="h-full w-full object-contain"
         />
       ) : (
-        <span className={size === "lg" ? "text-xl font-medium text-muted" : "text-sm font-medium text-muted"}>
+        <span
+          className={`flex h-full w-full items-center justify-center rounded-[inherit] bg-panel ${
+            size === "lg" ? "text-xl font-medium text-muted" : "text-sm font-medium text-muted"
+          }`}
+        >
           {company[0]}
         </span>
       )}

@@ -1,0 +1,11 @@
+<svg width="300" height="300" viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<linearGradient id="accelone-bg" x1="0" y1="0" x2="300" y2="300" gradientUnits="userSpaceOnUse">
+<stop offset="0" stop-color="#B12BE3"/>
+<stop offset="1" stop-color="#5E0F9E"/>
+</linearGradient>
+</defs>
+<rect width="300" height="300" rx="56" fill="url(#accelone-bg)"/>
+<path d="M68 96C118 62 182 62 232 96" stroke="#F2C200" stroke-width="17" stroke-linecap="round" fill="none"/>
+<text x="150" y="238" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-weight="700" font-size="172" fill="#FFFFFF">A</text>
+</svg>
