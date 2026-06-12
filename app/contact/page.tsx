@@ -31,6 +31,7 @@ export default function ContactPage() {
                     <a
                       key={channel.label}
                       href={channel.href}
+                      download={channel.href.endsWith(".pdf") ? "" : undefined}
                       target={channel.href.startsWith("http") ? "_blank" : undefined}
                       rel={channel.href.startsWith("http") ? "noreferrer" : undefined}
                       className="contact-link"

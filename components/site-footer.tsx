@@ -38,6 +38,7 @@ export function SiteFooter() {
                   <a
                     key={channel.label}
                     href={channel.href}
+                    download={channel.href.endsWith(".pdf") ? "" : undefined}
                     target={channel.href.startsWith("http") ? "_blank" : undefined}
                     rel={channel.href.startsWith("http") ? "noreferrer" : undefined}
                     className="text-base text-muted transition-colors hover:text-[#244de8]"
