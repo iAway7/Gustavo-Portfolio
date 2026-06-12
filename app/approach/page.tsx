@@ -29,7 +29,7 @@ export default function ApproachPage() {
               {approachPrinciples.map((principle, index) => (
                 <Reveal key={principle.title} delay={index * 0.05} className="editorial-card p-6 sm:p-8">
                   <p className="text-xl font-medium tracking-[-0.04em] text-text">{principle.title}</p>
-                  <p className="mt-4 text-sm leading-7 text-muted">{principle.summary}</p>
+                  <p className="mt-4 text-base leading-7 text-muted">{principle.summary}</p>
                 </Reveal>
               ))}
             </div>

@@ -102,7 +102,7 @@ function ZoomBoard({
       )}
     >
       <div className="overflow-hidden rounded-[1.4rem]">{children}</div>
-      <figcaption className="px-2 pb-2 pt-4 text-sm leading-6 text-[rgba(24,35,31,0.62)]">
+      <figcaption className="px-2 pb-2 pt-4 text-base leading-7 text-[rgba(24,35,31,0.62)]">
         {caption}
       </figcaption>
     </motion.figure>
@@ -151,7 +151,7 @@ export function CaseStudyPresentation() {
             <h1 className="mt-4 font-serif text-[clamp(2.2rem,3vw,3.4rem)] leading-[0.92] tracking-display text-[#18231f]">
               Altura Health Platform Redesign
             </h1>
-            <p className="mt-5 text-sm leading-7 text-[rgba(24,35,31,0.65)]">
+            <p className="mt-5 text-base leading-7 text-[rgba(24,35,31,0.65)]">
               A presentation-led UX case study designed to read like a design review deck, not a
               portfolio gallery.
             </p>
@@ -165,7 +165,7 @@ export function CaseStudyPresentation() {
                     key={link.id}
                     href={`#${link.id}`}
                     className={cn(
-                      "rounded-full border px-4 py-3 text-sm uppercase tracking-[0.18em] transition-all duration-300",
+                      "rounded-full border px-4 py-3 text-base uppercase tracking-[0.18em] transition-all duration-300",
                       isActive
                         ? "border-[rgba(24,35,31,0.06)] bg-white/[0.78] text-[#18231f] translate-x-1"
                         : "border-transparent text-[rgba(24,35,31,0.56)] hover:border-[rgba(24,35,31,0.06)] hover:bg-white/[0.56] hover:text-[#18231f]"

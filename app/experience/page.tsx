@@ -30,16 +30,16 @@ export default function ExperiencePage() {
                 <Reveal key={`${entry.company}-${entry.period}`} delay={index * 0.05} className="editorial-card p-6 sm:p-8">
                   <div className="grid gap-6 lg:grid-cols-[220px_1fr]">
                     <div>
-                      <p className="text-sm text-muted">{entry.period}</p>
+                      <p className="text-base text-muted">{entry.period}</p>
                       <p className="mt-2 text-lg font-medium text-text">{entry.company}</p>
-                      <p className="text-sm text-muted">{entry.role}</p>
+                      <p className="text-base text-muted">{entry.role}</p>
                     </div>
 
                     <div>
-                      <p className="text-sm leading-7 text-muted">{entry.summary}</p>
+                      <p className="text-base leading-7 text-muted">{entry.summary}</p>
                       <div className="mt-5 grid gap-3">
                         {entry.highlights.map((highlight) => (
-                          <p key={highlight} className="text-sm leading-7 text-text">
+                          <p key={highlight} className="text-base leading-7 text-text">
                             {highlight}
                           </p>
                         ))}

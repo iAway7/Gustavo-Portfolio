@@ -93,7 +93,7 @@ export default function HomePage() {
                     <p className="mt-4 text-2xl font-medium tracking-[-0.05em] text-text">
                       {point.value}
                     </p>
-                    <p className="mt-3 text-sm leading-7 text-muted">{point.detail}</p>
+                    <p className="mt-3 text-base leading-7 text-muted">{point.detail}</p>
                   </Reveal>
                 ))}
               </div>
@@ -148,11 +148,11 @@ export default function HomePage() {
                     <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
                       <div>
                         <p className="text-lg font-medium text-text">{entry.company}</p>
-                        <p className="text-sm text-muted">{entry.role}</p>
+                        <p className="text-base text-muted">{entry.role}</p>
                       </div>
-                      <p className="text-sm text-muted">{entry.period}</p>
+                      <p className="text-base text-muted">{entry.period}</p>
                     </div>
-                    <p className="mt-4 text-sm leading-7 text-muted">{entry.summary}</p>
+                    <p className="mt-4 text-base leading-7 text-muted">{entry.summary}</p>
                   </Reveal>
                 ))}
               </div>

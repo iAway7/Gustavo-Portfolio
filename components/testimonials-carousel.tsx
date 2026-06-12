@@ -1,11 +1,14 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useMemo, useState, type CSSProperties } from "react";
+import { useEffect, useMemo, useRef, useState, type CSSProperties } from "react";
 
 import { Reveal } from "@/components/reveal";
 import { cn } from "@/lib/utils";
 import { testimonials, type TestimonialEntry } from "@/lib/site-data";
+
+const CAROUSEL_GAP = 24;
+const QUOTE_CLAMP_LINES = 7;
 
 function getVisibleCount(width: number) {
   if (width >= 1280) {
@@ -46,6 +49,61 @@ function TestimonialAvatar({ testimonial }: { testimonial: TestimonialEntry }) {
   );
 }
 
+function TestimonialQuote({ quote }: { quote: string }) {
+  const [expanded, setExpanded] = useState(false);
+  const [isClamped, setIsClamped] = useState(false);
+  const quoteRef = useRef<HTMLParagraphElement>(null);
+
+  useEffect(() => {
+    const element = quoteRef.current;
+    if (!element) {
+      return;
+    }
+
+    const checkClamp = () => {
+      setIsClamped(element.scrollHeight > element.clientHeight + 1);
+    };
+
+    checkClamp();
+
+    const observer = new ResizeObserver(checkClamp);
+    observer.observe(element);
+
+    return () => observer.disconnect();
+  }, []);
+
+  const clampStyle: CSSProperties | undefined = expanded
+    ? undefined
+    : {
+        display: "-webkit-box",
+        WebkitBoxOrient: "vertical",
+        WebkitLineClamp: QUOTE_CLAMP_LINES,
+        overflow: "hidden"
+      };
+
+  return (
+    <div>
+      <p
+        ref={quoteRef}
+        style={clampStyle}
+        className="text-[1.45rem] leading-[1.42] tracking-[-0.04em] text-text sm:text-[1.7rem]"
+      >
+        {quote}
+      </p>
+
+      {(isClamped || expanded) && (
+        <button
+          type="button"
+          onClick={() => setExpanded((value) => !value)}
+          className="mt-4 text-sm font-medium text-muted underline underline-offset-4 transition-colors duration-200 hover:text-text"
+        >
+          {expanded ? "Read less" : "Read more"}
+        </button>
+      )}
+    </div>
+  );
+}
+
 export function TestimonialsCarousel() {
   const [visibleCount, setVisibleCount] = useState(2);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -68,7 +126,12 @@ export function TestimonialsCarousel() {
   }, [maxIndex]);
 
   const translate = useMemo(() => {
-    return `${(currentIndex * 100) / visibleCount}%`;
+    // Each step moves one card width plus its share of the gap:
+    // step = 100% / visibleCount + gap / visibleCount
+    const percent = (currentIndex * 100) / visibleCount;
+    const gapOffset = (currentIndex * CAROUSEL_GAP) / visibleCount;
+
+    return `calc(-${percent}% - ${gapOffset}px)`;
   }, [currentIndex, visibleCount]);
 
   const activeIndices = useMemo(() => {
@@ -83,21 +146,19 @@ export function TestimonialsCarousel() {
     <div className="space-y-8">
       <div className="-mx-px overflow-hidden px-px">
         <div
-          className="flex items-start gap-6 transition-transform duration-500 ease-out"
-          style={{ transform: `translate3d(-${translate}, 0, 0)` }}
+          className="flex items-start transition-transform duration-500 ease-out"
+          style={{ gap: `${CAROUSEL_GAP}px`, transform: `translate3d(${translate}, 0, 0)` }}
         >
           {testimonials.map((testimonial, index) => (
             <Reveal
               key={testimonial.name}
               delay={index * 0.04}
-              className="editorial-card flex min-h-[26rem] shrink-0 flex-col p-8 sm:min-h-[28rem] sm:p-10"
-              style={{ width: `calc((100% - ${(visibleCount - 1) * 24}px) / ${visibleCount})` } as CSSProperties}
+              className="editorial-card flex min-h-[27rem] shrink-0 flex-col p-8 sm:min-h-[30rem] sm:p-10"
+              style={{ width: `calc((100% - ${(visibleCount - 1) * CAROUSEL_GAP}px) / ${visibleCount})` } as CSSProperties}
             >
-              <p className="text-[1.45rem] leading-[1.42] tracking-[-0.04em] text-text sm:text-[1.7rem]">
-                {testimonial.quote}
-              </p>
+              <TestimonialQuote quote={testimonial.quote} />
 
-              <div className="mt-10 flex items-center gap-4 pt-8">
+              <div className="mt-auto flex items-center gap-4 pt-10">
                 <TestimonialAvatar testimonial={testimonial} />
                 <div>
                   <p className="text-[1.1rem] font-medium text-text">{testimonial.name}</p>

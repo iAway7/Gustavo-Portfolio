@@ -18,7 +18,7 @@ export function SiteFooter() {
               <p className="caption">Pages</p>
               <div className="mt-4 grid gap-3">
                 {navItems.map((item) => (
-                  <a key={item.href} href={item.href} className="text-sm text-muted transition-colors hover:text-[#244de8]">
+                  <a key={item.href} href={item.href} className="text-base text-muted transition-colors hover:text-[#244de8]">
                     {item.label}
                   </a>
                 ))}
@@ -34,7 +34,7 @@ export function SiteFooter() {
                     href={channel.href}
                     target={channel.href.startsWith("http") ? "_blank" : undefined}
                     rel={channel.href.startsWith("http") ? "noreferrer" : undefined}
-                    className="text-sm text-muted transition-colors hover:text-[#244de8]"
+                    className="text-base text-muted transition-colors hover:text-[#244de8]"
                   >
                     {channel.label}
                   </a>
@@ -44,7 +44,7 @@ export function SiteFooter() {
           </div>
         </div>
 
-        <div className="mt-12 flex flex-col gap-3 border-t border-line pt-6 text-sm text-muted sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-12 flex flex-col gap-3 border-t border-line pt-6 text-base text-muted sm:flex-row sm:items-center sm:justify-between">
           <p>Based in Valencia, Spain.</p>
           <p>Product thinking, design systems, and implementation awareness.</p>
         </div>

@@ -73,7 +73,7 @@ export function ContactForm() {
         type="submit"
         disabled={isSubmitting}
         data-cursor="link"
-        className="magnetic-link mt-4 rounded-full bg-text px-6 py-3 text-sm font-medium uppercase tracking-[0.18em] text-canvas disabled:opacity-70"
+        className="magnetic-link mt-4 rounded-full bg-text px-6 py-3 text-base font-medium uppercase tracking-[0.18em] text-canvas disabled:opacity-70"
       >
         <span className="magnetic-link__inner">{isSubmitting ? "Preparing Email" : "Send Enquiry"}</span>
       </button>

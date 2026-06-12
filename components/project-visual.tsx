@@ -8,17 +8,46 @@ type ProjectVisualProps = {
   className?: string;
   bordered?: boolean;
   imageClassName?: string;
+  /**
+   * "cover" crops into a fixed 16:10 frame (heroes, cards).
+   * "natural" renders the full image at its intrinsic aspect ratio,
+   * so screenshots are never clipped (decision evidence, figures).
+   */
+  fit?: "cover" | "natural";
 };
 
 export function ProjectVisual({
   visual,
   className,
   bordered = true,
-  imageClassName
+  imageClassName,
+  fit = "cover"
 }: ProjectVisualProps) {
   if (visual.type === "image") {
     const toneClass =
       visual.tone === "sage" ? "sage-tint" : visual.tone === "blush" ? "blush-tint" : "paper-tint";
+
+    if (fit === "natural") {
+      return (
+        <div
+          className={cn(
+            "editorial-image w-full overflow-hidden",
+            !bordered && "border-0",
+            toneClass,
+            className
+          )}
+        >
+          <Image
+            src={visual.src}
+            alt={visual.alt}
+            width={2400}
+            height={1500}
+            className={cn("h-auto w-full", imageClassName)}
+            sizes="(min-width: 1024px) 60vw, 100vw"
+          />
+        </div>
+      );
+    }
 
     return (
       <div

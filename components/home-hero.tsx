@@ -219,7 +219,7 @@ export function HomeHero() {
               design systems.
             </p>
 
-            <div data-hero-copy className="mt-8 flex flex-wrap gap-6 text-sm text-muted">
+            <div data-hero-copy className="mt-8 flex flex-wrap gap-6 text-base text-muted">
               <span>Product Strategy</span>
               <span>Interaction Design</span>
               <span>Design Systems</span>
@@ -228,7 +228,7 @@ export function HomeHero() {
             <div data-hero-actions className="mt-10 flex flex-col gap-4 sm:flex-row">
               <MagneticLink
                 href="/case-studies"
-                className="rounded-full bg-text px-6 py-3 text-sm font-medium uppercase tracking-[0.18em] text-canvas shadow-float"
+                className="rounded-full bg-text px-6 py-3 text-base font-medium uppercase tracking-[0.18em] text-canvas shadow-float"
               >
                 View Case Studies
               </MagneticLink>
