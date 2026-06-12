@@ -1,9 +1,45 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 
 import { CertificationsList } from "@/components/certifications-list";
 import { MagneticLink } from "@/components/magnetic-link";
 import { Reveal } from "@/components/reveal";
 import { capabilityTags, certifications, experienceEntries } from "@/lib/site-data";
+
+function CompanyLogo({
+  logo,
+  company,
+  size
+}: {
+  logo?: string;
+  company: string;
+  size: "lg" | "sm";
+}) {
+  const frame =
+    size === "lg"
+      ? "h-14 w-14 rounded-2xl p-2"
+      : "h-10 w-10 rounded-xl p-1.5";
+
+  return (
+    <div
+      className={`flex shrink-0 items-center justify-center overflow-hidden border border-line bg-white ${frame}`}
+    >
+      {logo ? (
+        <Image
+          src={logo}
+          alt={`${company} logo`}
+          width={size === "lg" ? 56 : 40}
+          height={size === "lg" ? 56 : 40}
+          className="h-full w-full object-contain"
+        />
+      ) : (
+        <span className={size === "lg" ? "text-xl font-medium text-muted" : "text-sm font-medium text-muted"}>
+          {company[0]}
+        </span>
+      )}
+    </div>
+  );
+}
 
 export const metadata: Metadata = {
   title: "Experience",
@@ -33,22 +69,25 @@ export default function ExperiencePage() {
                   delay={index * 0.05}
                   className="border-t border-line py-10"
                 >
-                  <div>
-                    <h2 className="text-2xl font-medium tracking-[-0.04em] text-text sm:text-3xl">
-                      {entry.role}
-                    </h2>
-                    <p className="mt-1 text-base text-muted">{entry.company}</p>
-                    <p className="mt-1 text-sm text-muted">{entry.period}</p>
-                    <p className="body-copy mt-4 max-w-2xl">{entry.summary}</p>
-                    {entry.tags ? (
-                      <div className="mt-5 flex flex-wrap gap-2">
-                        {entry.tags.map((tag) => (
-                          <span key={tag} className="pill">
-                            {tag}
-                          </span>
-                        ))}
-                      </div>
-                    ) : null}
+                  <div className="flex items-start gap-5">
+                    <CompanyLogo logo={entry.logo} company={entry.company} size="lg" />
+                    <div>
+                      <h2 className="text-2xl font-medium tracking-[-0.04em] text-text sm:text-3xl">
+                        {entry.role}
+                      </h2>
+                      <p className="mt-1 text-base text-muted">{entry.company}</p>
+                      <p className="mt-1 text-sm text-muted">{entry.period}</p>
+                      <p className="body-copy mt-4 max-w-2xl">{entry.summary}</p>
+                      {entry.tags ? (
+                        <div className="mt-5 flex flex-wrap gap-2">
+                          {entry.tags.map((tag) => (
+                            <span key={tag} className="pill">
+                              {tag}
+                            </span>
+                          ))}
+                        </div>
+                      ) : null}
+                    </div>
                   </div>
                 </Reveal>
               ))}
@@ -65,12 +104,15 @@ export default function ExperiencePage() {
                     delay={index * 0.04}
                     className="border-t border-line py-6"
                   >
-                    <div className="grid gap-2 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-baseline">
-                      <div>
-                        <p className="text-lg font-medium text-text">
-                          {entry.role} <span className="font-normal text-muted">· {entry.company}</span>
-                        </p>
-                        <p className="mt-1 max-w-2xl text-base leading-7 text-muted">{entry.summary}</p>
+                    <div className="grid gap-2 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-start">
+                      <div className="flex items-start gap-4">
+                        <CompanyLogo logo={entry.logo} company={entry.company} size="sm" />
+                        <div>
+                          <p className="text-lg font-medium text-text">
+                            {entry.role} <span className="font-normal text-muted">· {entry.company}</span>
+                          </p>
+                          <p className="mt-1 max-w-2xl text-base leading-7 text-muted">{entry.summary}</p>
+                        </div>
                       </div>
                       <p className="text-sm text-muted lg:text-right">{entry.period}</p>
                     </div>

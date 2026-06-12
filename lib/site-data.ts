@@ -15,6 +15,7 @@ export type ExperienceEntry = {
   role: string;
   summary: string;
   tags?: string[];
+  logo?: string;
 };
 
 export type ApproachPrinciple = {
@@ -253,6 +254,7 @@ export const experienceEntries: ExperienceEntry[] = [
     period: "2024 - Present",
     company: "Install Pros",
     role: "UX/UI Designer",
+    logo: "/logos/installpros.svg",
     summary:
       "Designing the technician platform behind a network that has completed 9,163 installations and processed $7.1M+ in revenue.",
     tags: ["Field operations", "Mobile platform", "Design system"]
@@ -262,6 +264,7 @@ export const experienceEntries: ExperienceEntry[] = [
     period: "2023 - Present",
     company: "Emmvi",
     role: "Co-Founder · Design & Strategy",
+    logo: "/logos/emmvi.svg",
     summary:
       "Co-founded a growth studio for service businesses. Accountable for offer, web system, and revenue, not just deliverables.",
     tags: ["Business growth", "Digital strategy"]
@@ -271,6 +274,7 @@ export const experienceEntries: ExperienceEntry[] = [
     period: "2020 - 2024",
     company: "AgencyHub",
     role: "UX/UI Designer",
+    logo: "/logos/agencyhub.svg",
     summary:
       "Designed a two-sided B2B marketplace end to end and turned a fragmented platform into one product language."
   },
@@ -279,6 +283,7 @@ export const experienceEntries: ExperienceEntry[] = [
     period: "2017 - 2020",
     company: "AgencyHub",
     role: "Web Designer",
+    logo: "/logos/agencyhub.svg",
     summary:
       "Web delivery and infrastructure: hosting, DNS, migrations. The technical base I still design with."
   },
