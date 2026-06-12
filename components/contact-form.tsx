@@ -114,9 +114,6 @@ export function ContactForm() {
         className="hidden"
         aria-hidden="true"
       />
-      <p className="text-sm text-muted">
-        <span aria-hidden="true">*</span> Required fields
-      </p>
       <label className="grid gap-2">
         <span className="text-sm text-muted">
           Name <span className="sr-only">required</span>
@@ -155,7 +152,7 @@ export function ContactForm() {
         ) : null}
       </label>
       <label className="grid gap-2">
-        <span className="text-sm text-muted">Project</span>
+        <span className="text-sm text-muted">Project (Optional)</span>
         <input
           name="project"
           className="rounded-[1.2rem] border border-line bg-panel/60 px-4 py-3 outline-none transition-colors duration-300 focus:border-text/30"
@@ -186,7 +183,7 @@ export function ContactForm() {
         data-cursor="link"
         className="magnetic-link mt-4 rounded-full bg-text px-6 py-3 text-base font-medium uppercase tracking-[0.18em] text-canvas disabled:opacity-70"
       >
-        <span className="magnetic-link__inner">{isSubmitting ? "Sending..." : "Send Enquiry"}</span>
+        <span className="magnetic-link__inner">{isSubmitting ? "Sending..." : "Send"}</span>
       </button>
       {status ? (
         <p

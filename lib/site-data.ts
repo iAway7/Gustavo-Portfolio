@@ -301,7 +301,7 @@ export const experienceEntries: ExperienceEntry[] = [
     period: "2015 - 2016",
     company: "AccelOne",
     role: "Web Research & HTML Developer",
-    logo: "/logos/accelone.svg",
+    logo: "/logos/accelone.png",
     summary: "HTML implementation and web research. Where execution started."
   }
 ];
