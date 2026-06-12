@@ -446,6 +446,20 @@ export const projectCaseStudies: ProjectCaseStudy[] = [
       outcome:
         "A field-ready operating tool: one legible next action in every job state, workflows that survive dead zones, and patterns engineering reuses without new design cycles."
     },
+    heroSlides: [
+      { src: "/projects/installpros-app/boards/01-overview.webp", alt: "Project overview with role, scope, and key app screens", label: "Overview" },
+      { src: "/projects/installpros-app/boards/02-problem-statement.webp", alt: "The problem: job details scattered across emails and chat, with no consistent documentation", label: "Problem Statement" },
+      { src: "/projects/installpros-app/boards/03-user-personas.webp", alt: "Technician personas across the digital fluency range", label: "User Personas" },
+      { src: "/projects/installpros-app/boards/04-access-security.webp", alt: "Access and security screens for the technician network", label: "Access & Security" },
+      { src: "/projects/installpros-app/boards/05-identity-verification.webp", alt: "Identity verification flow for technicians", label: "Identity Verification" },
+      { src: "/projects/installpros-app/boards/06-onboarding-personalization.webp", alt: "Onboarding and personalization screens", label: "Onboarding & Personalization" },
+      { src: "/projects/installpros-app/boards/07-job-management.webp", alt: "Job management: schedule, job details, and acceptance", label: "Job Management" },
+      { src: "/projects/installpros-app/boards/08-installation-workflow.webp", alt: "Guided installation workflow with step states", label: "Installation Workflow" },
+      { src: "/projects/installpros-app/boards/09-payment-flow.webp", alt: "Payment flow: earnings, payout status, Stripe and PayPal", label: "Payment Flow" },
+      { src: "/projects/installpros-app/boards/10-completion-feedback.webp", alt: "Job completion with photo evidence and customer feedback", label: "Completion & Feedback" },
+      { src: "/projects/installpros-app/boards/11-operational-context.webp", alt: "Operational context: 9,163 installations and over 7 million dollars processed across the network", label: "Operational Context" },
+      { src: "/projects/installpros-app/boards/12-final-reflection.webp", alt: "Final reflection on balancing operational complexity with simplicity and trust", label: "Final Reflection" }
+    ],
     context: [
       "Install Pros runs Starlink internet installations across residential, commercial, and mobile sectors. The unit economics are unforgiving: a truck roll costs the same whether the install succeeds or fails, and every clarification call routes through a small dispatch team.",
       "The business needed technicians to complete more installs per day with fewer escalations. Not a portal, but an operating tool that holds the job's state so the technician doesn't have to."
