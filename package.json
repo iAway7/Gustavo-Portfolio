@@ -15,7 +15,8 @@
     "motion": "^12.18.1",
     "next": "^15.0.0",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "resend": "^6.12.4"
   },
   "devDependencies": {
     "@types/node": "^22.10.1",

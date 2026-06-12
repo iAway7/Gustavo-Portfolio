@@ -214,7 +214,7 @@ export const testimonials: TestimonialEntry[] = [
   {
     name: "Kelsey Rogers",
     role: "Operations Manager @ InstallPros | Operations Management, Project Coordination",
-    image: "/Kelsey.png",
+    image: "/Kelsey.jpeg",
     quote:
       "I had the pleasure of working with Gustavo at InstallPros, where he served as our UX/UI Designer. What set Gustavo apart was his ability to take complex, multi-layered processes and distill them into intuitive, user-friendly experiences. He had a deep understanding of not just design, but the operational workflows behind it, which made him an incredibly effective collaborator across teams. He worked closely with developers and stakeholders alike, translating business needs and technical requirements into designs that were both functional and thoughtful. Gustavo approached every project with clarity and intention. He wasn't just focused on how something looked, but on how it worked and how it could work better. His contributions genuinely improved the way our teams operated and made systems easier for everyone to navigate. He is the kind of designer who makes the people around him better at their jobs. Any team would be lucky to have him."
   },
@@ -228,7 +228,7 @@ export const testimonials: TestimonialEntry[] = [
   {
     name: "Ezequiel Cenicola",
     role: "Product Designer | Especialista en UX/UI | Innovador en Soluciones Digitales @ICBC",
-    image: "/Eze.png",
+    image: "/Eze.jpeg",
     quote:
       "En el tiempo que trabaje con Gustavo conocí a un profesional muy responsable, autodidacta y dedicado. Trata de explotar sus aptitudes al máximo y estar en constante capacitación, forjando así, un conocimiento más sólido. Me gustaría volver a trabajar con él en un futuro."
   },
