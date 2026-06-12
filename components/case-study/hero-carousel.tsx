@@ -93,7 +93,7 @@ export function CaseStudyHeroCarousel({ slides, title }: CaseStudyHeroCarouselPr
             aria-label="Previous board"
             onClick={goPrev}
             disabled={index === 0}
-            className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-line bg-white text-text transition-colors duration-200 hover:border-black/15 hover:bg-black/[0.03] disabled:cursor-not-allowed disabled:opacity-40"
+            className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-line bg-white text-text transition-colors duration-200 [-webkit-tap-highlight-color:transparent] hover:border-black/15 active:bg-white disabled:cursor-not-allowed disabled:opacity-40"
           >
             <svg viewBox="0 0 24 24" className="h-4 w-4" aria-hidden="true">
               <path
@@ -112,7 +112,7 @@ export function CaseStudyHeroCarousel({ slides, title }: CaseStudyHeroCarouselPr
             aria-label="Next board"
             onClick={goNext}
             disabled={index === count - 1}
-            className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-line bg-white text-text transition-colors duration-200 hover:border-black/15 hover:bg-black/[0.03] disabled:cursor-not-allowed disabled:opacity-40"
+            className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-line bg-white text-text transition-colors duration-200 [-webkit-tap-highlight-color:transparent] hover:border-black/15 active:bg-white disabled:cursor-not-allowed disabled:opacity-40"
           >
             <svg viewBox="0 0 24 24" className="h-4 w-4" aria-hidden="true">
               <path
