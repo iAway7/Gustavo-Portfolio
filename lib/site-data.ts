@@ -9,11 +9,12 @@ export type HomeSection = {
 };
 
 export type ExperienceEntry = {
+  tier: "now" | "before";
   period: string;
   company: string;
   role: string;
   summary: string;
-  highlights: string[];
+  tags?: string[];
 };
 
 export type ApproachPrinciple = {
@@ -248,64 +249,45 @@ export const testimonials: TestimonialEntry[] = [
 
 export const experienceEntries: ExperienceEntry[] = [
   {
+    tier: "now",
     period: "2024 - Present",
     company: "Install Pros",
-    role: "UX/UI Designer",
+    role: "Product Designer",
     summary:
-      "Designing digital experiences that support Starlink internet installation services across residential, commercial, and mobile sectors.",
-    highlights: [
-      "UX strategy, UI design, product design, and design systems",
-      "Cross-functional collaboration with product, support, and delivery teams",
-      "AI-assisted ideation and rapid prototyping with Figma, ChatGPT, Codex, Lovable, and Miro"
-    ]
+      "Designing the technician platform behind a network that has completed 9,163 installations and processed $7.1M+ in revenue.",
+    tags: ["Field operations", "Mobile platform", "Design system"]
   },
   {
+    tier: "now",
     period: "2023 - Present",
     company: "Emmvi",
-    role: "Co-Founder",
+    role: "Co-Founder · Design & Strategy",
     summary:
-      "Helping service businesses grow through UX/UI design, websites, marketing systems, funnels, and conversion-focused digital experiences.",
-    highlights: [
-      "Brand and digital direction for service businesses",
-      "Web strategy tied to business growth and conversion",
-      "Hands-on implementation awareness from concept through launch"
-    ]
+      "Co-founded a growth studio for service businesses. Accountable for offer, web system, and revenue, not just deliverables.",
+    tags: ["Business growth", "Digital strategy"]
   },
   {
+    tier: "before",
     period: "2020 - 2024",
     company: "AgencyHub",
-    role: "UX/UI Designer",
+    role: "Product Designer",
     summary:
-      "Worked across SaaS products and digital platforms with a focus on scalable systems, UX workflows, and product coherence.",
-    highlights: [
-      "Design systems, card sorting, A/B testing, wireframing, and prototyping",
-      "UX research and user-flow design for product clarity",
-      "Strong collaboration across stakeholders and product teams"
-    ]
+      "Designed a two-sided B2B marketplace end to end and turned a fragmented platform into one product language."
   },
   {
+    tier: "before",
     period: "2017 - 2020",
     company: "AgencyHub",
     role: "Web Designer",
     summary:
-      "Built the technical foundation that still informs my product work today: websites, migrations, SEO, hosting, DNS, SSL, and Cloudflare.",
-    highlights: [
-      "WordPress and Elementor delivery",
-      "Hosting, DNS, SPF, DKIM, DMARC, and website migrations",
-      "Technical fluency that differentiates me from screen-only designers"
-    ]
+      "Web delivery and infrastructure: hosting, DNS, migrations. The technical base I still design with."
   },
   {
+    tier: "before",
     period: "2015 - 2016",
     company: "AccelOne",
     role: "Web Research & HTML Developer",
-    summary:
-      "Started in hands-on web execution, combining HTML/CSS, web scraping, data extraction, and analysis work.",
-    highlights: [
-      "HTML and CSS implementation",
-      "Web scraping and data extraction",
-      "Analytical thinking that later evolved into product problem solving"
-    ]
+    summary: "HTML implementation and web research. Where execution started."
   }
 ];
 
