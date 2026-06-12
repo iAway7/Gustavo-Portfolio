@@ -202,7 +202,7 @@ export const testimonials: TestimonialEntry[] = [
     role: "SEO Analyst / Email Marketing / Automation",
     image: "/Nico.jpeg",
     quote:
-      "I had the privilege of working alongside Gustavo for over 6 years, where he played a pivotal role as our lead UX/UI designer. His ability to merge user-centric design with striking visuals is exceptional. Always ahead of UX/UI trends and a joy to work with, I highly recommend Gus for any design-driven project or team."
+      "I've really enjoyed working with Gus at InstallPros. He has a great way of turning ideas into clean, simple, and useful digital experiences, with UI that feels polished and easy to navigate. What I appreciate most is that he thinks beyond just how something looks. He cares about how people actually use it, how it fits into the business, and how it can make things easier for both customers and the team. He's creative, thoughtful, and easy to collaborate with, and he brings a strong mix of UX/UI thinking, fast prototyping, and practical problem-solving. I'd gladly recommend Gus to any team looking for someone who can design experiences that are both beautiful and genuinely useful."
   },
   {
     name: "Edwin Morales Madrigal",
@@ -214,14 +214,21 @@ export const testimonials: TestimonialEntry[] = [
   {
     name: "Kelsey Rogers",
     role: "Operations Manager @ InstallPros | Operations Management, Project Coordination",
-    image: "/Kelsey.jpeg",
+    image: "/Kelsey.png",
     quote:
       "I had the pleasure of working with Gustavo at InstallPros, where he served as our UX/UI Designer. What set Gustavo apart was his ability to take complex, multi-layered processes and distill them into intuitive, user-friendly experiences. He had a deep understanding of not just design, but the operational workflows behind it, which made him an incredibly effective collaborator across teams. He worked closely with developers and stakeholders alike, translating business needs and technical requirements into designs that were both functional and thoughtful. Gustavo approached every project with clarity and intention. He wasn't just focused on how something looked, but on how it worked and how it could work better. His contributions genuinely improved the way our teams operated and made systems easier for everyone to navigate. He is the kind of designer who makes the people around him better at their jobs. Any team would be lucky to have him."
   },
   {
+    name: "Miriam Fisher",
+    role: "Contract Writer and Editor",
+    image: "/Miriam.jpeg",
+    quote:
+      "I've worked with Gustavo Polin since 2020. We worked together at AgencyHub, and though we were in different areas of the company, our jobs had frequent overlap and collaboration. Gustavo has always been able to move smoothly through the company, working on any need. One day he'd be working on UX/UI design or helping another team solve an issue, and other days he'd be doing overall troubleshooting, web design, HTML development, or customer support. He has always been easy to collaborate with, thorough in his explanations, and generous with his time and knowledge."
+  },
+  {
     name: "Ezequiel Cenicola",
     role: "Product Designer | Especialista en UX/UI | Innovador en Soluciones Digitales @ICBC",
-    image: "/Eze.jpeg",
+    image: "/Eze.png",
     quote:
       "En el tiempo que trabaje con Gustavo conocí a un profesional muy responsable, autodidacta y dedicado. Trata de explotar sus aptitudes al máximo y estar en constante capacitación, forjando así, un conocimiento más sólido. Me gustaría volver a trabajar con él en un futuro."
   },
