@@ -4,11 +4,14 @@ import { ContactEmailRow } from "@/components/contact-email-row";
 import { ContactForm } from "@/components/contact-form";
 import { Reveal } from "@/components/reveal";
 import { contactChannels } from "@/lib/site-data";
+import { pageMeta } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMeta({
   title: "Contact",
-  description: "Get in touch with me for product design and UX/UI collaborations."
-};
+  description:
+    "Get in touch with Gustavo Polin for product design and UX/UI collaborations — SaaS platforms, web applications, and AI-assisted digital products.",
+  path: "/contact"
+});
 
 export default function ContactPage() {
   return (

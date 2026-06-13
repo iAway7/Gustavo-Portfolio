@@ -1,11 +1,13 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Host_Grotesk } from "next/font/google";
 
 import "./globals.css";
 
+import { JsonLd, siteJsonLd } from "@/components/json-ld";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { SmoothScrollProvider } from "@/components/smooth-scroll-provider";
+import { DEFAULT_OG_IMAGE, SITE_NAME, SITE_URL } from "@/lib/seo";
 
 const hostGrotesk = Host_Grotesk({
   subsets: ["latin"],
@@ -13,29 +15,65 @@ const hostGrotesk = Host_Grotesk({
   display: "swap"
 });
 
+const TITLE_DEFAULT = "Gustavo Polin | Product Designer";
+const DESCRIPTION =
+  "Gustavo Polin is a Product Designer and UX/UI Designer in Valencia with 9+ years building SaaS platforms, web apps, and AI-assisted digital products.";
+
 export const metadata: Metadata = {
-  metadataBase: new URL("https://gustavopolin.com"),
+  metadataBase: new URL(SITE_URL),
   title: {
-    default: "Gustavo Polin | Product Designer",
+    default: TITLE_DEFAULT,
     template: "%s | Gustavo Polin"
   },
-  description:
-    "I’m a Product Designer and UX/UI Designer based in Valencia, creating digital products that connect users, business, and technology.",
+  description: DESCRIPTION,
+  applicationName: SITE_NAME,
+  authors: [{ name: SITE_NAME, url: SITE_URL }],
+  creator: SITE_NAME,
+  publisher: SITE_NAME,
+  keywords: [
+    "Product Designer",
+    "UX/UI Designer",
+    "Design Systems",
+    "SaaS design",
+    "Gustavo Polin",
+    "Portfolio",
+    "Valencia"
+  ],
+  alternates: {
+    canonical: "/"
+  },
+  manifest: "/site.webmanifest",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1
+    }
+  },
   openGraph: {
-    title: "Gustavo Polin | Product Designer",
-    description:
-      "Product design, UX/UI, design systems, and technical implementation brought together in one editorial portfolio.",
-    url: "https://gustavopolin.com",
-    siteName: "Gustavo Polin",
+    type: "website",
+    siteName: SITE_NAME,
     locale: "en_US",
-    type: "website"
+    url: SITE_URL,
+    title: TITLE_DEFAULT,
+    description: DESCRIPTION,
+    images: [{ url: DEFAULT_OG_IMAGE, width: 1200, height: 630, alt: TITLE_DEFAULT }]
   },
   twitter: {
     card: "summary_large_image",
-    title: "Gustavo Polin | Product Designer",
-    description:
-      "I create digital products that connect users, business, and technology."
+    title: TITLE_DEFAULT,
+    description: DESCRIPTION,
+    images: [DEFAULT_OG_IMAGE]
   }
+};
+
+export const viewport: Viewport = {
+  themeColor: "#ffffff",
+  colorScheme: "light"
 };
 
 export default function RootLayout({
@@ -46,6 +84,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={hostGrotesk.variable}>
+        <JsonLd data={siteJsonLd()} />
         <a href="#main-content" className="skip-link">
           Skip to main content
         </a>

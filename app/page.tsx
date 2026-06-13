@@ -1,8 +1,30 @@
+import type { Metadata } from "next";
+
 import { MagneticLink } from "@/components/magnetic-link";
 import { ProjectCard } from "@/components/project-card";
 import { Reveal } from "@/components/reveal";
 import { TestimonialsCarousel } from "@/components/testimonials-carousel";
 import { credibilityPoints, experienceEntries, projectIndex } from "@/lib/site-data";
+import { absoluteUrl, SITE_NAME } from "@/lib/seo";
+
+export const metadata: Metadata = {
+  alternates: { canonical: "/" },
+  openGraph: {
+    type: "website",
+    siteName: SITE_NAME,
+    locale: "en_US",
+    url: absoluteUrl("/"),
+    title: "Gustavo Polin | Product Designer",
+    description:
+      "Product Designer and UX/UI Designer with 9+ years building SaaS platforms, web applications, and AI-assisted digital experiences.",
+    images: [{ url: "/og/home.png", width: 1200, height: 630, alt: "Gustavo Polin — Product Designer" }]
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Gustavo Polin | Product Designer",
+    images: ["/og/home.png"]
+  }
+};
 
 const homeProjectSlugs = [
   "installpros-technician-app",

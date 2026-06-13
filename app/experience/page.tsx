@@ -5,6 +5,7 @@ import { CertificationsList } from "@/components/certifications-list";
 import { MagneticLink } from "@/components/magnetic-link";
 import { Reveal } from "@/components/reveal";
 import { capabilityTags, certifications, experienceEntries } from "@/lib/site-data";
+import { pageMeta } from "@/lib/seo";
 
 function CompanyLogo({
   logo,
@@ -40,10 +41,12 @@ function CompanyLogo({
   );
 }
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMeta({
   title: "Experience",
-  description: "My professional background in product design, UX/UI, systems, and implementation."
-};
+  description:
+    "9+ years of product and UX/UI design across SaaS, B2B, and operational tools — roles, certifications, and the systems-thinking that connects users, business, and technology.",
+  path: "/experience"
+});
 
 export default function ExperiencePage() {
   const current = experienceEntries.filter((entry) => entry.tier === "now");

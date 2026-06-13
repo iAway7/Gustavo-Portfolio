@@ -260,7 +260,7 @@ export const experienceEntries: ExperienceEntry[] = [
     tier: "now",
     period: "2024 - Present",
     company: "Install Pros",
-    role: "UX/UI Designer",
+    role: "Product Designer",
     logo: "/logos/installpros.svg",
     summary:
       "Designing the technician platform behind a network that has completed 9,163 installations and processed $7.1M+ in revenue.",
@@ -420,7 +420,7 @@ export const projectCaseStudies: ProjectCaseStudy[] = [
     slug: "installpros-technician-app",
     title: "Field Operations Platform",
     clientOrBrand: "Install Pros",
-    role: "UX/UI Designer",
+    role: "Product Designer",
     period: "2024 - Present",
     scope: "Technician mobile app: scheduling, installs, job completion",
     summary:
@@ -430,7 +430,7 @@ export const projectCaseStudies: ProjectCaseStudy[] = [
     href: "/work/installpros-technician-app",
     cardVisual: {
       type: "image",
-      src: "/projects/installpros-app/Portfolio - Cover - InstallPros.png",
+      src: "/projects/installpros-app/field-operations-cover.png",
       alt: "Field Operations Platform cover showing the technician mobile product",
       tone: "paper",
       imageClassName: "scale-[1.14] object-center"

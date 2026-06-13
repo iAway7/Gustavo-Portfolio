@@ -4,11 +4,14 @@ import { CertificationsList } from "@/components/certifications-list";
 import { MagneticLink } from "@/components/magnetic-link";
 import { Reveal } from "@/components/reveal";
 import { approachPrinciples, capabilityTags } from "@/lib/site-data";
+import { pageMeta } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMeta({
   title: "Approach",
-  description: "How I approach product design, UX/UI systems, and AI-assisted workflows."
-};
+  description:
+    "A product-design approach built on clarity, systems thinking, and implementation awareness — designing interfaces that work for users, business stakeholders, and engineering teams.",
+  path: "/approach"
+});
 
 export default function ApproachPage() {
   return (

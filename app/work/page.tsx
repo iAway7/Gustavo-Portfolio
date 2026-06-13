@@ -4,11 +4,14 @@ import { MagneticLink } from "@/components/magnetic-link";
 import { Reveal } from "@/components/reveal";
 import { WorkGallery } from "@/components/work-gallery";
 import { projectIndex } from "@/lib/site-data";
+import { pageMeta } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMeta({
   title: "Work",
-  description: "Selected product, platform, and digital experience work from my portfolio."
-};
+  description:
+    "Selected case studies spanning a field-operations mobile platform, a B2B SaaS marketplace, and conversion-led web systems — product judgment, design systems, and business impact.",
+  path: "/work"
+});
 
 const featuredProject = projectIndex.find((project) => project.featured) ?? projectIndex[0];
 const supportingProjects = projectIndex.filter((project) => project.slug !== featuredProject.slug);

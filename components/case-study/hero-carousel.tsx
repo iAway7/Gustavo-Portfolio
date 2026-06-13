@@ -18,8 +18,15 @@ type CaseStudyHeroCarouselProps = {
  */
 export function CaseStudyHeroCarousel({ slides, title }: CaseStudyHeroCarouselProps) {
   const [index, setIndex] = useState(0);
+  const [ratios, setRatios] = useState<Record<number, number>>({});
   const count = slides.length;
   const reduceMotion = useReducedMotion();
+
+  // All slides share one fixed-height frame. Tall/normal boards fill it
+  // (object-cover, cropped from the bottom). Boards wider than the frame would
+  // get their edges — and their text — sliced off by cover, so those fit
+  // instead (object-contain), keeping every board readable at the same height.
+  const FRAME_RATIO = 16 / 11;
 
   const goPrev = useCallback(() => {
     setIndex((current) => Math.max(0, current - 1));
@@ -49,32 +56,45 @@ export function CaseStudyHeroCarousel({ slides, title }: CaseStudyHeroCarouselPr
       onKeyDown={onKeyDown}
       className="grid gap-4 rounded-[1.5rem] focus:outline-none focus-visible:ring-2 focus-visible:ring-black/15"
     >
-      <div className="editorial-image paper-tint relative aspect-[16/11] w-full overflow-hidden">
+      <div className="editorial-image relative aspect-[16/11] w-full overflow-hidden">
         <div
           className={reduceMotion ? "flex h-full" : "flex h-full transition-transform duration-500 ease-out"}
           style={{ transform: `translate3d(-${index * 100}%, 0, 0)` }}
         >
-          {slides.map((slide, slideIndex) => (
-            <div
-              key={slide.src}
-              role="group"
-              aria-roledescription="slide"
-              aria-label={`${slideIndex + 1} of ${count}: ${slide.label}`}
-              aria-hidden={slideIndex !== index}
-              className="h-full w-full shrink-0 p-3 sm:p-4"
-            >
-              <div className="relative h-full w-full">
+          {slides.map((slide, slideIndex) => {
+            const ratio = ratios[slideIndex];
+            const fitsWide = ratio !== undefined && ratio > FRAME_RATIO;
+
+            return (
+              <div
+                key={slide.src}
+                role="group"
+                aria-roledescription="slide"
+                aria-label={`${slideIndex + 1} of ${count}: ${slide.label}`}
+                aria-hidden={slideIndex !== index}
+                className="relative h-full w-full shrink-0"
+              >
                 <Image
                   src={slide.src}
                   alt={slide.alt}
                   fill
-                  className="object-contain"
-                  sizes="(min-width: 1024px) 55vw, 100vw"
+                  className={fitsWide ? "object-contain" : "object-cover object-top"}
+                  sizes="(min-width: 1024px) 60vw, 100vw"
                   priority={slideIndex === 0}
+                  onLoad={(event) => {
+                    const img = event.currentTarget;
+                    if (img.naturalWidth && img.naturalHeight) {
+                      setRatios((current) =>
+                        current[slideIndex]
+                          ? current
+                          : { ...current, [slideIndex]: img.naturalWidth / img.naturalHeight }
+                      );
+                    }
+                  }}
                 />
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
 

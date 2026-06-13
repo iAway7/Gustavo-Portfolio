@@ -164,7 +164,7 @@ export function DecisionList({ decisions }: { decisions: DecisionBlock[] }) {
             <p className="section-label">
               Decision {String(index + 1).padStart(2, "0")} · {block.question}
             </p>
-            <p className="mt-4 text-xl font-medium tracking-[-0.04em] text-text">
+            <p className="mt-4 text-xl font-medium tracking-[-0.01em] text-text">
               {block.decision}
             </p>
             <p className="mt-4 text-base leading-7 text-muted">{block.rationale}</p>
