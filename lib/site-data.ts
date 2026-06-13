@@ -343,7 +343,9 @@ export const contactChannels: ContactChannel[] = [
   {
     label: "Resume",
     value: "Download PDF",
-    href: "/docs/gustavo-polin-product-designer.pdf"
+    // English CV is the default download. Spanish version
+    // (gustavo-polin-product-designer-es.pdf) is ready for a future ES toggle.
+    href: "/docs/gustavo-polin-product-designer-en.pdf"
   }
 ];
 
