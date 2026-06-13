@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
+import { EmmviCaseStudy } from "@/components/case-study/emmvi/emmvi-case-study";
 import { ExperienceCaseStudy } from "@/components/case-study/experience-case-study";
 import { ProductCaseStudy } from "@/components/case-study/product-case-study";
 import { getProjectBySlug, projectCaseStudies } from "@/lib/site-data";
@@ -43,6 +44,10 @@ export default async function WorkDetailPage({ params }: WorkDetailPageProps) {
 
   const next = project.nextSlug ? getProjectBySlug(project.nextSlug) : undefined;
   const nextProject = next ? { href: next.href, title: next.title } : undefined;
+
+  if (project.slug === "emmvi-growth-platform") {
+    return <EmmviCaseStudy project={project} nextProject={nextProject} />;
+  }
 
   if (project.kind === "product") {
     return <ProductCaseStudy project={project} nextProject={nextProject} />;

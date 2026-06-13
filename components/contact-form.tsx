@@ -116,7 +116,8 @@ export function ContactForm() {
       />
       <label className="grid gap-2">
         <span className="text-sm text-muted">
-          Name <span className="sr-only">required</span>
+          Name <span aria-hidden="true" className="text-text">*</span>
+          <span className="sr-only">required</span>
         </span>
         <input
           required
@@ -134,7 +135,8 @@ export function ContactForm() {
       </label>
       <label className="grid gap-2">
         <span className="text-sm text-muted">
-          Email <span className="sr-only">required</span>
+          Email <span aria-hidden="true" className="text-text">*</span>
+          <span className="sr-only">required</span>
         </span>
         <input
           required
@@ -160,7 +162,8 @@ export function ContactForm() {
       </label>
       <label className="grid gap-2">
         <span className="text-sm text-muted">
-          Message <span className="sr-only">required</span>
+          Message <span aria-hidden="true" className="text-text">*</span>
+          <span className="sr-only">required</span>
         </span>
         <textarea
           required

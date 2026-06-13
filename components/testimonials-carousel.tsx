@@ -231,10 +231,7 @@ export function TestimonialsCarousel() {
                   aria-label={`Go to testimonial ${index + 1}: ${testimonial.name}`}
                   aria-current={isActive ? "true" : undefined}
                   onClick={() => setCurrentIndex(Math.min(index, maxIndex))}
-                  className={cn(
-                    "inline-flex h-10 w-10 items-center justify-center rounded-full transition-all duration-200",
-                    isActive ? "bg-black/[0.06]" : "hover:bg-black/[0.04]"
-                  )}
+                  className="inline-flex h-10 w-10 items-center justify-center rounded-full transition-all duration-200"
                 >
                   <span
                     aria-hidden="true"

@@ -903,7 +903,8 @@ export const projectCaseStudies: ProjectCaseStudy[] = [
       reflection:
         "Emmvi is the project where I hold every corner of the triangle (users, business, technology) with no one to hand a problem to. The discipline it forces, deciding what not to build, is the most transferable thing it has taught me."
     },
-    nextSlug: "installpros-technician-app"
+    nextSlug: "installpros-technician-app",
+    deckUrl: "/docs/emmvi-case-study.pdf"
   }
 ];
 
