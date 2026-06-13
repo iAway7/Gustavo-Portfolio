@@ -1,15 +1,19 @@
 import type { Metadata, Viewport } from "next";
-import { Host_Grotesk } from "next/font/google";
+import { Geist } from "next/font/google";
 
 import "./globals.css";
 
 import { JsonLd, siteJsonLd } from "@/components/json-ld";
+import { LocalePreference } from "@/components/locale-preference";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { SmoothScrollProvider } from "@/components/smooth-scroll-provider";
 import { DEFAULT_OG_IMAGE, SITE_NAME, SITE_URL } from "@/lib/seo";
 
-const hostGrotesk = Host_Grotesk({
+// Geist is the single primary typeface across the whole site. It's a variable
+// font, so weights 400/500/600/700 (used via Tailwind classes) all resolve
+// from this one load. Exposed as --font-sans, which every element inherits.
+const geist = Geist({
   subsets: ["latin"],
   variable: "--font-sans",
   display: "swap"
@@ -83,8 +87,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={hostGrotesk.variable}>
+      <body className={geist.variable}>
         <JsonLd data={siteJsonLd()} />
+        <LocalePreference />
         <a href="#main-content" className="skip-link">
           Skip to main content
         </a>

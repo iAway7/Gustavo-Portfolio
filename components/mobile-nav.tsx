@@ -5,21 +5,37 @@ import { usePathname } from "next/navigation";
 import { useCallback, useEffect, useId, useRef, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 
-import { contactChannels, navItems } from "@/lib/site-data";
+import { LanguageSwitcher } from "@/components/language-switcher";
+import { contactChannels } from "@/lib/site-data";
+import {
+  getDict,
+  localeFromPathname,
+  localizedPath,
+  resumeByLocale,
+  stripLocale
+} from "@/lib/i18n";
 import { cn } from "@/lib/utils";
-
-// Secondary links surfaced inside the mobile panel, derived from the single
-// source of truth in site-data so menu definitions are never duplicated.
-const secondaryLinks = (["Resume", "LinkedIn"] as const)
-  .map((label) => contactChannels.find((channel) => channel.label === label))
-  .filter((channel): channel is NonNullable<typeof channel> => Boolean(channel));
 
 const isExternal = (href: string) => href.startsWith("http");
 
 export function MobileNav() {
-  const pathname = usePathname();
+  const pathname = usePathname() || "/";
+  const locale = localeFromPathname(pathname);
+  const dict = getDict(locale);
+  const canonicalPath = stripLocale(pathname);
   const [open, setOpen] = useState(false);
   const prefersReducedMotion = useReducedMotion();
+
+  const navLinks = [
+    { href: "/", label: dict.nav.home },
+    { href: "/work", label: dict.nav.work },
+    { href: "/experience", label: dict.nav.experience },
+    { href: "/approach", label: dict.nav.approach },
+    { href: "/contact", label: dict.nav.contact }
+  ];
+
+  const linkedin = contactChannels.find((channel) => channel.label === "LinkedIn");
+  const resume = resumeByLocale[locale];
 
   const panelId = useId();
   const triggerRef = useRef<HTMLButtonElement>(null);
@@ -95,8 +111,8 @@ export function MobileNav() {
 
   const isActive = (href: string) =>
     href === "/"
-      ? pathname === href
-      : pathname === href || pathname.startsWith(`${href}/`);
+      ? canonicalPath === href
+      : canonicalPath === href || canonicalPath.startsWith(`${href}/`);
 
   const overlayMotion = prefersReducedMotion
     ? { initial: { opacity: 0 }, animate: { opacity: 1 }, exit: { opacity: 0 } }
@@ -163,7 +179,7 @@ export function MobileNav() {
             {/* Backdrop click target (top bar mirrors header height). */}
             <div className="shell flex items-center justify-between py-4">
               <Link
-                href="/"
+                href={localizedPath("/", locale)}
                 className="text-lg font-medium tracking-[-0.05em] text-text"
                 onClick={close}
               >
@@ -186,7 +202,7 @@ export function MobileNav() {
               aria-label="Mobile primary"
               className="shell flex flex-1 flex-col justify-center gap-1 pb-24"
             >
-              {navItems.map((item, index) => {
+              {navLinks.map((item, index) => {
                 const active = isActive(item.href);
                 return (
                   <motion.div
@@ -200,7 +216,7 @@ export function MobileNav() {
                     }}
                   >
                     <Link
-                      href={item.href}
+                      href={localizedPath(item.href, locale)}
                       onClick={close}
                       aria-current={active ? "page" : undefined}
                       className={cn(
@@ -214,23 +230,28 @@ export function MobileNav() {
                 );
               })}
 
-              {secondaryLinks.length > 0 ? (
-                <div className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-3 border-t border-line pt-6">
-                  {secondaryLinks.map((link) => (
-                    <Link
-                      key={link.label}
-                      href={link.href}
-                      onClick={close}
-                      {...(isExternal(link.href)
-                        ? { target: "_blank", rel: "noopener noreferrer" }
-                        : {})}
-                      className="text-sm uppercase tracking-[0.18em] text-muted transition-colors duration-200 hover:text-[#244de8]"
-                    >
-                      {link.label}
-                    </Link>
-                  ))}
-                </div>
-              ) : null}
+              <div className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-4 border-t border-line pt-6">
+                <Link
+                  href={resume.href}
+                  onClick={close}
+                  className="text-sm uppercase tracking-[0.18em] text-muted transition-colors duration-200 hover:text-[#244de8]"
+                >
+                  {resume.label}
+                </Link>
+                {linkedin ? (
+                  <Link
+                    href={linkedin.href}
+                    onClick={close}
+                    {...(isExternal(linkedin.href)
+                      ? { target: "_blank", rel: "noopener noreferrer" }
+                      : {})}
+                    className="text-sm uppercase tracking-[0.18em] text-muted transition-colors duration-200 hover:text-[#244de8]"
+                  >
+                    {linkedin.label}
+                  </Link>
+                ) : null}
+                <LanguageSwitcher className="ml-auto" />
+              </div>
             </nav>
           </motion.div>
         ) : null}

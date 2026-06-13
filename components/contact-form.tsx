@@ -2,6 +2,8 @@
 
 import { FormEvent, startTransition, useState } from "react";
 
+import { getDict, type Locale } from "@/lib/i18n";
+
 type ContactFormValues = {
   company: string;
   email: string;
@@ -12,27 +14,30 @@ type ContactFormValues = {
 
 type ContactFormErrors = Partial<Record<keyof Omit<ContactFormValues, "company" | "project">, string>>;
 
-function validate(values: ContactFormValues): ContactFormErrors {
+type FormStrings = ReturnType<typeof getDict>["contact"]["form"];
+
+function validate(values: ContactFormValues, t: FormStrings): ContactFormErrors {
   const errors: ContactFormErrors = {};
 
   if (!values.name) {
-    errors.name = "Please enter your name.";
+    errors.name = t.errName;
   }
 
   if (!values.email) {
-    errors.email = "Please enter your email address.";
+    errors.email = t.errEmail;
   } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(values.email)) {
-    errors.email = "Please enter a valid email address.";
+    errors.email = t.errEmailValid;
   }
 
   if (!values.message) {
-    errors.message = "Please enter a short message.";
+    errors.message = t.errMessage;
   }
 
   return errors;
 }
 
-export function ContactForm() {
+export function ContactForm({ locale = "en" }: { locale?: Locale }) {
+  const t = getDict(locale).contact.form;
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [status, setStatus] = useState<{
     type: "success" | "error";
@@ -52,13 +57,13 @@ export function ContactForm() {
       message: data.get("message")?.toString().trim() ?? "",
       company: data.get("company")?.toString().trim() ?? ""
     };
-    const nextErrors = validate(values);
+    const nextErrors = validate(values, t);
 
     if (Object.keys(nextErrors).length > 0) {
       setErrors(nextErrors);
       setStatus({
         type: "error",
-        message: "Please correct the highlighted fields and try again."
+        message: t.errorGeneric
       });
 
       const firstInvalid = Object.keys(nextErrors)[0];
@@ -90,7 +95,7 @@ export function ContactForm() {
       form.reset();
       setStatus({
         type: "success",
-        message: "Thanks. Your message was sent successfully."
+        message: t.success
       });
     } catch (error) {
       const messageText = error instanceof Error ? error.message : "Unable to send your message right now.";
@@ -116,8 +121,8 @@ export function ContactForm() {
       />
       <label className="grid gap-2">
         <span className="text-sm text-muted">
-          Name <span aria-hidden="true" className="text-text">*</span>
-          <span className="sr-only">required</span>
+          {t.name} <span aria-hidden="true" className="text-text">*</span>
+          <span className="sr-only">{t.required}</span>
         </span>
         <input
           required
@@ -135,8 +140,8 @@ export function ContactForm() {
       </label>
       <label className="grid gap-2">
         <span className="text-sm text-muted">
-          Email <span aria-hidden="true" className="text-text">*</span>
-          <span className="sr-only">required</span>
+          {t.email} <span aria-hidden="true" className="text-text">*</span>
+          <span className="sr-only">{t.required}</span>
         </span>
         <input
           required
@@ -154,7 +159,7 @@ export function ContactForm() {
         ) : null}
       </label>
       <label className="grid gap-2">
-        <span className="text-sm text-muted">Project (Optional)</span>
+        <span className="text-sm text-muted">{t.project}</span>
         <input
           name="project"
           className="rounded-[1.2rem] border border-line bg-panel/60 px-4 py-3 outline-none transition-colors duration-300 focus:border-text/30"
@@ -162,8 +167,8 @@ export function ContactForm() {
       </label>
       <label className="grid gap-2">
         <span className="text-sm text-muted">
-          Message <span aria-hidden="true" className="text-text">*</span>
-          <span className="sr-only">required</span>
+          {t.message} <span aria-hidden="true" className="text-text">*</span>
+          <span className="sr-only">{t.required}</span>
         </span>
         <textarea
           required
@@ -186,7 +191,7 @@ export function ContactForm() {
         data-cursor="link"
         className="magnetic-link mt-4 rounded-full bg-text px-6 py-3 text-base font-medium uppercase tracking-[0.18em] text-canvas disabled:opacity-70"
       >
-        <span className="magnetic-link__inner">{isSubmitting ? "Sending..." : "Send"}</span>
+        <span className="magnetic-link__inner">{isSubmitting ? t.sending : t.send}</span>
       </button>
       {status ? (
         <p

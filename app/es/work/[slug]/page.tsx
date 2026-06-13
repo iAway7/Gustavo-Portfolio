@@ -10,17 +10,15 @@ type WorkDetailPageProps = {
 };
 
 export function generateStaticParams() {
-  return projectCaseStudies.map((project) => ({
-    slug: project.slug
-  }));
+  return projectCaseStudies.map((project) => ({ slug: project.slug }));
 }
 
 export async function generateMetadata({ params }: WorkDetailPageProps): Promise<Metadata> {
   const { slug } = await params;
-  return caseStudyMetadata(slug, "en");
+  return caseStudyMetadata(slug, "es");
 }
 
-export default async function WorkDetailPage({ params }: WorkDetailPageProps) {
+export default async function WorkDetailPageEs({ params }: WorkDetailPageProps) {
   const { slug } = await params;
-  return <CaseStudyContent slug={slug} locale="en" />;
+  return <CaseStudyContent slug={slug} locale="es" />;
 }

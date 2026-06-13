@@ -5,7 +5,9 @@
 
 import type { Metadata } from "next";
 
-export const SITE_URL = "https://gpolin.com";
+import { type Locale, localizedPath } from "@/lib/i18n";
+
+export const SITE_URL = "https://www.gpolin.com";
 
 export const SITE_NAME = "Gustavo Polin";
 
@@ -40,14 +42,27 @@ export function ogImage(path: string, alt: string) {
 }
 
 /**
- * Build per-page metadata with a unique canonical URL, Open Graph, and
- * Twitter card. `title` is the short page title (the layout applies the
- * "%s | Gustavo Polin" template); `ogTitle` is the full social title.
+ * hreflang map for a locale-agnostic path, including x-default (English).
+ * `path` is the canonical path WITHOUT a locale prefix (e.g. "/work").
+ */
+export function hreflangAlternates(path: string) {
+  return {
+    en: absoluteUrl(localizedPath(path, "en")),
+    es: absoluteUrl(localizedPath(path, "es")),
+    "x-default": absoluteUrl(localizedPath(path, "en"))
+  };
+}
+
+/**
+ * Build per-page, locale-aware metadata: canonical (self), hreflang
+ * alternates, Open Graph, and Twitter card. `path` is the locale-agnostic
+ * path (e.g. "/work"); `locale` selects which canonical/OG locale to emit.
  */
 export function pageMeta({
   title,
   description,
   path,
+  locale = "en",
   image = DEFAULT_OG_IMAGE,
   imageAlt,
   ogTitle,
@@ -56,6 +71,7 @@ export function pageMeta({
   title: string;
   description: string;
   path: string;
+  locale?: Locale;
   image?: string;
   imageAlt?: string;
   ogTitle?: string;
@@ -63,16 +79,21 @@ export function pageMeta({
 }): Metadata {
   const fullTitle = ogTitle ?? `${title} | ${SITE_NAME}`;
   const alt = imageAlt ?? fullTitle;
+  const canonical = localizedPath(path, locale);
 
   return {
     title,
     description,
-    alternates: { canonical: path },
+    alternates: {
+      canonical,
+      languages: hreflangAlternates(path)
+    },
     openGraph: {
       type: ogType,
       siteName: SITE_NAME,
-      locale: "en_US",
-      url: path,
+      locale: locale === "es" ? "es_ES" : "en_US",
+      alternateLocale: locale === "es" ? "en_US" : "es_ES",
+      url: canonical,
       title: fullTitle,
       description,
       images: ogImage(image, alt)

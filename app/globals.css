@@ -4,7 +4,9 @@
 
 :root {
   color-scheme: light;
-  --font-sans: "Avenir Next", "Segoe UI", "Helvetica Neue", "Arial Nova", "Nimbus Sans", Arial, sans-serif;
+  /* Primary typeface is Geist (loaded via next/font and applied on <body> as
+     --font-sans). This is the system fallback used before the webfont loads. */
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
   --font-serif:
     "Iowan Old Style", "Palatino Linotype", "Book Antiqua", "Cormorant Garamond", Georgia, serif;
 }
