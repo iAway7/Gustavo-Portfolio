@@ -31,7 +31,7 @@ function getInitials(name: string) {
 function TestimonialAvatar({ testimonial }: { testimonial: TestimonialEntry }) {
   if (testimonial.image) {
     return (
-      <div className="relative h-16 w-16 overflow-hidden rounded-full border border-line">
+      <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded-full border border-line">
         <Image
           src={testimonial.image}
           alt={testimonial.name}
@@ -44,7 +44,7 @@ function TestimonialAvatar({ testimonial }: { testimonial: TestimonialEntry }) {
   }
 
   return (
-    <div className="flex h-16 w-16 items-center justify-center rounded-full border border-line bg-[#f2f2f0] text-lg font-medium text-text">
+    <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-full border border-line bg-[#f2f2f0] text-lg font-medium text-text">
       {getInitials(testimonial.name)}
     </div>
   );
