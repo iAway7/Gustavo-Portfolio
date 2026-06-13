@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
+import { MobileNav } from "@/components/mobile-nav";
 import { navItems } from "@/lib/site-data";
 import { cn } from "@/lib/utils";
 
@@ -11,12 +12,16 @@ export function SiteHeader() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-line bg-white/92 backdrop-blur-md">
-      <div className="shell flex flex-col gap-4 py-4 sm:flex-row sm:items-center sm:justify-between">
+      <div className="shell flex items-center justify-between gap-4 py-4">
         <Link href="/" className="text-lg font-medium tracking-[-0.05em] text-text">
           Gustavo Polin
         </Link>
 
-        <nav aria-label="Primary" className="flex flex-wrap items-center gap-2 sm:justify-end">
+        {/* Desktop navigation — unchanged, shown from md upward. */}
+        <nav
+          aria-label="Primary"
+          className="hidden flex-wrap items-center gap-2 md:flex md:justify-end"
+        >
           {navItems.map((item) => {
             const isActive =
               item.href === "/"
@@ -38,6 +43,9 @@ export function SiteHeader() {
             );
           })}
         </nav>
+
+        {/* Mobile navigation — hamburger + full-screen panel below md. */}
+        <MobileNav />
       </div>
     </header>
   );
