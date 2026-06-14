@@ -229,7 +229,9 @@ summary:focus-visible {
 }
 
 .link-chip {
-  @apply inline-flex items-center rounded-full bg-text px-4 py-2 text-base font-medium text-canvas transition-transform duration-200 hover:-translate-y-0.5;
+  /* Content-width pill, left-aligned in its grid/flex cell (never full-bleed
+     on mobile), with a sensible minimum width for short labels. */
+  @apply inline-flex w-fit min-w-[15rem] max-w-full items-center justify-center justify-self-start self-start rounded-full bg-text px-6 py-3 text-base font-medium text-canvas transition-transform duration-200 hover:-translate-y-0.5;
 }
 
 .link-chip--secondary {

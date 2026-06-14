@@ -170,7 +170,7 @@ export function MobileNav() {
             aria-label="Site menu"
             id={panelId}
             ref={panelRef}
-            className="fixed inset-0 z-[60] flex flex-col bg-white/97 backdrop-blur-xl"
+            className="fixed inset-0 z-[70] flex h-[100dvh] flex-col bg-[#f5f5f3]"
             initial={overlayMotion.initial}
             animate={overlayMotion.animate}
             exit={overlayMotion.exit}
@@ -200,7 +200,7 @@ export function MobileNav() {
 
             <nav
               aria-label="Mobile primary"
-              className="shell flex flex-1 flex-col justify-center gap-1 pb-24"
+              className="shell flex flex-1 flex-col justify-center gap-1 overflow-y-auto pb-16 pt-4"
             >
               {navLinks.map((item, index) => {
                 const active = isActive(item.href);
