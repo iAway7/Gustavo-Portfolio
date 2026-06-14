@@ -11,15 +11,26 @@ import type { ProductCaseStudy, ProjectCaseStudy } from "@/lib/site-data";
 
 const IMG = "/projects/agencyhub";
 
-// Overview product walkthrough — real AgencyHub surfaces, in flow order, so the
-// Overview communicates a connected platform (browse → detail → cart →
-// checkout → client payment) rather than a single screen.
+// Overview walkthrough — the full design-process board set, so the Overview
+// reads as a complete system: research, flows, personas, UI, and final screens.
+const BOARDS = `${IMG}/shots/boards`;
 const overviewSlides: OverviewSlide[] = [
-  { src: `${IMG}/cs/screen-marketplace.webp`, alt: "AgencyHub marketplace browsing curated services", label: "Marketplace" },
-  { src: `${IMG}/cs/screen-product-page.webp`, alt: "AgencyHub service detail page", label: "Service detail" },
-  { src: `${IMG}/cs/screen-cart.webp`, alt: "AgencyHub cart with order details and totals", label: "Cart" },
-  { src: `${IMG}/cs/screen-checkout.webp`, alt: "AgencyHub checkout with payment options", label: "Checkout" },
-  { src: `${IMG}/cs/screen-payment-link.webp`, alt: "AgencyHub client-facing payment link", label: "Payment link" }
+  { src: `${BOARDS}/overview.webp`, alt: "AgencyHub project overview board", label: "Overview" },
+  { src: `${BOARDS}/problem-statement.webp`, alt: "Problem statement board", label: "Problem Statement" },
+  { src: `${BOARDS}/how-might-we.webp`, alt: "How Might We questions board", label: "How Might We" },
+  { src: `${BOARDS}/design-process.webp`, alt: "Five-phase design sprint process board", label: "Design Process" },
+  { src: `${BOARDS}/personas-agency.webp`, alt: "Agency owner user persona board", label: "User Personas — Agency" },
+  { src: `${BOARDS}/personas-provider.webp`, alt: "Service provider user persona board", label: "User Personas — Provider" },
+  { src: `${BOARDS}/user-flow.webp`, alt: "Provider and agency user flows board", label: "User Flow" },
+  { src: `${BOARDS}/lightning-demos.webp`, alt: "Lightning demos board with marketplace references", label: "Lightning Demos" },
+  { src: `${BOARDS}/paper-sketches.webp`, alt: "Paper sketches of marketplace, cart, and checkout", label: "Paper Sketches" },
+  { src: `${BOARDS}/wireframes.webp`, alt: "High-fidelity wireframes board", label: "High-Fidelity Wireframes" },
+  { src: `${BOARDS}/typography.webp`, alt: "Typography system board", label: "Typography" },
+  { src: `${BOARDS}/buttons.webp`, alt: "Button states board", label: "Buttons" },
+  { src: `${BOARDS}/components.webp`, alt: "Component states board", label: "Components" },
+  { src: `${BOARDS}/ui-colors.webp`, alt: "UI color system board with accessibility ratings", label: "UI Colors" },
+  { src: `${BOARDS}/ui-showcase.webp`, alt: "Final UI showcase across marketplace, cart, and checkout", label: "UI Showcase" },
+  { src: `${BOARDS}/final-reflection.webp`, alt: "Final reflection board", label: "Final Reflection" }
 ];
 
 // AgencyHub reading paragraph: ~24px desktop, scaling down on mobile, lh ~1.5.
@@ -174,10 +185,10 @@ export function AgencyHubCaseStudy({
         </div>
         <Reveal delay={0.06} className="mt-14">
           <Figure
-            src={`${IMG}/cs/user-flow.webp`}
+            src={`${BOARDS}/user-flow.webp`}
             alt="AgencyHub provider and agency user flows"
-            width={2400}
-            height={3552}
+            width={2000}
+            height={3028}
             caption={data.usersVisual?.caption}
           />
         </Reveal>
@@ -192,10 +203,10 @@ export function AgencyHubCaseStudy({
         />
         <Reveal delay={0.06} className="mt-14">
           <Figure
-            src={`${IMG}/cs/design-process.webp`}
+            src={`${BOARDS}/design-process.webp`}
             alt="AgencyHub design sprint process across five phases"
-            width={2400}
-            height={1520}
+            width={2000}
+            height={1708}
           />
         </Reveal>
       </Section>
@@ -250,10 +261,10 @@ export function AgencyHubCaseStudy({
         </div>
         <Reveal delay={0.06} className="mt-14">
           <Figure
-            src={`${IMG}/cs/ui-showcase.webp`}
+            src={`${BOARDS}/ui-showcase.webp`}
             alt="AgencyHub final UI across marketplace, cart, and checkout"
-            width={2400}
-            height={3274}
+            width={2000}
+            height={2837}
           />
         </Reveal>
       </Section>

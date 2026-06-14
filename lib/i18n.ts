@@ -49,8 +49,8 @@ export function alternatePathname(pathname: string, target: Locale): string {
 
 /** Resume label + file per locale (English Resume / Spanish CV). */
 export const resumeByLocale: Record<Locale, { label: string; href: string; value: string }> = {
-  en: { label: "Resume", value: "Download PDF", href: "/docs/gustavo-polin-product-designer-en.pdf" },
-  es: { label: "CV", value: "Descargar PDF", href: "/docs/gustavo-polin-product-designer-es.pdf" }
+  en: { label: "Resume", value: "Download PDF", href: "/docs/gustavo-polin-product-designer-en-2.pdf" },
+  es: { label: "CV", value: "Descargar PDF", href: "/docs/gustavo-polin-product-designer-es-2.pdf" }
 };
 
 /** Localized project titles + card/meta summaries. Bodies stay English. */

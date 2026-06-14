@@ -641,7 +641,7 @@ export const projectCaseStudies: ProjectCaseStudy[] = [
             "The decision in one screen: card, balance, or a payment link sent to the client. Selecting Payment Link turns the primary action into \"Create A Payment Link\".",
           visual: {
             type: "image",
-            src: "/projects/agencyhub/cs/screen-checkout.webp",
+            src: "/projects/agencyhub/shots/checkout.webp",
             alt: "AgencyHub checkout with card, payment link, and account balance options"
           }
         }
@@ -658,7 +658,7 @@ export const projectCaseStudies: ProjectCaseStudy[] = [
             "What an agency browses is already approved: curated categories with scope and starting prices up front, because the vetting happened before the listing went live.",
           visual: {
             type: "image",
-            src: "/projects/agencyhub/cs/screen-marketplace.webp",
+            src: "/projects/agencyhub/shots/marketplace.webp",
             alt: "AgencyHub marketplace with curated service listings"
           }
         }
@@ -675,7 +675,7 @@ export const projectCaseStudies: ProjectCaseStudy[] = [
             "The order as the shared object: plan, setup fee, quantity, and totals carried from cart through fulfillment, so every conversation has the same source of truth.",
           visual: {
             type: "image",
-            src: "/projects/agencyhub/cs/screen-cart.webp",
+            src: "/projects/agencyhub/shots/cart.webp",
             alt: "AgencyHub cart with order details and totals"
           }
         }

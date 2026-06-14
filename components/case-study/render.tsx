@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { AgencyHubCaseStudy } from "@/components/case-study/agencyhub/agencyhub-case-study";
 import { EmmviCaseStudy } from "@/components/case-study/emmvi/emmvi-case-study";
 import { ExperienceCaseStudy } from "@/components/case-study/experience-case-study";
+import { FieldOperationsCaseStudy } from "@/components/case-study/field-operations/field-operations-case-study";
 import { ProductCaseStudy } from "@/components/case-study/product-case-study";
 import { breadcrumbJsonLd, caseStudyJsonLd, JsonLd } from "@/components/json-ld";
 import { getProjectBySlug } from "@/lib/site-data";
@@ -75,7 +76,9 @@ export function CaseStudyContent({ slug, locale }: { slug: string; locale: Local
   ];
 
   const caseStudy =
-    project.slug === "agencyhub-platform" ? (
+    project.slug === "installpros-technician-app" ? (
+      <FieldOperationsCaseStudy project={project} nextProject={nextProject} />
+    ) : project.slug === "agencyhub-platform" ? (
       <AgencyHubCaseStudy project={project} nextProject={nextProject} />
     ) : project.slug === "emmvi-growth-platform" ? (
       <EmmviCaseStudy project={project} nextProject={nextProject} />

@@ -86,7 +86,7 @@ export function AgencyHubOverviewCarousel({ slides }: { slides: OverviewSlide[] 
                 src={slide.src}
                 alt={slide.alt}
                 fill
-                className="object-cover object-top"
+                className="object-contain"
                 sizes="(min-width: 1248px) 78rem, 100vw"
                 priority={slideIndex === 0}
               />

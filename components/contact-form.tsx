@@ -118,6 +118,7 @@ export function ContactForm({ locale = "en" }: { locale?: Locale }) {
         name="company"
         className="hidden"
         aria-hidden="true"
+        suppressHydrationWarning
       />
       <label className="grid gap-2">
         <span className="text-sm text-muted">
@@ -131,6 +132,7 @@ export function ContactForm({ locale = "en" }: { locale?: Locale }) {
           aria-describedby={errors.name ? "contact-name-error" : undefined}
           onChange={() => setErrors((current) => ({ ...current, name: undefined }))}
           className="rounded-[1.2rem] border border-line bg-panel/60 px-4 py-3 outline-none transition-colors duration-300 focus:border-text/30"
+          suppressHydrationWarning
         />
         {errors.name ? (
           <p id="contact-name-error" role="alert" className="text-sm text-[#b42318]">
@@ -151,6 +153,7 @@ export function ContactForm({ locale = "en" }: { locale?: Locale }) {
           aria-describedby={errors.email ? "contact-email-error" : undefined}
           onChange={() => setErrors((current) => ({ ...current, email: undefined }))}
           className="rounded-[1.2rem] border border-line bg-panel/60 px-4 py-3 outline-none transition-colors duration-300 focus:border-text/30"
+          suppressHydrationWarning
         />
         {errors.email ? (
           <p id="contact-email-error" role="alert" className="text-sm text-[#b42318]">
@@ -163,6 +166,7 @@ export function ContactForm({ locale = "en" }: { locale?: Locale }) {
         <input
           name="project"
           className="rounded-[1.2rem] border border-line bg-panel/60 px-4 py-3 outline-none transition-colors duration-300 focus:border-text/30"
+          suppressHydrationWarning
         />
       </label>
       <label className="grid gap-2">
@@ -178,6 +182,7 @@ export function ContactForm({ locale = "en" }: { locale?: Locale }) {
           aria-describedby={errors.message ? "contact-message-error" : undefined}
           onChange={() => setErrors((current) => ({ ...current, message: undefined }))}
           className="rounded-[1.2rem] border border-line bg-panel/60 px-4 py-3 outline-none transition-colors duration-300 focus:border-text/30"
+          suppressHydrationWarning
         />
         {errors.message ? (
           <p id="contact-message-error" role="alert" className="text-sm text-[#b42318]">
