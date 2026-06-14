@@ -213,7 +213,7 @@ export function FieldOperationsCaseStudy({
       <Section>
         <SectionHead
           label="The field is the spec"
-          title="The hardest part of the spec is the field itself."
+          title="The hardest part of the spec is the field itself."
           intro="The interface is used standing, outdoors, one-handed, in direct sunlight — and built for technicians across a wide digital-fluency range."
         />
         <div className="mt-8 grid max-w-2xl gap-5">

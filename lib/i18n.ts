@@ -81,12 +81,12 @@ export const projectI18n: Record<string, Record<Locale, { title: string; summary
   },
   "installpros-website": {
     en: {
-      title: "Digital Service Experience",
+      title: "InstallPros",
       summary:
         "A conversion-led redesign of Install Pros' web presence, turning a list of services into a clear path toward booking an installation."
     },
     es: {
-      title: "Experiencia de Servicio Digital",
+      title: "InstallPros",
       summary:
         "Un rediseño orientado a la conversión de la presencia web de Install Pros, que convierte una lista de servicios en un camino claro hacia la reserva de una instalación."
     }

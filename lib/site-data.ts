@@ -461,11 +461,11 @@ export const projectCaseStudies: ProjectCaseStudy[] = [
     ],
     context: [
       "Install Pros runs Starlink internet installations across residential, commercial, and mobile sectors. The unit economics are unforgiving: a truck roll costs the same whether the install succeeds or fails, and every clarification call routes through a small dispatch team.",
-      "The business needed technicians to complete more installs per day with fewer escalations. Not a portal, but an operating tool that holds the job's state so the technician doesn't have to."
+      "The business needed technicians to complete more installs per day with fewer escalations. Not a portal, but an operating tool that holds the job's state so the technician doesn't have to."
     ],
     operatingConditions: [
       "The interface is used standing, outdoors, often one-handed, in direct sunlight, between a ladder and a customer conversation. Sessions last seconds, not minutes: a technician checks the next action, then puts the phone away.",
-      "Connectivity is unreliable by definition: the customer is buying satellite internet because coverage there is poor. The product has to assume a dead zone at the exact moment of work."
+      "Connectivity is unreliable by definition: the customer is buying satellite internet because coverage there is poor. The product has to assume a dead zone at the exact moment of work."
     ],
     constraints: [
       {
@@ -702,7 +702,7 @@ export const projectCaseStudies: ProjectCaseStudy[] = [
   {
     kind: "experience",
     slug: "installpros-website",
-    title: "Digital Service Experience",
+    title: "InstallPros",
     clientOrBrand: "Install Pros",
     role: "UX/UI Designer",
     period: "2024 - Present",
