@@ -714,8 +714,8 @@ export const projectCaseStudies: ProjectCaseStudy[] = [
     href: "/work/installpros-website",
     cardVisual: {
       type: "image",
-      src: "/projects/installpros-website/Cover - InstallPros Website.png",
-      alt: "Install Pros digital service experience cover",
+      src: "/projects/installpros-website/cover-website-01.webp",
+      alt: "InstallPros website cover",
       tone: "paper"
     },
     glance: {

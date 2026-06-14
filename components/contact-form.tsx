@@ -190,14 +190,16 @@ export function ContactForm({ locale = "en" }: { locale?: Locale }) {
           </p>
         ) : null}
       </label>
-      <button
-        type="submit"
-        disabled={isSubmitting}
-        data-cursor="link"
-        className="magnetic-link mt-4 rounded-full bg-text px-6 py-3 text-base font-medium uppercase tracking-[0.18em] text-canvas disabled:opacity-70"
-      >
-        <span className="magnetic-link__inner">{isSubmitting ? t.sending : t.send}</span>
-      </button>
+      <div className="mt-4 flex justify-start">
+        <button
+          type="submit"
+          disabled={isSubmitting}
+          data-cursor="link"
+          className="magnetic-link rounded-full bg-text px-10 py-3 text-base font-medium text-canvas disabled:opacity-70"
+        >
+          <span className="magnetic-link__inner">{isSubmitting ? t.sending : t.send}</span>
+        </button>
+      </div>
       {status ? (
         <p
           role="status"

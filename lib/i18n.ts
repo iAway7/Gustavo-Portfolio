@@ -146,7 +146,7 @@ const en = {
     testimonials: "Testimonials",
     viewAll: "View all",
     expCaption: "Experience snapshot",
-    expHeading: "From SaaS workflows to service-business systems, the work stays close to execution.",
+    expHeading: "Designing products that work beyond the screen.",
     expIntro:
       "I’ve worked across product teams, developers, stakeholders, marketing, and support, always balancing product intent with what can actually ship.",
     contactCaption: "Contact",
@@ -181,14 +181,13 @@ const en = {
   },
   approach: {
     caption: "Approach",
-    h1: "A product-design approach built on clarity, systems, and implementation awareness.",
+    h1: "The challenge isn’t adding functionality. It’s removing friction.",
     intro:
       "My goal is not just to make interfaces look good. It’s to help products work better for users, business stakeholders, and the teams responsible for shipping them.",
     coreExpertise: "Core expertise",
     relevantCertifications: "Relevant certifications",
     startWork: "Start with the work",
-    flagshipHeading:
-      "My flagship project shows this approach in practice through mobile UX and field workflow design.",
+    flagshipHeading: "A closer look at my product design process.",
     viewFeatured: "View featured case study"
   },
   contact: {
@@ -199,10 +198,10 @@ const en = {
     form: {
       name: "Name",
       email: "Email",
-      project: "Project (Optional)",
+      project: "Company (Optional)",
       message: "Message",
       required: "required",
-      send: "Send",
+      send: "Get in Touch",
       sending: "Sending...",
       success: "Thanks. Your message was sent successfully.",
       errorGeneric: "Please correct the highlighted fields and try again.",
@@ -257,8 +256,7 @@ const es: Dict = {
     testimonials: "Testimonios",
     viewAll: "Ver todos",
     expCaption: "Resumen de experiencia",
-    expHeading:
-      "De flujos SaaS a sistemas para negocios de servicios, el trabajo se mantiene cerca de la ejecución.",
+    expHeading: "Diseñar productos que funcionan más allá de la pantalla.",
     expIntro:
       "He trabajado con equipos de producto, desarrolladores, stakeholders, marketing y soporte, equilibrando siempre la intención de producto con lo que realmente se puede lanzar.",
     contactCaption: "Contacto",
@@ -293,14 +291,13 @@ const es: Dict = {
   },
   approach: {
     caption: "Enfoque",
-    h1: "Un enfoque de diseño de producto basado en la claridad, los sistemas y la conciencia de implementación.",
+    h1: "El reto no es añadir funcionalidad. Es eliminar fricción.",
     intro:
       "Mi objetivo no es solo que las interfaces se vean bien. Es ayudar a que los productos funcionen mejor para los usuarios, los stakeholders del negocio y los equipos responsables de lanzarlos.",
     coreExpertise: "Especialidades principales",
     relevantCertifications: "Certificaciones relevantes",
     startWork: "Empieza por el trabajo",
-    flagshipHeading:
-      "Mi proyecto destacado muestra este enfoque en la práctica a través del UX móvil y el diseño de flujos de trabajo en campo.",
+    flagshipHeading: "Una mirada más cercana a mi proceso de diseño de producto.",
     viewFeatured: "Ver caso de estudio destacado"
   },
   contact: {
