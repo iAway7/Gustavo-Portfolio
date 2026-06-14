@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
+import { AgencyHubCaseStudy } from "@/components/case-study/agencyhub/agencyhub-case-study";
 import { EmmviCaseStudy } from "@/components/case-study/emmvi/emmvi-case-study";
 import { ExperienceCaseStudy } from "@/components/case-study/experience-case-study";
 import { ProductCaseStudy } from "@/components/case-study/product-case-study";
@@ -74,7 +75,9 @@ export function CaseStudyContent({ slug, locale }: { slug: string; locale: Local
   ];
 
   const caseStudy =
-    project.slug === "emmvi-growth-platform" ? (
+    project.slug === "agencyhub-platform" ? (
+      <AgencyHubCaseStudy project={project} nextProject={nextProject} />
+    ) : project.slug === "emmvi-growth-platform" ? (
       <EmmviCaseStudy project={project} nextProject={nextProject} />
     ) : project.kind === "product" ? (
       <ProductCaseStudy project={project} nextProject={nextProject} />

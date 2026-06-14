@@ -55,14 +55,12 @@ export function ApproachView({ locale }: { locale: Locale }) {
       <section className="section-space pt-0">
         <div className="shell">
           <Reveal className="section-rule">
-            <div className="grid gap-8 lg:grid-cols-[1fr_auto] lg:items-end">
-              <div className="max-w-2xl">
-                <p className="caption">{t.startWork}</p>
-                <h2 className="section-title mt-4">{t.flagshipHeading}</h2>
-              </div>
+            <div className="max-w-2xl">
+              <p className="caption">{t.startWork}</p>
+              <h2 className="section-title mt-4">{t.flagshipHeading}</h2>
               <MagneticLink
                 href={localizedPath("/work/installpros-technician-app", locale)}
-                className="link-chip"
+                className="link-chip mt-10"
               >
                 {t.viewFeatured}
               </MagneticLink>

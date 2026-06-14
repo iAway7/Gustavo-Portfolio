@@ -151,12 +151,10 @@ export function ExperienceView({ locale }: { locale: Locale }) {
       <section className="section-space pt-0">
         <div className="shell">
           <Reveal className="section-rule">
-            <div className="grid gap-8 lg:grid-cols-[1fr_auto] lg:items-end">
-              <div className="max-w-2xl">
-                <p className="caption">{t.featuredNext}</p>
-                <h2 className="section-title mt-4">{t.featuredHeading}</h2>
-              </div>
-              <MagneticLink href={localizedPath("/work", locale)} className="link-chip">
+            <div className="max-w-2xl">
+              <p className="caption">{t.featuredNext}</p>
+              <h2 className="section-title mt-4">{t.featuredHeading}</h2>
+              <MagneticLink href={localizedPath("/work", locale)} className="link-chip mt-10">
                 {t.browseProjects}
               </MagneticLink>
             </div>

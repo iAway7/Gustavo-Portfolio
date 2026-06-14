@@ -28,15 +28,19 @@ export function ContactView({ locale }: { locale: Locale }) {
                       href={channel.href}
                       target={channel.href.startsWith("http") ? "_blank" : undefined}
                       rel={channel.href.startsWith("http") ? "noreferrer" : undefined}
-                      className="contact-link"
+                      className="contact-link group"
                     >
                       <span>{channel.label}</span>
-                      <span className="text-muted">{channel.value}</span>
+                      <span className="text-muted transition-colors duration-200 group-hover:text-[#244de8]">
+                        {channel.value}
+                      </span>
                     </a>
                   ))}
-                  <a href={resume.href} download="" className="contact-link">
+                  <a href={resume.href} download="" className="contact-link group">
                     <span>{resume.label}</span>
-                    <span className="text-muted">{resume.value}</span>
+                    <span className="text-muted transition-colors duration-200 group-hover:text-[#244de8]">
+                      {resume.value}
+                    </span>
                   </a>
                 </div>
               </Reveal>

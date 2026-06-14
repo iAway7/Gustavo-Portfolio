@@ -161,13 +161,11 @@ export function HomeView({ locale }: { locale: Locale }) {
       <section id="contact-cta" className="section-space">
         <div className="shell">
           <Reveal className="section-rule">
-            <div className="grid gap-8 lg:grid-cols-[1fr_auto] lg:items-end">
-              <div className="max-w-2xl">
-                <p className="caption">{t.contactCaption}</p>
-                <h2 className="section-title mt-4">{t.contactHeading}</h2>
-                <p className="body-copy mt-6">{t.contactIntro}</p>
-              </div>
-              <MagneticLink href={localizedPath("/contact", locale)} className="link-chip">
+            <div className="max-w-2xl">
+              <p className="caption">{t.contactCaption}</p>
+              <h2 className="section-title mt-4">{t.contactHeading}</h2>
+              <p className="body-copy mt-6">{t.contactIntro}</p>
+              <MagneticLink href={localizedPath("/contact", locale)} className="link-chip mt-10">
                 {t.startConversation}
               </MagneticLink>
             </div>

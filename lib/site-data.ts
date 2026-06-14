@@ -581,20 +581,20 @@ export const projectCaseStudies: ProjectCaseStudy[] = [
         "A marketplace where an agency can find a vetted provider, buy a service, charge its own client, and manage delivery, all in one system."
     },
     heroSlides: [
-      { src: "/projects/agencyhub/boards/01-overview.webp", alt: "Project overview board with the marketplace summary, role, and duration", label: "Overview" },
-      { src: "/projects/agencyhub/boards/02-problem-statement.webp", alt: "Problem statement and solution board", label: "Problem Statement" },
-      { src: "/projects/agencyhub/boards/03-how-might-we.webp", alt: "How Might We questions and their categorization", label: "How Might We" },
-      { src: "/projects/agencyhub/boards/04-design-process.webp", alt: "Design Sprint process board mapping the five phases", label: "Design Process" },
-      { src: "/projects/agencyhub/boards/05-user-personas.webp", alt: "User personas for the agency owner and the service provider", label: "User Personas" },
-      { src: "/projects/agencyhub/boards/06-user-flow.webp", alt: "Provider and agency user flows, including approval and payment link paths", label: "User Flow" },
-      { src: "/projects/agencyhub/boards/07-lightning-demos.webp", alt: "Lightning demos board with marketplace references", label: "Lightning Demos" },
-      { src: "/projects/agencyhub/boards/08-paper-sketches.webp", alt: "Paper sketches of marketplace, cart, and checkout concepts", label: "Paper Sketches" },
-      { src: "/projects/agencyhub/boards/09-high-fidelity-wireframes.webp", alt: "High-fidelity wireframes of marketplace, cart, and checkout", label: "High-Fidelity Wireframes" },
-      { src: "/projects/agencyhub/boards/10-typography.webp", alt: "Typography board showing the Inter type system", label: "Typography" },
-      { src: "/projects/agencyhub/boards/11-components.webp", alt: "Component states board for inputs and controls", label: "Components" },
-      { src: "/projects/agencyhub/boards/12-ui-colors.webp", alt: "UI color system board with accessibility ratings", label: "UI Colors" },
-      { src: "/projects/agencyhub/boards/13-ui-showcase.webp", alt: "Final UI showcase across marketplace, cart, and checkout", label: "UI Showcase" },
-      { src: "/projects/agencyhub/boards/14-key-takeaway.webp", alt: "Key takeaway board: good marketplace experiences are built on trust", label: "Key Takeaway" }
+      { src: "/projects/agencyhub/cs/boards/01-overview.webp", alt: "Project overview board with the marketplace summary, role, and duration", label: "Overview" },
+      { src: "/projects/agencyhub/cs/boards/02-problem-statement.webp", alt: "Problem statement and solution board", label: "Problem Statement" },
+      { src: "/projects/agencyhub/cs/boards/03-how-might-we.webp", alt: "How Might We questions and their categorization", label: "How Might We" },
+      { src: "/projects/agencyhub/cs/boards/04-design-process.webp", alt: "Design Sprint process board mapping the five phases", label: "Design Process" },
+      { src: "/projects/agencyhub/cs/boards/05-user-personas.webp", alt: "User personas for the agency owner and the service provider", label: "User Personas" },
+      { src: "/projects/agencyhub/cs/boards/06-user-flow.webp", alt: "Provider and agency user flows, including approval and payment link paths", label: "User Flow" },
+      { src: "/projects/agencyhub/cs/boards/07-lightning-demos.webp", alt: "Lightning demos board with marketplace references", label: "Lightning Demos" },
+      { src: "/projects/agencyhub/cs/boards/08-paper-sketches.webp", alt: "Paper sketches of marketplace, cart, and checkout concepts", label: "Paper Sketches" },
+      { src: "/projects/agencyhub/cs/boards/09-high-fidelity-wireframes.webp", alt: "High-fidelity wireframes of marketplace, cart, and checkout", label: "High-Fidelity Wireframes" },
+      { src: "/projects/agencyhub/cs/boards/10-typography.webp", alt: "Typography board showing the Inter type system", label: "Typography" },
+      { src: "/projects/agencyhub/cs/boards/11-components.webp", alt: "Component states board for inputs and controls", label: "Components" },
+      { src: "/projects/agencyhub/cs/boards/12-ui-colors.webp", alt: "UI color system board with accessibility ratings", label: "UI Colors" },
+      { src: "/projects/agencyhub/cs/boards/13-ui-showcase.webp", alt: "Final UI showcase across marketplace, cart, and checkout", label: "UI Showcase" },
+      { src: "/projects/agencyhub/cs/boards/14-key-takeaway.webp", alt: "Key takeaway board: good marketplace experiences are built on trust", label: "Key Takeaway" }
     ],
     context: [
       "Digital agencies grow by saying yes. When a client asks for SEO and the agency only does ads, the agency either hires, refuses, or finds a white-label partner. Most choose partners, and most find them by trial and error. Every failed partnership costs money twice: the wasted spend, and the client who leaves.",
@@ -610,7 +610,7 @@ export const projectCaseStudies: ProjectCaseStudy[] = [
         "The two-sided system map: a provider path that ends in an approval gate, and an agency path where checkout can detour through the client before fulfillment begins.",
       visual: {
         type: "image",
-        src: "/projects/agencyhub/user-flow.png",
+        src: "/projects/agencyhub/cs/user-flow.webp",
         alt: "AgencyHub provider and agency user flows"
       }
     },
@@ -641,7 +641,7 @@ export const projectCaseStudies: ProjectCaseStudy[] = [
             "The decision in one screen: card, balance, or a payment link sent to the client. Selecting Payment Link turns the primary action into \"Create A Payment Link\".",
           visual: {
             type: "image",
-            src: "/projects/agencyhub/screen-checkout.webp",
+            src: "/projects/agencyhub/cs/screen-checkout.webp",
             alt: "AgencyHub checkout with card, payment link, and account balance options"
           }
         }
@@ -658,7 +658,7 @@ export const projectCaseStudies: ProjectCaseStudy[] = [
             "What an agency browses is already approved: curated categories with scope and starting prices up front, because the vetting happened before the listing went live.",
           visual: {
             type: "image",
-            src: "/projects/agencyhub/screen-marketplace.webp",
+            src: "/projects/agencyhub/cs/screen-marketplace.webp",
             alt: "AgencyHub marketplace with curated service listings"
           }
         }
@@ -675,7 +675,7 @@ export const projectCaseStudies: ProjectCaseStudy[] = [
             "The order as the shared object: plan, setup fee, quantity, and totals carried from cart through fulfillment, so every conversation has the same source of truth.",
           visual: {
             type: "image",
-            src: "/projects/agencyhub/screen-cart.webp",
+            src: "/projects/agencyhub/cs/screen-cart.webp",
             alt: "AgencyHub cart with order details and totals"
           }
         }
