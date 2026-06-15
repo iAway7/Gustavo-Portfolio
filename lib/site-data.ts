@@ -590,7 +590,7 @@ export const projectCaseStudies: ProjectCaseStudy[] = [
       { src: "/projects/agencyhub/cs/boards/01-overview.webp", alt: "Project overview board with the marketplace summary, role, and duration", label: "Overview" },
       { src: "/projects/agencyhub/cs/boards/02-problem-statement.webp", alt: "Problem statement and solution board", label: "Problem Statement" },
       { src: "/projects/agencyhub/cs/boards/03-how-might-we.webp", alt: "How Might We questions and their categorization", label: "How Might We" },
-      { src: "/projects/agencyhub/cs/boards/04-design-process.webp", alt: "Design Sprint process board mapping the five phases", label: "Design Process" },
+      { src: "/projects/agencyhub/cs/boards/04-design-process.png", alt: "Design Sprint process board mapping the five phases", label: "Design Process" },
       { src: "/projects/agencyhub/cs/boards/05-user-personas.webp", alt: "User personas for the agency owner and the service provider", label: "User Personas" },
       { src: "/projects/agencyhub/cs/boards/06-user-flow.webp", alt: "Provider and agency user flows, including approval and payment link paths", label: "User Flow" },
       { src: "/projects/agencyhub/cs/boards/07-lightning-demos.webp", alt: "Lightning demos board with marketplace references", label: "Lightning Demos" },

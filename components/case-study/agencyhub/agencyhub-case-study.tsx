@@ -18,7 +18,7 @@ const overviewSlides: OverviewSlide[] = [
   { src: `${BOARDS}/overview.webp`, alt: "AgencyHub project overview board", label: "Overview" },
   { src: `${BOARDS}/problem-statement.webp`, alt: "Problem statement board", label: "Problem Statement" },
   { src: `${BOARDS}/how-might-we.webp`, alt: "How Might We questions board", label: "How Might We" },
-  { src: `${BOARDS}/design-process.webp`, alt: "Five-phase design sprint process board", label: "Design Process" },
+  { src: `${BOARDS}/design-process.png`, alt: "Five-phase design sprint process board", label: "Design Process" },
   { src: `${BOARDS}/personas-agency.webp`, alt: "Agency owner user persona board", label: "User Personas — Agency" },
   { src: `${BOARDS}/personas-provider.webp`, alt: "Service provider user persona board", label: "User Personas — Provider" },
   { src: `${BOARDS}/user-flow.webp`, alt: "Provider and agency user flows board", label: "User Flow" },
