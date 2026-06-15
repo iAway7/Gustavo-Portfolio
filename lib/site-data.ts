@@ -564,7 +564,7 @@ export const projectCaseStudies: ProjectCaseStudy[] = [
     title: "AgencyHub",
     clientOrBrand: "AgencyHub",
     role: "UX/UI Designer",
-    period: "3 months",
+    period: "2020 - 2024",
     scope: "Marketplace, checkout, orders, provider tools",
     summary:
       "A two-sided marketplace where digital agencies buy white-label services from vetted providers and resell them to their own clients.",

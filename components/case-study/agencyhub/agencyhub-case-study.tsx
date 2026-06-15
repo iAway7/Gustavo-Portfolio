@@ -137,7 +137,7 @@ export function AgencyHubCaseStudy({
             <dl className="mt-10 grid gap-6 sm:grid-cols-3">
               {[
                 ["Role", project.role],
-                ["Period", project.period],
+                ["Timeline", project.period],
                 ["Scope", project.scope]
               ].map(([label, value]) => (
                 <div key={label}>

@@ -64,7 +64,7 @@ export function CaseStudyHero({ project }: { project: ProjectCaseStudy }) {
                   <p className="mt-3 text-base text-text">{project.role}</p>
                 </div>
                 <div className="meta-card">
-                  <p className="section-label">Period</p>
+                  <p className="section-label">Timeline</p>
                   <p className="mt-3 text-base text-text">{project.period}</p>
                 </div>
                 <div className="meta-card">
