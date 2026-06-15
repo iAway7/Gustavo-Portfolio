@@ -20,8 +20,8 @@ export function HomeView({ locale }: { locale: Locale }) {
   const t = getDict(locale).home;
 
   return (
-    <main id="main-content" tabIndex={-1} className="pb-8 pt-10 sm:pt-14">
-      <section id="home" className="section-space pt-20 sm:pt-24 lg:min-h-[78vh] lg:pt-24">
+    <main id="main-content" tabIndex={-1} className="pb-8 sm:pt-14">
+      <section id="home" className="section-space sm:pt-24 lg:min-h-[78vh] lg:pt-24">
         <div className="shell">
           <div className="max-w-[72rem]">
             <div className="mt-4 flex flex-wrap gap-3">
@@ -32,7 +32,7 @@ export function HomeView({ locale }: { locale: Locale }) {
               <br />
               {t.h1b}
             </h1>
-            <p className="body-copy mt-8 max-w-3xl text-[24px] leading-[1.55] text-[#4f4f4f]">
+            <p className="body-copy mt-8 max-w-3xl text-[20px] leading-[1.55] text-[#4f4f4f] sm:text-[24px]">
               {t.intro}
             </p>
             <div className="mt-12 flex flex-wrap gap-4">
