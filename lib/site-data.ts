@@ -11,6 +11,7 @@ export type HomeSection = {
 export type ExperienceEntry = {
   tier: "now" | "before";
   period: string;
+  duration?: string;
   company: string;
   role: string;
   summary: string;
@@ -258,7 +259,8 @@ export const testimonials: TestimonialEntry[] = [
 export const experienceEntries: ExperienceEntry[] = [
   {
     tier: "now",
-    period: "2024 - Present",
+    period: "Feb 2024 - Present",
+    duration: "2 yrs 4 mos",
     company: "Install Pros",
     role: "Product Designer",
     logo: "/logos/installpros.svg",
@@ -268,7 +270,8 @@ export const experienceEntries: ExperienceEntry[] = [
   },
   {
     tier: "now",
-    period: "2023 - Present",
+    period: "Jul 2023 - Present",
+    duration: "1 yr 11 mos",
     company: "Emmvi",
     role: "Co-Founder · Design & Strategy",
     logo: "/logos/emmvi.svg",
@@ -278,7 +281,8 @@ export const experienceEntries: ExperienceEntry[] = [
   },
   {
     tier: "before",
-    period: "2020 - 2024",
+    period: "Aug 2020 - Feb 2024",
+    duration: "3 yrs 7 mos",
     company: "AgencyHub",
     role: "UX/UI Designer",
     logo: "/logos/agencyhub.svg",
@@ -288,7 +292,8 @@ export const experienceEntries: ExperienceEntry[] = [
   },
   {
     tier: "before",
-    period: "2017 - 2020",
+    period: "Sep 2017 - Aug 2020",
+    duration: "3 yrs",
     company: "AgencyHub",
     role: "Web Designer",
     logo: "/logos/agencyhub.svg",
@@ -298,7 +303,8 @@ export const experienceEntries: ExperienceEntry[] = [
   },
   {
     tier: "before",
-    period: "2015 - 2016",
+    period: "Jan 2015 - Feb 2016",
+    duration: "1 yr 2 mos",
     company: "AccelOne",
     role: "Web Research & HTML Developer",
     logo: "/logos/accelone.png",

@@ -12,6 +12,7 @@ import { Reveal } from "@/components/reveal";
 import type { CaseStudyGlance, ProjectCaseStudy } from "@/lib/site-data";
 
 const IMG = "/projects/installpros-website/alt2";
+const EVIDENCE = `${IMG}/evidence`;
 
 // Same reading paragraph scale as the other case studies.
 const PARA = "text-[1.125rem] leading-[1.55] text-muted sm:text-[1.5rem] sm:leading-[1.5]";
@@ -143,12 +144,15 @@ const decisions: {
   title: string;
   body: string;
   image: { src: string; alt: string };
+  imageCaption?: string;
+  supportingArtifacts?: { src: string; alt: string; caption: string }[];
 }[] = [
   {
     eyebrow: "Availability checker in the hero",
     title: "The first thing the page does is answer the first question.",
     body: "Because customers asked about coverage before anything else, the hero opens on a single positioning line and a zip-code availability check. Confidence about “can you help me?” is resolved in the first screen, before pricing or features are even introduced.",
-    image: { src: `${IMG}/hero.webp`, alt: "Hero with positioning line and zip-code availability checker" }
+    image: { src: `${EVIDENCE}/availability-texas.png`, alt: "Availability validation flow confirming service is available in Texas" },
+    imageCaption: "Availability becomes a product response, not just a marketing claim."
   },
   {
     eyebrow: "Coverage as proof",
@@ -158,9 +162,18 @@ const decisions: {
   },
   {
     eyebrow: "Sell certainty, not speed",
-    title: "Frame the offer as a problem handled end to end.",
+    title: "Frame the offer as a problem handled end to end.",
     body: "Service framing leads with an all-in-one, done-for-you promise, same-week scheduling, and clear upfront pricing — the certainty signals the inbox kept asking for — instead of technical performance claims.",
-    image: { src: `${IMG}/solution-v2.webp`, alt: "Service framing: all-in-one solution, same-week install, clear pricing" }
+    image: { src: `${EVIDENCE}/quote-screen.png`, alt: "Quote flow showing a Starlink installation quote of $899" },
+    imageCaption: "Pricing is surfaced as a concrete answer before commitment, not hidden behind a booking request.",
+    supportingArtifacts: [
+      {
+        src: `${EVIDENCE}/scheduling-flow.png`,
+        alt: "Scheduling flow asking when works best with preferred day and time selection",
+        caption:
+          "The same research insight continues into the next step: same-week installation becomes a visible scheduling preference flow instead of a vague promise."
+      }
+    ]
   },
   {
     eyebrow: "Authority before features",
@@ -225,12 +238,16 @@ function DecisionSplit({
   title,
   body,
   image,
+  imageCaption,
+  supportingArtifacts,
   reversed = false
 }: {
   eyebrow: string;
   title: string;
   body: string;
   image: { src: string; alt: string };
+  imageCaption?: string;
+  supportingArtifacts?: { src: string; alt: string; caption: string }[];
   reversed?: boolean;
 }) {
   return (
@@ -255,8 +272,30 @@ function DecisionSplit({
                 sizes="(min-width: 1024px) 48vw, 100vw"
               />
             </figure>
+            {imageCaption ? (
+              <p className="mt-4 max-w-2xl text-sm leading-6 text-muted sm:text-base">{imageCaption}</p>
+            ) : null}
           </Reveal>
         </div>
+        {supportingArtifacts?.length ? (
+          <div className="mt-10 grid gap-8">
+            {supportingArtifacts.map((artifact, index) => (
+              <Reveal key={artifact.src} delay={0.1 + index * 0.04}>
+                <figure className="editorial-image paper-tint overflow-hidden">
+                  <Image
+                    src={artifact.src}
+                    alt={artifact.alt}
+                    width={1800}
+                    height={1100}
+                    className="h-auto w-full"
+                    sizes="100vw"
+                  />
+                </figure>
+                <p className="mt-4 max-w-3xl text-sm leading-6 text-muted sm:text-base">{artifact.caption}</p>
+              </Reveal>
+            ))}
+          </div>
+        ) : null}
       </div>
     </section>
   );
@@ -353,6 +392,38 @@ export function InstallProsWebsiteAlt2CaseStudy({
         <Reveal delay={0.1}>
           <p className={`mt-10 max-w-2xl ${PARA}`}>
             That corpus became the foundation of the project. Three categories of question dominated everything else.
+          </p>
+        </Reveal>
+        <div className="mt-12 grid gap-8 lg:grid-cols-2">
+          <Reveal delay={0.12}>
+            <figure className="editorial-image overflow-hidden border border-line bg-white">
+              <Image
+                src={`${EVIDENCE}/9topics.png`}
+                alt="Intercom topics table showing recurring customer questions around payment, scheduling, location, quote, and related issues"
+                width={1600}
+                height={900}
+                className="h-auto w-full"
+                sizes="(min-width: 1024px) 48vw, 100vw"
+              />
+            </figure>
+          </Reveal>
+          <Reveal delay={0.16}>
+            <figure className="editorial-image overflow-hidden border border-line bg-white">
+              <Image
+                src={`${EVIDENCE}/intercom-bubble-chart.png`}
+                alt="Intercom bubble chart visualizing topic volume for payment, schedule, location, quote, roof, and tech support"
+                width={1600}
+                height={900}
+                className="h-auto w-full"
+                sizes="(min-width: 1024px) 48vw, 100vw"
+              />
+            </figure>
+          </Reveal>
+        </div>
+        <Reveal delay={0.18}>
+          <p className="mt-5 max-w-3xl text-sm leading-6 text-muted sm:text-base">
+            300+ customer conversations revealed recurring friction around pricing, scheduling,
+            availability, and service coverage.
           </p>
         </Reveal>
       </Section>

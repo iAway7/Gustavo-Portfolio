@@ -69,7 +69,10 @@ export function ExperienceView({ locale }: { locale: Locale }) {
                         {entry.role}
                       </h2>
                       <p className="mt-1 text-base text-muted">{entry.company}</p>
-                      <p className="mt-1 text-sm text-muted">{entry.period}</p>
+                      <p className="mt-1 text-sm text-muted">
+                        {entry.period}
+                        {entry.duration ? <span> · {entry.duration}</span> : null}
+                      </p>
                       <p className="body-copy mt-4 max-w-2xl">{entry.summary}</p>
                       {entry.tags ? (
                         <div className="mt-5 flex flex-wrap gap-2">
@@ -97,17 +100,17 @@ export function ExperienceView({ locale }: { locale: Locale }) {
                     delay={index * 0.04}
                     className="border-t border-line py-6"
                   >
-                    <div className="grid gap-2 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-start">
-                      <div className="flex items-start gap-4">
+                    <div className="flex items-start gap-4">
                         <CompanyLogo logo={entry.logo} company={entry.company} size="sm" />
                         <div>
-                          <p className="text-lg font-medium text-text">
-                            {entry.role} <span className="font-normal text-muted">· {entry.company}</span>
+                          <p className="text-lg font-medium text-text">{entry.role}</p>
+                          <p className="mt-1 text-base text-muted">{entry.company}</p>
+                          <p className="mt-1 text-sm text-muted">
+                            {entry.period}
+                            {entry.duration ? <span> · {entry.duration}</span> : null}
                           </p>
                           <p className="mt-1 max-w-2xl text-base leading-7 text-muted">{entry.summary}</p>
                         </div>
-                      </div>
-                      <p className="text-sm text-muted lg:text-right">{entry.period}</p>
                     </div>
                   </Reveal>
                 ))}
