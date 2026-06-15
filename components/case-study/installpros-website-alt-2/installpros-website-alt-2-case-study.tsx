@@ -110,7 +110,7 @@ const insights: { kicker: string; statement: string; body: string }[] = [
   {
     kicker: "Insight 04",
     statement: "Authority first, speed second.",
-    body: "Customers do care about speed — but as quick scheduling, quick communication, quick resolution, not marketing jargon. The positioning became “professional installation, done right the first time, scheduled quickly,” not “fast internet, fast speeds.”"
+    body: "Customers do care about speed — but as quick scheduling, communication, and resolution, not raw megabits. So the promise leads with the outcome they want — fast, reliable internet — and immediately names the real wedge: getting it without the installation headache. The professional, done-for-you install is what makes that speed believable."
   }
 ];
 
@@ -154,13 +154,13 @@ const decisions: {
     eyebrow: "Coverage as proof",
     title: "Show the footprint, then let them check it.",
     body: "Coverage doubts were answered twice: a national footprint with hard numbers establishes that InstallPros operates at scale, and a “Find My Installer” check turns that claim into a personal, location-specific answer.",
-    image: { src: `${IMG}/coverage.webp`, alt: "Nationwide coverage section with stats and service map" }
+    image: { src: `${IMG}/coverage-v2.webp`, alt: "Nationwide coverage section with stats and service map" }
   },
   {
     eyebrow: "Sell certainty, not speed",
     title: "Frame the offer as a problem handled end to end.",
     body: "Service framing leads with an all-in-one, done-for-you promise, same-week scheduling, and clear upfront pricing — the certainty signals the inbox kept asking for — instead of technical performance claims.",
-    image: { src: `${IMG}/solution.webp`, alt: "Service framing: all-in-one solution, same-week install, clear pricing" }
+    image: { src: `${IMG}/solution-v2.webp`, alt: "Service framing: all-in-one solution, same-week install, clear pricing" }
   },
   {
     eyebrow: "Authority before features",
@@ -172,9 +172,9 @@ const decisions: {
 
 const surfaceSlides: ProductSlide[] = [
   { src: `${IMG}/hero.webp`, alt: "Hero with availability checker", label: "Hero · Availability check" },
-  { src: `${IMG}/solution.webp`, alt: "Complete Starlink solution", label: "Certainty framing" },
+  { src: `${IMG}/solution-v2.webp`, alt: "Complete Starlink solution", label: "Certainty framing" },
   { src: `${IMG}/installation.webp`, alt: "Professional installation", label: "Professional installation" },
-  { src: `${IMG}/coverage.webp`, alt: "Nationwide coverage", label: "Coverage proof" }
+  { src: `${IMG}/coverage-v2.webp`, alt: "Nationwide coverage", label: "Coverage proof" }
 ];
 
 const opportunities: { title: string; body: string }[] = [
