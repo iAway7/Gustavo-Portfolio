@@ -266,7 +266,7 @@ export const experienceEntries: ExperienceEntry[] = [
     logo: "/logos/installpros.svg",
     summary:
       "Designing the technician platform behind a network that has completed 9,163 installations and processed $7.1M+ in revenue.",
-    tags: ["Field operations", "Mobile platform", "Design system"]
+    tags: ["Field Ops", "B2C"]
   },
   {
     tier: "now",

@@ -203,7 +203,7 @@ export function AgencyHubCaseStudy({
         />
         <Reveal delay={0.06} className="mt-14">
           <Figure
-            src={`${BOARDS}/design-process.webp`}
+            src={`${BOARDS}/design-process.png`}
             alt="AgencyHub design sprint process across five phases"
             width={2000}
             height={1708}

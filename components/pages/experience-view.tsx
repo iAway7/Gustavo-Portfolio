@@ -110,6 +110,15 @@ export function ExperienceView({ locale }: { locale: Locale }) {
                             {entry.duration ? <span> · {entry.duration}</span> : null}
                           </p>
                           <p className="mt-1 max-w-2xl text-base leading-7 text-muted">{entry.summary}</p>
+                          {entry.tags ? (
+                            <div className="mt-4 flex flex-wrap gap-2">
+                              {entry.tags.map((tag) => (
+                                <span key={tag} className="pill">
+                                  {tag}
+                                </span>
+                              ))}
+                            </div>
+                          ) : null}
                         </div>
                     </div>
                   </Reveal>
