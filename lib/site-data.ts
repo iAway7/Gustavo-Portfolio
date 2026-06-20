@@ -419,6 +419,10 @@ export const certifications: Certification[] = [
   {
     title: "Fundamentals of UI and UX Interface Design",
     href: "https://platzi.com/p/gusaway/curso/1754-diseno-interfaces-ux/diploma/detalle/"
+  },
+  {
+    title: "EF SET English Certificate 65/100 (C1 Advanced)",
+    href: "https://cert.efset.org/es/x6m3aK"
   }
 ] as const;
 
