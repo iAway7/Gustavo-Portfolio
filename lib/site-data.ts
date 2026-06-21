@@ -22,6 +22,8 @@ export type ExperienceEntry = {
 export type ApproachPrinciple = {
   title: string;
   summary: string;
+  /** Renders the AI workflow tool stack under this principle. */
+  aiTools?: boolean;
 };
 
 export type ContactChannel = {
@@ -179,6 +181,24 @@ export const credibilityPoints = [
   }
 ] as const;
 
+export const credibilityPointsEs = [
+  {
+    label: "Experiencia",
+    value: "Más de 9 años",
+    detail: "Diseñando plataformas SaaS, productos B2B2C, aplicaciones web y experiencias digitales asistidas por IA."
+  },
+  {
+    label: "Fortaleza",
+    value: "Diseño + tecnología",
+    detail: "Cómodo en la intersección entre estrategia de producto, sistemas de UI, restricciones técnicas y entrega."
+  },
+  {
+    label: "Enfoque",
+    value: "Productos que se lanzan",
+    detail: "Trabajo pensado para sostener a la vez a los usuarios, los objetivos de negocio y la realidad técnica."
+  }
+] as const;
+
 export const capabilityTags = [
   "Product Design",
   "UX/UI Design",
@@ -188,6 +208,17 @@ export const capabilityTags = [
   "Usability Testing",
   "HTML/CSS",
   "SEO & Infrastructure"
+] as const;
+
+export const capabilityTagsEs = [
+  "Diseño de Producto",
+  "Diseño UX/UI",
+  "Sistemas de Diseño",
+  "Flujos asistidos por IA",
+  "Arquitectura de Información",
+  "Tests de Usabilidad",
+  "HTML/CSS",
+  "SEO e Infraestructura"
 ] as const;
 
 export const testimonials: TestimonialEntry[] = [
@@ -256,6 +287,72 @@ export const testimonials: TestimonialEntry[] = [
   }
 ] as const;
 
+export const testimonialsEs: TestimonialEntry[] = [
+  {
+    name: "Luis Arguello Herrera",
+    role: "Desarrollador Full-Stack .NET, Líder de Proyecto",
+    image: "/Luis.jpeg",
+    quote:
+      "Gus es un diseñador UI/UX con mucho talento que destaca creando diseños fáciles de usar y visualmente impactantes. Su creatividad y su atención al detalle lo convierten en una pieza clave de cualquier proyecto. Es muy responsable y siempre cumple los plazos, lo que lo hace un miembro del equipo fiable y valioso."
+  },
+  {
+    name: "Nicolas Mastromarino",
+    role: "Analista SEO / Email Marketing / Automatización",
+    image: "/Nico.jpeg",
+    quote:
+      "He disfrutado mucho trabajando con Gus en InstallPros. Tiene una gran capacidad para convertir ideas en experiencias digitales limpias, simples y útiles, con una UI pulida y fácil de navegar. Lo que más valoro es que piensa más allá de cómo se ve algo: le importa cómo lo usa la gente de verdad, cómo encaja en el negocio y cómo puede facilitarle las cosas tanto a los clientes como al equipo. Es creativo, reflexivo y fácil de colaborar con él, y aporta una sólida combinación de pensamiento UX/UI, prototipado rápido y resolución práctica de problemas. Recomendaría a Gus sin dudarlo a cualquier equipo que busque a alguien capaz de diseñar experiencias bonitas y, a la vez, realmente útiles."
+  },
+  {
+    name: "Edwin Morales Madrigal",
+    role: "Analista y Desarrollador de Sistemas",
+    image: "/Edwin.jpeg",
+    quote:
+      "Gustavo es un profesional con mucho talento y dedicación, con una sólida base en diseño de interfaces y experiencia de usuario. Su conjunto de habilidades técnicas, su capacidad de colaboración y su enfoque en la mejora continua lo convierten en un gran activo para cualquier equipo de desarrollo de productos digitales. No tengo duda de que Gustavo seguirá teniendo un impacto positivo allá donde decida aplicar sus habilidades y conocimientos en el futuro."
+  },
+  {
+    name: "Kelsey Rogers",
+    role: "Operations Manager @ InstallPros | Gestión de Operaciones, Coordinación de Proyectos",
+    image: "/Kelsey.jpeg",
+    quote:
+      "Tuve el placer de trabajar con Gustavo en InstallPros, donde fue nuestro diseñador UX/UI. Lo que lo distinguía era su capacidad de tomar procesos complejos y de múltiples capas y destilarlos en experiencias intuitivas y fáciles de usar. Tenía una comprensión profunda no solo del diseño, sino también de los flujos de trabajo operativos que hay detrás, lo que lo hacía un colaborador muy eficaz entre equipos. Trabajaba codo con codo tanto con desarrolladores como con stakeholders, traduciendo las necesidades del negocio y los requisitos técnicos en diseños funcionales y bien pensados. Gustavo abordaba cada proyecto con claridad e intención: no se centraba solo en cómo se veía algo, sino en cómo funcionaba y en cómo podía funcionar mejor. Sus aportaciones mejoraron de verdad la forma en que operaban nuestros equipos y facilitaron los sistemas para todos. Es el tipo de diseñador que hace mejores en su trabajo a quienes lo rodean. Cualquier equipo tendría suerte de contar con él."
+  },
+  {
+    name: "Miriam Fisher",
+    role: "Redactora y Editora Freelance",
+    image: "/Miriam.jpeg",
+    quote:
+      "He trabajado con Gustavo Polin desde 2020. Coincidimos en AgencyHub y, aunque estábamos en áreas distintas de la empresa, nuestros trabajos se solapaban y colaborábamos a menudo. Gustavo siempre ha sido capaz de moverse con soltura por la empresa, asumiendo cualquier necesidad. Un día estaba con diseño UX/UI o ayudando a otro equipo a resolver un problema, y otros días hacía resolución de incidencias, diseño web, desarrollo HTML o atención al cliente. Siempre ha sido fácil colaborar con él, minucioso en sus explicaciones y generoso con su tiempo y su conocimiento."
+  },
+  {
+    name: "Ezequiel Cenicola",
+    role: "Product Designer | Especialista en UX/UI | Innovador en Soluciones Digitales @ICBC",
+    image: "/Eze.jpeg",
+    quote:
+      "En el tiempo que trabaje con Gustavo conocí a un profesional muy responsable, autodidacta y dedicado. Trata de explotar sus aptitudes al máximo y estar en constante capacitación, forjando así, un conocimiento más sólido. Me gustaría volver a trabajar con él en un futuro."
+  },
+  {
+    name: "Jared White",
+    role: "JBZ Beats Inc.",
+    image: "/Jared.jpeg",
+    quote:
+      "Ha sido un privilegio trabajar junto a Gustavo durante más de media década, tanto en SteadyContent como en AgencyHub. En el ámbito del diseño de UI, pocas veces me he encontrado con un talento tan profundo y constante como el suyo. A lo largo de los años he tenido la suerte de ver los cientos de sitios web que ha creado con esmero. Cada uno no solo demuestra su experiencia, sino que es una muestra de su capacidad innata para alinear el diseño con la funcionalidad, garantizando una experiencia de usuario intuitiva y fluida."
+  },
+  {
+    name: "Katrina Robinson, LMSW",
+    role: "Trabajadora Social Clínica · Terapeuta · Redactora y Editora Profesional",
+    image: "/Katrina.jpeg",
+    quote:
+      "Gustavo no solo sabe mucho de lo suyo, sino que es una joya y un placer trabajar con él. Aborda su trabajo con profesionalidad y con una amabilidad y un humor muy de agradecer. Si tengo la oportunidad de volver a trabajar con Gus, la tomaré con entusiasmo."
+  },
+  {
+    name: "Yaseen Chaudhary",
+    role: "The Data Guy!",
+    image: "/Yaseen.jpeg",
+    quote:
+      "Gustavo es una persona muy decidida que trabajó en uno de nuestros proyectos clave para el lanzamiento de Apartments.com. Su trabajo detallado y analítico fue muy valorado para nuestro lanzamiento. Resultó muy impresionante que se incorporara más tarde que sus compañeros y, aun así, se pusiera al día y estuviera listo para rendir. Lo recomiendo encarecidamente para cualquier puesto de desarrollo HTML y le deseo todo lo mejor en sus próximos proyectos."
+  }
+] as const;
+
 export const experienceEntries: ExperienceEntry[] = [
   {
     tier: "now",
@@ -276,7 +373,7 @@ export const experienceEntries: ExperienceEntry[] = [
     role: "Co-Founder · Design & Strategy",
     logo: "/logos/emmvi.svg",
     summary:
-      "Co-founded a growth studio for service businesses. Accountable for offer, web system, and revenue, not just deliverables.",
+      "Co-founded a digital marketing studio for service businesses. Accountable for offer, web system, and revenue, not just deliverables.",
     tags: ["Business growth", "Digital strategy"]
   },
   {
@@ -308,7 +405,63 @@ export const experienceEntries: ExperienceEntry[] = [
     company: "AccelOne",
     role: "Web Research & HTML Developer",
     logo: "/logos/accelone.png",
-    summary: "HTML implementation and web research. Where execution started."
+    summary: "HTML implementation and web research."
+  }
+];
+
+export const experienceEntriesEs: ExperienceEntry[] = [
+  {
+    tier: "now",
+    period: "feb 2024 - Actualidad",
+    duration: "2 años 4 meses",
+    company: "Install Pros",
+    role: "Diseñador de Producto",
+    logo: "/logos/installpros.svg",
+    summary:
+      "Diseño de la plataforma para técnicos detrás de una red que ha completado 9.163 instalaciones y procesado más de 7,1 M$ en ingresos.",
+    tags: ["Operaciones de campo", "B2C"]
+  },
+  {
+    tier: "now",
+    period: "jul 2023 - Actualidad",
+    duration: "1 año 11 meses",
+    company: "Emmvi",
+    role: "Cofundador · Diseño y Estrategia",
+    logo: "/logos/emmvi.svg",
+    summary:
+      "Cofundé un estudio de marketing digital para empresas de servicios. Responsable de la oferta, el sistema web y los ingresos, no solo de los entregables.",
+    tags: ["Crecimiento de negocio", "Estrategia digital"]
+  },
+  {
+    tier: "before",
+    period: "ago 2020 - feb 2024",
+    duration: "3 años 7 meses",
+    company: "AgencyHub",
+    role: "Diseñador UX/UI",
+    logo: "/logos/agencyhub.svg",
+    summary:
+      "Diseñé de principio a fin un marketplace B2B y convertí una plataforma fragmentada en un único lenguaje de producto.",
+    tags: ["SaaS B2B", "Marketplace"]
+  },
+  {
+    tier: "before",
+    period: "sep 2017 - ago 2020",
+    duration: "3 años",
+    company: "AgencyHub",
+    role: "Diseñador Web",
+    logo: "/logos/agencyhub.svg",
+    summary:
+      "Construí y lancé más de 30 sitios web con Elementor, gestionando además Cloudflare, DNS, migraciones, hosting, autenticación de correo y configuración SSL.",
+    tags: ["Elementor", "Cloudflare", "DNS", "Migraciones", "Configuración de correo", "SSL"]
+  },
+  {
+    tier: "before",
+    period: "ene 2015 - feb 2016",
+    duration: "1 año 2 meses",
+    company: "AccelOne",
+    role: "Investigación web y Desarrollador HTML",
+    logo: "/logos/accelone.png",
+    summary: "Implementación HTML e investigación web."
   }
 ];
 
@@ -326,12 +479,37 @@ export const approachPrinciples: ApproachPrinciple[] = [
   {
     title: "Use AI as a workflow advantage, not a shortcut",
     summary:
-      "AI-assisted ideation and prototyping are used to accelerate thinking, explore options, and sharpen delivery."
+      "AI-assisted ideation and prototyping are used to accelerate thinking, explore options, and sharpen delivery.",
+    aiTools: true
   },
   {
     title: "Stay close to execution",
     summary:
       "Technical context matters. I work comfortably with developers, stakeholders, and operational constraints to keep ideas buildable."
+  }
+];
+
+export const approachPrinciplesEs: ApproachPrinciple[] = [
+  {
+    title: "Conectar las necesidades del usuario, los objetivos de negocio y las restricciones técnicas",
+    summary:
+      "Cada proyecto parte primero de la claridad de producto, de modo que la interfaz apoye decisiones reales de negocio y de entrega."
+  },
+  {
+    title: "Diseñar sistemas que hacen que los productos escalen mejor",
+    summary:
+      "La lógica de UI reutilizable, los patrones compartidos y una estructura pensada para la implementación ayudan a los equipos a avanzar más rápido sin perder coherencia."
+  },
+  {
+    title: "Usar la IA como ventaja en el flujo de trabajo, no como atajo",
+    summary:
+      "La ideación y el prototipado asistidos por IA sirven para acelerar el pensamiento, explorar opciones y afinar la entrega.",
+    aiTools: true
+  },
+  {
+    title: "Mantenerse cerca de la ejecución",
+    summary:
+      "El contexto técnico importa. Trabajo con soltura junto a desarrolladores, stakeholders y restricciones operativas para que las ideas sigan siendo construibles."
   }
 ];
 
@@ -557,7 +735,7 @@ export const projectCaseStudies: ProjectCaseStudy[] = [
         "Engineering ships new screens from the established pattern set without a design cycle per screen."
       ],
       reflection:
-        "The open question is measurement: install duration and callback rate are the metrics this design should answer to, and instrumenting them is the next thing I'd push for. I'd also revisit keeping job reordering away from technicians; the consistency argument may not survive contact with experienced crews."
+        "Completion time already moved — jobs close about 25% faster. The metric I'd still push to instrument is callback rate: it's the truest test of whether guided workflows prevent failures, not just speed them up. I'd also revisit keeping job reordering away from technicians; the consistency argument may not survive contact with experienced crews."
     },
     nextSlug: "agencyhub-platform",
     deckUrl: "/docs/installpros-technician-app-case-study.pdf"

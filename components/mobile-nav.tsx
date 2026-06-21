@@ -128,13 +128,15 @@ export function MobileNav() {
         ref={triggerRef}
         type="button"
         onClick={() => setOpen((value) => !value)}
-        aria-label={open ? "Close menu" : "Open menu"}
+        aria-label={open ? (locale === "es" ? "Cerrar menú" : "Close menu") : locale === "es" ? "Abrir menú" : "Open menu"}
         aria-expanded={open}
         aria-controls={panelId}
         aria-haspopup="dialog"
         className="relative -mr-1 flex h-10 w-10 items-center justify-center rounded-full text-text transition-colors duration-200 hover:text-[#244de8] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#244de8]/40"
       >
-        <span className="sr-only">{open ? "Close menu" : "Open menu"}</span>
+        <span className="sr-only">
+          {open ? (locale === "es" ? "Cerrar menú" : "Close menu") : locale === "es" ? "Abrir menú" : "Open menu"}
+        </span>
         <span aria-hidden="true" className="relative block h-3.5 w-5">
           <motion.span
             className="absolute left-0 block h-[1.5px] w-full rounded-full bg-current"
@@ -167,7 +169,7 @@ export function MobileNav() {
             key="mobile-menu"
             role="dialog"
             aria-modal="true"
-            aria-label="Site menu"
+            aria-label={locale === "es" ? "Menú del sitio" : "Site menu"}
             id={panelId}
             ref={panelRef}
             className="fixed inset-0 z-[70] flex h-[100dvh] flex-col bg-[#f5f5f3]"
@@ -188,7 +190,7 @@ export function MobileNav() {
               <button
                 type="button"
                 onClick={close}
-                aria-label="Close menu"
+                aria-label={locale === "es" ? "Cerrar menú" : "Close menu"}
                 className="relative -mr-1 flex h-10 w-10 items-center justify-center rounded-full text-text transition-colors duration-200 hover:text-[#244de8] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#244de8]/40"
               >
                 <span aria-hidden="true" className="relative block h-4 w-4">

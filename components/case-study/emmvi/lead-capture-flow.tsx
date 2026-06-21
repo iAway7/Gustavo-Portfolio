@@ -2,6 +2,7 @@ import { Fragment } from "react";
 import Image from "next/image";
 
 import { Reveal } from "@/components/reveal";
+import type { Locale } from "@/lib/i18n";
 
 type FlowStep = {
   title: string;
@@ -9,13 +10,27 @@ type FlowStep = {
   icon: "form" | "automation" | "discord" | "review" | "reply";
 };
 
-const steps: FlowStep[] = [
-  { title: "Website Form", detail: "Visitor submits the Contact page form.", icon: "form" },
-  { title: "Zapier", detail: "Submission is captured and routed automatically.", icon: "automation" },
-  { title: "Discord Notification", detail: "A structured alert posts to the team channel.", icon: "discord" },
-  { title: "Team Review", detail: "A human reads context and qualifies the lead.", icon: "review" },
-  { title: "Client Response", detail: "A tailored reply opens the conversation.", icon: "reply" }
-];
+const stepsByLocale: Record<Locale, FlowStep[]> = {
+  en: [
+    { title: "Website Form", detail: "Visitor submits the Contact page form.", icon: "form" },
+    { title: "Zapier", detail: "Submission is captured and routed automatically.", icon: "automation" },
+    { title: "Discord Notification", detail: "A structured alert posts to the team channel.", icon: "discord" },
+    { title: "Team Review", detail: "A human reads context and qualifies the lead.", icon: "review" },
+    { title: "Client Response", detail: "A tailored reply opens the conversation.", icon: "reply" }
+  ],
+  es: [
+    { title: "Formulario web", detail: "El visitante envía el formulario de la página de contacto.", icon: "form" },
+    { title: "Zapier", detail: "El envío se captura y se enruta automáticamente.", icon: "automation" },
+    { title: "Notificación en Discord", detail: "Se publica una alerta estructurada en el canal del equipo.", icon: "discord" },
+    { title: "Revisión del equipo", detail: "Una persona lee el contexto y cualifica el lead.", icon: "review" },
+    { title: "Respuesta al cliente", detail: "Una respuesta personalizada abre la conversación.", icon: "reply" }
+  ]
+};
+
+const captionByLocale: Record<Locale, string> = {
+  en: "Each submission lands as a structured message — name, service, and campaign source — so the team reviews a qualified lead, not a raw email. The automation removes the lag between interest and reply; the judgement stays human.",
+  es: "Cada envío llega como un mensaje estructurado —nombre, servicio y origen de la campaña— para que el equipo revise un lead cualificado, no un correo en bruto. La automatización elimina el retraso entre el interés y la respuesta; el criterio sigue siendo humano."
+};
 
 function StepIcon({ icon }: { icon: FlowStep["icon"] }) {
   const common = {
@@ -58,7 +73,14 @@ function StepIcon({ icon }: { icon: FlowStep["icon"] }) {
  * the product. A single linear flow, a short rationale, and one Discord
  * screenshot as evidence the pipeline actually runs.
  */
-export function LeadCaptureFlow({ screenshot }: { screenshot: { src: string; alt: string } }) {
+export function LeadCaptureFlow({
+  screenshot,
+  locale = "en"
+}: {
+  screenshot: { src: string; alt: string };
+  locale?: Locale;
+}) {
+  const steps = stepsByLocale[locale];
   return (
     <div className="grid gap-10">
       <Reveal>
@@ -122,9 +144,7 @@ export function LeadCaptureFlow({ screenshot }: { screenshot: { src: string; alt
             />
           </div>
           <figcaption className="max-w-2xl text-base leading-7 text-muted">
-            Each submission lands as a structured message — name, service, and campaign source — so the
-            team reviews a qualified lead, not a raw email. The automation removes the lag between
-            interest and reply; the judgement stays human.
+            {captionByLocale[locale]}
           </figcaption>
         </figure>
       </Reveal>

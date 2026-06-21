@@ -3,7 +3,13 @@ import Image from "next/image";
 import { CertificationsList } from "@/components/certifications-list";
 import { MagneticLink } from "@/components/magnetic-link";
 import { Reveal } from "@/components/reveal";
-import { capabilityTags, certifications, experienceEntries } from "@/lib/site-data";
+import {
+  capabilityTags,
+  capabilityTagsEs,
+  certifications,
+  experienceEntries,
+  experienceEntriesEs
+} from "@/lib/site-data";
 import { getDict, type Locale, localizedPath } from "@/lib/i18n";
 
 function CompanyLogo({
@@ -42,8 +48,10 @@ function CompanyLogo({
 
 export function ExperienceView({ locale }: { locale: Locale }) {
   const t = getDict(locale).experience;
-  const current = experienceEntries.filter((entry) => entry.tier === "now");
-  const earlier = experienceEntries.filter((entry) => entry.tier === "before");
+  const tags = locale === "es" ? capabilityTagsEs : capabilityTags;
+  const entries = locale === "es" ? experienceEntriesEs : experienceEntries;
+  const current = entries.filter((entry) => entry.tier === "now");
+  const earlier = entries.filter((entry) => entry.tier === "before");
 
   return (
     <main id="main-content" tabIndex={-1} className="pb-8 pt-10 sm:pt-14">
@@ -135,7 +143,7 @@ export function ExperienceView({ locale }: { locale: Locale }) {
             <Reveal>
               <p className="caption">{t.coreExpertise}</p>
               <div className="mt-6 flex flex-wrap gap-3">
-                {capabilityTags.map((tag) => (
+                {tags.map((tag) => (
                   <span key={tag} className="pill">
                     {tag}
                   </span>

@@ -78,13 +78,13 @@ export function CaseStudyContent({ slug, locale }: { slug: string; locale: Local
 
   const caseStudy =
     project.slug === "installpros-technician-app" ? (
-      <FieldOperationsCaseStudy project={project} nextProject={nextProject} />
+      <FieldOperationsCaseStudy project={project} nextProject={nextProject} locale={locale} />
     ) : project.slug === "installpros-website" ? (
-      <InstallProsWebsiteAlt2CaseStudy project={project} nextProject={nextProject} />
+      <InstallProsWebsiteAlt2CaseStudy project={project} nextProject={nextProject} locale={locale} />
     ) : project.slug === "agencyhub-platform" ? (
-      <AgencyHubCaseStudy project={project} nextProject={nextProject} />
+      <AgencyHubCaseStudy project={project} nextProject={nextProject} locale={locale} />
     ) : project.slug === "emmvi-growth-platform" ? (
-      <EmmviCaseStudy project={project} nextProject={nextProject} />
+      <EmmviCaseStudy project={project} nextProject={nextProject} locale={locale} />
     ) : project.kind === "product" ? (
       <ProductCaseStudy project={project} nextProject={nextProject} />
     ) : (

@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     url: absoluteUrl("/"),
     title: "Gustavo Polin | Product Designer",
     description:
-      "Product Designer and UX/UI Designer with 9+ years building SaaS platforms, web applications, and AI-assisted digital experiences.",
+      "Product Designer and UX/UI Designer with 9+ years building SaaS platforms and web applications, now designing AI-assisted digital experiences.",
     images: [{ url: "/og/home.png", width: 1200, height: 630, alt: "Gustavo Polin — Product Designer" }]
   },
   twitter: {

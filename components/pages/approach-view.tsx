@@ -3,7 +3,12 @@ import Image from "next/image";
 import { CertificationsList } from "@/components/certifications-list";
 import { MagneticLink } from "@/components/magnetic-link";
 import { Reveal } from "@/components/reveal";
-import { approachPrinciples, capabilityTags } from "@/lib/site-data";
+import {
+  approachPrinciples,
+  approachPrinciplesEs,
+  capabilityTags,
+  capabilityTagsEs
+} from "@/lib/site-data";
 import { getDict, type Locale, localizedPath } from "@/lib/i18n";
 
 // Subtle "workflow stack" indicator — only rendered under the AI principle.
@@ -17,6 +22,8 @@ const aiTools = [
 
 export function ApproachView({ locale }: { locale: Locale }) {
   const t = getDict(locale).approach;
+  const principles = locale === "es" ? approachPrinciplesEs : approachPrinciples;
+  const tags = locale === "es" ? capabilityTagsEs : capabilityTags;
 
   return (
     <main id="main-content" tabIndex={-1} className="pb-8 pt-10 sm:pt-14">
@@ -30,8 +37,8 @@ export function ApproachView({ locale }: { locale: Locale }) {
             </Reveal>
 
             <div className="mt-10 grid gap-5 md:grid-cols-2">
-              {approachPrinciples.map((principle, index) => {
-                const isAiPrinciple = principle.title.toLowerCase().includes("ai as a workflow");
+              {principles.map((principle, index) => {
+                const isAiPrinciple = principle.aiTools === true;
                 return (
                   <Reveal key={principle.title} delay={index * 0.05} className="editorial-card p-6 sm:p-8">
                     <p className="text-xl font-medium tracking-[-0.04em] text-text">{principle.title}</p>
@@ -70,7 +77,7 @@ export function ApproachView({ locale }: { locale: Locale }) {
             <Reveal>
               <p className="caption">{t.coreExpertise}</p>
               <div className="mt-6 flex flex-wrap gap-3">
-                {capabilityTags.map((tag) => (
+                {tags.map((tag) => (
                   <span key={tag} className="pill">
                     {tag}
                   </span>

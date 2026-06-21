@@ -17,7 +17,7 @@ export const defaultLocale: Locale = "en";
  * resume swap) stays implemented — flip this to `true` to re-enable the toggle
  * and the stored-preference redirect. The /es routes remain reachable directly.
  */
-export const ENABLE_LANGUAGE_SWITCHER = false;
+export const ENABLE_LANGUAGE_SWITCHER = true;
 
 export function isLocale(value: string): value is Locale {
   return (locales as readonly string[]).includes(value);
@@ -64,7 +64,7 @@ export const projectI18n: Record<string, Record<Locale, { title: string; summary
     es: {
       title: "Plataforma de Operaciones de Campo",
       summary:
-        "Una plataforma móvil que guía a los técnicos de instalación de Starlink a través de la planificación, los flujos de trabajo en sitio y la finalización del trabajo en condiciones reales de campo."
+        "Una plataforma móvil que guía a los técnicos de instalación de Starlink en la programación, los flujos de trabajo in situ y el cierre de cada instalación en condiciones reales de campo."
     }
   },
   "agencyhub-platform": {
@@ -76,7 +76,7 @@ export const projectI18n: Record<string, Record<Locale, { title: string; summary
     es: {
       title: "AgencyHub",
       summary:
-        "Un marketplace de dos lados donde las agencias digitales compran servicios de marca blanca a proveedores verificados y los revenden a sus propios clientes."
+        "Un marketplace B2B donde las agencias digitales compran servicios white-label a proveedores verificados y los revenden a sus propios clientes."
     }
   },
   "installpros-website": {
@@ -100,7 +100,7 @@ export const projectI18n: Record<string, Record<Locale, { title: string; summary
     es: {
       title: "Emmvi",
       summary:
-        "Trabajo de estudio cofundado que ayuda a crecer a negocios de servicios: posicionamiento, sistemas web e infraestructura de conversión tratados como un único problema de diseño."
+        "Trabajo en un estudio para ayudar a las empresas de servicios a crecer: posicionamiento, sistemas web e infraestructura de conversión abordados como un único problema de diseño."
     }
   }
 };
@@ -136,7 +136,7 @@ const en = {
     h1a: "Built around people.",
     h1b: "Grounded in reality.",
     intro:
-      "Product Designer and UX/UI Designer with 9+ years of experience creating SaaS platforms, web applications, and AI-assisted digital experiences.",
+      "Product Designer and UX/UI Designer with 9+ years of experience creating SaaS platforms and web applications, now designing AI-assisted digital experiences.",
     viewWork: "View Work",
     letsTalk: "Let’s Talk",
     workCaption: "Work",
@@ -171,7 +171,7 @@ const en = {
       "9+ years across SaaS, B2B, and operational tools — roles, certifications, and the systems thinking that connects users, business, and technology.",
     earlier: "Earlier",
     coreExpertise: "Core expertise",
-    dailyTools: "Daily tools: Figma · Miro · ChatGPT · Codex · Lovable",
+    dailyTools: "Daily tools: Figma · ChatGPT · Claude · Codex · Lovable",
     certifications: "Certifications",
     certsSummary: "certifications in UX research, UX writing, and information architecture · Platzi, plus EF SET C1 English",
     viewAll: "View all",
@@ -208,7 +208,8 @@ const en = {
       errName: "Please enter your name.",
       errEmail: "Please enter your email address.",
       errEmailValid: "Please enter a valid email address.",
-      errMessage: "Please enter a short message."
+      errMessage: "Please enter a short message.",
+      errorSend: "We couldn't send your message right now. Please try again."
     }
   },
   caseStudy: {
@@ -235,39 +236,39 @@ const es: Dict = {
   },
   footer: {
     tagline:
-      "Diseñador de Producto y Diseñador UX/UI que construye experiencias digitales que conectan a las personas, el negocio y la tecnología.",
+      "Diseñador de Producto y UX/UI que crea experiencias digitales para conectar a las personas, el negocio y la tecnología.",
     pages: "Páginas",
     contact: "Contacto",
     location: "Con base en Valencia, España.",
-    note: "Pensamiento de producto, sistemas de diseño y conciencia de implementación."
+    note: "Pensamiento de producto, sistemas de diseño y comprensión de la implementación."
   },
   home: {
     pill: "Diseñador de Producto",
-    h1a: "Diseñado para las personas.",
+    h1a: "Pensado para las personas.",
     h1b: "Anclado en la realidad.",
     intro:
-      "Diseñador de Producto y Diseñador UX/UI con más de 9 años de experiencia creando plataformas SaaS, aplicaciones web y experiencias digitales asistidas por IA.",
+      "Diseñador de Producto y Diseñador UX/UI con más de 9 años de experiencia creando plataformas SaaS y aplicaciones web, y ahora diseñando experiencias digitales asistidas por IA.",
     viewWork: "Ver proyectos",
     letsTalk: "Hablemos",
     workCaption: "Proyectos",
     workHeading: "Una selección de trabajo de producto, plataforma y crecimiento.",
     credCaption: "Por qué este trabajo se siente diferente",
-    credHeading: "Este portafolio se construye sobre criterio de producto, no solo pantallas pulidas.",
+    credHeading: "Detrás de este portafolio hay criterio de producto, no solo pantallas pulidas.",
     testimonials: "Testimonios",
     viewAll: "Ver todos",
     expCaption: "Resumen de experiencia",
     expHeading: "Diseñar productos que funcionan más allá de la pantalla.",
     expIntro:
-      "He trabajado con equipos de producto, desarrolladores, stakeholders, marketing y soporte, equilibrando siempre la intención de producto con lo que realmente se puede lanzar.",
+      "He trabajado con equipos de producto, desarrolladores, stakeholders, marketing y soporte, equilibrando siempre la intención de producto con lo que de verdad puede salir a producción.",
     contactCaption: "Contacto",
     contactHeading: "¿Buscas un diseñador que entienda de productos, no solo de pantallas?",
     contactIntro:
-      "Trabajo con equipos que necesitan pensamiento de producto, claridad de UX y una ejecución de diseño consciente de la entrega.",
+      "Trabajo con equipos que necesitan pensamiento de producto, claridad de UX y un diseño que se ejecuta pensando en la entrega.",
     startConversation: "Iniciar una conversación"
   },
   work: {
     caption: "Proyectos",
-    h1: "Trabajo de producto, plataforma y crecimiento moldeado por el pensamiento de sistemas.",
+    h1: "Trabajo de producto, plataforma y crecimiento moldeado por el pensamiento sistémico.",
     intro:
       "El trabajo está seleccionado para mostrar criterio de producto, pensamiento de sistemas de diseño, comprensión técnica y conciencia de negocio en distintos contextos.",
     nextStep: "Siguiente paso",
@@ -278,12 +279,12 @@ const es: Dict = {
     caption: "Experiencia",
     h1: "Una carrera en diseño de producto moldeada por sistemas, ejecución y contexto de negocio.",
     intro:
-      "Más de 9 años en SaaS, B2B y herramientas operativas — roles, certificaciones y el pensamiento de sistemas que conecta a las personas, el negocio y la tecnología.",
+      "Más de 9 años en SaaS, B2B y herramientas operativas — roles, certificaciones y el pensamiento sistémico que conecta a las personas, el negocio y la tecnología.",
     earlier: "Anteriormente",
     coreExpertise: "Especialidades principales",
-    dailyTools: "Herramientas diarias: Figma · Miro · ChatGPT · Codex · Lovable",
+    dailyTools: "Herramientas diarias: Figma · ChatGPT · Claude · Codex · Lovable",
     certifications: "Certificaciones",
-    certsSummary: "certificaciones en investigación UX, redacción UX y arquitectura de información · Platzi, más EF SET C1 inglés",
+    certsSummary: "certificaciones en investigación UX, redacción UX y arquitectura de información · Platzi, además del EF SET C1 de inglés",
     viewAll: "Ver todas",
     featuredNext: "A continuación",
     featuredHeading: "Mira cómo esa trayectoria se traduce en trabajo de producto real.",
@@ -308,7 +309,7 @@ const es: Dict = {
     form: {
       name: "Nombre",
       email: "Correo electrónico",
-      project: "Proyecto (Opcional)",
+      project: "Empresa (Opcional)",
       message: "Mensaje",
       required: "obligatorio",
       send: "Enviar",
@@ -318,7 +319,8 @@ const es: Dict = {
       errName: "Introduce tu nombre.",
       errEmail: "Introduce tu correo electrónico.",
       errEmailValid: "Introduce un correo electrónico válido.",
-      errMessage: "Escribe un mensaje breve."
+      errMessage: "Escribe un mensaje breve.",
+      errorSend: "No pudimos enviar tu mensaje ahora mismo. Inténtalo de nuevo."
     }
   },
   caseStudy: {

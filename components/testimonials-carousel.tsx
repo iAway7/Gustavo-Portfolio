@@ -6,7 +6,8 @@ import { useReducedMotion } from "motion/react";
 
 import { Reveal } from "@/components/reveal";
 import { cn } from "@/lib/utils";
-import { testimonials, type TestimonialEntry } from "@/lib/site-data";
+import { type Locale } from "@/lib/i18n";
+import { testimonials as testimonialsEn, testimonialsEs, type TestimonialEntry } from "@/lib/site-data";
 
 const CAROUSEL_GAP = 24;
 const QUOTE_CLAMP_LINES = 7;
@@ -50,8 +51,10 @@ function TestimonialAvatar({ testimonial }: { testimonial: TestimonialEntry }) {
   );
 }
 
-function TestimonialQuote({ name, quote }: { name: string; quote: string }) {
+function TestimonialQuote({ name, quote, locale }: { name: string; quote: string; locale: Locale }) {
   const [expanded, setExpanded] = useState(false);
+  const moreLabel = locale === "es" ? "Leer más" : "Read more";
+  const lessLabel = locale === "es" ? "Leer menos" : "Read less";
   const [isClamped, setIsClamped] = useState(false);
   const quoteRef = useRef<HTMLParagraphElement>(null);
   const quoteId = useId();
@@ -100,17 +103,26 @@ function TestimonialQuote({ name, quote }: { name: string; quote: string }) {
           onClick={() => setExpanded((value) => !value)}
           aria-expanded={expanded}
           aria-controls={quoteId}
-          aria-label={expanded ? `Read less of ${name}'s testimonial` : `Read more of ${name}'s testimonial`}
+          aria-label={
+            locale === "es"
+              ? expanded
+                ? `Leer menos del testimonio de ${name}`
+                : `Leer más del testimonio de ${name}`
+              : expanded
+                ? `Read less of ${name}'s testimonial`
+                : `Read more of ${name}'s testimonial`
+          }
           className="mt-4 text-sm font-medium text-muted underline underline-offset-4 transition-colors duration-200 hover:text-text"
         >
-          {expanded ? "Read less" : "Read more"}
+          {expanded ? lessLabel : moreLabel}
         </button>
       )}
     </div>
   );
 }
 
-export function TestimonialsCarousel() {
+export function TestimonialsCarousel({ locale = "en" }: { locale?: Locale }) {
+  const testimonials = locale === "es" ? testimonialsEs : testimonialsEn;
   const [visibleCount, setVisibleCount] = useState(2);
   const [currentIndex, setCurrentIndex] = useState(0);
   const reduceMotion = useReducedMotion();
@@ -147,7 +159,7 @@ export function TestimonialsCarousel() {
         (index) => index < testimonials.length
       )
     );
-  }, [currentIndex, visibleCount]);
+  }, [currentIndex, visibleCount, testimonials.length]);
 
   const currentLabel = testimonials[currentIndex]
     ? `${currentIndex + 1} of ${testimonials.length}: ${testimonials[currentIndex].name}`
@@ -194,7 +206,7 @@ export function TestimonialsCarousel() {
                 style={{ visibility: activeIndices.has(index) ? "visible" : "hidden" }}
                 className="flex h-full flex-col"
               >
-                <TestimonialQuote name={testimonial.name} quote={testimonial.quote} />
+                <TestimonialQuote name={testimonial.name} quote={testimonial.quote} locale={locale} />
 
                 <div className="mt-auto flex items-center gap-4 pt-10">
                   <TestimonialAvatar testimonial={testimonial} />

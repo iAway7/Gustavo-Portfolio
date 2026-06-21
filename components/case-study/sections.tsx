@@ -4,6 +4,7 @@ import { CaseStudyHeroCarousel } from "@/components/case-study/hero-carousel";
 import { MagneticLink } from "@/components/magnetic-link";
 import { ProjectVisual } from "@/components/project-visual";
 import { Reveal } from "@/components/reveal";
+import type { Locale } from "@/lib/i18n";
 import type {
   AnnotatedVisual,
   CaseStudyGlance,
@@ -41,7 +42,25 @@ export function CaseStudySection({
   );
 }
 
-export function CaseStudyHero({ project }: { project: ProjectCaseStudy }) {
+export function CaseStudyHero({
+  project,
+  locale = "en",
+  content
+}: {
+  project: ProjectCaseStudy;
+  locale?: Locale;
+  content?: { title?: string; summary?: string; role?: string; period?: string; scope?: string };
+}) {
+  const labels =
+    locale === "es"
+      ? { role: "Rol", timeline: "Periodo", scope: "Alcance" }
+      : { role: "Role", timeline: "Timeline", scope: "Scope" };
+  const title = content?.title ?? project.title;
+  const summary = content?.summary ?? project.summary;
+  const role = content?.role ?? project.role;
+  const period = content?.period ?? project.period;
+  const scope = content?.scope ?? project.scope;
+
   return (
     <section className="section-space">
       <div className="shell">
@@ -55,28 +74,28 @@ export function CaseStudyHero({ project }: { project: ProjectCaseStudy }) {
                   </span>
                 ))}
               </div>
-              <h1 className="section-title mt-5">{project.title}</h1>
-              <p className="body-copy mt-6 max-w-xl">{project.summary}</p>
+              <h1 className="section-title mt-5">{title}</h1>
+              <p className="body-copy mt-6 max-w-xl">{summary}</p>
 
               <div className="meta-grid mt-8">
                 <div className="meta-card">
-                  <p className="section-label">Role</p>
-                  <p className="mt-3 text-base text-text">{project.role}</p>
+                  <p className="section-label">{labels.role}</p>
+                  <p className="mt-3 text-base text-text">{role}</p>
                 </div>
                 <div className="meta-card">
-                  <p className="section-label">Timeline</p>
-                  <p className="mt-3 text-base text-text">{project.period}</p>
+                  <p className="section-label">{labels.timeline}</p>
+                  <p className="mt-3 text-base text-text">{period}</p>
                 </div>
                 <div className="meta-card">
-                  <p className="section-label">Scope</p>
-                  <p className="mt-3 text-base text-text">{project.scope}</p>
+                  <p className="section-label">{labels.scope}</p>
+                  <p className="mt-3 text-base text-text">{scope}</p>
                 </div>
               </div>
             </Reveal>
 
             <Reveal delay={0.08}>
               {project.heroSlides && project.heroSlides.length > 0 ? (
-                <CaseStudyHeroCarousel slides={project.heroSlides} title={project.title} />
+                <CaseStudyHeroCarousel slides={project.heroSlides} title={title} />
               ) : (
                 <ProjectVisual visual={project.cardVisual} className="aspect-[16/11]" />
               )}
@@ -91,18 +110,22 @@ export function CaseStudyHero({ project }: { project: ProjectCaseStudy }) {
 /**
  * 30-second read: the whole story in three blocks before any scrolling.
  */
-export function GlanceSection({ glance }: { glance: CaseStudyGlance }) {
+export function GlanceSection({ glance, locale = "en" }: { glance: CaseStudyGlance; locale?: Locale }) {
+  const labels =
+    locale === "es"
+      ? { challenge: "El reto", role: "Mi rol", outcome: "El resultado" }
+      : { challenge: "The challenge", role: "My role", outcome: "The outcome" };
   const items = [
-    { label: "The challenge", body: glance.challenge },
-    { label: "My role", body: glance.role },
-    { label: "The outcome", body: glance.outcome }
+    { label: labels.challenge, body: glance.challenge },
+    { label: labels.role, body: glance.role },
+    { label: labels.outcome, body: glance.outcome }
   ];
 
   return (
     <section className="section-space pt-0">
       <div className="shell">
         <Reveal className="grid gap-5 md:grid-cols-3">
-          <h2 className="sr-only">Project at a glance</h2>
+          <h2 className="sr-only">{locale === "es" ? "Resumen del proyecto" : "Project at a glance"}</h2>
           {items.map((item) => (
             <div key={item.label} className="editorial-card p-6">
               <p className="section-label">{item.label}</p>

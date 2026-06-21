@@ -2,7 +2,13 @@ import { MagneticLink } from "@/components/magnetic-link";
 import { ProjectCard } from "@/components/project-card";
 import { Reveal } from "@/components/reveal";
 import { TestimonialsCarousel } from "@/components/testimonials-carousel";
-import { credibilityPoints, experienceEntries, projectIndex } from "@/lib/site-data";
+import {
+  credibilityPoints,
+  credibilityPointsEs,
+  experienceEntries,
+  experienceEntriesEs,
+  projectIndex
+} from "@/lib/site-data";
 import { getDict, type Locale, localizedPath } from "@/lib/i18n";
 
 const homeProjectSlugs = [
@@ -18,6 +24,8 @@ const homeProjects = homeProjectSlugs
 
 export function HomeView({ locale }: { locale: Locale }) {
   const t = getDict(locale).home;
+  const credibility = locale === "es" ? credibilityPointsEs : credibilityPoints;
+  const snapshotEntries = locale === "es" ? experienceEntriesEs : experienceEntries;
 
   return (
     <main id="main-content" tabIndex={-1} className="pb-8 sm:pt-14">
@@ -88,7 +96,7 @@ export function HomeView({ locale }: { locale: Locale }) {
               </Reveal>
 
               <div className="grid gap-5">
-                {credibilityPoints.map((point, index) => (
+                {credibility.map((point, index) => (
                   <Reveal key={point.label} delay={index * 0.06} className="editorial-card p-6">
                     <p className="caption">{point.label}</p>
                     <p className="mt-4 text-2xl font-medium tracking-[-0.05em] text-text">
@@ -124,7 +132,7 @@ export function HomeView({ locale }: { locale: Locale }) {
               </Reveal>
             </div>
 
-            <TestimonialsCarousel />
+            <TestimonialsCarousel locale={locale} />
           </div>
         </div>
       </section>
@@ -140,7 +148,7 @@ export function HomeView({ locale }: { locale: Locale }) {
               </Reveal>
 
               <div className="grid gap-5">
-                {experienceEntries.slice(0, 3).map((entry, index) => (
+                {snapshotEntries.slice(0, 3).map((entry, index) => (
                   <Reveal key={`${entry.company}-${entry.period}`} delay={index * 0.06} className="editorial-card p-6">
                     <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
                       <div>

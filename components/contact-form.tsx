@@ -1,5 +1,6 @@
 "use client";
 
+import Script from "next/script";
 import { FormEvent, startTransition, useState } from "react";
 
 import { getDict, type Locale } from "@/lib/i18n";
@@ -38,6 +39,7 @@ function validate(values: ContactFormValues, t: FormStrings): ContactFormErrors 
 
 export function ContactForm({ locale = "en" }: { locale?: Locale }) {
   const t = getDict(locale).contact.form;
+  const turnstileSiteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [status, setStatus] = useState<{
     type: "success" | "error";
@@ -57,6 +59,7 @@ export function ContactForm({ locale = "en" }: { locale?: Locale }) {
       message: data.get("message")?.toString().trim() ?? "",
       company: data.get("company")?.toString().trim() ?? ""
     };
+    const turnstileToken = data.get("cf-turnstile-response")?.toString().trim() ?? "";
     const nextErrors = validate(values, t);
 
     if (Object.keys(nextErrors).length > 0) {
@@ -83,13 +86,16 @@ export function ContactForm({ locale = "en" }: { locale?: Locale }) {
         headers: {
           "Content-Type": "application/json"
         },
-        body: JSON.stringify(values)
+        body: JSON.stringify({
+          ...values,
+          turnstileToken
+        })
       });
 
       const result = (await response.json()) as { error?: string; ok?: boolean };
 
       if (!response.ok || !result.ok) {
-        throw new Error(result.error || "Unable to send your message right now.");
+        throw new Error(result.error || "send-failed");
       }
 
       form.reset();
@@ -97,11 +103,10 @@ export function ContactForm({ locale = "en" }: { locale?: Locale }) {
         type: "success",
         message: t.success
       });
-    } catch (error) {
-      const messageText = error instanceof Error ? error.message : "Unable to send your message right now.";
+    } catch {
       setStatus({
         type: "error",
-        message: messageText
+        message: t.errorSend
       });
     }
 
@@ -111,7 +116,18 @@ export function ContactForm({ locale = "en" }: { locale?: Locale }) {
   };
 
   return (
-    <form onSubmit={handleSubmit} noValidate className="grid gap-4" aria-label="Contact form">
+    <form
+      onSubmit={handleSubmit}
+      noValidate
+      className="grid gap-4"
+      aria-label={locale === "es" ? "Formulario de contacto" : "Contact form"}
+    >
+      {turnstileSiteKey ? (
+        <Script
+          src="https://challenges.cloudflare.com/turnstile/v0/api.js"
+          strategy="afterInteractive"
+        />
+      ) : null}
       <input
         tabIndex={-1}
         autoComplete="off"
@@ -190,6 +206,14 @@ export function ContactForm({ locale = "en" }: { locale?: Locale }) {
           </p>
         ) : null}
       </label>
+      {turnstileSiteKey ? (
+        <div
+          className="cf-turnstile"
+          data-sitekey={turnstileSiteKey}
+          data-theme="light"
+          data-size="flexible"
+        />
+      ) : null}
       <div className="mt-4 flex justify-start">
         <button
           type="submit"
