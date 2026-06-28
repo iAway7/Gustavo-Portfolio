@@ -147,7 +147,7 @@ export function ContactForm({ locale = "en" }: { locale?: Locale }) {
           aria-invalid={Boolean(errors.name)}
           aria-describedby={errors.name ? "contact-name-error" : undefined}
           onChange={() => setErrors((current) => ({ ...current, name: undefined }))}
-          className="rounded-[1.2rem] border border-line bg-panel/60 px-4 py-3 outline-none transition-colors duration-300 focus:border-text/30"
+          className="rounded-[1.2rem] border border-[#8a8a8a] bg-panel/60 px-4 py-3 outline-none transition-colors duration-300 focus:border-text/70"
           suppressHydrationWarning
         />
         {errors.name ? (
@@ -168,7 +168,7 @@ export function ContactForm({ locale = "en" }: { locale?: Locale }) {
           aria-invalid={Boolean(errors.email)}
           aria-describedby={errors.email ? "contact-email-error" : undefined}
           onChange={() => setErrors((current) => ({ ...current, email: undefined }))}
-          className="rounded-[1.2rem] border border-line bg-panel/60 px-4 py-3 outline-none transition-colors duration-300 focus:border-text/30"
+          className="rounded-[1.2rem] border border-[#8a8a8a] bg-panel/60 px-4 py-3 outline-none transition-colors duration-300 focus:border-text/70"
           suppressHydrationWarning
         />
         {errors.email ? (
@@ -181,7 +181,7 @@ export function ContactForm({ locale = "en" }: { locale?: Locale }) {
         <span className="text-sm text-muted">{t.project}</span>
         <input
           name="project"
-          className="rounded-[1.2rem] border border-line bg-panel/60 px-4 py-3 outline-none transition-colors duration-300 focus:border-text/30"
+          className="rounded-[1.2rem] border border-[#8a8a8a] bg-panel/60 px-4 py-3 outline-none transition-colors duration-300 focus:border-text/70"
           suppressHydrationWarning
         />
       </label>
@@ -197,7 +197,7 @@ export function ContactForm({ locale = "en" }: { locale?: Locale }) {
           aria-invalid={Boolean(errors.message)}
           aria-describedby={errors.message ? "contact-message-error" : undefined}
           onChange={() => setErrors((current) => ({ ...current, message: undefined }))}
-          className="rounded-[1.2rem] border border-line bg-panel/60 px-4 py-3 outline-none transition-colors duration-300 focus:border-text/30"
+          className="rounded-[1.2rem] border border-[#8a8a8a] bg-panel/60 px-4 py-3 outline-none transition-colors duration-300 focus:border-text/70"
           suppressHydrationWarning
         />
         {errors.message ? (
