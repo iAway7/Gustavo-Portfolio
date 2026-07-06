@@ -395,8 +395,8 @@ export function FieldOperationsCaseStudy({
       {decisions.map((block, index) => (
         <Section key={block.decision}>
           <Reveal className="max-w-2xl">
-            <p className="section-label">
-              {t.keyDecision} {String(index + 1).padStart(2, "0")}
+            <p className="text-[clamp(3.25rem,6vw,5rem)] font-bold leading-none tracking-[-0.05em] text-accent/20">
+              {String(index + 1).padStart(2, "0")}
             </p>
             <h2 className="mt-4 text-[clamp(1.7rem,2.8vw,2.4rem)] font-medium leading-[1.12] tracking-[-0.03em] text-text">
               {block.decision}

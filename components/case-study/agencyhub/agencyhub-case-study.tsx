@@ -380,16 +380,13 @@ export function AgencyHubCaseStudy({
         return (
           <Section key={block.question}>
             <Reveal className="max-w-2xl">
-              <p className="section-label">
-                {t.keyDecision} {String(index + 1).padStart(2, "0")}
+              <p className="text-[clamp(3.25rem,6vw,5rem)] font-bold leading-none tracking-[-0.05em] text-accent/20">
+                {String(index + 1).padStart(2, "0")}
               </p>
+              <p className="section-label mt-5">{block.question}</p>
               <h2 className="mt-4 text-[clamp(1.7rem,2.8vw,2.4rem)] font-medium leading-[1.12] tracking-[-0.03em] text-text">
                 {block.decision}
               </h2>
-              {/* Subtitle: larger, with extra space above the body. */}
-              <p className="mt-8 text-[1.375rem] font-medium leading-[1.25] text-text sm:mt-11 sm:text-[1.875rem]">
-                {block.question}
-              </p>
               <div className="mt-8 grid gap-5">
                 <p className={PARA}>{block.rationale}</p>
                 <p className={PARA}>
