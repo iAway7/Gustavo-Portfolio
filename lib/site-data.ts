@@ -221,6 +221,117 @@ export const capabilityTagsEs = [
   "SEO e Infraestructura"
 ] as const;
 
+export type FrameworkStep = { phase: string; goal: string; questions: string[] };
+
+/** The question sequence applied to any product problem (shown on Approach). */
+export const frameworkSteps: FrameworkStep[] = [
+  {
+    phase: "Why",
+    goal: "Understand the goal.",
+    questions: [
+      "What problem are we trying to solve?",
+      "How does this product benefit customers?",
+      "What business opportunity does it create?"
+    ]
+  },
+  {
+    phase: "Who",
+    goal: "Define the audience.",
+    questions: [
+      "Which groups have significantly different motivations for using this?",
+      "What are their pain points and emotions?",
+      "What is their high-level motivation for solving the problem?"
+    ]
+  },
+  {
+    phase: "When & Where",
+    goal: "Map the context of use.",
+    questions: [
+      "Where does the product meet the user's day?",
+      "What has to be true right before and right after each interaction?"
+    ]
+  },
+  {
+    phase: "What",
+    goal: "List and prioritize ideas.",
+    questions: [
+      "What could we build to fulfill the customer's needs?",
+      "What already exists, and why isn't it enough?",
+      "Which idea has the best effort-to-impact ratio?"
+    ]
+  },
+  {
+    phase: "Solve",
+    goal: "Make it concrete.",
+    questions: [
+      "What tasks must the customer complete to succeed?",
+      "What do four fast sketches teach before high fidelity?"
+    ]
+  },
+  {
+    phase: "How",
+    goal: "Measure success.",
+    questions: [
+      "How would we know the solution worked?",
+      "Which metric would expose the riskiest assumption first?"
+    ]
+  }
+];
+
+export const frameworkStepsEs: FrameworkStep[] = [
+  {
+    phase: "Por qué",
+    goal: "Entender el objetivo.",
+    questions: [
+      "¿Qué problema estamos intentando resolver?",
+      "¿Cómo beneficia este producto a los clientes?",
+      "¿Qué oportunidad de negocio crea?"
+    ]
+  },
+  {
+    phase: "Quién",
+    goal: "Definir a la audiencia.",
+    questions: [
+      "¿Qué grupos tienen motivaciones muy distintas para usarlo?",
+      "¿Cuáles son sus puntos de dolor y sus emociones?",
+      "¿Cuál es su motivación de fondo para resolver el problema?"
+    ]
+  },
+  {
+    phase: "Cuándo y dónde",
+    goal: "Mapear el contexto de uso.",
+    questions: [
+      "¿En qué momento del día del usuario aparece el producto?",
+      "¿Qué tiene que ser cierto justo antes y justo después de cada interacción?"
+    ]
+  },
+  {
+    phase: "Qué",
+    goal: "Listar y priorizar ideas.",
+    questions: [
+      "¿Qué podríamos construir para cubrir las necesidades del cliente?",
+      "¿Qué existe ya y por qué no es suficiente?",
+      "¿Qué idea tiene la mejor relación entre esfuerzo e impacto?"
+    ]
+  },
+  {
+    phase: "Resolver",
+    goal: "Hacerlo concreto.",
+    questions: [
+      "¿Qué tareas debe completar el cliente para tener éxito?",
+      "¿Qué enseñan cuatro bocetos rápidos antes de la alta fidelidad?"
+    ]
+  },
+  {
+    phase: "Cómo",
+    goal: "Medir el éxito.",
+    questions: [
+      "¿Cómo sabríamos que la solución funcionó?",
+      "¿Qué métrica expondría primero la suposición más arriesgada?"
+    ]
+  }
+];
+
 export const testimonials: TestimonialEntry[] = [
   {
     name: "Luis Arguello Herrera",
@@ -812,7 +923,7 @@ export const projectCaseStudies: ProjectCaseStudy[] = [
         body: "Payment can come from someone who isn't the buyer and never logs in. Orders, notifications, and checkout all inherit that complexity."
       },
       {
-        label: "One designer, three months",
+        label: "One designer, four surfaces",
         body: "Marketplace, cart, orders, and provider tools had to ship together, which made a shared component system a necessity, not a preference."
       }
     ],
@@ -871,7 +982,7 @@ export const projectCaseStudies: ProjectCaseStudy[] = [
     ],
     system: {
       body: [
-        "Marketplace, cart, orders, and the provider's store were built from one set of components and layout rules. For a solo designer on a three-month timeline this wasn't aesthetic discipline; it was the only way to ship four coherent surfaces at once.",
+        "Marketplace, cart, orders, and the provider's store were built from one set of components and layout rules. For a solo designer this wasn't aesthetic discipline; it was the only way to ship four coherent surfaces at once.",
         "The same system absorbed the project's odd states, like orders waiting on a client and listings waiting on approval, without inventing new patterns for each."
       ]
     },
@@ -879,7 +990,7 @@ export const projectCaseStudies: ProjectCaseStudy[] = [
       results: [
         "The design made a new behavior possible: an agency can sell a service it doesn't deliver, with payment, requirements, and fulfillment handled by the platform instead of spreadsheets and email.",
         "Vetting moved from a private, per-agency struggle to a platform feature. The approval gate is the product's trust claim, enforced by design.",
-        "Four surfaces shipped in three months from one component system, by one designer."
+        "Four surfaces shipped from one component system, by one designer."
       ],
       reflection:
         "If I continued this work, I would instrument the two riskiest decisions: how many checkouts end in a payment link, which shows whether the third-party flow is real demand, and how long provider approval takes, because trust is only a feature if it doesn't strangle supply."
