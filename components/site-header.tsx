@@ -49,7 +49,7 @@ export function SiteHeader() {
                 href={localizedPath(item.href, locale)}
                 className={cn(
                   "rounded-full px-3 py-2 text-base transition-colors duration-200",
-                  isActive ? "bg-text text-white" : "text-muted hover:text-[#244de8]"
+                  isActive ? "bg-text text-white" : "text-muted hover:text-accent"
                 )}
                 aria-current={isActive ? "page" : undefined}
               >

@@ -7,7 +7,9 @@ import {
   approachPrinciples,
   approachPrinciplesEs,
   capabilityTags,
-  capabilityTagsEs
+  capabilityTagsEs,
+  frameworkSteps,
+  frameworkStepsEs
 } from "@/lib/site-data";
 import { getDict, type Locale, localizedPath } from "@/lib/i18n";
 
@@ -24,6 +26,7 @@ export function ApproachView({ locale }: { locale: Locale }) {
   const t = getDict(locale).approach;
   const principles = locale === "es" ? approachPrinciplesEs : approachPrinciples;
   const tags = locale === "es" ? capabilityTagsEs : capabilityTags;
+  const framework = locale === "es" ? frameworkStepsEs : frameworkSteps;
 
   return (
     <main id="main-content" tabIndex={-1} className="pb-8 pt-10 sm:pt-14">
@@ -66,6 +69,33 @@ export function ApproachView({ locale }: { locale: Locale }) {
                   </Reveal>
                 );
               })}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="section-space pt-0">
+        <div className="shell">
+          <div className="section-rule">
+            <Reveal className="max-w-2xl">
+              <p className="caption">{t.frameworkCaption}</p>
+              <h2 className="section-title mt-4">{t.frameworkHeading}</h2>
+              <p className="body-copy mt-6 max-w-2xl">{t.frameworkIntro}</p>
+            </Reveal>
+            <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+              {framework.map((step, index) => (
+                <Reveal key={step.phase} delay={index * 0.05} className="editorial-card p-6">
+                  <p className="section-label">{step.phase}</p>
+                  <p className="mt-2 text-lg font-medium text-text">{step.goal}</p>
+                  <ul className="mt-4 grid gap-2">
+                    {step.questions.map((question) => (
+                      <li key={question} className="text-base leading-7 text-muted">
+                        {question}
+                      </li>
+                    ))}
+                  </ul>
+                </Reveal>
+              ))}
             </div>
           </div>
         </div>

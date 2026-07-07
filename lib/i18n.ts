@@ -133,6 +133,7 @@ const en = {
   },
   home: {
     pill: "Product Designer",
+    availability: "Available for new projects",
     h1a: "Built around people.",
     h1b: "Grounded in reality.",
     intro:
@@ -186,6 +187,10 @@ const en = {
       "My goal is not just to make interfaces look good. It’s to help products work better for users, business stakeholders, and the teams responsible for shipping them.",
     coreExpertise: "Core expertise",
     relevantCertifications: "Relevant certifications",
+    frameworkCaption: "The framework",
+    frameworkHeading: "The questions I carry into every project.",
+    frameworkIntro:
+      "A repeatable question sequence I bring to any product problem — why before who, who before what, and what before how. It's what keeps design judgment consistent and transferable from one project to the next.",
     startWork: "Start with the work",
     flagshipHeading: "A closer look at my product design process.",
     viewFeatured: "View featured case study"
@@ -244,6 +249,7 @@ const es: Dict = {
   },
   home: {
     pill: "Diseñador de Producto",
+    availability: "Disponible para nuevos proyectos",
     h1a: "Pensado para las personas.",
     h1b: "Anclado en la realidad.",
     intro:
@@ -297,6 +303,10 @@ const es: Dict = {
       "Mi objetivo no es solo que las interfaces se vean bien. Es ayudar a que los productos funcionen mejor para los usuarios, los stakeholders del negocio y los equipos responsables de lanzarlos.",
     coreExpertise: "Especialidades principales",
     relevantCertifications: "Certificaciones relevantes",
+    frameworkCaption: "El método",
+    frameworkHeading: "Las preguntas que llevo a cada proyecto.",
+    frameworkIntro:
+      "Una secuencia de preguntas repetible que aplico a cualquier problema de producto: el porqué antes que el quién, el quién antes que el qué, y el qué antes que el cómo. Es lo que mantiene el criterio de diseño consistente y transferible de un proyecto a otro.",
     startWork: "Empieza por el trabajo",
     flagshipHeading: "Una mirada más cercana a mi proceso de diseño de producto.",
     viewFeatured: "Ver caso de estudio destacado"

@@ -56,7 +56,7 @@ export function ProductSurfaceCarousel({ slides }: ProductSurfaceCarouselProps) 
       aria-label="Emmvi product surface"
       tabIndex={0}
       onKeyDown={onKeyDown}
-      className="grid gap-6 rounded-[1.6rem] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#244de8]/30"
+      className="grid gap-6 rounded-[1.6rem] focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/30"
     >
       <div className="overflow-hidden">
         <div

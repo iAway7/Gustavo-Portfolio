@@ -15,7 +15,7 @@ const config: Config = {
         line: "rgba(23, 23, 23, 0.14)",
         text: "#171717",
         muted: "#555555",
-        accent: "#171717"
+        accent: "#1905EC"
       },
       boxShadow: {
         float: "0 18px 42px rgba(23, 23, 23, 0.06)"

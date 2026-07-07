@@ -31,14 +31,14 @@ export function ContactView({ locale }: { locale: Locale }) {
                       className="contact-link group"
                     >
                       <span>{channel.label}</span>
-                      <span className="text-muted transition-colors duration-200 group-hover:text-[#244de8]">
+                      <span className="text-muted transition-colors duration-200 group-hover:text-accent">
                         {channel.value}
                       </span>
                     </a>
                   ))}
                   <a href={resume.href} download="" className="contact-link group">
                     <span>{resume.label}</span>
-                    <span className="text-muted transition-colors duration-200 group-hover:text-[#244de8]">
+                    <span className="text-muted transition-colors duration-200 group-hover:text-accent">
                       {resume.value}
                     </span>
                   </a>

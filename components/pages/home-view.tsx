@@ -29,11 +29,14 @@ export function HomeView({ locale }: { locale: Locale }) {
 
   return (
     <main id="main-content" tabIndex={-1} className="pb-8 sm:pt-14">
-      <section id="home" className="section-space sm:pt-24 lg:min-h-[78vh] lg:pt-24">
+      <section id="home" className="section-space sm:pt-24 lg:min-h-[62vh] lg:pt-24">
         <div className="shell">
           <div className="max-w-[72rem]">
-            <div className="mt-4 flex flex-wrap gap-3">
-              <span className="pill">{t.pill}</span>
+            <div className="mt-4 flex flex-wrap items-center gap-3">
+              <span className="pill gap-2 border-accent/30 text-accent">
+                <span className="availability-dot" aria-hidden="true" />
+                {t.availability}
+              </span>
             </div>
             <h1 className="hero-title mt-8 max-w-[13ch]">
               {t.h1a}
@@ -124,7 +127,7 @@ export function HomeView({ locale }: { locale: Locale }) {
                   target="_blank"
                   rel="noreferrer"
                   aria-label="View all testimonials on LinkedIn (opens in a new tab)"
-                  className="inline-flex items-center gap-2 text-lg text-text transition-colors duration-200 hover:text-[#244de8]"
+                  className="inline-flex items-center gap-2 text-lg text-text transition-colors duration-200 hover:text-accent"
                 >
                   {t.viewAll}
                   <span aria-hidden="true">-&gt;</span>

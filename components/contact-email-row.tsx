@@ -30,13 +30,13 @@ export function ContactEmailRow() {
       <div className="flex items-center gap-3">
         {isRevealed ? (
           <>
-            <a href={`mailto:${EMAIL}`} className="text-muted transition-colors hover:text-[#244de8]">
+            <a href={`mailto:${EMAIL}`} className="text-muted transition-colors hover:text-accent">
               {EMAIL}
             </a>
             <button
               type="button"
               onClick={handleCopy}
-              className="rounded-full border border-line px-3 py-1 text-xs uppercase tracking-[0.14em] text-muted transition-colors hover:text-[#244de8]"
+              className="rounded-full border border-line px-3 py-1 text-xs uppercase tracking-[0.14em] text-muted transition-colors hover:text-accent"
             >
               {isCopied ? "Copied" : "Copy"}
             </button>
@@ -45,7 +45,7 @@ export function ContactEmailRow() {
           <button
             type="button"
             onClick={handleReveal}
-            className="rounded-full border border-line px-3 py-1 text-xs uppercase tracking-[0.14em] text-muted transition-colors hover:text-[#244de8]"
+            className="rounded-full border border-line px-3 py-1 text-xs uppercase tracking-[0.14em] text-muted transition-colors hover:text-accent"
           >
             Reveal email
           </button>

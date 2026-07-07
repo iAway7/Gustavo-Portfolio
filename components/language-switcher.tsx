@@ -55,7 +55,7 @@ export function LanguageSwitcher({ className }: { className?: string }) {
             aria-current={active ? "true" : undefined}
             onClick={() => rememberLocale(locale)}
             className={cn(
-              "rounded-full px-2.5 py-1 text-xs font-medium uppercase tracking-[0.12em] transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#244de8]/40",
+              "rounded-full px-2.5 py-1 text-xs font-medium uppercase tracking-[0.12em] transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/40",
               active ? "bg-text text-white" : "text-muted hover:text-text"
             )}
           >

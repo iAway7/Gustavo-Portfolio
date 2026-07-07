@@ -60,7 +60,7 @@ export function AgencyHubOverviewCarousel({ slides }: { slides: OverviewSlide[] 
       aria-label="AgencyHub product walkthrough"
       tabIndex={0}
       onKeyDown={onKeyDown}
-      className="mx-auto grid w-full max-w-[78rem] gap-5 rounded-[1.5rem] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#244de8]/30"
+      className="mx-auto grid w-full max-w-[78rem] gap-5 rounded-[1.5rem] focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/30"
     >
       <div
         className="editorial-image paper-tint overflow-hidden"

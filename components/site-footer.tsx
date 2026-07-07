@@ -42,7 +42,7 @@ export function SiteFooter() {
                   <Link
                     key={item.href}
                     href={localizedPath(item.href, locale)}
-                    className="text-base text-muted transition-colors hover:text-[#244de8]"
+                    className="text-base text-muted transition-colors hover:text-accent"
                   >
                     {item.label}
                   </Link>
@@ -59,7 +59,7 @@ export function SiteFooter() {
                     href={channel.href}
                     target={channel.href.startsWith("http") ? "_blank" : undefined}
                     rel={channel.href.startsWith("http") ? "noreferrer" : undefined}
-                    className="text-base text-muted transition-colors hover:text-[#244de8]"
+                    className="text-base text-muted transition-colors hover:text-accent"
                   >
                     {channel.label}
                   </a>
@@ -67,7 +67,7 @@ export function SiteFooter() {
                 <a
                   href={resume.href}
                   download=""
-                  className="text-base text-muted transition-colors hover:text-[#244de8]"
+                  className="text-base text-muted transition-colors hover:text-accent"
                 >
                   {resume.label}
                 </a>

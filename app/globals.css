@@ -48,7 +48,7 @@ textarea {
 }
 
 ::selection {
-  background: rgba(23, 23, 23, 0.12);
+  background: rgba(25, 5, 236, 0.12);
   color: #171717;
 }
 
@@ -76,15 +76,15 @@ button:focus-visible,
 input:focus-visible,
 textarea:focus-visible,
 summary:focus-visible {
-  outline: 3px solid #244de8;
+  outline: 3px solid #1905ec;
   outline-offset: 3px;
 }
 
 .interactive-card:focus-within,
 .editorial-card:focus-within,
 .eyeline:focus-within {
-  border-color: rgba(36, 77, 232, 0.42);
-  box-shadow: 0 0 0 3px rgba(36, 77, 232, 0.16);
+  border-color: rgba(25, 5, 236, 0.42);
+  box-shadow: 0 0 0 3px rgba(25, 5, 236, 0.14);
 }
 
 @layer components {
@@ -128,12 +128,36 @@ summary:focus-visible {
     @apply text-[0.72rem] uppercase tracking-[0.22em] text-muted;
   }
 
+  .step-number {
+    @apply block text-[clamp(2.75rem,5vw,4.25rem)] font-semibold leading-none tracking-[-0.05em] text-accent/25;
+  }
+
   .section-label {
-    @apply text-[1rem] font-bold uppercase tracking-[0.18em] text-muted;
+    @apply text-[1rem] font-bold uppercase tracking-[0.18em] text-accent;
   }
 
   .pill {
     @apply inline-flex items-center rounded-full border border-line px-3 py-1 text-[0.7rem] uppercase tracking-[0.16em] text-muted;
+  }
+}
+
+.availability-dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 999px;
+  background: #1905ec;
+  animation: availability-pulse 2.4s ease-in-out infinite;
+}
+
+@keyframes availability-pulse {
+  0%,
+  100% {
+    opacity: 1;
+    box-shadow: 0 0 0 0 rgba(25, 5, 236, 0.28);
+  }
+  50% {
+    opacity: 0.6;
+    box-shadow: 0 0 0 5px rgba(25, 5, 236, 0);
   }
 }
 
@@ -209,11 +233,11 @@ summary:focus-visible {
 }
 
 .contact-link {
-  @apply flex items-center justify-between gap-4 border-b border-line py-4 text-sm text-text transition-colors duration-200 hover:text-[#244de8];
+  @apply flex items-center justify-between gap-4 border-b border-line py-4 text-sm text-text transition-colors duration-200 hover:text-accent;
 }
 
 .certification-link {
-  @apply inline-flex items-center gap-2 text-sm leading-7 text-text transition-colors duration-200 hover:text-[#244de8];
+  @apply inline-flex items-center gap-2 text-sm leading-7 text-text transition-colors duration-200 hover:text-accent;
 }
 
 .meta-grid {

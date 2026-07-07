@@ -132,7 +132,7 @@ export function MobileNav() {
         aria-expanded={open}
         aria-controls={panelId}
         aria-haspopup="dialog"
-        className="relative -mr-1 flex h-10 w-10 items-center justify-center rounded-full text-text transition-colors duration-200 hover:text-[#244de8] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#244de8]/40"
+        className="relative -mr-1 flex h-10 w-10 items-center justify-center rounded-full text-text transition-colors duration-200 hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/40"
       >
         <span className="sr-only">
           {open ? (locale === "es" ? "Cerrar menú" : "Close menu") : locale === "es" ? "Abrir menú" : "Open menu"}
@@ -191,7 +191,7 @@ export function MobileNav() {
                 type="button"
                 onClick={close}
                 aria-label={locale === "es" ? "Cerrar menú" : "Close menu"}
-                className="relative -mr-1 flex h-10 w-10 items-center justify-center rounded-full text-text transition-colors duration-200 hover:text-[#244de8] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#244de8]/40"
+                className="relative -mr-1 flex h-10 w-10 items-center justify-center rounded-full text-text transition-colors duration-200 hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/40"
               >
                 <span aria-hidden="true" className="relative block h-4 w-4">
                   <span className="absolute left-0 top-1/2 block h-[1.5px] w-full -translate-y-1/2 rotate-45 rounded-full bg-current" />
@@ -236,7 +236,7 @@ export function MobileNav() {
                 <Link
                   href={resume.href}
                   onClick={close}
-                  className="text-sm uppercase tracking-[0.18em] text-muted transition-colors duration-200 hover:text-[#244de8]"
+                  className="text-sm uppercase tracking-[0.18em] text-muted transition-colors duration-200 hover:text-accent"
                 >
                   {resume.label}
                 </Link>
@@ -247,7 +247,7 @@ export function MobileNav() {
                     {...(isExternal(linkedin.href)
                       ? { target: "_blank", rel: "noopener noreferrer" }
                       : {})}
-                    className="text-sm uppercase tracking-[0.18em] text-muted transition-colors duration-200 hover:text-[#244de8]"
+                    className="text-sm uppercase tracking-[0.18em] text-muted transition-colors duration-200 hover:text-accent"
                   >
                     {linkedin.label}
                   </Link>
