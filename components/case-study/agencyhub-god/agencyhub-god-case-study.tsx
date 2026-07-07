@@ -230,11 +230,11 @@ const COPY = {
     solveLabel: "Solve — ¿cuál es el mínimo de pantallas que sostiene el trabajo?",
     solveTitle: "Primero papel. La fidelidad se gana, no se asume.",
     solveIntro:
-      "Los bocetos rápidos son donde las malas ideas mueren barato. El marketplace, el carrito y el checkout se bocetaron en papel, se discutieron, y solo los supervivientes se reconstruyeron como wireframes de alta fidelidad.",
+      "Los bocetos rápidos son donde las malas ideas mueren barato. El marketplace, el carrito y el checkout se bocetaron en papel, se discutieron, y solo las mejores ideas pasaron a wireframes de alta fidelidad.",
     solveCaptionSketches:
       "Bocetos veloces: minutos por concepto, para explorar en amplitud la pregunta del checkout frente al enlace de pago antes de profundizar.",
     solveCaptionWireframes:
-      "Los conceptos supervivientes en alta fidelidad — estructura cerrada antes del diseño visual, para que las revisiones hablaran de flujo, no de color.",
+      "Las ideas validadas, ya en alta fidelidad: la estructura se definió antes del diseño visual, para que las revisiones se centraran en el flujo y no en el color.",
     systemLabel: "El Sistema",
     systemTitle: "Un solo sistema detrás de cada superficie.",
     howLabel: "How — ¿cómo sabemos que funcionó?",
