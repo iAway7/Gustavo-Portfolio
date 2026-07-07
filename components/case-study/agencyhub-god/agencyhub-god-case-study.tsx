@@ -204,7 +204,7 @@ const COPY = {
     whoLabel: "Who — ¿para quién diseñamos?",
     whoTitle: "Dos usuarios con incentivos opuestos, y un tercero que nunca inicia sesión.",
     whoIntro:
-      "Las personas aquí no fueron una formalidad. La agencia y el proveedor quieren cosas contradictorias del mismo catálogo — rapidez para publicar frente a confianza en lo publicado. Nombrar esa tensión temprano es lo que hizo decidibles los trade-offs posteriores.",
+      "Las user personas aquí no fueron una formalidad. La agencia y el proveedor quieren cosas contradictorias del mismo catálogo — rapidez para publicar frente a confianza en lo publicado. Poner nombre a esa tensión desde el principio fue lo que permitió tomar las decisiones difíciles que vinieron después.",
     whoCaptionAgency:
       "La agencia: crecer delegando, con terror a poner un proveedor sin verificar frente a su cliente.",
     whoCaptionProvider:
@@ -212,7 +212,7 @@ const COPY = {
     reframeLabel: "Reframe — ¿cómo podríamos hacer de la confianza una funcionalidad?",
     reframeTitle: "Convertir el desafío en preguntas contra las que el equipo pudiera diseñar.",
     reframeIntro:
-      "Las notas de How Might We convierten quejas en briefs. Las útiles no son las obvias: 'HMW hacer de la verificación una funcionalidad de la plataforma' reencuadró la confianza de coste de soporte a núcleo del producto.",
+      "Las notas de How Might We convierten quejas en briefs de diseño. Las útiles no son las obvias: '¿cómo podríamos hacer de la verificación una funcionalidad de la plataforma?' convirtió la confianza de un coste de soporte en el núcleo del producto.",
     reframeCaption:
       "Notas HMW, agrupadas y votadas. El grupo ganador se convirtió en el control de aprobación que define el producto.",
     journeyLabel: "When & Where — ¿por dónde se mueve realmente el dinero?",
@@ -224,13 +224,13 @@ const COPY = {
     whatLabel: "What — ¿por qué no basta un marketplace existente?",
     whatTitle: "Estudiar lo que existe antes de decidir qué construir.",
     whatIntro:
-      "Los lightning demos son due diligence barata: una hora mirando cómo Fiverr, Upwork y marketplaces verticales resuelven publicación, confianza y checkout — y ser honesto sobre por qué ninguno encaja en un triángulo de reventa.",
+      "Los lightning demos son la investigación más rentable que existe: una hora mirando cómo Fiverr, Upwork y otros marketplaces resuelven la publicación, la confianza y el checkout — y ser honesto sobre por qué ninguno funciona cuando el comprador revende.",
     whatCaption:
-      "Marketplaces de referencia, anotados con qué tomar y qué descartar: ninguno modela a un comprador que revende.",
+      "Marketplaces de referencia, con notas sobre qué aprovechar y qué descartar: ninguno contempla a un comprador que revende.",
     solveLabel: "Solve — ¿cuál es el mínimo de pantallas que sostiene el trabajo?",
     solveTitle: "Primero papel. La fidelidad se gana, no se asume.",
     solveIntro:
-      "Los bocetos rápidos son donde las malas ideas mueren barato. El marketplace, el carrito y el checkout se bocetaron en papel, se discutieron, y solo las mejores ideas pasaron a wireframes de alta fidelidad.",
+      "Bocetar rápido es la forma más barata de descartar malas ideas. El marketplace, el carrito y el checkout se dibujaron en papel, se discutieron, y solo las mejores ideas pasaron a wireframes de alta fidelidad.",
     solveCaptionSketches:
       "Bocetos veloces: minutos por concepto, para explorar en amplitud la pregunta del checkout frente al enlace de pago antes de profundizar.",
     solveCaptionWireframes:
