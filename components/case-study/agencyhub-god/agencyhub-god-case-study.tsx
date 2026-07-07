@@ -191,8 +191,8 @@ const COPY = {
         body: "El pago puede venir de alguien que no es el comprador y que nunca inicia sesión. Los pedidos, las notificaciones y el checkout heredan esa complejidad."
       },
       {
-        label: "Un solo diseñador, cuatro superficies",
-        body: "El marketplace, el carrito, los pedidos y las herramientas del proveedor tenían que lanzarse juntos, lo que convirtió un sistema de componentes compartido en una necesidad, no una preferencia."
+        label: "Un solo diseñador, todo el producto",
+        body: "El marketplace, el carrito, los pedidos y las herramientas del proveedor tenían que salir juntos. Un sistema de componentes compartido no era una preferencia: era la única manera de llegar."
       }
     ],
     whyLabel: "Why — ¿qué problema estamos resolviendo?",
@@ -236,7 +236,7 @@ const COPY = {
     solveCaptionWireframes:
       "Las ideas validadas, ya en alta fidelidad: la estructura se definió antes del diseño visual, para que las revisiones se centraran en el flujo y no en el color.",
     systemLabel: "El Sistema",
-    systemTitle: "Un solo sistema detrás de cada superficie.",
+    systemTitle: "Un solo sistema para todo el producto.",
     howLabel: "How — ¿cómo sabemos que funcionó?",
     howTitle: "Un diseño no está terminado cuando se lanza. Está terminado cuando se mide.",
     howIntro:
@@ -261,13 +261,13 @@ const narrativeEs = {
     "La apuesta de AgencyHub era que la verificación podía ser una función del producto en lugar de una lucha en privado. Para que eso funcionara, el producto tenía que servir a dos partes con necesidades opuestas: los proveedores quieren publicar rápido; las agencias quieren fiarse de lo que encuentran."
   ],
   system: [
-    "El marketplace, el carrito, los pedidos y la tienda del proveedor se construyeron a partir de un único conjunto de componentes y reglas de layout. Para un único diseñador, esto no era disciplina estética: era la única forma de lanzar cuatro superficies coherentes a la vez.",
-    "El mismo sistema absorbió los estados raros del proyecto, como pedidos a la espera de un cliente y publicaciones a la espera de aprobación, sin inventar nuevos patrones para cada uno."
+    "El marketplace, el carrito, los pedidos y la tienda del proveedor comparten una misma librería de componentes y las mismas reglas de layout. Siendo el único diseñador, no era una cuestión estética: era la única manera de que las cuatro áreas del producto salieran con un diseño consistente.",
+    "Esa misma librería resolvió también los casos especiales del producto —un pedido esperando a que pague el cliente, un servicio pendiente de aprobación— sin tener que diseñar componentes nuevos para cada situación."
   ],
   results: [
     "El diseño hizo posible un comportamiento nuevo: una agencia puede vender un servicio que no presta, con el pago, los requisitos y la entrega gestionados por la plataforma en lugar de hojas de cálculo y correos.",
     "La verificación pasó de ser una lucha privada de cada agencia a una funcionalidad de la plataforma. El control de aprobación es la promesa de confianza del producto, garantizada por diseño.",
-    "Cuatro superficies lanzadas a partir de un solo sistema de componentes, por un único diseñador."
+    "Las cuatro áreas del producto se lanzaron a partir de una sola librería de componentes, diseñada por una sola persona."
   ],
   reflection:
     "Si continuara este trabajo, instrumentaría las dos decisiones más arriesgadas: cuántos checkouts terminan en un enlace de pago, que muestra si el flujo del tercero es demanda real, y cuánto tarda la aprobación de proveedores, porque la confianza solo es una funcionalidad si no estrangula la oferta."
