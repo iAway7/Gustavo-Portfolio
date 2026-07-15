@@ -334,6 +334,13 @@ export const frameworkStepsEs: FrameworkStep[] = [
 
 export const testimonials: TestimonialEntry[] = [
   {
+    name: "Matt Gerchow",
+    role: "Founder & CEO, AgencyHub",
+    image: "/Matt.jpeg",
+    quote:
+      "Gus will be an asset to your team. He has a keen eye for design and will make you think about things in a way that you hadn't thought of before. Gus pulled me out of several jams that were monumental, and he pulled all-nighters to get us back online. This guy doesn't know the meaning of the word “quit”!!"
+  },
+  {
     name: "Luis Arguello Herrera",
     role: ".Net Full-Stack Developer, Project Lead",
     image: "/Luis.jpeg",
@@ -399,6 +406,13 @@ export const testimonials: TestimonialEntry[] = [
 ] as const;
 
 export const testimonialsEs: TestimonialEntry[] = [
+  {
+    name: "Matt Gerchow",
+    role: "Fundador y CEO de AgencyHub",
+    image: "/Matt.jpeg",
+    quote:
+      "Gus será un gran fichaje para tu equipo. Tiene un ojo excelente para el diseño y te hará ver las cosas de una forma en la que no habías pensado antes. Gus me sacó de varios apuros que eran monumentales y se pasó noches enteras en vela para volver a ponernos en marcha. ¡Este tío no conoce el significado de la palabra «rendirse»!"
+  },
   {
     name: "Luis Arguello Herrera",
     role: "Desarrollador Full-Stack .NET, Líder de Proyecto",
