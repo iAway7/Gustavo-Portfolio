@@ -1015,7 +1015,7 @@ export const projectCaseStudies: ProjectCaseStudy[] = [
   {
     kind: "experience",
     slug: "installpros-website",
-    title: "InstallPros",
+    title: "InstallPros — U.S.",
     clientOrBrand: "Install Pros",
     role: "UX/UI Designer",
     period: "2024 - Present",
@@ -1122,6 +1122,95 @@ export const projectCaseStudies: ProjectCaseStudy[] = [
       ],
       reflection:
         "The system is built to be measured: paths, CTAs, and pages map to funnel stages. The next step is closing the loop with analytics on booked installs per intent path, not just traffic."
+    },
+    nextSlug: "installpros-uk-landing"
+  },
+  {
+    kind: "experience",
+    slug: "installpros-uk-landing",
+    title: "InstallPros — U.K.",
+    clientOrBrand: "Install Pros U.K.",
+    role: "Product Designer",
+    period: "2026",
+    scope: "Funnel audit, UX/UI, front-end & analytics",
+    summary:
+      "A funnel audit and redesign for InstallPros in the U.K., where two out of three visits left the landing page without typing a character.",
+    tags: ["Conversion", "Funnel Redesign"],
+    featured: false,
+    href: "/work/installpros-uk-landing",
+    cardVisual: {
+      type: "image",
+      // Cropped to 16:11, the card frame's own ratio, so object-cover has
+      // nothing to trim off the sides.
+      src: "/projects/installpros-uk/card-cover.webp",
+      alt: "InstallPros U.K. landing page returning the district name after a postcode lookup",
+      tone: "paper"
+    },
+    glance: {
+      challenge:
+        "InstallPros spent £19,000 a month on Google Ads and had no way of telling where that money stopped working. The conversion figures the account reported were inflated by a single thank-you page serving 61 unrelated pages.",
+      role: "Sole designer. I ran the audit across four data sources, isolated the leak to one step, specified the redesign inside WordPress, and built a separate landing page end to end once the existing layer proved impossible to measure.",
+      outcome:
+        "The leak was at the first field, not spread across the form. The fix ships on WordPress, and a purpose-built landing now runs as the measurable variant against it."
+    },
+    businessContext: [
+      "InstallPros installs Starlink in homes and businesses across the United Kingdom, buying 87% of its traffic through Google Ads and receiving 80% of visits on mobile. The ads performed; the problem started after the click.",
+      "Nobody could say where, because a single thank-you page served 61 different pages. With a WhatsApp click set as the primary conversion, automated bidding optimised toward an audience that clicks links rather than one that books installations."
+    ],
+    audience: [
+      "Paid visitors arriving on mobile with one question ahead of every other: is my address covered? The coverage map was the third most-clicked element on the page despite not being a button.",
+      "The funnel treated that question as a formality. It asked for a postcode, answered with fixed text identical for every postcode, and requested a phone number in the same movement."
+    ],
+    strategy: [
+      "Diagnosis before design. Heatmaps, form analytics and web analytics each pointed somewhere different; the finding came from the contradiction between them, and it moved the whole effort to the first screenful.",
+      "Fix the measurement before claiming any improvement: thank-you pages per service, so conversion figures mean something."
+    ],
+    architecture: {
+      body: [
+        "The work shipped inside the existing WordPress template rather than as a full rebuild: a reduced header on the conversion landing, a menu cut from 40-plus items to four, unified call-to-action labels, and conversion paths added to the blog, the location pages and the speed-test page that had none."
+      ]
+    },
+    conversion: [
+      {
+        question: "Where exactly does the funnel lose people?",
+        decision:
+          "Read continuation rate per step rather than the distribution of abandonment, which always over-indexes the first field.",
+        rationale:
+          "The drop-off report put 76% of abandonment at the postcode field, but that field is the only one everybody passes through. Measured against its own population it retained 49%, while the next three steps retained 78%, 91% and 96%.",
+        tradeoff:
+          "The one-question-per-screen form can't separate abandoning while typing the postcode from leaving on the screen after it. The diagnosis converges either way, but the exact split stays unknown."
+      },
+      {
+        question: "Why rebuild the form instead of rewriting it?",
+        decision:
+          "A purpose-built landing page, designed and deployed end to end, as a measurable variant against the current one.",
+        rationale:
+          "The original form is a third-party widget in an iframe: no field-level measurement, and no way to query anything on postcode entry. The availability message had to be fixed text because that layer allowed nothing else.",
+        tradeoff:
+          "Two surfaces to maintain until enough traffic accumulates to compare them, and no result to report until it does."
+      }
+    ],
+    visualDirection:
+      "Everything above the fold earns its place against a data point: one field, one answer, one button. Trust signals move up because the mobile scroll map showed the bottom three quarters of the page was never seen.",
+    finalExperience: [
+      {
+        caption:
+          "The postcode lookup runs against a real service and returns the district name, so the answer reads as a confirmation rather than a sign.",
+        visual: {
+          type: "image",
+          src: "/projects/installpros-uk/after-desktop-westminster.webp",
+          alt: "New landing: the lookup returns the real district name, Westminster"
+        }
+      }
+    ],
+    outcome: {
+      results: [
+        "The leak was located at one step: two out of three visits never started the form, while completion once started was never the problem.",
+        "Attribution repaired at the root, replacing one thank-you page shared by 61 pages with a page per service.",
+        "A measurable landing page now exists where the previous layer allowed neither measurement nor a real coverage lookup."
+      ],
+      reflection:
+        "The temptation was to redesign the mobile form, which is what web analytics alone would have justified. Crossing it with form data killed that plan and saved weeks of work on something that already worked."
     },
     nextSlug: "emmvi-growth-platform"
   },

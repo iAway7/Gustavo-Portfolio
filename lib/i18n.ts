@@ -81,14 +81,26 @@ export const projectI18n: Record<string, Record<Locale, { title: string; summary
   },
   "installpros-website": {
     en: {
-      title: "InstallPros",
+      title: "InstallPros — U.S.",
       summary:
-        "A conversion-led redesign of Install Pros' web presence, turning a list of services into a clear path toward booking an installation."
+        "300+ support conversations turned into design principles, and the U.S. website built to act on them — a conversion-led redesign toward booking an installation."
     },
     es: {
-      title: "InstallPros",
+      title: "InstallPros — EE. UU.",
       summary:
-        "Un rediseño orientado a la conversión de la presencia web de Install Pros, que convierte una lista de servicios en un camino claro hacia la reserva de una instalación."
+        "Más de 300 conversaciones de soporte convertidas en principios de diseño, y la web estadounidense construida para aplicarlos: un rediseño orientado a la reserva de una instalación."
+    }
+  },
+  "installpros-uk-landing": {
+    en: {
+      title: "InstallPros — U.K.",
+      summary:
+        "A funnel audit and redesign for InstallPros in the U.K., where two out of three visits left the landing page without typing a character."
+    },
+    es: {
+      title: "InstallPros — Reino Unido",
+      summary:
+        "Auditoría y rediseño del funnel de InstallPros en Reino Unido, donde dos de cada tres visitas se iban de la landing sin escribir un carácter."
     }
   },
   "emmvi-growth-platform": {

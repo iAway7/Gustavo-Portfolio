@@ -11,4 +11,13 @@ coverage
 
 # Raw design source boards (optimized copies live in public/)
 Portfolio/
+installpros-uk-assets/
 .DS_Store
+
+# Working files for the reskin session, not part of the site
+installpros-uk-reskin-export.html
+installpros-uk-reskin-prompt.md
+
+# Personal notes — never publish. This repo is public.
+docs/will-salary-conversation.md
+docs/entrevista-redbility-guion.md

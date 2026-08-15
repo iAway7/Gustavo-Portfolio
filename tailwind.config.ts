@@ -15,7 +15,11 @@ const config: Config = {
         line: "rgba(23, 23, 23, 0.14)",
         text: "#171717",
         muted: "#555555",
-        accent: "#1905EC"
+        accent: "#1905EC",
+        /** Unhighlighted bar fills, so only the bar that carries the point is accent. */
+        barMuted: "rgba(23, 23, 23, 0.35)",
+        /** Echoes PageSpeed's own passing green. Used only on Lighthouse "after" scores. */
+        pass: "#0C6B3D"
       },
       boxShadow: {
         float: "0 18px 42px rgba(23, 23, 23, 0.06)"

@@ -28,6 +28,7 @@ export const OG_IMAGE_BY_SLUG: Record<string, string> = {
   "installpros-technician-app": "/og/installpros-app.png",
   "agencyhub-platform": "/og/agencyhub.png",
   "installpros-website": "/og/installpros-website.png",
+  "installpros-uk-landing": "/og/installpros-uk-landing.png",
   "emmvi-growth-platform": "/og/emmvi.png"
 };
 

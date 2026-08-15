@@ -11,6 +11,8 @@ type BrowserFrameProps = {
   aspect?: string;
   priority?: boolean;
   sizes?: string;
+  /** Raise above the default 75 for screenshots dense with small UI text. */
+  quality?: number;
   className?: string;
   imageClassName?: string;
 };
@@ -27,6 +29,7 @@ export function BrowserFrame({
   aspect = "aspect-[16/12]",
   priority = false,
   sizes = "(min-width: 1024px) 60vw, 100vw",
+  quality,
   className,
   imageClassName
 }: BrowserFrameProps) {
@@ -54,6 +57,7 @@ export function BrowserFrame({
           fill
           className={cn("object-cover object-top", imageClassName)}
           sizes={sizes}
+          quality={quality}
           priority={priority}
         />
       </div>

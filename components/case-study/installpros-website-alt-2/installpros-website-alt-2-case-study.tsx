@@ -9,7 +9,7 @@ import { BrowserFrame } from "@/components/case-study/emmvi/browser-frame";
 import { GlanceSection } from "@/components/case-study/sections";
 import { MagneticLink } from "@/components/magnetic-link";
 import { Reveal } from "@/components/reveal";
-import type { Locale } from "@/lib/i18n";
+import { localizedPath, type Locale } from "@/lib/i18n";
 import type { CaseStudyGlance, ProjectCaseStudy } from "@/lib/site-data";
 
 const IMG = "/projects/installpros-website/alt2";
@@ -29,7 +29,7 @@ const HERO = {
       "I designed the InstallPros website from scratch — not as a visual exercise, but as the answer to one question the support inbox kept asking: why do people hesitate before booking an installation?",
     role: "Product Designer",
     timeline: "2024 — Present",
-    scope: "Research, product decisions & web system — U.S. (and U.K.)"
+    scope: "Research, product decisions & web system — U.S."
   },
   es: {
     tags: ["Diseño de Producto", "Investigación de clientes", "Conversión"],
@@ -38,7 +38,7 @@ const HERO = {
       "Diseñé la web de InstallPros desde cero, no como un ejercicio visual, sino como respuesta a la pregunta que la bandeja de soporte repetía una y otra vez: ¿por qué la gente duda antes de reservar una instalación?",
     role: "Diseñador de Producto",
     timeline: "2024 — Actualidad",
-    scope: "Investigación, decisiones de producto y sistema web — EE. UU. (y Reino Unido)"
+    scope: "Investigación, decisiones de producto y sistema web — EE. UU."
   }
 } as const;
 
@@ -453,10 +453,11 @@ const COPY = {
       "Each moment on the page answers a question the research surfaced — in the order customers actually ask. Move through the key surfaces below.",
     decisionsEyebrow: "Design decisions",
     decisionsTitle: "How the research shaped the page.",
-    ukEyebrow: "Supporting context",
-    ukTitle: "Two markets, one research-led system.",
+    ukEyebrow: "The other market",
+    ukTitle: "Two markets, two kinds of evidence.",
     ukIntro:
-      "InstallPros operates in the United States and the United Kingdom, and I designed for both. The customer research and business insight were concentrated in the U.S. market, so that's where this story lives — the U.K. site applies the same principles to a different audience and service mix.",
+      "InstallPros operates in the United States and the United Kingdom, and I design for both. This case is the qualitative half: 300+ support conversations turned into principles, and the site that acts on them. The U.K. is a separate piece of work with a separate problem — a funnel losing two out of three visits before anyone typed a character, diagnosed by crossing four data sources and rebuilt around the one step that was leaking.",
+    ukLink: "Read the U.K. case study",
     nextEyebrow: "What I'd explore next",
     nextTitle: "The work isn't finished — the research pointed past it.",
     nextIntro:
@@ -496,10 +497,11 @@ const COPY = {
       "Cada momento de la página responde una pregunta que sacó la investigación, en el orden en que los clientes realmente preguntan. Recorre las superficies clave abajo.",
     decisionsEyebrow: "Decisiones de diseño",
     decisionsTitle: "Cómo la investigación dio forma a la página.",
-    ukEyebrow: "Contexto adicional",
-    ukTitle: "Dos mercados, un sistema guiado por la investigación.",
+    ukEyebrow: "El otro mercado",
+    ukTitle: "Dos mercados, dos tipos de evidencia.",
     ukIntro:
-      "InstallPros opera en Estados Unidos y el Reino Unido, y diseñé para ambos. La investigación de clientes y el conocimiento de negocio se concentraban en el mercado de EE. UU., así que ahí es donde vive esta historia; el sitio del Reino Unido aplica los mismos principios a un público y una mezcla de servicios distintos.",
+      "InstallPros opera en Estados Unidos y el Reino Unido, y diseño para ambos. Este caso es la mitad cualitativa: más de 300 conversaciones de soporte convertidas en principios, y el sitio que actúa sobre ellos. El Reino Unido es un trabajo aparte con un problema distinto: un embudo que perdía dos de cada tres visitas antes de que nadie escribiera un carácter, diagnosticado cruzando cuatro fuentes de datos y reconstruido en torno al único paso que tenía la fuga.",
+    ukLink: "Leer el caso de estudio de Reino Unido",
     nextEyebrow: "Qué exploraría a continuación",
     nextTitle: "El trabajo no está terminado: la investigación señalaba más allá.",
     nextIntro:
@@ -800,9 +802,17 @@ export function InstallProsWebsiteAlt2CaseStudy({
         <DecisionSplit key={d.eyebrow} {...d} reversed={i % 2 === 1} />
       ))}
 
-      {/* UK supporting context */}
+      {/* The U.K. case — a separate piece of work, linked in both directions */}
       <Section>
         <SectionHead eyebrow={c.ukEyebrow} title={c.ukTitle} intro={c.ukIntro} />
+        <Reveal delay={0.06} className="mt-8">
+          <MagneticLink
+            href={localizedPath("/work/installpros-uk-landing", locale)}
+            className="inline-flex text-xl font-medium tracking-[-0.03em] text-text"
+          >
+            {c.ukLink} →
+          </MagneticLink>
+        </Reveal>
       </Section>
 
       {/* What I'd explore next */}

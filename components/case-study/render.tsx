@@ -5,6 +5,7 @@ import { AgencyHubGodCaseStudy } from "@/components/case-study/agencyhub-god/age
 import { EmmviCaseStudy } from "@/components/case-study/emmvi/emmvi-case-study";
 import { ExperienceCaseStudy } from "@/components/case-study/experience-case-study";
 import { FieldOperationsCaseStudy } from "@/components/case-study/field-operations/field-operations-case-study";
+import { InstallProsUkCaseStudy } from "@/components/case-study/installpros-uk/installpros-uk-case-study";
 import { InstallProsWebsiteAlt2CaseStudy } from "@/components/case-study/installpros-website-alt-2/installpros-website-alt-2-case-study";
 import { ProductCaseStudy } from "@/components/case-study/product-case-study";
 import { breadcrumbJsonLd, caseStudyJsonLd, JsonLd } from "@/components/json-ld";
@@ -81,6 +82,8 @@ export function CaseStudyContent({ slug, locale }: { slug: string; locale: Local
       <FieldOperationsCaseStudy project={project} nextProject={nextProject} locale={locale} />
     ) : project.slug === "installpros-website" ? (
       <InstallProsWebsiteAlt2CaseStudy project={project} nextProject={nextProject} locale={locale} />
+    ) : project.slug === "installpros-uk-landing" ? (
+      <InstallProsUkCaseStudy project={project} nextProject={nextProject} locale={locale} />
     ) : project.slug === "agencyhub-platform" ? (
       <AgencyHubGodCaseStudy project={project} nextProject={nextProject} locale={locale} />
     ) : project.slug === "emmvi-growth-platform" ? (

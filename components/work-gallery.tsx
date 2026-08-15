@@ -72,31 +72,16 @@ export function WorkGallery({ featuredProject, supportingProjects, locale = "en"
         </div>
       </Reveal>
 
-      {activeFilter === "All" ? (
-        <>
-          <div className="grid gap-10 md:grid-cols-2 xl:grid-cols-3">
-            {supportingProjects.map((project, index) => (
-              <Reveal key={project.slug} delay={index * 0.06}>
-                <ProjectCard project={project} compact locale={locale} />
-              </Reveal>
-            ))}
-          </div>
-
-          <div className="mt-10 grid gap-10 md:grid-cols-2 xl:grid-cols-3">
-            <Reveal>
-              <ProjectCard project={featuredProject} compact locale={locale} />
-            </Reveal>
-          </div>
-        </>
-      ) : (
-        <div className="grid gap-10 md:grid-cols-2 xl:grid-cols-3">
-          {filteredProjects.map((project, index) => (
-            <Reveal key={project.slug} delay={index * 0.06}>
-              <ProjectCard project={project} compact locale={locale} />
-            </Reveal>
-          ))}
-        </div>
-      )}
+      {/* One grid for every filter, including "All". The featured project used
+          to render in a second grid of its own, which stranded it on a row by
+          itself and broke the run of cards. */}
+      <div className="grid gap-10 md:grid-cols-2 xl:grid-cols-3">
+        {filteredProjects.map((project, index) => (
+          <Reveal key={project.slug} delay={index * 0.06}>
+            <ProjectCard project={project} compact locale={locale} />
+          </Reveal>
+        ))}
+      </div>
     </div>
   );
 }
