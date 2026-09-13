@@ -860,7 +860,7 @@ export const projectCaseStudies: ProjectCaseStudy[] = [
         "Engineering ships new screens from the established pattern set without a design cycle per screen."
       ],
       reflection:
-        "Completion time already moved — jobs close about 25% faster. The metric I'd still push to instrument is callback rate: it's the truest test of whether guided workflows prevent failures, not just speed them up. I'd also revisit keeping job reordering away from technicians; the consistency argument may not survive contact with experienced crews."
+        "Completion time already moved: jobs close about 25% faster. The metric I'd still push to instrument is callback rate: it's the truest test of whether guided workflows prevent failures, not just speed them up. I'd also revisit keeping job reordering away from technicians; the consistency argument may not survive contact with experienced crews."
     },
     nextSlug: "agencyhub-platform",
     deckUrl: "/docs/installpros-technician-app-case-study.pdf"
