@@ -19,15 +19,13 @@ import {
   ContinuationTable,
   CoreWebVitalsTable,
   LighthouseRow,
-  MetricsTable
+  ResultsTable
 } from "@/components/case-study/installpros-uk/tables";
 import { MagneticLink } from "@/components/magnetic-link";
 import { Reveal } from "@/components/reveal";
 import { cn } from "@/lib/utils";
-import { localizedPath, type Locale } from "@/lib/i18n";
+import type { Locale } from "@/lib/i18n";
 import type { ProjectCaseStudy } from "@/lib/site-data";
-
-const US_CASE = "/work/installpros-website";
 
 const PARA = "text-[clamp(1rem,1.05vw,1.125rem)] leading-[1.75] text-muted";
 const STANDFIRST = "text-[clamp(1.125rem,1.6vw,1.5rem)] leading-[1.5] text-muted";
@@ -369,37 +367,27 @@ export function InstallProsUkCaseStudy({
           ))}
         </Reveal>
 
-        <div className="mt-12">
-          <MetricsTable
+        <Reveal className="mt-10 max-w-[44rem]">
+          <p className={PARA}>{c.part04.resultsIntro}</p>
+        </Reveal>
+
+        <div className="mt-8">
+          <ResultsTable
             caption={c.part04.caption}
             columns={c.part04.columns}
-            rows={c.part04.metrics}
+            rows={c.part04.results}
           />
         </div>
 
-        <div className="mt-14">
+        <div className="mt-12">
           <PullStatement lead={c.part04.pull} />
         </div>
       </Band>
 
       {/* Closing */}
       <Band>
-        <PartLabel part={c.closing.part} label={c.closing.label} />
-        <Reveal className="mt-6 max-w-[44rem]">
-          <h2 className={H2}>{c.closing.title}</h2>
-          <p className={cn("mt-6", PARA)}>{c.closing.body}</p>
-        </Reveal>
-        <Reveal delay={0.06} className="mt-8">
-          <MagneticLink
-            href={localizedPath(US_CASE, locale)}
-            className="inline-flex text-xl font-medium tracking-[-0.03em] text-text"
-          >
-            {c.closing.link}
-          </MagneticLink>
-        </Reveal>
-
         {nextProject ? (
-          <div className="mt-14 border-t border-line pt-10">
+          <Reveal>
             <p className="section-label">{c.closing.nextProject}</p>
             <MagneticLink
               href={nextProject.href}
@@ -407,7 +395,7 @@ export function InstallProsUkCaseStudy({
             >
               {nextProject.title}
             </MagneticLink>
-          </div>
+          </Reveal>
         ) : null}
 
         <Reveal delay={0.1}>

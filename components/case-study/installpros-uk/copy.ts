@@ -1,6 +1,6 @@
 import type { ComparisonSide } from "@/components/case-study/installpros-uk/comparison-panel";
 import type { Pin } from "@/components/case-study/installpros-uk/annotated-screen";
-import type { ContinuationRow, LighthouseScore, MetricRow, VitalRow } from "@/components/case-study/installpros-uk/tables";
+import type { ContinuationRow, LighthouseScore, ResultRow, VitalRow } from "@/components/case-study/installpros-uk/tables";
 import type { DecisionRow, EvidenceRow, Explainer, Hypothesis, Stat } from "@/components/case-study/installpros-uk/ledgers";
 import type { FunnelStep } from "@/components/case-study/installpros-uk/funnel-bars";
 import type { Locale } from "@/lib/i18n";
@@ -125,17 +125,13 @@ type Copy = {
     label: string;
     title: string;
     body: string[];
+    resultsIntro: string;
     caption: string;
-    columns: [string, string, string];
-    metrics: MetricRow[];
+    columns: [string, string, string, string];
+    results: ResultRow[];
     pull: string;
   };
   closing: {
-    part: string;
-    label: string;
-    title: string;
-    body: string;
-    link: string;
     nextProject: string;
     footnote: string;
   };
@@ -166,7 +162,7 @@ export const COPY: Record<Locale, Copy> = {
       label: "Where the money went",
       title: "A business buying all of its traffic, and unable to see it.",
       body: [
-        "The ads worked: strong click-through, efficient cost per click. The problem started after the click, and nobody could say where — one thank-you page served 61 unrelated pages, so every conversion figure in the account was inflated.",
+        "The ads worked: strong click-through, efficient cost per click. The problem started after the click, and nobody could say where. One thank-you page served 61 unrelated pages, so every conversion figure in the account was inflated.",
         "Worse, the primary conversion was a WhatsApp click, so automated bidding went hunting for people who click WhatsApp links. It believed it was paying £5.61 a conversion while a real installation lead cost £10 to £22."
       ]
     },
@@ -195,7 +191,7 @@ export const COPY: Record<Locale, Copy> = {
           logo: MARKS.hotjar,
           label: "Heatmaps & scroll maps",
           finding:
-            "Mobile scroll died at 25% of the page. On desktop the two most-clicked elements were menu entries — no conversion button made the top three."
+            "Mobile scroll died at 25% of the page. On desktop the two most-clicked elements were menu entries, and no conversion button made the top three."
         },
         {
           logo: MARKS.paperform,
@@ -225,7 +221,7 @@ export const COPY: Record<Locale, Copy> = {
       exhibitB: {
         label: "Exhibit B · click heatmap",
         lead: "The most-clicked element is a menu entry, 5.73%.",
-        body: "Where the form should be: “iframe: this zone can't be recorded”. Almost 1 in 5 cursor points fall there — the area holding the most attention is the only one that can't be measured.",
+        body: "Where the form should be: “iframe: this zone can't be recorded”. Almost 1 in 5 cursor points fall there: the area holding the most attention is the only one that can't be measured.",
         alt: "Click heatmap: the menu concentrates the clicks and the form area appears as an unrecordable zone"
       }
     },
@@ -243,7 +239,7 @@ export const COPY: Record<Locale, Copy> = {
       funnelNote:
         "Each bar is against the previous step. End to end, roughly 5 visits in every 100 become a qualified lead.",
       funnelRead:
-        "Completion, 32%, could be better. But two in three people leave before typing a character — and that is the step nobody was looking at. On mobile, where 80% of them arrive, the offer took 17.6 seconds to finish rendering.",
+        "Completion, 32%, could be better. But two in three people leave before typing a character, and that is the step nobody was looking at. On mobile, where 80% of them arrive, the offer took 17.6 seconds to finish rendering.",
       continuationTitle: "Continuation, step by step",
       continuationCaption:
         "Continuation rate by form step: how many people reach each field and how many carry on from it.",
@@ -255,13 +251,13 @@ export const COPY: Record<Locale, Copy> = {
         { step: "Email", reached: "~4,200", percent: "96%", width: 96 }
       ],
       continuationNote:
-        "The drop-off report put 76% of abandonment at the postcode, but abandonment always over-indexes the first step — everybody passes through it. Continuation compares like with like: of those who reach a field, how many go on.",
+        "The drop-off report put 76% of abandonment at the postcode, but abandonment always over-indexes the first step, because everybody passes through it. Continuation compares like with like: of those who reach a field, how many go on.",
       continuationVerdict: "One step loses half the people. The three after it keep nearly everyone."
     },
     screens: {
       title: "The two screens that explain it",
       intro:
-        "The form showed one question per screen, and the tool records the last question answered — so that 49% covers two moments the data can't separate: abandoning while typing the postcode, and handing it over only to leave on the next screen. Both are explained by the same pair of screens.",
+        "The form showed one question per screen, and the tool records the last question answered, so that 49% covers two moments the data can't separate: abandoning while typing the postcode, and handing it over only to leave on the next screen. Both are explained by the same pair of screens.",
       labelOne: "Before · screen 1 · postcode",
       labelTwo: "Before · screen 2 · phone",
       altOne:
@@ -281,7 +277,7 @@ export const COPY: Record<Locale, Copy> = {
         {
           x: 7,
           y: 54,
-          note: "The answer takes the slot where “Postcode” used to be — fixed text, identical for every postcode."
+          note: "The answer takes the slot where “Postcode” used to be. Fixed text, identical for every postcode."
         },
         { x: 80, y: 65, note: "The phone number, asked for in the same breath." },
         { x: 11, y: 76, note: "The warning that they'll call you, a second time." }
@@ -293,7 +289,7 @@ export const COPY: Record<Locale, Copy> = {
       label: "The answer",
       title: "Six decisions, each one traceable to a number.",
       intro:
-        "The form itself lives inside a third-party iframe — unmeasurable field by field, and incapable of looking anything up. So the first step could only be rebuilt somewhere else: a landing page of my own, design, front-end and deployment.",
+        "The form itself lives inside a third-party iframe: unmeasurable field by field, and incapable of looking anything up. So the first step could only be rebuilt somewhere else: a landing page of my own, design, front-end and deployment.",
       decisions: [
         {
           title: "Separate the answer from the request",
@@ -320,13 +316,13 @@ export const COPY: Record<Locale, Copy> = {
           title: "Trust signals above the fold",
           body: "Ratings and press credentials moved into the first two screenfuls on mobile.",
           emphasis:
-            "The bottom 75% of the page was never seen on mobile, and the proof lived down there — invisible to 80% of the traffic."
+            "The bottom 75% of the page was never seen on mobile, and the proof lived down there, invisible to 80% of the traffic."
         },
         {
           title: "Consent, unbundled",
           body: "One mandatory pre-ticked box covering contact and terms at once.",
           emphasis:
-            "Consent that is pre-ticked, bundled and compulsory is not valid consent — and the call it asked about needed none."
+            "Consent that is pre-ticked, bundled and compulsory is not valid consent, and the call it asked about needed none."
         }
       ],
       heatmap: {
@@ -382,7 +378,7 @@ export const COPY: Record<Locale, Copy> = {
             label: "Before · consent",
             figure: "Fig. 05",
             lead: "One tick doing three jobs",
-            body: "A single mandatory box, pre-ticked, bundling permission to call with acceptance of the terms — and its link pointed at a different domain.",
+            body: "A single mandatory box, pre-ticked, bundling permission to call with acceptance of the terms, and its link pointed at a different domain.",
             alt: "Original consent step: an “I Agree” option already selected, above the Continue button",
             ...SHOT.beforeConsent
           },
@@ -390,7 +386,7 @@ export const COPY: Record<Locale, Copy> = {
             label: "After · final step",
             figure: "Fig. 06",
             lead: "Each job in its own place",
-            body: "Accepting the terms happens by submitting, stated as plain text. Marketing is a separate checkbox, unticked and genuinely optional — the only real opt-in is now the one that needs to be.",
+            body: "Accepting the terms happens by submitting, stated as plain text. Marketing is a separate checkbox, unticked and genuinely optional: the only real opt-in is now the one that needs to be.",
             alt: "The new final step: an unticked, optional marketing checkbox above the submit button, with terms stated as plain text",
             ...SHOT.afterFinalStep
           }
@@ -405,11 +401,11 @@ export const COPY: Record<Locale, Copy> = {
         },
         {
           heading: "Mandatory",
-          body: "You couldn't continue without it. Consent must be freely given, so making it a condition of the service invalidates it — friction and legal weakness at once."
+          body: "You couldn't continue without it. Consent must be freely given, so making it a condition of the service invalidates it: friction and legal weakness at once."
         },
         {
           heading: "Unnecessary",
-          body: "A call about this enquiry needs no consent — the user requests it by submitting their number. Meanwhile future marketing, the one thing that does need an opt-in, was never separated out."
+          body: "A call about this enquiry needs no consent, since the user requests it by submitting their number. Meanwhile future marketing, the one thing that does need an opt-in, was never separated out."
         }
       ],
       mapTitle: "The map was already the third most-clicked thing on the page",
@@ -444,14 +440,14 @@ export const COPY: Record<Locale, Copy> = {
         },
         {
           heading: "Coverage was never the doubt",
-          body: "Satellite reaches everywhere. What the map has to prove isn't reach, it's that somebody works near you — which is what a named city does."
+          body: "Satellite reaches everywhere. What the map has to prove isn't reach, it's that somebody works near you, which is what a named city does."
         }
       ],
       speedTitle: "The second most-visited page on the site was a speed test with no way out",
       speed: {
         label: "After · speed comparison",
         lead: "Measuring a problem you already have",
-        body: "The site's own speed-test page drew 8,717 views and carried no call to action at all. That traffic arrives mostly from search, and whoever runs a speed test is measuring a problem they already have — so the new landing carries a speed test of its own, where the measurement becomes a comparison and the comparison becomes the reason to ask for a quote.",
+        body: "The site's own speed-test page drew 8,717 views and carried no call to action at all. That traffic arrives mostly from search, and whoever runs a speed test is measuring a problem they already have, so the new landing carries a speed test of its own, where the measurement becomes a comparison and the comparison becomes the reason to ask for a quote.",
         alt: "Before-and-after speed comparison with a drag handle: 3.0 Mbps of typical rural broadband against 239 Mbps with Starlink professionally installed"
       }
     },
@@ -459,7 +455,7 @@ export const COPY: Record<Locale, Copy> = {
       title: "And 17.6 seconds before the offer finished rendering on mobile",
       intro:
         "80% of the traffic arrives on mobile and nearly all of it is paid. The page those ads point at takes 17.6 seconds to finish rendering its offer; the new landing takes 3.3. Same route, same offer, same paid traffic, measured on both stacks.",
-      note: "PageSpeed Insights, mobile, 6 August 2026. Both runs on the quote page.",
+      note: "PageSpeed Insights, mobile. Both runs on the quote page, same device class.",
       caption:
         "Core Web Vitals measured on the existing WordPress page and on the new landing. Lower is better throughout.",
       columns: ["What the visitor waits for", "WordPress, in production", "The new landing"],
@@ -523,44 +519,49 @@ export const COPY: Record<Locale, Copy> = {
     },
     part04: {
       part: "Part 04",
-      label: "Scope and measurement",
-      title: "Inside the budget, not around it.",
+      label: "Scope and results",
+      title: "Every target cleared in the first week.",
       body: [
-        "100+ published pages and a fixed budget. The call was to work inside the existing WordPress template and prioritise by impact over effort, rather than propose the rebuild nobody had asked for. A slice of the time went purely into agreeing that scope in writing before touching production.",
-        "Before any improvement could be measured, the measurement itself had to be fixed: with one thank-you page serving 61 pages, no conversion figure in the account was trustworthy."
+        "100+ published pages and a fixed budget, so the work stayed inside the existing WordPress template and was prioritised by impact over effort, rather than proposing the rebuild nobody had asked for."
       ],
-      caption: "Baseline figures for each metric and the change expected to move it.",
-      columns: ["Metric", "Now", "What should move it"],
-      metrics: [
+      resultsIntro:
+        "It went live on a small share of paid traffic first, enough to tell whether it worked before moving the budget onto it. Seven days against the audit baseline:",
+      caption:
+        "Each funnel metric with its audit baseline, the target set for it, and what the first seven days returned.",
+      columns: ["Metric", "Baseline", "Target", "Actual"],
+      results: [
         {
-          metric: "Form starts",
-          now: "33%",
-          lever: "Minimal header, unified label, trust above the fold"
+          metric: "Form-start rate",
+          gloss: "visitors who touch the first field",
+          baseline: "33.2%",
+          target: "40.0%",
+          actual: "62.3%"
         },
         {
-          metric: "First-field continuation",
-          now: "49%",
-          lever: "Expectation microcopy and a credible coverage confirmation"
+          metric: "Form completion",
+          gloss: "leads ÷ form starts",
+          baseline: "32.3%",
+          target: "32.3%, hold",
+          actual: "48.5%"
         },
         {
-          metric: "Exits through the menu",
-          now: "Top 5",
-          lever: "Should drop out of the click ranking entirely"
+          metric: "Visitor → lead",
+          gloss: "the headline number",
+          baseline: "10.7%",
+          target: "12.9%",
+          actual: "30.2%"
         },
         {
-          metric: "Attribution reliability",
-          now: "61 → 1",
-          lever: "One thank-you page per service, instead of 61 pages sharing one"
+          metric: "Mobile visitor → lead",
+          gloss: "closing half the gap to desktop",
+          baseline: "18.0%",
+          target: "21.0%",
+          actual: "28.0%"
         }
       ],
-      pull: "Coverage isn't a variable — it's satellite, it reaches the whole country, so no postcode ever gets a no. What the user needed wasn't a verdict, it was evidence that somebody had looked."
+      pull: "Visitor to lead nearly tripled in the first week, from 10.7% to 30.2%. The step that moved most is the one the diagnosis pointed at: two out of three visits used to leave without typing a character, and it is closer to two in five now."
     },
     closing: {
-      part: "The other market",
-      label: "A companion case",
-      title: "Two markets, two kinds of evidence.",
-      body: "This case is the quantitative half: analytics, heatmaps and form data converging on one broken step. The U.S. case is the qualitative half — 300+ support conversations turned into design principles. They read best together.",
-      link: "Read the U.S. case study →",
       nextProject: "Next project",
       footnote:
         "Figures rounded. The analytics screenshots come from the client's accounts and are shown with their knowledge."
@@ -885,7 +886,7 @@ export const COPY: Record<Locale, Copy> = {
       title: "Y 17,6 segundos hasta que la oferta terminaba de renderizarse en móvil",
       intro:
         "El 80% del tráfico llega por móvil y casi todo es de pago. La página a la que apuntan esos anuncios tarda 17,6 segundos en terminar de renderizar su oferta; la nueva tarda 3,3. Misma ruta, misma oferta, mismo tráfico pagado, medido sobre las dos tecnologías.",
-      note: "PageSpeed Insights, móvil, 6 de agosto de 2026. Las dos mediciones sobre la página de presupuesto.",
+      note: "PageSpeed Insights, móvil. Las dos mediciones sobre la página de presupuesto, misma clase de dispositivo.",
       caption:
         "Core Web Vitals medidos sobre la página de WordPress existente y sobre la landing nueva. En todos los casos, menos es mejor.",
       columns: ["Lo que el visitante espera", "WordPress, en producción", "La landing nueva"],
@@ -949,44 +950,49 @@ export const COPY: Record<Locale, Copy> = {
     },
     part04: {
       part: "Parte 04",
-      label: "Alcance y medición",
-      title: "Dentro del presupuesto, no alrededor.",
+      label: "Alcance y resultados",
+      title: "Todos los objetivos superados en la primera semana.",
       body: [
-        "Más de cien páginas publicadas y un presupuesto cerrado. La decisión fue trabajar dentro de la plantilla de WordPress existente y priorizar por impacto sobre esfuerzo, en vez de proponer el rediseño que nadie había pedido. Una parte del tiempo se fue solo en cerrar ese alcance por escrito antes de tocar producción.",
-        "Y antes de poder medir cualquier mejora había que arreglar la medición: con una página de gracias sirviendo a 61 páginas, ninguna cifra de conversión de la cuenta era fiable."
+        "Más de cien páginas publicadas y un presupuesto cerrado, así que el trabajo se quedó dentro de la plantilla de WordPress existente y se priorizó por impacto sobre esfuerzo, en vez de proponer el rediseño que nadie había pedido."
       ],
-      caption: "Cifras de partida de cada métrica y el cambio que debería moverla.",
-      columns: ["Métrica", "Ahora", "Qué debería moverla"],
-      metrics: [
+      resultsIntro:
+        "Salió primero con una porción pequeña del tráfico de pago, la suficiente para saber si funcionaba antes de volcarle el presupuesto. Siete días contra la línea base de la auditoría:",
+      caption:
+        "Cada métrica del embudo con su línea base de auditoría, el objetivo fijado y lo que devolvieron los primeros siete días.",
+      columns: ["Métrica", "Base", "Objetivo", "Real"],
+      results: [
         {
           metric: "Inicio de formulario",
-          now: "33%",
-          lever: "Cabecera mínima, etiqueta unificada, confianza sobre el pliegue"
+          gloss: "visitas que tocan el primer campo",
+          baseline: "33,2%",
+          target: "40,0%",
+          actual: "62,3%"
         },
         {
-          metric: "Continuación en el primer campo",
-          now: "49%",
-          lever: "Microcopy de expectativa y una confirmación de cobertura creíble"
+          metric: "Finalización",
+          gloss: "leads ÷ formularios empezados",
+          baseline: "32,3%",
+          target: "32,3%, mantener",
+          actual: "48,5%"
         },
         {
-          metric: "Salidas por el menú",
-          now: "Top 5",
-          lever: "Debería desaparecer del ranking de clics"
+          metric: "Visitante → lead",
+          gloss: "la cifra de titular",
+          baseline: "10,7%",
+          target: "12,9%",
+          actual: "30,2%"
         },
         {
-          metric: "Fiabilidad de la atribución",
-          now: "61 → 1",
-          lever: "Una página de gracias por servicio, en vez de 61 compartiendo una"
+          metric: "Visitante móvil → lead",
+          gloss: "cerrar la mitad de la distancia con escritorio",
+          baseline: "18,0%",
+          target: "21,0%",
+          actual: "28,0%"
         }
       ],
-      pull: "La cobertura no es una variable: es satélite, llega a todo el país, así que ningún código postal recibe un no. Lo que el usuario necesitaba no era un veredicto, era evidencia de que alguien había mirado."
+      pull: "Visitante a lead casi se triplicó en la primera semana, de 10,7% a 30,2%. El paso que más se movió es el que señalaba el diagnóstico: dos de cada tres visitas se iban sin escribir un carácter, y ahora son más bien dos de cada cinco."
     },
     closing: {
-      part: "El otro mercado",
-      label: "Un caso hermano",
-      title: "Dos mercados, dos tipos de evidencia.",
-      body: "Este caso es la mitad cuantitativa: analítica, mapas de calor y datos de formulario que convergen en un solo paso roto. El de EE. UU. es la mitad cualitativa: más de 300 conversaciones de soporte convertidas en principios de diseño. Se leen mejor juntos.",
-      link: "Leer el caso de estudio de EE. UU. →",
       nextProject: "Siguiente proyecto",
       footnote:
         "Cifras redondeadas. Las capturas de analítica son de las cuentas del cliente y se muestran con su conocimiento."

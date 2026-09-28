@@ -178,6 +178,75 @@ export function LighthouseRow({ scores }: { scores: LighthouseScore[] }) {
   );
 }
 
+export type ResultRow = {
+  metric: string;
+  /** How the metric is defined, so the figure can't be read loosely. */
+  gloss: string;
+  baseline: string;
+  target: string;
+  actual: string;
+};
+
+/**
+ * Baseline, target and what actually happened. No status column: every row
+ * cleared its target, and four identical badges would be noise — the actual
+ * figure carries it.
+ */
+export function ResultsTable({
+  caption,
+  columns,
+  rows
+}: {
+  caption: string;
+  columns: [string, string, string, string];
+  rows: ResultRow[];
+}) {
+  return (
+    <Reveal>
+      <div className="overflow-x-auto rounded-2xl border border-line">
+        <table className="w-full min-w-[40rem] border-collapse text-left">
+          <caption className="sr-only">{caption}</caption>
+          <thead>
+            <tr className="border-b border-line">
+              <th scope="col" className={cn(HEAD, "px-6 py-4 align-bottom")}>
+                {columns[0]}
+              </th>
+              {columns.slice(1).map((column) => (
+                <th key={column} scope="col" className={cn(HEAD, "px-6 py-4 text-right align-bottom")}>
+                  {column}
+                </th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {rows.map((row) => (
+              <tr key={row.metric} className="border-b border-line last:border-b-0">
+                <th scope="row" className="px-6 py-5 align-middle font-normal">
+                  <span className="block text-[1.0625rem] font-medium leading-6 text-text">
+                    {row.metric}
+                  </span>
+                  <span className="mt-1 block text-[0.9375rem] leading-6 text-muted">
+                    {row.gloss}
+                  </span>
+                </th>
+                <td className="px-6 py-5 text-right align-middle text-base leading-6 text-muted">
+                  {row.baseline}
+                </td>
+                <td className="px-6 py-5 text-right align-middle text-base leading-6 text-muted">
+                  {row.target}
+                </td>
+                <td className="px-6 py-5 text-right align-middle text-[clamp(1.25rem,1.8vw,1.75rem)] font-medium tracking-[-0.03em] text-accent">
+                  {row.actual}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </Reveal>
+  );
+}
+
 export type MetricRow = { metric: string; now: string; lever: string };
 
 /** Baseline per metric and the change expected to move it. */
