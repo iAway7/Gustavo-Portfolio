@@ -275,12 +275,12 @@ function Figure({
 
 function SectionHead({ label, title, intro }: { label: string; title: string; intro?: string }) {
   return (
-    <div className="max-w-2xl">
+    <div className="max-w-3xl">
       <p className="section-label">{label}</p>
-      <h2 className="mt-4 text-[clamp(1.7rem,2.8vw,2.4rem)] font-medium leading-[1.12] tracking-[-0.03em] text-text">
+      <h2 className="mt-4 section-title">
         {title}
       </h2>
-      {intro ? <p className={`mt-6 ${PARA}`}>{intro}</p> : null}
+      {intro ? <p className={`mt-6 max-w-2xl ${PARA}`}>{intro}</p> : null}
     </div>
   );
 }
@@ -333,7 +333,7 @@ export function FieldOperationsCaseStudy({
                 </span>
               ))}
             </div>
-            <h1 className="mt-6 text-[clamp(2.2rem,4.4vw,3.2rem)] font-medium leading-[1.04] tracking-[-0.04em] text-text">
+            <h1 className="mt-6 page-title">
               {title}
             </h1>
             <p className={`mt-5 max-w-2xl ${PARA}`}>{summary}</p>
@@ -394,11 +394,11 @@ export function FieldOperationsCaseStudy({
       {/* Key Product Decisions — independent chapters */}
       {decisions.map((block, index) => (
         <Section key={block.decision}>
-          <Reveal className="max-w-2xl">
+          <Reveal className="max-w-3xl">
             <p className="text-[clamp(3.25rem,6vw,5rem)] font-bold leading-none tracking-[-0.05em] text-accent/20">
               {String(index + 1).padStart(2, "0")}
             </p>
-            <h2 className="mt-4 text-[clamp(1.7rem,2.8vw,2.4rem)] font-medium leading-[1.12] tracking-[-0.03em] text-text">
+            <h2 className="mt-4 section-title">
               {block.decision}
             </h2>
             <p className="mt-8 text-[1.375rem] font-medium leading-[1.25] text-text sm:mt-11 sm:text-[1.875rem]">

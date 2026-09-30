@@ -66,17 +66,17 @@ export function StepHead({
   intro?: string;
 }) {
   return (
-    <div className="max-w-2xl">
+    <div className="max-w-3xl">
       {step ? (
         <p className="step-number" aria-hidden="true">
           {step}
         </p>
       ) : null}
       <p className={`section-label ${step ? "mt-5" : ""}`}>{label}</p>
-      <h2 className="mt-4 text-[clamp(1.7rem,2.8vw,2.4rem)] font-medium leading-[1.12] tracking-[-0.03em] text-text">
+      <h2 className="mt-4 section-title">
         {title}
       </h2>
-      {intro ? <p className={`mt-6 ${PARA}`}>{intro}</p> : null}
+      {intro ? <p className={`mt-6 max-w-2xl ${PARA}`}>{intro}</p> : null}
     </div>
   );
 }
@@ -313,7 +313,7 @@ export function AgencyHubGodCaseStudy({
                 </span>
               ))}
             </div>
-            <h1 className="mt-6 text-[clamp(2.2rem,4.4vw,3.2rem)] font-medium leading-[1.04] tracking-[-0.04em] text-text">
+            <h1 className="mt-6 page-title">
               AgencyHub
             </h1>
             <p className={`mt-5 max-w-2xl ${PARA}`}>{c.summary}</p>

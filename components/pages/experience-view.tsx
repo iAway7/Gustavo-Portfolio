@@ -60,7 +60,7 @@ export function ExperienceView({ locale }: { locale: Locale }) {
           <div className="section-rule">
             <Reveal className="max-w-4xl">
               <p className="caption">{t.caption}</p>
-              <h1 className="section-title mt-4">{t.h1}</h1>
+              <h1 className="page-title mt-4">{t.h1}</h1>
             </Reveal>
 
             <div className="mt-12">

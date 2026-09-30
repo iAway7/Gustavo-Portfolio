@@ -74,7 +74,7 @@ export function CaseStudyHero({
                   </span>
                 ))}
               </div>
-              <h1 className="section-title mt-5">{title}</h1>
+              <h1 className="page-title mt-5">{title}</h1>
               <p className="body-copy mt-6 max-w-xl">{summary}</p>
 
               <div className="meta-grid mt-8">

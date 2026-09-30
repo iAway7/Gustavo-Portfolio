@@ -35,7 +35,7 @@ export function ApproachView({ locale }: { locale: Locale }) {
           <div className="section-rule">
             <Reveal className="max-w-4xl">
               <p className="caption">{t.caption}</p>
-              <h1 className="section-title mt-4">{t.h1}</h1>
+              <h1 className="page-title mt-4">{t.h1}</h1>
               <p className="body-copy mt-6 max-w-2xl">{t.intro}</p>
             </Reveal>
 

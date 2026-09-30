@@ -30,7 +30,7 @@ import type { ProjectCaseStudy } from "@/lib/site-data";
 const PARA = "text-[clamp(1rem,1.05vw,1.125rem)] leading-[1.75] text-muted";
 const STANDFIRST = "text-[clamp(1.125rem,1.6vw,1.5rem)] leading-[1.5] text-muted";
 const H2 =
-  "text-[clamp(1.7rem,2.8vw,2.4rem)] font-medium leading-[1.12] tracking-[-0.03em] text-text";
+  "section-title";
 const H3 = "text-[clamp(1.3rem,2vw,1.7rem)] font-medium leading-[1.2] tracking-[-0.03em] text-text";
 
 /** Alternating band. Tinted sections are separated from white ones by a rule. */
@@ -104,7 +104,7 @@ export function InstallProsUkCaseStudy({
                 </span>
               ))}
             </div>
-            <h1 className="mt-6 text-[clamp(2.2rem,4.6vw,3.4rem)] font-medium leading-[1.02] tracking-[-0.045em] text-text">
+            <h1 className="mt-6 page-title">
               {c.hero.title}
             </h1>
             <p className={cn("mt-5", STANDFIRST)}>{c.hero.subtitle}</p>
@@ -193,7 +193,7 @@ export function InstallProsUkCaseStudy({
       <Band tinted>
         <PartLabel part={c.verdict.part} label={c.verdict.label} />
         <Reveal className="mt-6 max-w-[52rem]">
-          <h2 className="text-[clamp(2rem,3.6vw,3rem)] font-medium leading-[1.06] tracking-[-0.04em] text-text">
+          <h2 className="section-title">
             {c.verdict.title}
           </h2>
         </Reveal>

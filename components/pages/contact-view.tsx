@@ -17,7 +17,7 @@ export function ContactView({ locale }: { locale: Locale }) {
             <div className="grid gap-24 lg:grid-cols-[0.92fr_1.08fr]">
               <Reveal>
                 <p className="caption">{t.caption}</p>
-                <h1 className="section-title mt-4">{t.h1}</h1>
+                <h1 className="page-title mt-4">{t.h1}</h1>
                 <p className="body-copy mt-6 max-w-xl">{t.intro}</p>
 
                 <div className="mt-10">

@@ -512,12 +512,12 @@ const COPY = {
 
 function SectionHead({ eyebrow, title, intro }: { eyebrow: string; title: string; intro?: string }) {
   return (
-    <Reveal className="max-w-2xl">
+    <Reveal className="max-w-3xl">
       <p className="section-label">{eyebrow}</p>
-      <h2 className="mt-4 text-[clamp(1.7rem,2.8vw,2.4rem)] font-medium leading-[1.12] tracking-[-0.03em] text-text">
+      <h2 className="mt-4 section-title">
         {title}
       </h2>
-      {intro ? <p className={`mt-6 ${PARA}`}>{intro}</p> : null}
+      {intro ? <p className={`mt-6 max-w-2xl ${PARA}`}>{intro}</p> : null}
     </Reveal>
   );
 }
@@ -626,7 +626,7 @@ export function InstallProsWebsiteAlt2CaseStudy({
                 </span>
               ))}
             </div>
-            <h1 className="mt-6 text-[clamp(2.2rem,4.4vw,3.2rem)] font-medium leading-[1.04] tracking-[-0.04em] text-text">
+            <h1 className="mt-6 page-title">
               {hero.title}
             </h1>
             <p className="mt-5 max-w-2xl text-[1.125rem] leading-[1.55] text-muted sm:text-[1.5rem] sm:leading-[1.5]">

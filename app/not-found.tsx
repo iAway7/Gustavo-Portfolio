@@ -13,7 +13,7 @@ export default function NotFound() {
         <div className="shell">
           <div className="section-rule max-w-2xl">
             <p className="caption">404</p>
-            <h1 className="section-title mt-4">This page could not be found.</h1>
+            <h1 className="page-title mt-4">This page could not be found.</h1>
             <p className="body-copy mt-6">
               The page you were looking for may have moved or no longer exists. Head back to the
               homepage or explore the work.
