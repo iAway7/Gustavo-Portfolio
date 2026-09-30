@@ -256,7 +256,13 @@ function Figure({
 }) {
   return (
     <figure className="mx-auto w-full max-w-[78rem]">
-      <div className="editorial-image paper-tint overflow-hidden">
+      <a
+        href={src}
+        target="_blank"
+        rel="noreferrer"
+        aria-label={`${alt} (open full size)`}
+        className="editorial-image paper-tint relative block cursor-zoom-in overflow-hidden"
+      >
         <Image
           src={src}
           alt={alt}
@@ -265,7 +271,16 @@ function Figure({
           className="h-auto w-full"
           sizes="(min-width: 1248px) 78rem, 100vw"
         />
-      </div>
+        {/* Zoom affordance: boards are unreadable at phone width. */}
+        <span
+          aria-hidden="true"
+          className="absolute right-3 top-3 flex h-9 w-9 items-center justify-center rounded-full bg-white/90 text-text shadow-float sm:hidden"
+        >
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5">
+            <path d="M9.5 2.5h4v4M6.5 13.5h-4v-4M13.5 2.5 9 7M2.5 13.5 7 9" />
+          </svg>
+        </span>
+      </a>
       {caption ? (
         <figcaption className="mt-4 max-w-2xl text-base leading-7 text-muted">{caption}</figcaption>
       ) : null}
@@ -287,7 +302,7 @@ function SectionHead({ label, title, intro }: { label: string; title: string; in
 
 function Section({ children }: { children: ReactNode }) {
   return (
-    <section className="border-t border-line py-16 sm:py-24">
+    <section className="border-t border-line py-12 sm:py-24">
       <div className="shell">{children}</div>
     </section>
   );

@@ -27,7 +27,7 @@ export function SiteHeader() {
       <div className="shell flex items-center justify-between gap-4 py-4">
         <Link
           href={localizedPath("/", locale)}
-          className="text-lg font-medium tracking-[-0.05em] text-text"
+          className="inline-flex min-h-11 items-center text-lg font-medium tracking-[-0.05em] text-text"
         >
           Gustavo Polin
         </Link>

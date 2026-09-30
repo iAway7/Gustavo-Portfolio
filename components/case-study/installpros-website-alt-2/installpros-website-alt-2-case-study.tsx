@@ -524,7 +524,7 @@ function SectionHead({ eyebrow, title, intro }: { eyebrow: string; title: string
 
 function Section({ children }: { children: ReactNode }) {
   return (
-    <section className="border-t border-line py-16 sm:py-24">
+    <section className="border-t border-line py-12 sm:py-24">
       <div className="shell">{children}</div>
     </section>
   );
@@ -540,7 +540,7 @@ function DecisionSplit({
   reversed = false
 }: DecisionItem & { reversed?: boolean }) {
   return (
-    <section className="border-t border-line py-16 sm:py-24">
+    <section className="border-t border-line py-12 sm:py-24">
       <div className="shell">
         <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-14">
           <Reveal className={reversed ? "lg:order-2" : undefined}>

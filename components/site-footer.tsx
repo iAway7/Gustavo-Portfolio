@@ -37,12 +37,12 @@ export function SiteFooter() {
           <div className="grid gap-8 sm:grid-cols-2">
             <nav aria-label="Footer pages">
               <p className="caption">{dict.footer.pages}</p>
-              <div className="mt-4 grid gap-3">
+              <div className="mt-2 grid gap-0 sm:mt-4 sm:gap-3">
                 {pages.map((item) => (
                   <Link
                     key={item.href}
                     href={localizedPath(item.href, locale)}
-                    className="text-base text-muted transition-colors hover:text-accent"
+                    className="inline-flex min-h-11 items-center text-base text-muted transition-colors hover:text-accent sm:min-h-0"
                   >
                     {item.label}
                   </Link>
@@ -52,14 +52,14 @@ export function SiteFooter() {
 
             <nav aria-label="Footer contact links">
               <p className="caption">{dict.footer.contact}</p>
-              <div className="mt-4 grid gap-3">
+              <div className="mt-2 grid gap-0 sm:mt-4 sm:gap-3">
                 {channels.map((channel) => (
                   <a
                     key={channel.label}
                     href={channel.href}
                     target={channel.href.startsWith("http") ? "_blank" : undefined}
                     rel={channel.href.startsWith("http") ? "noreferrer" : undefined}
-                    className="text-base text-muted transition-colors hover:text-accent"
+                    className="inline-flex min-h-11 items-center text-base text-muted transition-colors hover:text-accent sm:min-h-0"
                   >
                     {channel.label}
                   </a>
@@ -67,7 +67,7 @@ export function SiteFooter() {
                 <a
                   href={resume.href}
                   download=""
-                  className="text-base text-muted transition-colors hover:text-accent"
+                  className="inline-flex min-h-11 items-center text-base text-muted transition-colors hover:text-accent sm:min-h-0"
                 >
                   {resume.label}
                 </a>

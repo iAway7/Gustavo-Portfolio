@@ -112,7 +112,7 @@ function TestimonialQuote({ name, quote, locale }: { name: string; quote: string
                 ? `Read less of ${name}'s testimonial`
                 : `Read more of ${name}'s testimonial`
           }
-          className="mt-4 text-sm font-medium text-muted underline underline-offset-4 transition-colors duration-200 hover:text-text"
+          className="mt-2 inline-flex min-h-11 items-center text-sm font-medium text-muted underline underline-offset-4 transition-colors duration-200 hover:text-text"
         >
           {expanded ? lessLabel : moreLabel}
         </button>

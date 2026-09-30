@@ -130,7 +130,7 @@ export function AgencyHubTriangle({ locale }: { locale: Locale }) {
           <thead>
             <tr>
               {t.head.map((cell) => (
-                <th key={cell} className="caption border-b border-line pb-3 pr-6 font-medium">
+                <th key={cell} className="caption whitespace-nowrap border-b border-line pb-3 pr-4 font-medium sm:pr-6">
                   {cell}
                 </th>
               ))}
@@ -140,7 +140,7 @@ export function AgencyHubTriangle({ locale }: { locale: Locale }) {
             {t.rows.map((row) => (
               <tr key={row[0]}>
                 {row.map((cell, cellIndex) => (
-                  <td key={cellIndex} className="border-b border-line py-3 pr-6 text-base leading-7 text-muted">
+                  <td key={cellIndex} className="border-b border-line py-3 pr-4 align-top text-base leading-7 text-muted sm:pr-6">
                     {fmt(cell)}
                   </td>
                 ))}

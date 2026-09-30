@@ -38,7 +38,7 @@ function Band({ tinted = false, children }: { tinted?: boolean; children: ReactN
   return (
     <section
       className={cn(
-        "border-t border-line py-16 sm:py-24 lg:py-28",
+        "border-t border-line py-12 sm:py-24 lg:py-28",
         tinted ? "bg-panel" : "bg-canvas"
       )}
     >
