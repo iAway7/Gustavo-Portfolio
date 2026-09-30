@@ -13,7 +13,7 @@ import {
 } from "@/lib/site-data";
 import { getDict, type Locale, localizedPath } from "@/lib/i18n";
 
-// Subtle "workflow stack" indicator — only rendered under the AI principle.
+// Subtle "workflow stack" indicator: only rendered under the AI principle.
 const aiTools = [
   { src: "/logos/ai/claude.svg", label: "Claude" },
   { src: "/logos/ai/claude-code.svg", label: "Claude Code" },

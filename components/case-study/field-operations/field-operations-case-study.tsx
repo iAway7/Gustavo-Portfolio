@@ -16,7 +16,7 @@ const BOARDS = `${IMG}/boards`;
 // Same reading paragraph as AgencyHub: ~24px desktop, scaling down on mobile.
 const PARA = "text-[1.125rem] leading-[1.55] text-muted sm:text-[1.5rem] sm:leading-[1.5]";
 
-// Overview walkthrough — the full board set, so the Overview reads as a complete
+// Overview walkthrough: the full board set, so the Overview reads as a complete
 // field operating system rather than one screen.
 const overviewSlides: ProductSlide[] = [
   { src: `${BOARDS}/overview.webp`, alt: "Field Operations Platform overview board", label: "Overview" },
@@ -68,9 +68,9 @@ const decisionsEn: Decision[] = [
   {
     decision: "Workflows survive the dead zone.",
     problem:
-      "The customer is buying satellite internet because coverage there is poor — so the product has to assume no signal at the exact moment of work.",
+      "The customer is buying satellite internet because coverage there is poor, so the product has to assume no signal at the exact moment of work.",
     rationale:
-      "Every workflow is offline-first: progress, photo evidence, and completion are captured locally and reconciled when a connection returns. A technician never loses state or stares at a spinner mid-install — the app confirms the action and syncs later.",
+      "Every workflow is offline-first: progress, photo evidence, and completion are captured locally and reconciled when a connection returns. A technician never loses state or stares at a spinner mid-install: the app confirms the action and syncs later.",
     tradeoff:
       "More engineering complexity in local state and conflict resolution, accepted so the tool works where the job actually happens.",
     image: { src: `${BOARDS}/completion.webp`, alt: "Completion flow capturing photo evidence offline" }
@@ -78,7 +78,7 @@ const decisionsEn: Decision[] = [
   {
     decision: "Installation runs as a recoverable state machine.",
     problem:
-      "Installs rarely fail at step one; they fail in the middle — a blocked roof, a missing part, no signal.",
+      "Installs rarely fail at step one; they fail in the middle: a blocked roof, a missing part, no signal.",
     rationale:
       "The workflow models progress as discrete states a technician can complete, pause, annotate, or flag, and the flow knows how to resume from any of them. A deviation becomes structured data instead of a phone call to dispatch.",
     tradeoff:
@@ -90,7 +90,7 @@ const decisionsEn: Decision[] = [
     problem:
       "A stranger represents the brand on a customer's roof, so the network's integrity has to start at the door, not the install.",
     rationale:
-      "Access, identity verification, and onboarding were designed as one gated sequence: a technician proves who they are, then is personalized into the work — not dropped into a feature set. Dispatch can't assign a job to an unverified installer.",
+      "Access, identity verification, and onboarding were designed as one gated sequence: a technician proves who they are, then is personalized into the work, not dropped into a feature set. Dispatch can't assign a job to an unverified installer.",
     tradeoff:
       "A heavier first-run experience, accepted because a failed-trust install costs far more than a few extra onboarding minutes.",
     image: { src: `${BOARDS}/identity-verification.webp`, alt: "Identity verification flow for technicians" }
@@ -101,17 +101,17 @@ const decisionsEn: Decision[] = [
     rationale:
       "Job views were stripped to what a technician acts on: today's sequence, each job's state, and completion evidence. Assignment logic and exception handling stayed with dispatch, which kept the mobile scope shippable by a small team.",
     tradeoff:
-      "Some technician autonomy — reordering jobs, self-assignment — was deliberately left out of the first release to protect operational consistency.",
+      "Some technician autonomy (reordering jobs, self-assignment) was deliberately left out of the first release to protect operational consistency.",
     image: { src: `${BOARDS}/job-management.webp`, alt: "Job management screens with status hierarchy" }
   },
   {
     decision: "Payment closes the job, inside the job.",
     problem:
-      "Where should a technician collect and confirm payment — a separate app, or the workflow that completes the install?",
+      "Where should a technician collect and confirm payment: a separate app, or the workflow that completes the install?",
     rationale:
       "Earnings, payment capture, and payout status (Stripe, PayPal) live inside the job, not in a separate tool. The transaction becomes the natural last step of the work rather than an errand afterward, so nothing is left uncollected on site.",
     tradeoff:
-      "Embedding payments widened compliance and integration scope, accepted because a job isn't done until it's paid — and splitting that across tools is where money and technicians get lost.",
+      "Embedding payments widened compliance and integration scope, accepted because a job isn't done until it's paid, and splitting that across tools is where money and technicians get lost.",
     image: { src: `${BOARDS}/payment.webp`, alt: "Payment and payout flow with Stripe and PayPal" }
   }
 ];
@@ -153,7 +153,7 @@ const decisionsEs: Decision[] = [
     rationale:
       "Las vistas de trabajo se redujeron a aquello sobre lo que el técnico actúa: la secuencia de hoy, el estado de cada trabajo y la evidencia de cierre. La lógica de asignación y la gestión de excepciones se quedaron en el despacho, lo que mantuvo el alcance móvil abordable para un equipo pequeño.",
     tradeoff:
-      "Parte de la autonomía del técnico —reordenar trabajos, autoasignarse— se dejó fuera de la primera versión a propósito para proteger la consistencia operativa.",
+      "Parte de la autonomía del técnico (reordenar trabajos, autoasignarse) se dejó fuera de la primera versión a propósito para proteger la consistencia operativa.",
     image: decisionsEn[3].image
   },
   {
@@ -229,7 +229,7 @@ const narrativeEs = {
     "La conectividad es poco fiable por definición: el cliente compra internet por satélite precisamente porque la cobertura allí es mala. El producto tiene que dar por hecho que no habrá señal justo en el momento de trabajar."
   ],
   system: [
-    "Los patrones de pantalla —chips de estado, action rows y step headers— se definieron una sola vez y se reutilizaron en las vistas de programación, instalación y trabajos. La intención era económica: ingeniería construye a partir de reglas en lugar de mockups, y el técnico nunca tiene que volver a aprender qué significa un color o una posición.",
+    "Los patrones de pantalla (chips de estado, action rows y step headers) se definieron una sola vez y se reutilizaron en las vistas de programación, instalación y trabajos. La intención era económica: ingeniería construye a partir de reglas en lugar de mockups, y el técnico nunca tiene que volver a aprender qué significa un color o una posición.",
     "Diseñar pensando en la implementación es lo que mantuvo el producto construible: desde entonces, cada pantalla nueva se ha montado a partir del conjunto de patrones existente en lugar de diseñarse desde cero."
   ],
   results: [
@@ -238,7 +238,7 @@ const narrativeEs = {
     "Ingeniería lanza nuevas pantallas a partir del conjunto de patrones establecido, sin un ciclo de diseño por pantalla."
   ],
   reflection:
-    "Los trabajos ya se completan un 25% más rápido. Lo que todavía me falta medir es la tasa de revisitas —cuántas instalaciones obligan a volver—, porque esa es la prueba real de si los flujos guiados evitan errores y no solo aceleran el trabajo. También repensaría si los técnicos deberían poder reordenar sus propios trabajos: lo dejé fuera para mantener la consistencia, pero con equipos con experiencia quizá no tenga sentido."
+    "Los trabajos ya se completan un 25% más rápido. Lo que todavía me falta medir es la tasa de revisitas (cuántas instalaciones obligan a volver), porque esa es la prueba real de si los flujos guiados evitan errores y no solo aceleran el trabajo. También repensaría si los técnicos deberían poder reordenar sus propios trabajos: lo dejé fuera para mantener la consistencia, pero con equipos con experiencia quizá no tenga sentido."
 };
 
 function Figure({
@@ -322,7 +322,7 @@ export function FieldOperationsCaseStudy({
 
   return (
     <main id="main-content" tabIndex={-1} className="pb-8 pt-10 sm:pt-16">
-      {/* Overview — hero + product walkthrough */}
+      {/* Overview: hero + product walkthrough */}
       <section className="pb-12 pt-6 sm:pb-16">
         <div className="shell">
           <Reveal className="max-w-3xl">
@@ -391,7 +391,7 @@ export function FieldOperationsCaseStudy({
         </Reveal>
       </Section>
 
-      {/* Key Product Decisions — independent chapters */}
+      {/* Key Product Decisions: independent chapters */}
       {decisions.map((block, index) => (
         <Section key={block.decision}>
           <Reveal className="max-w-3xl">
@@ -450,7 +450,7 @@ export function FieldOperationsCaseStudy({
         </div>
       </Section>
 
-      {/* What I'd measure next — promoted reflection */}
+      {/* What I'd measure next: promoted reflection */}
       <Section>
         <Reveal className="max-w-3xl">
           <p className="section-label">{t.measureNext}</p>

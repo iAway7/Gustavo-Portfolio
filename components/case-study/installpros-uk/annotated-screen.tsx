@@ -12,7 +12,7 @@ export type Pin = {
 /**
  * A screenshot with numbered pins and a matching legend. The pins are
  * decorative duplicates of the legend numbers, so they are hidden from
- * assistive tech — the legend below carries the same information in order.
+ * assistive tech: the legend below carries the same information in order.
  */
 export function AnnotatedScreen({
   label,

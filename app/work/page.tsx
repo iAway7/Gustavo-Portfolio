@@ -6,7 +6,7 @@ import { pageMeta } from "@/lib/seo";
 export const metadata: Metadata = pageMeta({
   title: "Work",
   description:
-    "Selected case studies spanning a field-operations mobile platform, a B2B SaaS marketplace, and conversion-led web systems — product judgment, design systems, and business impact.",
+    "Selected case studies spanning a field-operations mobile platform, a B2B SaaS marketplace, and conversion-led web systems: product judgment, design systems, and business impact.",
   path: "/work",
   locale: "en"
 });

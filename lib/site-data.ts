@@ -1015,7 +1015,7 @@ export const projectCaseStudies: ProjectCaseStudy[] = [
   {
     kind: "experience",
     slug: "installpros-website",
-    title: "InstallPros — U.S.",
+    title: "InstallPros · U.S.",
     clientOrBrand: "Install Pros",
     role: "UX/UI Designer",
     period: "2024 - Present",
@@ -1128,7 +1128,7 @@ export const projectCaseStudies: ProjectCaseStudy[] = [
   {
     kind: "experience",
     slug: "installpros-uk-landing",
-    title: "InstallPros — U.K.",
+    title: "InstallPros · U.K.",
     clientOrBrand: "Install Pros U.K.",
     role: "Product Designer",
     period: "2026",

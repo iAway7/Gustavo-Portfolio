@@ -6,7 +6,7 @@ import { pageMeta } from "@/lib/seo";
 export const metadata: Metadata = pageMeta({
   title: "Experience",
   description:
-    "9+ years of product and UX/UI design across SaaS, B2B, and operational tools — roles, certifications, and the systems-thinking that connects users, business, and technology.",
+    "9+ years of product and UX/UI design across SaaS, B2B, and operational tools: roles, certifications, and the systems-thinking that connects users, business, and technology.",
   path: "/experience",
   locale: "en"
 });

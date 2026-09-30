@@ -32,7 +32,7 @@ export function caseStudyMetadata(slug: string, locale: Locale): Metadata {
     path: `/work/${slug}`,
     locale,
     image: OG_IMAGE_BY_SLUG[slug] ?? DEFAULT_OG_IMAGE,
-    imageAlt: `${meta.title} — case study by Gustavo Polin`,
+    imageAlt: `${meta.title}, case study by Gustavo Polin`,
     ogType: "article"
   });
 }

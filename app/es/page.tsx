@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     title: "Gustavo Polin | Diseñador de Producto",
     description:
       "Diseñador de Producto y Diseñador UX/UI con más de 9 años creando plataformas SaaS y aplicaciones web, y ahora diseñando experiencias digitales asistidas por IA.",
-    images: [{ url: "/og/home.png", width: 1200, height: 630, alt: "Gustavo Polin — Diseñador de Producto" }]
+    images: [{ url: "/og/home.png", width: 1200, height: 630, alt: "Gustavo Polin | Diseñador de Producto" }]
   },
   twitter: {
     card: "summary_large_image",

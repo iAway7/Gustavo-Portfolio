@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     title: "Gustavo Polin | Product Designer",
     description:
       "Product Designer and UX/UI Designer with 9+ years building SaaS platforms and web applications, now designing AI-assisted digital experiences.",
-    images: [{ url: "/og/home.png", width: 1200, height: 630, alt: "Gustavo Polin — Product Designer" }]
+    images: [{ url: "/og/home.png", width: 1200, height: 630, alt: "Gustavo Polin | Product Designer" }]
   },
   twitter: {
     card: "summary_large_image",

@@ -30,7 +30,7 @@ const surfaceSlides: SurfaceSlide[] = [
     label: "Homepage",
     url: "emmvi.com",
     intent:
-      "Resolves the buyer's first question — is this for me? — with one outcome-led promise, recognizable client logos, and language that mirrors the visitor before offering the path forward."
+      "Resolves the buyer's first question (is this for me?) with one outcome-led promise, recognizable client logos, and language that mirrors the visitor before offering the path forward."
   },
   {
     src: `${IMG}/service-website-design.png`,
@@ -78,19 +78,19 @@ const surfaceSlides: SurfaceSlide[] = [
     label: "Contact",
     url: "emmvi.com/contact",
     intent:
-      "Reframes the form as a conversation — asking which service and what's needed — so qualification begins in the input itself."
+      "Reframes the form as a conversation, asking which service and what's needed, so qualification begins in the input itself."
   }
 ];
 
 const surfaceLabelsEs = ["Inicio", "Diseño Web", "SEO", "PPC", "Email", "Nosotros", "Contacto"];
 const surfaceIntentsEs = [
-  "Resuelve la primera pregunta del comprador —¿esto es para mí?— con una sola promesa orientada al resultado, logos de clientes reconocibles y un lenguaje que refleja al visitante antes de ofrecer el siguiente paso.",
+  "Resuelve la primera pregunta del comprador (¿esto es para mí?) con una sola promesa orientada al resultado, logos de clientes reconocibles y un lenguaje que refleja al visitante antes de ofrecer el siguiente paso.",
   "Abre con el resultado de negocio y trata el oficio como evidencia de apoyo, de modo que el valor se lee antes de que aparezca ningún entregable.",
   "Plantea el posicionamiento en buscadores como un crecimiento que se acumula, no como una lista de tareas, manteniendo la misma plantilla orientada al resultado que cohesiona el sistema.",
   "Posiciona los medios de pago como adquisición medida, acompañando la promesa con pruebas para que el gasto se lea como inversión, no como riesgo.",
   "Presenta la retención como el motor silencioso del crecimiento, completando un conjunto de servicios que defiende cada oferta con la misma voz disciplinada.",
   "Construye credibilidad sobre la claridad, no sobre los adjetivos: una misión de una línea, tres principios con el mismo peso y un cambio de tono que marca lo que defiende el estudio.",
-  "Replantea el formulario como una conversación —pregunta qué servicio y qué se necesita— para que la cualificación empiece en el propio campo."
+  "Replantea el formulario como una conversación, preguntando qué servicio y qué se necesita, para que la cualificación empiece en el propio campo."
 ];
 
 const surfaceSlidesEs: SurfaceSlide[] = surfaceSlides.map((slide, index) => ({
@@ -104,11 +104,11 @@ const COPY = {
     productSurfaceEyebrow: "Product Surface",
     productSurfaceTitle: "The full surface, page by page.",
     productSurfaceIntro:
-      "Emmvi is a complete digital platform, not a stack of marketing pages — a connected set of surfaces that carry one offer from first impression to qualified conversation. Move through the major pages below.",
+      "Emmvi is a complete digital platform, not a stack of marketing pages: a connected set of surfaces that carry one offer from first impression to qualified conversation. Move through the major pages below.",
     homepageEyebrow: "Homepage",
     homepageTitle: "One promise, made legible in a single screen.",
     homepageBody:
-      "The homepage answers the hardest question first — is this for me? A single outcome-led headline carries the offer, recognizable client logos supply instant credibility, and a “Does this sound familiar?” section mirrors the visitor’s own words before pointing to the next step.",
+      "The homepage answers the hardest question first: is this for me? A single outcome-led headline carries the offer, recognizable client logos supply instant credibility, and a “Does this sound familiar?” section mirrors the visitor’s own words before pointing to the next step.",
     homepageMoves: [
       "Outcome-led headline in place of a feature list",
       "Client logos as immediate, low-effort credibility",
@@ -126,7 +126,7 @@ const COPY = {
     aboutEyebrow: "About",
     aboutTitle: "Credibility built on clarity, not adjectives.",
     aboutBody:
-      "“Streamlining entrepreneurial journeys” states the studio’s mission in one line, then three principles — expertise, client-centricity, transparency — ground it. A dark mission band interrupts the rhythm to signal the values at the core of the offer.",
+      "“Streamlining entrepreneurial journeys” states the studio’s mission in one line, then three principles (expertise, client-centricity, transparency) ground it. A dark mission band interrupts the rhythm to signal the values at the core of the offer.",
     aboutMoves: [
       "A mission a visitor can repeat in one sentence",
       "Three principles, evenly weighted, no hierarchy games",
@@ -177,7 +177,7 @@ const COPY = {
     aboutEyebrow: "Nosotros",
     aboutTitle: "Credibilidad construida sobre la claridad, no sobre los adjetivos.",
     aboutBody:
-      "«Simplificar el camino de los emprendedores» enuncia la misión del estudio en una línea, y luego tres principios —experiencia, foco en el cliente y transparencia— la sostienen. Una franja oscura de misión interrumpe el ritmo para señalar los valores que están en el centro de la oferta.",
+      "«Simplificar el camino de los emprendedores» enuncia la misión del estudio en una línea, y luego tres principios (experiencia, foco en el cliente y transparencia) la sostienen. Una franja oscura de misión interrumpe el ritmo para señalar los valores que están en el centro de la oferta.",
     aboutMoves: [
       "Una misión que el visitante puede repetir en una frase",
       "Tres principios con el mismo peso, sin juegos de jerarquía",
@@ -219,7 +219,7 @@ const narrativeEs = {
     role:
       "Cofundador: diseño de la oferta, estrategia digital, UX/UI y entrega, responsable del resultado de negocio, no del mockup.",
     outcome:
-      "Un sistema de crecimiento repetible —del posicionamiento al mensaje, al sitio y al embudo— aplicado de principio a fin, con responsabilidad de fundador sobre lo que produce."
+      "Un sistema de crecimiento repetible (del posicionamiento al mensaje, al sitio y al embudo) aplicado de principio a fin, con responsabilidad de fundador sobre lo que produce."
   },
   results: [
     "Un método que funciona y conecta el posicionamiento con las decisiones de interfaz, el mismo sistema aplicado en el trabajo web que aparece en otras partes de este portafolio.",
@@ -227,10 +227,10 @@ const narrativeEs = {
     "Rango demostrado en todo el stack de crecimiento: marca, mensaje, sistema web y embudo."
   ],
   reflection:
-    "Emmvi es el proyecto donde sostengo cada esquina del triángulo (usuarios, negocio y tecnología) sin nadie a quien pasarle un problema. La disciplina que obliga —decidir qué no construir— es lo más transferible que me ha enseñado."
+    "Emmvi es el proyecto donde sostengo cada esquina del triángulo (usuarios, negocio y tecnología) sin nadie a quien pasarle un problema. La disciplina de decidir qué no construir es lo más transferible que me ha enseñado."
 };
 
-/** Full-width section shell — eyebrow, heading, optional intro, then content. */
+/** Full-width section shell: eyebrow, heading, optional intro, then content. */
 function EmmviSection({
   eyebrow,
   title,
@@ -284,9 +284,7 @@ function DesignMoves({ moves }: { moves: string[] }) {
           key={move}
           className="flex gap-3 border-t border-line pt-3 text-sm leading-6 text-muted"
         >
-          <span aria-hidden="true" className="text-text">
-            —
-          </span>
+          <span aria-hidden="true" className="mt-3 h-px w-3 shrink-0 bg-text" />
           <span>{move}</span>
         </li>
       ))}
@@ -310,7 +308,7 @@ export function EmmviCaseStudy({ project, nextProject, locale = "en" }: EmmviCas
       <CaseStudyHero project={project} locale={locale} content={heroContent} />
       <GlanceSection glance={glance} locale={locale} />
 
-      {/* Product Surface — the full platform at a glance. */}
+      {/* Product Surface: the full platform at a glance. */}
       <EmmviSection
         eyebrow={c.productSurfaceEyebrow}
         title={c.productSurfaceTitle}
@@ -389,7 +387,7 @@ export function EmmviCaseStudy({ project, nextProject, locale = "en" }: EmmviCas
         </EditorialSplit>
       </EmmviSection>
 
-      {/* Lead Capture Workflow — supporting system. */}
+      {/* Lead Capture Workflow: supporting system. */}
       <EmmviSection eyebrow={c.leadEyebrow} title={c.leadTitle} intro={c.leadIntro}>
         <LeadCaptureFlow
           locale={locale}
@@ -400,7 +398,7 @@ export function EmmviCaseStudy({ project, nextProject, locale = "en" }: EmmviCas
         />
       </EmmviSection>
 
-      {/* Outcome & reflection — full width. */}
+      {/* Outcome & reflection: full width. */}
       <section className="border-t border-line">
         <div className="shell py-16 sm:py-20">
           <Reveal className="max-w-3xl">

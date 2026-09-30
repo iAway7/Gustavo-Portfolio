@@ -14,7 +14,7 @@ export const defaultLocale: Locale = "en";
 /**
  * Master switch for the language system UI. Temporarily disabled until the
  * Spanish translation is finalized. Everything (routes, dictionaries, switcher,
- * resume swap) stays implemented — flip this to `true` to re-enable the toggle
+ * resume swap) stays implemented: flip this to `true` to re-enable the toggle
  * and the stored-preference redirect. The /es routes remain reachable directly.
  */
 export const ENABLE_LANGUAGE_SWITCHER = true;
@@ -81,24 +81,24 @@ export const projectI18n: Record<string, Record<Locale, { title: string; summary
   },
   "installpros-website": {
     en: {
-      title: "InstallPros — U.S.",
+      title: "InstallPros · U.S.",
       summary:
-        "300+ support conversations turned into design principles, and the U.S. website built to act on them — a conversion-led redesign toward booking an installation."
+        "300+ support conversations turned into design principles, and the U.S. website built to act on them: a conversion-led redesign toward booking an installation."
     },
     es: {
-      title: "InstallPros — EE. UU.",
+      title: "InstallPros · EE. UU.",
       summary:
         "Más de 300 conversaciones de soporte convertidas en principios de diseño, y la web estadounidense construida para aplicarlos: un rediseño orientado a la reserva de una instalación."
     }
   },
   "installpros-uk-landing": {
     en: {
-      title: "InstallPros — U.K.",
+      title: "InstallPros · U.K.",
       summary:
         "A funnel audit and redesign for InstallPros in the U.K., where two out of three visits left the landing page without typing a character."
     },
     es: {
-      title: "InstallPros — Reino Unido",
+      title: "InstallPros · Reino Unido",
       summary:
         "Auditoría y rediseño del funnel de InstallPros en Reino Unido, donde dos de cada tres visitas se iban de la landing sin escribir un carácter."
     }
@@ -181,7 +181,7 @@ const en = {
     caption: "Experience",
     h1: "A product-design career shaped by systems, execution, and business context.",
     intro:
-      "9+ years across SaaS, B2B, and operational tools — roles, certifications, and the systems thinking that connects users, business, and technology.",
+      "9+ years across SaaS, B2B, and operational tools: roles, certifications, and the systems thinking that connects users, business, and technology.",
     earlier: "Earlier",
     coreExpertise: "Core expertise",
     dailyTools: "Daily tools: Figma · ChatGPT · Claude · Codex · Lovable",
@@ -202,7 +202,7 @@ const en = {
     frameworkCaption: "The framework",
     frameworkHeading: "The questions I carry into every project.",
     frameworkIntro:
-      "A repeatable question sequence I bring to any product problem — why before who, who before what, and what before how. It's what keeps design judgment consistent and transferable from one project to the next.",
+      "A repeatable question sequence I bring to any product problem: why before who, who before what, and what before how. It's what keeps design judgment consistent and transferable from one project to the next.",
     startWork: "Start with the work",
     flagshipHeading: "A closer look at my product design process.",
     viewFeatured: "View featured case study"
@@ -297,7 +297,7 @@ const es: Dict = {
     caption: "Experiencia",
     h1: "Una carrera en diseño de producto moldeada por sistemas, ejecución y contexto de negocio.",
     intro:
-      "Más de 9 años en SaaS, B2B y herramientas operativas — roles, certificaciones y el pensamiento sistémico que conecta a las personas, el negocio y la tecnología.",
+      "Más de 9 años en SaaS, B2B y herramientas operativas: roles, certificaciones y el pensamiento sistémico que conecta a las personas, el negocio y la tecnología.",
     earlier: "Anteriormente",
     coreExpertise: "Especialidades principales",
     dailyTools: "Herramientas diarias: Figma · ChatGPT · Claude · Codex · Lovable",

@@ -4,7 +4,7 @@ import { Reveal } from "@/components/reveal";
 import { cn } from "@/lib/utils";
 
 export type ComparisonSide = {
-  /** "Before · mobile" — the side is coded by colour, not by a badge. */
+  /** "Before · mobile": the side is coded by colour, not by a badge. */
   label: string;
   /** "Fig. 03" */
   figure: string;
@@ -19,7 +19,7 @@ export type ComparisonSide = {
 /**
  * The pattern that carries the before/after argument. A bounded panel holding
  * two figures: before in ink, after in accent, applied to the header rule, the
- * label and the caption lead-in. No badges — the colour pair is the coding.
+ * label and the caption lead-in. No badges: the colour pair is the coding.
  *
  * Both images must share an aspect ratio or the columns fall out of alignment.
  */

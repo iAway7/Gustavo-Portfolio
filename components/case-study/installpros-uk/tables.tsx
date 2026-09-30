@@ -7,7 +7,7 @@ export type ContinuationRow = {
   step: string;
   reached: string;
   percent: string;
-  /** Bar width, 0–100. */
+  /** Bar width, 0 to 100. */
   width: number;
   /** The step that loses half the people. */
   highlight?: boolean;
@@ -189,7 +189,7 @@ export type ResultRow = {
 
 /**
  * Baseline, target and what actually happened. No status column: every row
- * cleared its target, and four identical badges would be noise — the actual
+ * cleared its target, and four identical badges would be noise: the actual
  * figure carries it.
  */
 export function ResultsTable({

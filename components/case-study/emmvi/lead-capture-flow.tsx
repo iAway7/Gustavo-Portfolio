@@ -28,8 +28,8 @@ const stepsByLocale: Record<Locale, FlowStep[]> = {
 };
 
 const captionByLocale: Record<Locale, string> = {
-  en: "Each submission lands as a structured message — name, service, and campaign source — so the team reviews a qualified lead, not a raw email. The automation removes the lag between interest and reply; the judgement stays human.",
-  es: "Cada envío llega como un mensaje estructurado —nombre, servicio y origen de la campaña— para que el equipo revise un lead cualificado, no un correo en bruto. La automatización elimina el retraso entre el interés y la respuesta; el criterio sigue siendo humano."
+  en: "Each submission lands as a structured message (name, service, and campaign source) so the team reviews a qualified lead, not a raw email. The automation removes the lag between interest and reply; the judgement stays human.",
+  es: "Cada envío llega como un mensaje estructurado (nombre, servicio y origen de la campaña) para que el equipo revise un lead cualificado, no un correo en bruto. La automatización elimina el retraso entre el interés y la respuesta; el criterio sigue siendo humano."
 };
 
 function StepIcon({ icon }: { icon: FlowStep["icon"] }) {
@@ -69,7 +69,7 @@ function StepIcon({ icon }: { icon: FlowStep["icon"] }) {
 }
 
 /**
- * Lead Capture Workflow — presented deliberately as a supporting system, not
+ * Lead Capture Workflow: presented deliberately as a supporting system, not
  * the product. A single linear flow, a short rationale, and one Discord
  * screenshot as evidence the pipeline actually runs.
  */

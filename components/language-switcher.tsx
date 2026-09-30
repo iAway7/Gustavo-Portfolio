@@ -18,7 +18,7 @@ export function rememberLocale(locale: Locale) {
   try {
     window.localStorage.setItem(LOCALE_STORAGE_KEY, locale);
   } catch {
-    /* storage unavailable — ignore */
+    /* storage unavailable: ignore */
   }
 }
 

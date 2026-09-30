@@ -4,14 +4,14 @@ import { cn } from "@/lib/utils";
 export type FunnelStep = {
   label: string;
   value: string;
-  /** Bar width, 0–100. Decoration; the percentage carries the meaning. */
+  /** Bar width, 0 to 100. Decoration; the percentage carries the meaning. */
   width: number;
   /** The leak. Exactly one step should carry this. */
   highlight?: boolean;
 };
 
 /**
- * The funnel end to end. Only the highlighted bar is accent — that contrast is
+ * The funnel end to end. Only the highlighted bar is accent: that contrast is
  * the whole graphic: the accented bar is where the money leaves.
  */
 export function FunnelBars({ steps }: { steps: FunnelStep[] }) {

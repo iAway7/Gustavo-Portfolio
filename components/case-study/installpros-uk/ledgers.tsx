@@ -4,7 +4,7 @@ import type { ReactNode } from "react";
 import { Reveal } from "@/components/reveal";
 import { cn } from "@/lib/utils";
 
-/** "Part 01 · Where the money went" — the baseline-aligned opener of each part. */
+/** "Part 01 · Where the money went": the baseline-aligned opener of each part. */
 export function PartLabel({ part, label }: { part: string; label: string }) {
   return (
     <Reveal className="flex flex-wrap items-baseline gap-x-4 gap-y-1">
@@ -72,7 +72,7 @@ export type EvidenceRow = {
 
 /**
  * Four sources and the contradiction between them. The last row deliberately
- * breaks the pattern — it is the turn of the argument, not another tool.
+ * breaks the pattern: it is the turn of the argument, not another tool.
  */
 export function EvidenceLedger({ rows }: { rows: EvidenceRow[] }) {
   return (
@@ -125,7 +125,7 @@ export type DecisionRow = {
   title: string;
   /** Description, with the load-bearing clause split out. */
   body: string;
-  /** The clause that carries the data — rendered in ink against muted body copy. */
+  /** The clause that carries the data: rendered in ink against muted body copy. */
   emphasis?: string;
 };
 

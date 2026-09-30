@@ -111,17 +111,17 @@ summary:focus-visible {
   /* Type scale (desktop max): Display 86px · H1 64px · H2 48px.
      Each step scales down fluidly on smaller viewports. */
 
-  /* Display — home hero only. */
+  /* Display: home hero only. */
   .hero-title {
     @apply text-[clamp(3rem,7vw,5.375rem)] font-medium leading-[0.95] tracking-[-0.04em] text-text;
   }
 
-  /* H1 — every internal page and case study. -3px tracking at 64px. */
+  /* H1: every internal page and case study. -3px tracking at 64px. */
   .page-title {
     @apply text-[clamp(2.5rem,5vw,4rem)] font-medium leading-[1.1] tracking-[-0.047em] text-text;
   }
 
-  /* H2 — every section heading, site-wide. */
+  /* H2: every section heading, site-wide. */
   .section-title {
     @apply text-[clamp(1.875rem,3.6vw,3rem)] font-medium leading-[1.1] tracking-[-0.04em] text-text;
   }

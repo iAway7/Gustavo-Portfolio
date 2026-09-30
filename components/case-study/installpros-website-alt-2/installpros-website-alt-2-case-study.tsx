@@ -26,10 +26,10 @@ const HERO = {
     tags: ["Product Design", "Customer Research", "Conversion"],
     title: "InstallPros",
     summary:
-      "I designed the InstallPros website from scratch — not as a visual exercise, but as the answer to one question the support inbox kept asking: why do people hesitate before booking an installation?",
+      "I designed the InstallPros website from scratch, not as a visual exercise but as the answer to one question the support inbox kept asking: why do people hesitate before booking an installation?",
     role: "Product Designer",
-    timeline: "2024 — Present",
-    scope: "Research, product decisions & web system — U.S."
+    timeline: "2024 - Present",
+    scope: "Research, product decisions & web system (U.S.)"
   },
   es: {
     tags: ["Diseño de Producto", "Investigación de clientes", "Conversión"],
@@ -37,19 +37,19 @@ const HERO = {
     summary:
       "Diseñé la web de InstallPros desde cero, no como un ejercicio visual, sino como respuesta a la pregunta que la bandeja de soporte repetía una y otra vez: ¿por qué la gente duda antes de reservar una instalación?",
     role: "Diseñador de Producto",
-    timeline: "2024 — Actualidad",
-    scope: "Investigación, decisiones de producto y sistema web — EE. UU."
+    timeline: "2024 - Actualidad",
+    scope: "Investigación, decisiones de producto y sistema web (EE. UU.)"
   }
 } as const;
 
 const GLANCE: Record<Locale, CaseStudyGlance> = {
   en: {
     challenge:
-      "InstallPros could install Starlink anywhere, but visitors stalled before booking. The job was to find what created the hesitation and design it out — starting from evidence, not aesthetics.",
+      "InstallPros could install Starlink anywhere, but visitors stalled before booking. The job was to find what created the hesitation and design it out, starting from evidence, not aesthetics.",
     role:
       "Sole Product Designer. I built a research workflow over 300+ support conversations, turned the patterns into product principles, and designed the site that acted on them.",
     outcome:
-      "A website structured around certainty: availability, trust, and the next step are resolved in the order customers actually ask for them — before the form, not after."
+      "A website structured around certainty: availability, trust, and the next step are resolved in the order customers actually ask for them: before the form, not after."
   },
   es: {
     challenge:
@@ -74,7 +74,7 @@ const QUESTION_THEMES: Record<Locale, QuestionTheme[]> = {
         "Why do I have to book before I get a quote?"
       ],
       insight:
-        "The highest-volume category. People were hitting pricing uncertainty before they were ready to commit — and a hidden price reads as a risk, not a quote."
+        "The highest-volume category. People were hitting pricing uncertainty before they were ready to commit, and a hidden price reads as a risk, not a quote."
     },
     {
       label: "Availability",
@@ -84,7 +84,7 @@ const QUESTION_THEMES: Record<Locale, QuestionTheme[]> = {
         "Will this actually work where I live?"
       ],
       insight:
-        "Availability is validated before scheduling. Customers first need confidence that InstallPros can help them at all — coverage is the real first question."
+        "Availability is validated before scheduling. Customers first need confidence that InstallPros can help them at all. Coverage is the real first question."
     },
     {
       label: "Scheduling",
@@ -94,7 +94,7 @@ const QUESTION_THEMES: Record<Locale, QuestionTheme[]> = {
         "How long does the installation take?"
       ],
       insight:
-        "People aren't chasing megabits. They're chasing fast resolution of a painful problem — the speed they care about is how quickly it gets handled."
+        "People aren't chasing megabits. They're chasing fast resolution of a painful problem. The speed they care about is how quickly it gets handled."
     }
   ],
   es: [
@@ -139,7 +139,7 @@ const PERSONAS: Record<Locale, Persona[]> = {
     {
       name: "The frustrated rural homeowner",
       traits: "Non-technical, risk-averse, tired of unreliable internet.",
-      need: "Wants reliability and someone to handle the whole thing — not a spec sheet."
+      need: "Wants reliability and someone to handle the whole thing, not a spec sheet."
     },
     {
       name: "The remote worker under pressure",
@@ -168,12 +168,12 @@ const INSIGHTS: Record<Locale, Insight[]> = {
     {
       kicker: "Insight 01",
       statement: "Customers aren't buying internet. They're buying certainty.",
-      body: "The strongest pattern across conversations wasn't technical — it was uncertainty. People wanted to know who is coming, when, what it costs, whether their area is covered, and whether it will be done right. Reassurance was the product."
+      body: "The strongest pattern across conversations wasn't technical. It was uncertainty. People wanted to know who is coming, when, what it costs, whether their area is covered, and whether it will be done right. Reassurance was the product."
     },
     {
       kicker: "Insight 02",
       statement: "Availability comes before almost everything.",
-      body: "Before pricing, before features, before scheduling, the question was “Can you help me where I live?” Coverage confidence is the gate every other decision sits behind — so it had to be answered immediately."
+      body: "Before pricing, before features, before scheduling, the question was “Can you help me where I live?” Coverage confidence is the gate every other decision sits behind, so it had to be answered immediately."
     },
     {
       kicker: "Insight 03",
@@ -183,7 +183,7 @@ const INSIGHTS: Record<Locale, Insight[]> = {
     {
       kicker: "Insight 04",
       statement: "Authority first, speed second.",
-      body: "Customers do care about speed — but as quick scheduling, communication, and resolution, not raw megabits. So the promise leads with the outcome they want — fast, reliable internet — and immediately names the real wedge: getting it without the installation headache. The professional, done-for-you install is what makes that speed believable."
+      body: "Customers do care about speed, but as quick scheduling, communication, and resolution, not raw megabits. So the promise leads with the outcome they want (fast, reliable internet) and immediately names the real wedge: getting it without the installation headache. The professional, done-for-you install is what makes that speed believable."
     }
   ],
   es: [
@@ -205,7 +205,7 @@ const INSIGHTS: Record<Locale, Insight[]> = {
     {
       kicker: "Insight 04",
       statement: "Primero autoridad, después rapidez.",
-      body: "A los clientes sí les importa la rapidez, pero entendida como reserva, comunicación y resolución rápidas, no como megabits a secas. Por eso la promesa empieza por el resultado que quieren —internet rápido y fiable— y nombra de inmediato la verdadera palanca: conseguirlo sin el dolor de cabeza de la instalación. La instalación profesional, hecha por ti, es lo que hace creíble esa rapidez."
+      body: "A los clientes sí les importa la rapidez, pero entendida como reserva, comunicación y resolución rápidas, no como megabits a secas. Por eso la promesa empieza por el resultado que quieren (internet rápido y fiable) y nombra de inmediato la verdadera palanca: conseguirlo sin el dolor de cabeza de la instalación. La instalación profesional, hecha por ti, es lo que hace creíble esa rapidez."
     }
   ]
 };
@@ -216,7 +216,7 @@ const PRINCIPLES: Record<Locale, Principle[]> = {
   en: [
     {
       title: "Reduce uncertainty early",
-      body: "Answer the unspoken questions — cost signals, coverage, what happens next — before asking for anything."
+      body: "Answer the unspoken questions (cost signals, coverage, what happens next) before asking for anything."
     },
     {
       title: "Validate availability immediately",
@@ -238,7 +238,7 @@ const PRINCIPLES: Record<Locale, Principle[]> = {
   es: [
     {
       title: "Reducir la incertidumbre pronto",
-      body: "Responder las preguntas no dichas —señales de precio, cobertura, qué pasa después— antes de pedir nada."
+      body: "Responder las preguntas no dichas (señales de precio, cobertura, qué pasa después) antes de pedir nada."
     },
     {
       title: "Validar la disponibilidad de inmediato",
@@ -286,7 +286,7 @@ const DECISIONS: Record<Locale, DecisionItem[]> = {
     {
       eyebrow: "Sell certainty, not speed",
       title: "Frame the offer as a problem handled end to end.",
-      body: "Service framing leads with an all-in-one, done-for-you promise, same-week scheduling, and clear upfront pricing — the certainty signals the inbox kept asking for — instead of technical performance claims.",
+      body: "Service framing leads with an all-in-one, done-for-you promise, same-week scheduling, and clear upfront pricing (the certainty signals the inbox kept asking for) instead of technical performance claims.",
       image: { src: `${EVIDENCE}/quote-screen.png`, alt: "Quote flow showing a Starlink installation quote of $899" },
       imageCaption: "Pricing is surfaced as a concrete answer before commitment, not hidden behind a booking request.",
       supportingArtifacts: [
@@ -301,7 +301,7 @@ const DECISIONS: Record<Locale, DecisionItem[]> = {
     {
       eyebrow: "Authority before features",
       title: "Make professionalism the headline.",
-      body: "The installation story leads with customized setup, complete installation, and quality of work — positioning InstallPros as the team that does it right the first time. Trust is established before any feature has to do the convincing.",
+      body: "The installation story leads with customized setup, complete installation, and quality of work, positioning InstallPros as the team that does it right the first time. Trust is established before any feature has to do the convincing.",
       image: { src: `${IMG}/installation.webp`, alt: "Professional installation section emphasizing quality and process" }
     }
   ],
@@ -322,7 +322,7 @@ const DECISIONS: Record<Locale, DecisionItem[]> = {
     {
       eyebrow: "Vender certeza, no rapidez",
       title: "Plantear la oferta como un problema resuelto de principio a fin.",
-      body: "El planteamiento del servicio empieza por una promesa todo-en-uno y hecha por ti, reserva en la misma semana y un precio claro por adelantado —las señales de certeza que la bandeja pedía una y otra vez— en lugar de afirmaciones técnicas de rendimiento.",
+      body: "El planteamiento del servicio empieza por una promesa todo-en-uno y hecha por ti, reserva en la misma semana y un precio claro por adelantado (las señales de certeza que la bandeja pedía una y otra vez) en lugar de afirmaciones técnicas de rendimiento.",
       image: { src: `${EVIDENCE}/quote-screen.png`, alt: "Quote flow showing a Starlink installation quote of $899" },
       imageCaption: "El precio aparece como una respuesta concreta antes del compromiso, no escondido detrás de una solicitud de reserva.",
       supportingArtifacts: [
@@ -365,7 +365,7 @@ const OPPORTUNITIES: Record<Locale, Opportunity[]> = {
     },
     {
       title: "Quote before scheduling",
-      body: "Test a flow that returns an estimate without forcing a booking first — the friction customers named most."
+      body: "Test a flow that returns an estimate without forcing a booking first: the friction customers named most."
     },
     {
       title: "Expectation setting",
@@ -428,7 +428,7 @@ const COPY = {
     questionEyebrow: "The question",
     questionTitle: "Why do people hesitate before booking an installation?",
     questionIntro:
-      "This wasn't a visual project. InstallPros could already install Starlink across the U.S., yet visitors stalled at the edge of booking. Rather than explore layouts, I started by trying to understand the hesitation — and let the evidence decide what the site needed to be.",
+      "This wasn't a visual project. InstallPros could already install Starlink across the U.S., yet visitors stalled at the edge of booking. Rather than explore layouts, I started by trying to understand the hesitation and let the evidence decide what the site needed to be.",
     researchEyebrow: "Research process",
     researchTitle: "I turned the support inbox into a design brief.",
     researchIntro:
@@ -450,16 +450,16 @@ const COPY = {
     surfaceEyebrow: "The designed surface",
     surfaceTitle: "The same principles, made visible.",
     surfaceIntro:
-      "Each moment on the page answers a question the research surfaced — in the order customers actually ask. Move through the key surfaces below.",
+      "Each moment on the page answers a question the research surfaced, in the order customers actually ask. Move through the key surfaces below.",
     decisionsEyebrow: "Design decisions",
     decisionsTitle: "How the research shaped the page.",
     ukEyebrow: "The other market",
     ukTitle: "Two markets, two kinds of evidence.",
     ukIntro:
-      "InstallPros operates in the United States and the United Kingdom, and I design for both. This case is the qualitative half: 300+ support conversations turned into principles, and the site that acts on them. The U.K. is a separate piece of work with a separate problem — a funnel losing two out of three visits before anyone typed a character, diagnosed by crossing four data sources and rebuilt around the one step that was leaking.",
+      "InstallPros operates in the United States and the United Kingdom, and I design for both. This case is the qualitative half: 300+ support conversations turned into principles, and the site that acts on them. The U.K. is a separate piece of work with a separate problem: a funnel losing two out of three visits before anyone typed a character, diagnosed by crossing four data sources and rebuilt around the one step that was leaking.",
     ukLink: "Read the U.K. case study",
     nextEyebrow: "What I'd explore next",
-    nextTitle: "The work isn't finished — the research pointed past it.",
+    nextTitle: "The work isn't finished. The research pointed past it.",
     nextIntro:
       "The same conversations that shaped this version also flagged where it can go further. These are the next opportunities I'd pursue.",
     nextProject: "Next project"
@@ -662,7 +662,7 @@ export function InstallProsWebsiteAlt2CaseStudy({
         </div>
       </section>
 
-      {/* Glance — the 30-second read */}
+      {/* Glance: the 30-second read */}
       <GlanceSection glance={glance} locale={locale} />
 
       {/* The question that drove the project */}
@@ -802,7 +802,7 @@ export function InstallProsWebsiteAlt2CaseStudy({
         <DecisionSplit key={d.eyebrow} {...d} reversed={i % 2 === 1} />
       ))}
 
-      {/* The U.K. case — a separate piece of work, linked in both directions */}
+      {/* The U.K. case: a separate piece of work, linked in both directions */}
       <Section>
         <SectionHead eyebrow={c.ukEyebrow} title={c.ukTitle} intro={c.ukIntro} />
         <Reveal delay={0.06} className="mt-8">

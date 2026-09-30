@@ -24,7 +24,7 @@ export function CaseStudyHeroCarousel({ slides, title }: CaseStudyHeroCarouselPr
 
   // All slides share one fixed-height frame. Tall/normal boards fill it
   // (object-cover, cropped from the bottom). Boards wider than the frame would
-  // get their edges — and their text — sliced off by cover, so those fit
+  // get their edges (and their text) sliced off by cover, so those fit
   // instead (object-contain), keeping every board readable at the same height.
   const FRAME_RATIO = 16 / 11;
 

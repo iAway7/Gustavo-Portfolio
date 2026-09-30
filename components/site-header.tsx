@@ -32,7 +32,7 @@ export function SiteHeader() {
           Gustavo Polin
         </Link>
 
-        {/* Desktop navigation — unchanged layout, shown from md upward. */}
+        {/* Desktop navigation: unchanged layout, shown from md upward. */}
         <nav
           aria-label="Primary"
           className="hidden flex-wrap items-center gap-2 md:flex md:justify-end"
@@ -60,7 +60,7 @@ export function SiteHeader() {
           <LanguageSwitcher className="ml-2" />
         </nav>
 
-        {/* Mobile navigation — hamburger + full-screen panel below md. */}
+        {/* Mobile navigation: hamburger + full-screen panel below md. */}
         <MobileNav />
       </div>
     </header>
