@@ -510,6 +510,69 @@ const COPY = {
   }
 } as const;
 
+/* Intercom topic volume, redrawn from the tagged corpus (support inbox). */
+const TOPIC_VOLUME: Record<Locale, { title: string; unit: string; topics: [string, number][] }> = {
+  en: {
+    title: "Conversations by topic",
+    unit: "conversations",
+    topics: [
+      ["Payment", 140],
+      ["Schedule", 95],
+      ["Location", 56],
+      ["Quote", 48],
+      ["Tech support", 30],
+      ["Roof", 17]
+    ]
+  },
+  es: {
+    title: "Conversaciones por tema",
+    unit: "conversaciones",
+    topics: [
+      ["Pago", 140],
+      ["Agenda", 95],
+      ["Ubicación", 56],
+      ["Presupuesto", 48],
+      ["Soporte técnico", 30],
+      ["Tejado", 17]
+    ]
+  }
+};
+
+function TopicVolumeChart({ locale }: { locale: Locale }) {
+  const t = TOPIC_VOLUME[locale];
+  const max = Math.max(...t.topics.map(([, v]) => v));
+  return (
+    <figure className="editorial-image flex h-full flex-col border border-line bg-white p-6 sm:p-8">
+      <figcaption className="section-label">{t.title}</figcaption>
+      <ol role="list" className="mt-6 grid flex-1 content-center gap-5">
+        {t.topics.map(([label, value], index) => (
+          <li key={label}>
+            <div className="flex items-baseline justify-between gap-4">
+              <p className="text-[1.0625rem] font-medium text-text">{label}</p>
+              <p
+                className={
+                  index === 0
+                    ? "text-lg font-medium tracking-[-0.02em] text-accent"
+                    : "text-lg font-medium tracking-[-0.02em] text-text"
+                }
+              >
+                {value}
+                <span className="sr-only"> {t.unit}</span>
+              </p>
+            </div>
+            <div className="mt-2 h-3 overflow-hidden rounded-full bg-line" aria-hidden="true">
+              <div
+                className={index === 0 ? "h-full rounded-full bg-accent" : "h-full rounded-full bg-barMuted"}
+                style={{ width: `${(value / max) * 100}%` }}
+              />
+            </div>
+          </li>
+        ))}
+      </ol>
+    </figure>
+  );
+}
+
 function SectionHead({ eyebrow, title, intro }: { eyebrow: string; title: string; intro?: string }) {
   return (
     <Reveal className="max-w-3xl">
@@ -687,16 +750,7 @@ export function InstallProsWebsiteAlt2CaseStudy({
         </Reveal>
         <div className="mt-12 grid gap-8 lg:grid-cols-2">
           <Reveal delay={0.12}>
-            <figure className="editorial-image overflow-hidden border border-line bg-white">
-              <Image
-                src={`${EVIDENCE}/9topics.png`}
-                alt="Intercom topics table showing recurring customer questions around payment, scheduling, location, quote, and related issues"
-                width={1600}
-                height={900}
-                className="h-auto w-full"
-                sizes="(min-width: 1024px) 48vw, 100vw"
-              />
-            </figure>
+            <TopicVolumeChart locale={locale} />
           </Reveal>
           <Reveal delay={0.16}>
             <figure className="editorial-image overflow-hidden border border-line bg-white">
