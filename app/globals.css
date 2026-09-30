@@ -41,6 +41,14 @@ a {
   text-decoration: none;
 }
 
+/* Balanced line breaks on every heading: no single-word last lines. */
+h1,
+h2,
+h3,
+h4 {
+  text-wrap: balance;
+}
+
 button,
 input,
 textarea {
