@@ -92,7 +92,7 @@ function TestimonialQuote({ name, quote, locale }: { name: string; quote: string
         id={quoteId}
         ref={quoteRef}
         style={clampStyle}
-        className="text-[1.45rem] leading-[1.42] tracking-[-0.04em] text-text sm:text-[1.7rem]"
+        className="text-[1.5rem] leading-[1.42] tracking-[-0.02em] text-text"
       >
         {quote}
       </p>
