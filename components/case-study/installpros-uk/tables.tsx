@@ -203,13 +203,13 @@ export function ResultsTable({
 }) {
   return (
     <Reveal>
-      {/* Phones: one card per metric, baseline vs actual as two donuts. */}
-      <ul role="list" className="divide-y divide-line rounded-2xl border border-line sm:hidden">
+      {/* One card per metric: baseline vs actual as two donuts, target below. */}
+      <ul role="list" aria-label={caption} className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
         {rows.map((row) => (
-          <li key={row.metric} className="px-5 py-6">
+          <li key={row.metric} className="flex flex-col rounded-2xl border border-line px-5 py-6 sm:px-6">
             <p className="text-[1.0625rem] font-medium leading-6 text-text">{row.metric}</p>
             <p className="mt-1 text-[0.9375rem] leading-6 text-muted">{row.gloss}</p>
-            <div className="mt-5 grid grid-cols-2 gap-4">
+            <div className="mt-auto grid grid-cols-2 gap-4 pt-6">
               <Donut label={columns[1]} value={row.baseline} tone="before" />
               <Donut label={columns[3]} value={row.actual} tone="after" />
             </div>
@@ -219,48 +219,6 @@ export function ResultsTable({
           </li>
         ))}
       </ul>
-
-      {/* Tablet and up: the full table. */}
-      <div className="hidden overflow-x-auto rounded-2xl border border-line sm:block">
-        <table className="w-full min-w-[40rem] border-collapse text-left">
-          <caption className="sr-only">{caption}</caption>
-          <thead>
-            <tr className="border-b border-line">
-              <th scope="col" className={cn(HEAD, "px-6 py-4 align-bottom")}>
-                {columns[0]}
-              </th>
-              {columns.slice(1).map((column) => (
-                <th key={column} scope="col" className={cn(HEAD, "px-6 py-4 text-right align-bottom")}>
-                  {column}
-                </th>
-              ))}
-            </tr>
-          </thead>
-          <tbody>
-            {rows.map((row) => (
-              <tr key={row.metric} className="border-b border-line last:border-b-0">
-                <th scope="row" className="px-6 py-5 align-middle font-normal">
-                  <span className="block text-[1.0625rem] font-medium leading-6 text-text">
-                    {row.metric}
-                  </span>
-                  <span className="mt-1 block text-[0.9375rem] leading-6 text-muted">
-                    {row.gloss}
-                  </span>
-                </th>
-                <td className="px-6 py-5 text-right align-middle text-base leading-6 text-muted">
-                  {row.baseline}
-                </td>
-                <td className="px-6 py-5 text-right align-middle text-base leading-6 text-muted">
-                  {row.target}
-                </td>
-                <td className="px-6 py-5 text-right align-middle text-[clamp(1.25rem,1.8vw,1.75rem)] font-medium tracking-[-0.03em] text-accent">
-                  {row.actual}
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
     </Reveal>
   );
 }
