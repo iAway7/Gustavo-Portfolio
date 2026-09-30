@@ -136,53 +136,32 @@ export function CoreWebVitalsTable({
 
 export type LighthouseScore = { label: string; before: string; after: string };
 
-/**
- * Four Lighthouse categories as concentric rings, the way PageSpeed shows a
- * score: outer ring is the new landing (PageSpeed's own green), inner ring is
- * the old page. The figures stay underneath.
- */
+/** Four Lighthouse categories, before → after. The green is PageSpeed's own. */
 export function LighthouseRow({ scores }: { scores: LighthouseScore[] }) {
-  const ring = (r: number, value: string, cls: string, width: number) => {
-    const c = 2 * Math.PI * r;
-    const pct = Math.min(100, Math.max(0, num(value)));
-    return (
-      <>
-        <circle cx="50" cy="50" r={r} fill="none" strokeWidth={width} className="stroke-line" />
-        <circle
-          cx="50"
-          cy="50"
-          r={r}
-          fill="none"
-          strokeWidth={width}
-          strokeLinecap="round"
-          strokeDasharray={`${(pct / 100) * c} ${c}`}
-          className={cls}
-        />
-      </>
-    );
-  };
   return (
-    <Reveal className="grid grid-cols-2 gap-x-6 gap-y-10 border-t border-line pt-8 lg:grid-cols-4">
-      {scores.map((score) => (
-        <div key={score.label} className="flex flex-col items-center text-center">
+    <Reveal className="grid grid-cols-2 gap-x-6 gap-y-8 border-t border-line pt-8 lg:grid-cols-4 lg:gap-x-0">
+      {scores.map((score, index) => (
+        <div
+          key={score.label}
+          className={cn(
+            "flex h-full flex-col lg:px-8",
+            index > 0 && "lg:border-l lg:border-line",
+            index === 0 && "lg:pl-0"
+          )}
+        >
           <p className="text-[0.8125rem] font-bold uppercase tracking-[0.14em] text-muted sm:text-[1rem] sm:tracking-[0.18em]">
             {score.label}
           </p>
-          <div className="relative mt-5 h-28 w-28 sm:h-32 sm:w-32">
-            <svg viewBox="0 0 100 100" className="h-full w-full -rotate-90" aria-hidden="true">
-              {ring(44, score.after, "stroke-pass", 7)}
-              {ring(32, score.before, "stroke-barMuted", 5)}
-            </svg>
-            <span className="absolute inset-0 flex items-center justify-center text-[1.625rem] font-medium tracking-[-0.04em] text-pass">
-              {score.after}
+          <p className="mt-auto flex items-baseline gap-2 pt-6">
+            <span className="text-[clamp(1.25rem,1.6vw,1.5rem)] font-medium text-muted">
+              {score.before}
             </span>
-          </div>
-          <p className="mt-4 flex items-baseline gap-2">
-            <span className="text-lg font-medium text-muted">{score.before}</span>
             <span aria-hidden="true" className="text-muted">
               →
             </span>
-            <span className="text-lg font-medium text-pass">{score.after}</span>
+            <span className="text-[clamp(2rem,3.6vw,2.8rem)] font-medium leading-none tracking-[-0.04em] text-pass">
+              {score.after}
+            </span>
           </p>
         </div>
       ))}
