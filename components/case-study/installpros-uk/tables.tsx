@@ -203,7 +203,25 @@ export function ResultsTable({
 }) {
   return (
     <Reveal>
-      <div className="overflow-x-auto rounded-2xl border border-line">
+      {/* Phones: one card per metric, baseline vs actual as two donuts. */}
+      <ul role="list" className="divide-y divide-line rounded-2xl border border-line sm:hidden">
+        {rows.map((row) => (
+          <li key={row.metric} className="px-5 py-6">
+            <p className="text-[1.0625rem] font-medium leading-6 text-text">{row.metric}</p>
+            <p className="mt-1 text-[0.9375rem] leading-6 text-muted">{row.gloss}</p>
+            <div className="mt-5 grid grid-cols-2 gap-4">
+              <Donut label={columns[1]} value={row.baseline} tone="before" />
+              <Donut label={columns[3]} value={row.actual} tone="after" />
+            </div>
+            <p className="mt-4 text-center text-[0.9375rem] leading-6 text-muted">
+              {columns[2]}: {row.target}
+            </p>
+          </li>
+        ))}
+      </ul>
+
+      {/* Tablet and up: the full table. */}
+      <div className="hidden overflow-x-auto rounded-2xl border border-line sm:block">
         <table className="w-full min-w-[40rem] border-collapse text-left">
           <caption className="sr-only">{caption}</caption>
           <thead>
@@ -244,6 +262,44 @@ export function ResultsTable({
         </table>
       </div>
     </Reveal>
+  );
+}
+
+/** A rate as a ring: the filled share is the percentage itself. */
+function Donut({ label, value, tone }: { label: string; value: string; tone: "before" | "after" }) {
+  const pct = Math.min(100, Math.max(0, parseFloat(value.replace(",", ".")) || 0));
+  const r = 42;
+  const c = 2 * Math.PI * r;
+  const isAfter = tone === "after";
+  return (
+    <figure className="flex flex-col items-center">
+      <div className="relative h-28 w-28">
+        <svg viewBox="0 0 100 100" className="h-full w-full -rotate-90" aria-hidden="true">
+          <circle cx="50" cy="50" r={r} fill="none" strokeWidth="8" className="stroke-line" />
+          <circle
+            cx="50"
+            cy="50"
+            r={r}
+            fill="none"
+            strokeWidth="8"
+            strokeLinecap="round"
+            strokeDasharray={`${(pct / 100) * c} ${c}`}
+            className={isAfter ? "stroke-accent" : "stroke-barMuted"}
+          />
+        </svg>
+        <span
+          className={cn(
+            "absolute inset-0 flex items-center justify-center font-medium tracking-[-0.03em]",
+            isAfter ? "text-[1.375rem] text-accent" : "text-[1.125rem] text-muted"
+          )}
+        >
+          {value}
+        </span>
+      </div>
+      <figcaption className="mt-3 text-[0.8125rem] font-bold uppercase tracking-[0.14em] text-muted">
+        {label}
+      </figcaption>
+    </figure>
   );
 }
 
