@@ -148,7 +148,7 @@ export type LighthouseScore = { label: string; before: string; after: string };
 /** Four Lighthouse categories, before → after. The green is PageSpeed's own. */
 export function LighthouseRow({ scores }: { scores: LighthouseScore[] }) {
   return (
-    <Reveal className="grid gap-y-8 border-t border-line pt-8 sm:grid-cols-2 lg:grid-cols-4">
+    <Reveal className="grid grid-cols-2 gap-x-6 gap-y-8 border-t border-line pt-8 lg:grid-cols-4 lg:gap-x-0">
       {scores.map((score, index) => (
         <div
           key={score.label}
@@ -158,7 +158,7 @@ export function LighthouseRow({ scores }: { scores: LighthouseScore[] }) {
             index === 0 && "lg:pl-0"
           )}
         >
-          <p className="text-[1rem] font-bold uppercase tracking-[0.18em] text-muted">
+          <p className="text-[0.8125rem] font-bold uppercase tracking-[0.14em] text-muted sm:text-[1rem] sm:tracking-[0.18em]">
             {score.label}
           </p>
           <p className="mt-auto flex items-baseline gap-2 pt-6">
