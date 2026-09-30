@@ -14,7 +14,7 @@ import { getDict, type Locale, localizedPath } from "@/lib/i18n";
 const homeProjectSlugs = [
   "installpros-technician-app",
   "agencyhub-platform",
-  "installpros-website",
+  "installpros-uk-landing",
   "emmvi-growth-platform"
 ] as const;
 
