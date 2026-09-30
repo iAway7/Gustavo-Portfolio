@@ -535,31 +535,31 @@ export const COPY: Record<Locale, Copy> = {
           gloss: "visitors who touch the first field",
           baseline: "33.2%",
           target: "40.0%",
-          actual: "62.3%"
+          actual: "70.2%"
         },
         {
           metric: "Form completion",
           gloss: "leads ÷ form starts",
           baseline: "32.3%",
           target: "32.3%, hold",
-          actual: "48.5%"
+          actual: "49.0%"
         },
         {
           metric: "Visitor → lead",
           gloss: "the headline number",
           baseline: "10.7%",
           target: "12.9%",
-          actual: "30.2%"
+          actual: "34.4%"
         },
         {
           metric: "Mobile visitor → lead",
           gloss: "closing half the gap to desktop",
           baseline: "18.0%",
           target: "21.0%",
-          actual: "28.0%"
+          actual: "32.8%"
         }
       ],
-      pull: "Visitor to lead nearly tripled in the first week, from 10.7% to 30.2%. The step that moved most is the one the diagnosis pointed at: two out of three visits used to leave without typing a character, and it is closer to two in five now."
+      pull: "Visitor to lead more than tripled in the first week, from 10.7% to 34.4%. The step that moved most is the one the diagnosis pointed at: two out of three visits used to leave without typing a character, and it is fewer than one in three now."
     },
     closing: {
       nextProject: "Next project",
@@ -966,31 +966,31 @@ export const COPY: Record<Locale, Copy> = {
           gloss: "visitas que tocan el primer campo",
           baseline: "33,2%",
           target: "40,0%",
-          actual: "62,3%"
+          actual: "70,2%"
         },
         {
           metric: "Finalización",
           gloss: "leads ÷ formularios empezados",
           baseline: "32,3%",
           target: "32,3%, mantener",
-          actual: "48,5%"
+          actual: "49,0%"
         },
         {
           metric: "Visitante → lead",
           gloss: "la cifra de titular",
           baseline: "10,7%",
           target: "12,9%",
-          actual: "30,2%"
+          actual: "34,4%"
         },
         {
           metric: "Visitante móvil → lead",
           gloss: "cerrar la mitad de la distancia con escritorio",
           baseline: "18,0%",
           target: "21,0%",
-          actual: "28,0%"
+          actual: "32,8%"
         }
       ],
-      pull: "Visitante a lead casi se triplicó en la primera semana, de 10,7% a 30,2%. El paso que más se movió es el que señalaba el diagnóstico: dos de cada tres visitas se iban sin escribir un carácter, y ahora son más bien dos de cada cinco."
+      pull: "Visitante a lead se triplicó con creces en la primera semana, de 10,7% a 34,4%. El paso que más se movió es el que señalaba el diagnóstico: dos de cada tres visitas se iban sin escribir un carácter, y ahora son menos de una de cada tres."
     },
     closing: {
       nextProject: "Siguiente proyecto",
