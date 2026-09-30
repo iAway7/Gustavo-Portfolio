@@ -13,7 +13,7 @@ export type ContinuationRow = {
   highlight?: boolean;
 };
 
-/** Continuation per form step, with the rate drawn inline beside the figure. */
+/** Continuation per form step: one bar per step, the leaking step in accent. */
 export function ContinuationTable({
   caption,
   columns,
@@ -25,58 +25,35 @@ export function ContinuationTable({
 }) {
   return (
     <Reveal>
-      <div className="overflow-x-auto">
-        <table className="w-full min-w-[26rem] border-collapse text-left">
-          <caption className="sr-only">{caption}</caption>
-          <thead>
-            <tr className="border-b border-line">
-              <th scope="col" className={cn(HEAD, "py-3 pr-4")}>
-                {columns[0]}
-              </th>
-              <th scope="col" className={cn(HEAD, "py-3 pr-4")}>
-                {columns[1]}
-              </th>
-              <th scope="col" className={cn(HEAD, "py-3")}>
-                {columns[2]}
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            {rows.map((row) => (
-              <tr key={row.step} className="border-b border-line last:border-b-0">
-                <th
-                  scope="row"
-                  className="py-5 pr-4 align-middle text-[1.0625rem] font-medium text-text"
-                >
-                  {row.step}
-                </th>
-                <td className="py-5 pr-4 align-middle text-[0.9375rem] text-muted">
-                  {row.reached}
-                </td>
-                <td className="py-5 align-middle">
-                  <div className="flex items-center gap-4">
-                    <span
-                      className="h-3 flex-1 overflow-hidden rounded-full bg-line"
-                      aria-hidden="true"
-                    >
-                      <span
-                        className={cn(
-                          "block h-full rounded-full",
-                          row.highlight ? "bg-accent" : "bg-barMuted"
-                        )}
-                        style={{ width: `${row.width}%` }}
-                      />
-                    </span>
-                    <span className="min-w-[3rem] text-right text-lg font-medium text-text">
-                      {row.percent}
-                    </span>
-                  </div>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+      <ol role="list" aria-label={caption} className="grid gap-6">
+        {rows.map((row) => (
+          <li key={row.step} className="border-b border-line pb-6 last:border-b-0 last:pb-0">
+            <div className="flex items-baseline justify-between gap-4">
+              <p className="text-[1.0625rem] font-medium text-text">{row.step}</p>
+              <p className="text-[0.9375rem] text-muted">
+                {columns[1]}: {row.reached}
+              </p>
+            </div>
+            <div className="mt-3 flex items-center gap-4">
+              <span className="h-3 flex-1 overflow-hidden rounded-full bg-line" aria-hidden="true">
+                <span
+                  className={cn("block h-full rounded-full", row.highlight ? "bg-accent" : "bg-barMuted")}
+                  style={{ width: `${row.width}%` }}
+                />
+              </span>
+              <span
+                className={cn(
+                  "min-w-[3.5rem] text-right text-xl font-medium tracking-[-0.02em]",
+                  row.highlight ? "text-accent" : "text-text"
+                )}
+              >
+                <span className="sr-only">{columns[2]}: </span>
+                {row.percent}
+              </span>
+            </div>
+          </li>
+        ))}
+      </ol>
     </Reveal>
   );
 }
@@ -89,7 +66,12 @@ export type VitalRow = {
   after: string;
 };
 
-/** Core Web Vitals, both stacks side by side. Lower is better throughout. */
+const num = (value: string) => parseFloat(value.replace(",", ".")) || 0;
+
+/**
+ * Core Web Vitals as paired bars. Each metric is scaled to its own "before",
+ * so the after bar reads as the share of the wait that is left. Lower is better.
+ */
 export function CoreWebVitalsTable({
   caption,
   columns,
@@ -101,76 +83,106 @@ export function CoreWebVitalsTable({
 }) {
   return (
     <Reveal>
-      <div className="overflow-x-auto">
-        <table className="w-full min-w-[40rem] border-collapse text-left">
-          <caption className="sr-only">{caption}</caption>
-          <thead>
-            <tr className="border-b border-line">
-              <th scope="col" className={cn(HEAD, "py-4 pr-6")}>
-                {columns[0]}
-              </th>
-              <th scope="col" className={cn(HEAD, "px-6 py-4 text-center")}>
-                {columns[1]}
-              </th>
-              <th scope="col" className={cn(HEAD, "px-6 py-4 text-center")}>
-                {columns[2]}
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            {rows.map((row) => (
-              <tr key={row.metric} className="border-b border-line last:border-b-0">
-                <th scope="row" className="py-5 pr-6 align-middle font-normal">
-                  <span className="block text-[1.0625rem] font-medium leading-6 text-text">
-                    {row.metric}
-                  </span>
-                  <span className="mt-1 block text-[0.9375rem] leading-6 text-muted">
-                    {row.gloss}
-                  </span>
-                </th>
-                <td className="px-6 py-5 text-center align-middle text-[clamp(1.25rem,1.8vw,1.75rem)] font-medium tracking-[-0.03em] text-text">
-                  {row.before}
-                </td>
-                <td className="px-6 py-5 text-center align-middle text-[clamp(1.25rem,1.8vw,1.75rem)] font-medium tracking-[-0.03em] text-accent">
-                  {row.after}
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+      <div className="flex flex-wrap gap-x-6 gap-y-2 border-b border-line pb-4" aria-hidden="true">
+        <span className="flex items-center gap-2 text-[0.9375rem] text-muted">
+          <span className="h-2.5 w-6 rounded-full bg-barMuted" />
+          {columns[1]}
+        </span>
+        <span className="flex items-center gap-2 text-[0.9375rem] text-muted">
+          <span className="h-2.5 w-6 rounded-full bg-accent" />
+          {columns[2]}
+        </span>
       </div>
+      <ul role="list" aria-label={caption} className="divide-y divide-line">
+        {rows.map((row) => {
+          const before = num(row.before);
+          const share = before > 0 ? Math.min(100, (num(row.after) / before) * 100) : 0;
+          return (
+            <li key={row.metric} className="grid gap-4 py-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.6fr)] lg:gap-10">
+              <div>
+                <p className="text-[1.0625rem] font-medium leading-6 text-text">{row.metric}</p>
+                <p className="mt-1 text-[0.9375rem] leading-6 text-muted">{row.gloss}</p>
+              </div>
+              <div className="grid content-center gap-3">
+                <div className="flex items-center gap-4">
+                  <span className="h-3 flex-1" aria-hidden="true">
+                    <span className="block h-full w-full rounded-full bg-barMuted" />
+                  </span>
+                  <span className="min-w-[4.5rem] text-right text-lg font-medium tracking-[-0.02em] text-text">
+                    <span className="sr-only">{columns[1]}: </span>
+                    {row.before}
+                  </span>
+                </div>
+                <div className="flex items-center gap-4">
+                  <span className="h-3 flex-1" aria-hidden="true">
+                    <span
+                      className="block h-full min-w-[0.75rem] rounded-full bg-accent"
+                      style={{ width: `${share}%` }}
+                    />
+                  </span>
+                  <span className="min-w-[4.5rem] text-right text-lg font-medium tracking-[-0.02em] text-accent">
+                    <span className="sr-only">{columns[2]}: </span>
+                    {row.after}
+                  </span>
+                </div>
+              </div>
+            </li>
+          );
+        })}
+      </ul>
     </Reveal>
   );
 }
 
 export type LighthouseScore = { label: string; before: string; after: string };
 
-/** Four Lighthouse categories, before → after. The green is PageSpeed's own. */
+/**
+ * Four Lighthouse categories as concentric rings, the way PageSpeed shows a
+ * score: outer ring is the new landing (PageSpeed's own green), inner ring is
+ * the old page. The figures stay underneath.
+ */
 export function LighthouseRow({ scores }: { scores: LighthouseScore[] }) {
+  const ring = (r: number, value: string, cls: string, width: number) => {
+    const c = 2 * Math.PI * r;
+    const pct = Math.min(100, Math.max(0, num(value)));
+    return (
+      <>
+        <circle cx="50" cy="50" r={r} fill="none" strokeWidth={width} className="stroke-line" />
+        <circle
+          cx="50"
+          cy="50"
+          r={r}
+          fill="none"
+          strokeWidth={width}
+          strokeLinecap="round"
+          strokeDasharray={`${(pct / 100) * c} ${c}`}
+          className={cls}
+        />
+      </>
+    );
+  };
   return (
-    <Reveal className="grid grid-cols-2 gap-x-6 gap-y-8 border-t border-line pt-8 lg:grid-cols-4 lg:gap-x-0">
-      {scores.map((score, index) => (
-        <div
-          key={score.label}
-          className={cn(
-            "flex h-full flex-col lg:px-8",
-            index > 0 && "lg:border-l lg:border-line",
-            index === 0 && "lg:pl-0"
-          )}
-        >
+    <Reveal className="grid grid-cols-2 gap-x-6 gap-y-10 border-t border-line pt-8 lg:grid-cols-4">
+      {scores.map((score) => (
+        <div key={score.label} className="flex flex-col items-center text-center">
           <p className="text-[0.8125rem] font-bold uppercase tracking-[0.14em] text-muted sm:text-[1rem] sm:tracking-[0.18em]">
             {score.label}
           </p>
-          <p className="mt-auto flex items-baseline gap-2 pt-6">
-            <span className="text-[clamp(1.25rem,1.6vw,1.5rem)] font-medium text-muted">
-              {score.before}
+          <div className="relative mt-5 h-28 w-28 sm:h-32 sm:w-32">
+            <svg viewBox="0 0 100 100" className="h-full w-full -rotate-90" aria-hidden="true">
+              {ring(44, score.after, "stroke-pass", 7)}
+              {ring(32, score.before, "stroke-barMuted", 5)}
+            </svg>
+            <span className="absolute inset-0 flex items-center justify-center text-[1.625rem] font-medium tracking-[-0.04em] text-pass">
+              {score.after}
             </span>
+          </div>
+          <p className="mt-4 flex items-baseline gap-2">
+            <span className="text-lg font-medium text-muted">{score.before}</span>
             <span aria-hidden="true" className="text-muted">
               →
             </span>
-            <span className="text-[clamp(2rem,3.6vw,2.8rem)] font-medium leading-none tracking-[-0.04em] text-pass">
-              {score.after}
-            </span>
+            <span className="text-lg font-medium text-pass">{score.after}</span>
           </p>
         </div>
       ))}
