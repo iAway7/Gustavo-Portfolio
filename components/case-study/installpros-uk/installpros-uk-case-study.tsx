@@ -60,7 +60,13 @@ function Figure({
     <Reveal>
       <figure>
         <p className="section-label">{copy.label}</p>
-        <div className="editorial-image mt-4 overflow-hidden border border-line bg-canvas">
+        <a
+          href={shot.src}
+          target="_blank"
+          rel="noreferrer"
+          aria-label={`${copy.alt} (open full size)`}
+          className="editorial-image relative mt-4 block cursor-zoom-in overflow-hidden border border-line bg-canvas"
+        >
           <Image
             src={shot.src}
             alt={copy.alt}
@@ -71,7 +77,16 @@ function Figure({
             className="h-auto w-full"
             sizes="(min-width: 1408px) 1344px, (min-width: 1024px) calc(100vw - 4rem), 100vw"
           />
-        </div>
+          {/* Zoom affordance: data screenshots are unreadable at phone width. */}
+          <span
+            aria-hidden="true"
+            className="absolute right-3 top-3 flex h-9 w-9 items-center justify-center rounded-full bg-white/90 text-text shadow-float sm:hidden"
+          >
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5">
+              <path d="M9.5 2.5h4v4M6.5 13.5h-4v-4M13.5 2.5 9 7M2.5 13.5 7 9" />
+            </svg>
+          </span>
+        </a>
         <figcaption className="mt-5 max-w-[44rem]">
           <span className="block text-[1.0625rem] font-medium leading-6 text-text">{copy.lead}</span>
           <span className={cn("mt-2 block", PARA)}>{copy.body}</span>

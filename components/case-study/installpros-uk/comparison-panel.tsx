@@ -62,13 +62,13 @@ export function ComparisonPanel({
                 >
                   <p
                     className={cn(
-                      "text-[1rem] font-bold uppercase tracking-[0.18em]",
+                      "text-[0.8125rem] font-bold uppercase tracking-[0.14em] sm:text-[1rem] sm:tracking-[0.18em]",
                       isAfter ? "text-accent" : "text-text"
                     )}
                   >
                     {side.label}
                   </p>
-                  <p className="whitespace-nowrap text-[1rem] font-bold uppercase tracking-[0.18em] text-muted">
+                  <p className="whitespace-nowrap text-[0.8125rem] font-bold uppercase tracking-[0.14em] text-muted sm:text-[1rem] sm:tracking-[0.18em]">
                     {side.figure}
                   </p>
                 </div>

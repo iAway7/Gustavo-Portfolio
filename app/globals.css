@@ -49,6 +49,12 @@ h4 {
   text-wrap: balance;
 }
 
+/* Grid items may shrink below their content width, so a wide child
+   (a scrollable table) scrolls inside its box instead of widening the page. */
+.grid > * {
+  min-width: 0;
+}
+
 button,
 input,
 textarea {

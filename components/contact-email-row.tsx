@@ -36,7 +36,7 @@ export function ContactEmailRow() {
             <button
               type="button"
               onClick={handleCopy}
-              className="rounded-full border border-line px-3 py-1 text-xs uppercase tracking-[0.14em] text-muted transition-colors hover:text-accent"
+              className="inline-flex min-h-10 items-center rounded-full border border-line px-4 py-1 text-xs uppercase tracking-[0.14em] text-muted transition-colors hover:text-accent"
             >
               {isCopied ? "Copied" : "Copy"}
             </button>
@@ -45,7 +45,7 @@ export function ContactEmailRow() {
           <button
             type="button"
             onClick={handleReveal}
-            className="rounded-full border border-line px-3 py-1 text-xs uppercase tracking-[0.14em] text-muted transition-colors hover:text-accent"
+            className="inline-flex min-h-10 items-center rounded-full border border-line px-4 py-1 text-xs uppercase tracking-[0.14em] text-muted transition-colors hover:text-accent"
           >
             Reveal email
           </button>
