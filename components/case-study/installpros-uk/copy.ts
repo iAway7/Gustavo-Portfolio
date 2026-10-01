@@ -140,7 +140,7 @@ type Copy = {
 export const COPY: Record<Locale, Copy> = {
   en: {
     hero: {
-      tags: ["Conversion", "Funnel Redesign", "Analytics"],
+      tags: ["CRO", "Funnel Redesign", "Analytics"],
       title: "A CRO audit and rebuild of the InstallPros U.K. landing page.",
       subtitle:
         "A Starlink installer buying almost all of its traffic, with no way of seeing where it lost it. Two out of three visits never typed a thing.",
@@ -570,7 +570,7 @@ export const COPY: Record<Locale, Copy> = {
 
   es: {
     hero: {
-      tags: ["Conversión", "Rediseño de funnel", "Analítica"],
+      tags: ["CRO", "Rediseño de funnel", "Analítica"],
       title: "Auditoría CRO y reconstrucción de la landing de InstallPros en Reino Unido.",
       subtitle:
         "Un instalador de Starlink que compraba casi todo su tráfico y no tenía forma de ver dónde lo perdía. Dos de cada tres visitas no llegaban a escribir nada.",

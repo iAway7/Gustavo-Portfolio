@@ -1135,7 +1135,7 @@ export const projectCaseStudies: ProjectCaseStudy[] = [
     scope: "Funnel audit, UX/UI, front-end & analytics",
     summary:
       "A funnel audit and redesign for InstallPros in the U.K., where two out of three visits left the landing page without typing a character.",
-    tags: ["Conversion", "Funnel Redesign"],
+    tags: ["CRO", "Funnel Redesign"],
     featured: false,
     href: "/work/installpros-uk-landing",
     cardVisual: {
