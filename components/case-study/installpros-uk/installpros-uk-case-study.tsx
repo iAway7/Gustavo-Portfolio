@@ -147,8 +147,8 @@ export function InstallProsUkCaseStudy({
             <BrowserFrame
               src={SHOT.heroAfter.src}
               alt={c.hero.alt}
-              url="installpros-uk.vercel.app"
-              aspect="aspect-[1100/620]"
+              url="get.installpros.co.uk/install-quote"
+              aspect="aspect-[1100/709]"
               sizes="(min-width: 1248px) 78rem, 100vw"
               quality={90}
               priority

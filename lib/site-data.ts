@@ -1151,7 +1151,7 @@ export const projectCaseStudies: ProjectCaseStudy[] = [
         "InstallPros spent £19,000 a month on Google Ads and had no way of telling where that money stopped working. The conversion figures the account reported were inflated by a single thank-you page serving 61 unrelated pages.",
       role: "Sole designer. I ran the audit across four data sources, isolated the leak to one step, specified the redesign inside WordPress, and built a separate landing page end to end once the existing layer proved impossible to measure.",
       outcome:
-        "The leak was at the first field, not spread across the form. The fix ships on WordPress, and a purpose-built landing now runs as the measurable variant against it."
+        "The leak was at the first field, not spread across the form. The fix shipped on WordPress, and a purpose-built landing, tested first as a variant, now receives all of the paid traffic."
     },
     businessContext: [
       "InstallPros installs Starlink in homes and businesses across the United Kingdom, buying 87% of its traffic through Google Ads and receiving 80% of visits on mobile. The ads performed; the problem started after the click.",
@@ -1183,11 +1183,11 @@ export const projectCaseStudies: ProjectCaseStudy[] = [
       {
         question: "Why rebuild the form instead of rewriting it?",
         decision:
-          "A purpose-built landing page, designed and deployed end to end, as a measurable variant against the current one.",
+          "A purpose-built landing page, designed and deployed end to end, tested as a measurable variant against the current one before taking over the paid traffic.",
         rationale:
           "The original form is a third-party widget in an iframe: no field-level measurement, and no way to query anything on postcode entry. The availability message had to be fixed text because that layer allowed nothing else.",
         tradeoff:
-          "Two surfaces to maintain until enough traffic accumulates to compare them, and no result to report until it does."
+          "Two surfaces to maintain while the comparison ran, and a WordPress quote page that still exists for organic visitors."
       }
     ],
     visualDirection:

@@ -13,7 +13,7 @@ const LOGO = "/logos/tools";
  * can be written per locale without repeating dimensions.
  */
 export const SHOT = {
-  heroAfter: { src: `${IMG}/after-desktop-westminster.webp`, width: 1100, height: 709 },
+  heroAfter: { src: `${IMG}/after-desktop-westminster.webp`, width: 2200, height: 1418 },
   dropoff: { src: `${IMG}/source-form-dropoff.webp`, width: 1200, height: 511 },
   heatmapClicks: { src: `${IMG}/source-heatmap-iframe.webp`, width: 1100, height: 801 },
   beforeS1: { src: `${IMG}/before-desktop-postcode.webp`, width: 1100, height: 709 },
@@ -21,12 +21,12 @@ export const SHOT = {
   heatmapMap: { src: `${IMG}/source-heatmap-coverage-map.webp`, width: 1000, height: 703 },
   beforePaperform: { src: `${IMG}/before-desktop-phone.webp`, width: 1100, height: 709 },
   beforeMobile: { src: `${IMG}/before-mobile.webp`, width: 700, height: 1199 },
-  afterMobile: { src: `${IMG}/after-mobile.webp`, width: 700, height: 1199 },
+  afterMobile: { src: `${IMG}/after-mobile.webp`, width: 998, height: 1582 },
   beforeConsent: { src: `${IMG}/before-consent.webp`, width: 1142, height: 436 },
-  afterFinalStep: { src: `${IMG}/after-final-step.webp`, width: 1004, height: 383 },
+  afterFinalStep: { src: `${IMG}/after-final-step.webp`, width: 962, height: 436 },
   beforeMap: { src: `${IMG}/before-map.webp`, width: 2600, height: 1675 },
-  afterCoverage: { src: `${IMG}/after-coverage-section.webp`, width: 2472, height: 1592 },
-  afterSpeed: { src: `${IMG}/after-speed-comparison.svg`, width: 1140, height: 515 },
+  afterCoverage: { src: `${IMG}/after-coverage-section.webp`, width: 2400, height: 1368 },
+  afterSpeed: { src: `${IMG}/after-speed-comparison.webp`, width: 2400, height: 1603 },
   psiBefore: { src: `${IMG}/psi-before-mobile.webp`, width: 1400, height: 1089 },
   psiAfter: { src: `${IMG}/psi-after-mobile.webp`, width: 1400, height: 1102 }
 } as const;
@@ -314,7 +314,7 @@ export const COPY: Record<Locale, Copy> = {
         },
         {
           title: "Trust signals above the fold",
-          body: "Ratings and press credentials moved into the first two screenfuls on mobile.",
+          body: "Ratings and press credentials moved into the first two screenfuls on mobile, with the reviews themselves pulled live from Trustpilot and Google further down.",
           emphasis:
             "The bottom 75% of the page was never seen on mobile, and the proof lived down there, invisible to 80% of the traffic."
         },
@@ -423,16 +423,16 @@ export const COPY: Record<Locale, Copy> = {
         {
           label: "After · coverage",
           figure: "Fig. 08",
-          lead: "Every point is a destination",
-          body: "Each city opens its own local SEO page, so the clicks the map was already earning feed the location pages instead of dying on the spot.",
-          alt: "The new coverage section: a map of the United Kingdom with clickable city points and London highlighted",
+          lead: "Every point is a region",
+          body: "Each point marks a region rather than a city, and tapping one names the area it serves, so the clicks the map was already earning now return an answer instead of dying on the spot.",
+          alt: "The new coverage section: a map of the United Kingdom with tappable regions and London highlighted",
           ...SHOT.afterCoverage
         }
       ],
       mapExplainers: [
         {
-          heading: "The cities aren't decorative",
-          body: "They come from analytics and the ads account: the places the traffic actually arrives from, not a spread of pins to make the country look covered."
+          heading: "Regions, not cities",
+          body: "An earlier version used the cities the traffic arrives from. It came out because a named city reads as a limit: anyone living outside it assumes they aren't covered. A region says the opposite."
         },
         {
           heading: "London is highlighted on load",
@@ -440,15 +440,15 @@ export const COPY: Record<Locale, Copy> = {
         },
         {
           heading: "Coverage was never the doubt",
-          body: "Satellite reaches everywhere. What the map has to prove isn't reach, it's that somebody works near you, which is what a named city does."
+          body: "Satellite reaches everywhere. What the map has to prove isn't reach, it's that somebody works near you, which is what a named region does."
         }
       ],
       speedTitle: "The second most-visited page on the site was a speed test with no way out",
       speed: {
         label: "After · speed comparison",
         lead: "Measuring a problem you already have",
-        body: "The site's own speed-test page drew 8,717 views and carried no call to action at all. That traffic arrives mostly from search, and whoever runs a speed test is measuring a problem they already have, so the new landing carries a speed test of its own, where the measurement becomes a comparison and the comparison becomes the reason to ask for a quote.",
-        alt: "Before-and-after speed comparison with a drag handle: 3.0 Mbps of typical rural broadband against 239 Mbps with Starlink professionally installed"
+        body: "The site's own speed-test page drew 8,717 views and carried no call to action at all. That traffic arrives mostly from search, and whoever runs a speed test is measuring a problem they already have, so the new landing carries a speed test of its own, where the measurement becomes a comparison and the comparison becomes the reason to ask for a quote. The left card measures the visitor's own line. The right one names their country, because Starlink's speed is set per country rather than per region, so the comparison is against what they would actually get.",
+        alt: "Before-and-after speed comparison: typical rural broadband at 11.5 Mbps with a button to test the visitor's own line, against 245 Mbps with Starlink professionally installed"
       }
     },
     pagespeed: {
@@ -525,7 +525,7 @@ export const COPY: Record<Locale, Copy> = {
         "100+ published pages and a fixed budget, so the work stayed inside the existing WordPress template and was prioritised by impact over effort, rather than proposing the rebuild nobody had asked for."
       ],
       resultsIntro:
-        "It went live on a small share of paid traffic first, enough to tell whether it worked before moving the budget onto it. Seven days against the audit baseline:",
+        "It went live on a small share of paid traffic first, enough to tell whether it worked before moving the budget onto it. Seven days against the audit baseline, after which it took the full paid budget:",
       caption:
         "Each funnel metric with its audit baseline, the target set for it, and what the first seven days returned.",
       columns: ["Metric", "Baseline", "Target", "Actual"],
@@ -745,7 +745,7 @@ export const COPY: Record<Locale, Copy> = {
         },
         {
           title: "Confianza sobre el pliegue",
-          body: "Valoraciones y credenciales de prensa subidas a los dos primeros pantallazos en móvil.",
+          body: "Valoraciones y credenciales de prensa subidas a los dos primeros pantallazos en móvil, y más abajo las reseñas en sí, traídas en vivo de Trustpilot y Google.",
           emphasis:
             "El 75% inferior de la página no se veía en móvil, y la prueba estaba justo ahí abajo: invisible para el 80% del tráfico."
         },
@@ -854,16 +854,16 @@ export const COPY: Record<Locale, Copy> = {
         {
           label: "Después · cobertura",
           figure: "Fig. 08",
-          lead: "Cada punto lleva a algún sitio",
-          body: "Cada ciudad abre su propia página local de SEO, así que los clics que el mapa ya se estaba ganando alimentan las páginas de localidad en vez de morir ahí.",
-          alt: "La sección de cobertura nueva: mapa del Reino Unido con puntos de ciudad clicables y Londres destacado",
+          lead: "Cada punto es una zona",
+          body: "Cada punto marca una zona, no una ciudad, y al tocarlo nombra el área que cubre, así que los clics que el mapa ya se estaba ganando ahora devuelven una respuesta en vez de morir ahí.",
+          alt: "La sección de cobertura nueva: mapa del Reino Unido con zonas que se pueden tocar y Londres destacado",
           ...SHOT.afterCoverage
         }
       ],
       mapExplainers: [
         {
-          heading: "Las ciudades no son decorativas",
-          body: "Salen de la analítica y de la cuenta de anuncios: son los sitios de donde llega el tráfico de verdad, no un puñado de chinchetas para que el país parezca cubierto."
+          heading: "Zonas, no ciudades",
+          body: "Una versión anterior usaba las ciudades de donde llega el tráfico. Se quitó porque una ciudad con nombre se lee como un límite: quien vive fuera da por hecho que no está cubierto. Una zona dice lo contrario."
         },
         {
           heading: "Londres viene marcado de entrada",
@@ -871,15 +871,15 @@ export const COPY: Record<Locale, Copy> = {
         },
         {
           heading: "La cobertura nunca fue la duda",
-          body: "El satélite llega a todas partes. Lo que el mapa tiene que demostrar no es alcance, es que alguien trabaja cerca de ti, que es justo lo que hace una ciudad con nombre."
+          body: "El satélite llega a todas partes. Lo que el mapa tiene que demostrar no es alcance, es que alguien trabaja cerca de ti, que es justo lo que hace una zona con nombre."
         }
       ],
       speedTitle: "La segunda página más visitada del sitio era un test de velocidad sin salida",
       speed: {
         label: "Después · comparador de velocidad",
         lead: "Medir un problema que ya tenés",
-        body: "El test de velocidad del sitio recibía 8.717 vistas y no llevaba a ninguna parte. Ese tráfico llega sobre todo de búsqueda, y quien hace un test está midiendo un problema que ya sufre: así que la landing nueva lleva su propio test, donde la medición se convierte en comparación y la comparación en el motivo para pedir presupuesto.",
-        alt: "Comparador de velocidad antes y después con tirador de arrastre: 3,0 Mbps de banda ancha rural típica frente a 239 Mbps con Starlink instalado por profesionales"
+        body: "El test de velocidad del sitio recibía 8.717 vistas y no llevaba a ninguna parte. Ese tráfico llega sobre todo de búsqueda, y quien hace un test está midiendo un problema que ya sufre: así que la landing nueva lleva su propio test, donde la medición se convierte en comparación y la comparación en el motivo para pedir presupuesto. La tarjeta de la izquierda mide la línea del visitante. La de la derecha nombra su país, porque la velocidad de Starlink se fija por país y no por región, así que la comparación es contra lo que de verdad tendría.",
+        alt: "Comparador de velocidad antes y después: banda ancha rural típica a 11,5 Mbps con un botón para medir la línea del visitante, frente a 245 Mbps con Starlink instalado por profesionales"
       }
     },
     pagespeed: {
@@ -956,7 +956,7 @@ export const COPY: Record<Locale, Copy> = {
         "Más de cien páginas publicadas y un presupuesto cerrado, así que el trabajo se quedó dentro de la plantilla de WordPress existente y se priorizó por impacto sobre esfuerzo, en vez de proponer el rediseño que nadie había pedido."
       ],
       resultsIntro:
-        "Salió primero con una porción pequeña del tráfico de pago, la suficiente para saber si funcionaba antes de volcarle el presupuesto. Siete días contra la línea base de la auditoría:",
+        "Salió primero con una porción pequeña del tráfico de pago, la suficiente para saber si funcionaba antes de volcarle el presupuesto. Siete días contra la línea base de la auditoría, tras los cuales se quedó con todo el presupuesto de pago:",
       caption:
         "Cada métrica del embudo con su línea base de auditoría, el objetivo fijado y lo que devolvieron los primeros siete días.",
       columns: ["Métrica", "Base", "Objetivo", "Real"],
