@@ -482,18 +482,18 @@ export const experienceEntries: ExperienceEntry[] = [
   {
     tier: "now",
     period: "Feb 2024 - Present",
-    duration: "2 yrs 4 mos",
+    duration: "2 yrs 8 mos",
     company: "Install Pros",
     role: "Product Designer",
     logo: "/logos/installpros.svg",
     summary:
-      "Designing the technician platform behind a network that has completed 9,163 installations and processed $7.1M+ in revenue.",
+      "Designing the web system for a Starlink installation network that has completed 9,163 installs and processed $7.1M+, plus an internal product concept for the technician app.",
     tags: ["Field Ops", "B2C"]
   },
   {
     tier: "now",
     period: "Jul 2023 - Present",
-    duration: "1 yr 11 mos",
+    duration: "3 yrs 3 mos",
     company: "Emmvi",
     role: "Co-Founder · Design & Strategy",
     logo: "/logos/emmvi.svg",
@@ -538,18 +538,18 @@ export const experienceEntriesEs: ExperienceEntry[] = [
   {
     tier: "now",
     period: "feb 2024 - Actualidad",
-    duration: "2 años 4 meses",
+    duration: "2 años 8 meses",
     company: "Install Pros",
     role: "Diseñador de Producto",
     logo: "/logos/installpros.svg",
     summary:
-      "Diseño de la plataforma para técnicos detrás de una red que ha completado 9.163 instalaciones y procesado más de 7,1 M$ en ingresos.",
+      "Diseño del sistema web de una red de instalaciones de Starlink que ha completado 9.163 instalaciones y procesado más de 7,1 M$, además de un concepto de producto interno para la app de técnicos.",
     tags: ["Operaciones de campo", "B2C"]
   },
   {
     tier: "now",
     period: "jul 2023 - Actualidad",
-    duration: "1 año 11 meses",
+    duration: "3 años 3 meses",
     company: "Emmvi",
     role: "Cofundador · Diseño y Estrategia",
     logo: "/logos/emmvi.svg",
@@ -736,12 +736,12 @@ export const projectCaseStudies: ProjectCaseStudy[] = [
     title: "Field Operations Platform",
     clientOrBrand: "Install Pros",
     role: "Product Designer",
-    period: "2024 - Present",
-    scope: "Technician mobile app: scheduling, installs, job completion",
+    period: "2024",
+    scope: "Internal product concept · Technician mobile app: jobs, installs, payments",
     summary:
-      "A mobile platform that guides Starlink installation technicians through scheduling, on-site workflows, and job completion under real field conditions.",
+      "An internal product concept, commissioned by Install Pros, for the technician side of a Starlink installation network: accepting jobs, documenting work on site, and getting paid.",
     tags: ["Field Operations", "Mobile Platform"],
-    featured: true,
+    featured: false,
     href: "/work/installpros-technician-app",
     cardVisual: {
       type: "image",
@@ -752,11 +752,11 @@ export const projectCaseStudies: ProjectCaseStudy[] = [
     },
     glance: {
       challenge:
-        "Technicians ran installs from memory, paper, and phone calls. Every gap in guidance turned into a longer visit, a callback, or a failed install.",
+        "Technicians run installs from memory, paper, and phone calls. Every gap in guidance turns into a longer visit, a callback, or a failed install.",
       role:
-        "Product design end to end: field workflows, mobile UI, and the pattern system engineering builds against.",
+        "Product design end to end, from an internal brief: field workflows, mobile UI, and a pattern system built to hand to engineering.",
       outcome:
-        "A field-ready operating tool: one legible next action in every job state, workflows that survive dead zones, and patterns engineering reuses without new design cycles."
+        "The technician journey designed end to end: one legible next action in every job state, workflows that assume dead zones, and a pattern set a small team could build from. A concept, not a shipped product."
     },
     heroSlides: [
       { src: "/projects/installpros-app/boards/01-overview.webp", alt: "Project overview with role, scope, and key app screens", label: "Overview" },
@@ -766,11 +766,16 @@ export const projectCaseStudies: ProjectCaseStudy[] = [
       { src: "/projects/installpros-app/boards/05-identity-verification.webp", alt: "Identity verification flow for technicians", label: "Identity Verification" },
       { src: "/projects/installpros-app/boards/06-onboarding-personalization.webp", alt: "Onboarding and personalization screens", label: "Onboarding & Personalization" },
       { src: "/projects/installpros-app/boards/07-job-management.webp", alt: "Job management: schedule, job details, and acceptance", label: "Job Management" },
-      { src: "/projects/installpros-app/boards/08-installation-workflow.webp", alt: "Guided installation workflow with step states", label: "Installation Workflow" },
-      { src: "/projects/installpros-app/boards/09-payment-flow.webp", alt: "Payment flow: earnings, payout status, Stripe and PayPal", label: "Payment Flow" },
-      { src: "/projects/installpros-app/boards/10-completion-feedback.webp", alt: "Job completion with photo evidence and customer feedback", label: "Completion & Feedback" },
-      { src: "/projects/installpros-app/boards/11-operational-context.webp", alt: "Operational context: 9,163 installations and over 7 million dollars processed across the network", label: "Operational Context" },
-      { src: "/projects/installpros-app/boards/12-final-reflection.webp", alt: "Final reflection on balancing operational complexity with simplicity and trust", label: "Final Reflection" }
+      { src: "/projects/installpros-app/boards/08-decision-address.webp", alt: "Decision: the exact address appears only after the technician accepts the job", label: "Decision: Address" },
+      { src: "/projects/installpros-app/boards/09-installation-workflow.webp", alt: "Guided installation workflow with step states", label: "Installation Workflow" },
+      { src: "/projects/installpros-app/boards/10-decision-dead-zone.webp", alt: "Decision: every step of the installation works offline first", label: "Decision: Dead Zone" },
+      { src: "/projects/installpros-app/boards/11-edge-cases.webp", alt: "Edge cases: no connection, nothing scheduled, and a document the system cannot read", label: "Edge Cases" },
+      { src: "/projects/installpros-app/boards/12-payment-flow.webp", alt: "Payment flow: earnings, payout status, Stripe and PayPal", label: "Payment Flow" },
+      { src: "/projects/installpros-app/boards/13-decision-on-site-cost.webp", alt: "Decision: the technician can add costs mid-job, inside the workflow", label: "Decision: On-Site Cost" },
+      { src: "/projects/installpros-app/boards/14-completion-feedback.webp", alt: "Job completion with photo evidence and customer feedback", label: "Completion & Feedback" },
+      { src: "/projects/installpros-app/boards/15-decision-photo-proof.webp", alt: "Decision: a job is not complete until the work is photographed, item by item", label: "Decision: Photo Proof" },
+      { src: "/projects/installpros-app/boards/16-operational-context.webp", alt: "Operational context: 9,163 installations and over 7 million dollars processed across the network", label: "Operational Context" },
+      { src: "/projects/installpros-app/boards/17-final-reflection.webp", alt: "Final reflection on balancing operational complexity with simplicity and trust", label: "Final Reflection" }
     ],
     context: [
       "Install Pros runs Starlink internet installations across residential, commercial, and mobile sectors. The unit economics are unforgiving: a truck roll costs the same whether the install succeeds or fails, and every clarification call routes through a small dispatch team.",
@@ -791,7 +796,7 @@ export const projectCaseStudies: ProjectCaseStudy[] = [
       },
       {
         label: "Delivery",
-        body: "A small engineering team meant every pattern had to be reusable. Bespoke screens were a budget we didn't have."
+        body: "To be worth proposing, the concept had to be buildable by a small engineering team. Bespoke screens are a budget this business doesn't have, so every pattern had to be reusable."
       }
     ],
     decisions: [
@@ -835,7 +840,7 @@ export const projectCaseStudies: ProjectCaseStudy[] = [
         rationale:
           "Job views were stripped to what a technician acts on: today's sequence, each job's state, and completion evidence. Assignment logic and exception handling stayed with dispatch, which kept the mobile scope shippable by a small team.",
         tradeoff:
-          "Some technician autonomy, like reordering jobs and self-assignment, was deliberately left out of the first release to protect operational consistency.",
+          "Some technician autonomy, like reordering jobs and self-assignment, was deliberately scoped out to protect operational consistency.",
         visual: {
           caption:
             "Job management reduced to action: today's sequence and each job's state, scannable between tasks without re-reading.",
@@ -849,18 +854,18 @@ export const projectCaseStudies: ProjectCaseStudy[] = [
     ],
     system: {
       body: [
-        "Screen patterns like status chips, action rows, and step headers were defined once and reused across scheduling, installation, and job views. The intent was economic: engineering builds from rules rather than mockups, and a technician never has to relearn what a color or a position means.",
-        "Designing with implementation in mind is what kept the product buildable: every new screen since has been assembled from the existing pattern set rather than designed from scratch."
+        "Screen patterns like status chips, action rows, and step headers were defined once and reused across scheduling, installation, and job views. The intent was economic: engineering would build from rules rather than mockups, and a technician never has to relearn what a color or a position means.",
+        "Designing with implementation in mind is what makes the concept buildable rather than aspirational: new surfaces assemble from the existing pattern set instead of getting designed from scratch."
       ]
     },
     outcome: {
       results: [
-        "Technicians get a single legible next action in every state of a job. The scanning effort the old process demanded is gone from the workflow itself.",
-        "Off-script situations became structured states instead of dispatch calls, which is the difference between a tool and a phone tree.",
-        "Engineering ships new screens from the established pattern set without a design cycle per screen."
+        "Every job state resolves to one legible next action, moving the scanning effort out of the technician's head and into the product.",
+        "Off-script situations are modeled as structured, recoverable states instead of dispatch calls, which is the difference between a tool and a phone tree.",
+        "The pattern set is as much the deliverable as the screens: a small team could add surfaces without a design cycle for each one."
       ],
       reflection:
-        "Completion time already moved: jobs close about 25% faster. The metric I'd still push to instrument is callback rate: it's the truest test of whether guided workflows prevent failures, not just speed them up. I'd also revisit keeping job reordering away from technicians; the consistency argument may not survive contact with experienced crews."
+        "No results yet, which is the honest place to end. I'd instrument three things: job completion time, callback rate, and time to first payout. Callback rate matters most. It tests whether guided workflows prevent failures or only speed them up."
     },
     nextSlug: "agencyhub-platform",
     deckUrl: "/docs/installpros-technician-app-case-study.pdf"
@@ -876,7 +881,7 @@ export const projectCaseStudies: ProjectCaseStudy[] = [
     summary:
       "A two-sided marketplace where digital agencies buy white-label services from vetted providers and resell them to their own clients.",
     tags: ["B2B SaaS", "Marketplace"],
-    featured: false,
+    featured: true,
     href: "/work/agencyhub-platform",
     cardVisual: {
       type: "image",

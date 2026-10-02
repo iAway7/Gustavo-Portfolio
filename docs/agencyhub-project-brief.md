@@ -1,4 +1,4 @@
-# AgencyHub — Brief de producto para diseño de pantallas
+# AgencyHub, Brief de producto para diseño de pantallas
 
 > Documento de contexto para arrancar un proyecto de diseño de la webapp.
 > Todo lo que hay aquí sale del proyecto real: boards del design sprint, flujos y pantallas ya diseñadas.
@@ -55,7 +55,7 @@ Casi todas las decisiones difíciles vienen de este triángulo, no del marketpla
 
 ## 4. Personas
 
-### Sarah Adams — Agency Owner
+### Sarah Adams, Agency Owner
 35 años · Agencia de marketing digital pequeña-mediana · 5-15 empleados
 
 **Objetivos**
@@ -78,7 +78,7 @@ Casi todas las decisiones difíciles vienen de este triángulo, no del marketpla
 - Criterio claro para fijar márgenes justos
 - Un sistema simple y configurable para gestionar pagos entre clientes y proveedores
 
-### Alex Kim — White-Label Vendor / Service Provider
+### Alex Kim, White-Label Vendor / Service Provider
 25 años · Freelance · SEO Specialist
 
 **Objetivos**
@@ -160,7 +160,7 @@ Balance de cuenta (`$500.00`) · Mensajes · Notificaciones (con badge) · Carri
 - Sidebar fija (~210 px), logo arriba, ítem activo con fondo tenue y texto naranja
 - Header de página: título grande + subtítulo descriptivo en una línea
 - Área de contenido sobre fondo gris muy claro, tarjetas blancas
-- Rail derecho (~290 px) para resúmenes de pedido y acción principal — aparece en Cart, Checkout y Product Page
+- Rail derecho (~290 px) para resúmenes de pedido y acción principal, aparece en Cart, Checkout y Product Page
 
 ---
 
@@ -199,7 +199,7 @@ Start → ¿Existing user?
 
 ### Tipografía
 
-**Inter** — Regular, Medium, Bold. Nada más.
+**Inter**, Regular, Medium, Bold. Nada más.
 
 ### Color
 
@@ -252,19 +252,19 @@ Tarjetas: fondo blanco, borde `gray-200` de 1px, radio medio, sin sombras pesada
 **Lado agencia**
 
 - Dashboard (estado de pedidos, pagos pendientes, actividad)
-- Orders — listado con filtros por estado, incluido `waiting for client`
-- Order detail — requisitos, entregables, timeline de estado
+- Orders, listado con filtros por estado, incluido `waiting for client`
+- Order detail, requisitos, entregables, timeline de estado
 - 3-way chat room dentro del pedido
-- Client Hub — listado de clientes, detalle de cliente, historial de pedidos
+- Client Hub, listado de clientes, detalle de cliente, historial de pedidos
 - Formulario de requisitos
 - Revisión y aprobación de la entrega
 - Gestión de margen / precio de reventa
 
 **Lado proveedor**
 
-- My Store — escaparate público del proveedor
-- My Services — listado con estados de aprobación
-- Add New Service — flujo de 4 pasos (Basic Information → Requirements → Pricing → Send for Approval)
+- My Store, escaparate público del proveedor
+- My Services, listado con estados de aprobación
+- Add New Service, flujo de 4 pasos (Basic Information → Requirements → Pricing → Send for Approval)
 - Estado de aprobación y motivo de rechazo
 - Cola de fulfillment
 - Earnings / payouts
@@ -291,7 +291,7 @@ Tarjetas: fondo blanco, borde `gray-200` de 1px, radio medio, sin sombras pesada
 2. **La confianza es el producto.** Todo lo que muestre un servicio tiene que dejar ver que está verificado. La verificación no es un badge decorativo: es la promesa entera.
 3. **Un tercero invisible.** En cada pantalla, pregunta qué pasa si quien paga no es quien mira. Si la respuesta rompe la pantalla, la pantalla está mal.
 4. **La acción primaria es oscura.** El naranja es marca, no botón.
-5. **Un solo sistema, cuatro superficies.** Antes de inventar un patrón, comprueba si ya existe uno que sirva. Los estados raros — `waiting for client`, `pending approval` — se resuelven dentro del sistema, no con componentes nuevos.
+5. **Un solo sistema, cuatro superficies.** Antes de inventar un patrón, comprueba si ya existe uno que sirva. Los estados raros, `waiting for client`, `pending approval`, se resuelven dentro del sistema, no con componentes nuevos.
 6. **Los estados antes que los happy paths.** Cada pantalla necesita vacío, carga, error y el caso límite propio de este producto (el pago que no ha llegado, el listing rechazado, la revisión pedida).
 
 ---
@@ -300,5 +300,5 @@ Tarjetas: fondo blanco, borde `gray-200` de 1px, radio medio, sin sombras pesada
 
 Ninguna de estas métricas se llegó a instrumentar. Son las dos que más importan si el producto sigue:
 
-- **Porcentaje de checkouts que terminan en payment link** — dice si el flujo del tercero responde a demanda real o fue una suposición.
-- **Tiempo de aprobación de proveedor** — la confianza solo es una feature si no ahoga la oferta.
+- **Porcentaje de checkouts que terminan en payment link**, dice si el flujo del tercero responde a demanda real o fue una suposición.
+- **Tiempo de aprobación de proveedor**, la confianza solo es una feature si no ahoga la oferta.

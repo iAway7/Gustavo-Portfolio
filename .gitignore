@@ -18,6 +18,19 @@ installpros-uk-assets/
 installpros-uk-reskin-export.html
 installpros-uk-reskin-prompt.md
 
-# Personal notes — never publish. This repo is public.
+# Personal notes, never publish. This repo is public.
 docs/will-salary-conversation.md
 docs/entrevista-redbility-guion.md
+
+# Internal critiques of my own work. Useful to me, damaging in public.
+docs/agencyhub-case-study-redesign.md
+docs/case-study-system.md
+docs/experience-page-review.md
+docs/field-ops-case-study-review.md
+docs/field-ops-presentation-review.md
+
+# Export set for Behance. Same boards already live in public/projects/.
+behance-installpros/
+
+# Claude Code local settings
+.claude/

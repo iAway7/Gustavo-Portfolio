@@ -59,12 +59,12 @@ export const projectI18n: Record<string, Record<Locale, { title: string; summary
     en: {
       title: "Field Operations Platform",
       summary:
-        "A mobile platform that guides Starlink installation technicians through scheduling, on-site workflows, and job completion under real field conditions."
+        "An internal product concept, commissioned by Install Pros, for the technician side of a Starlink installation network: accepting jobs, documenting work on site, and getting paid."
     },
     es: {
       title: "Plataforma de Operaciones de Campo",
       summary:
-        "Una plataforma móvil que guía a los técnicos de instalación de Starlink en la programación, los flujos de trabajo in situ y el cierre de cada instalación en condiciones reales de campo."
+        "Un concepto de producto interno, encargado por Install Pros, para el lado del técnico en una red de instalaciones de Starlink: aceptar trabajos, documentar el trabajo in situ y cobrar."
     }
   },
   "agencyhub-platform": {

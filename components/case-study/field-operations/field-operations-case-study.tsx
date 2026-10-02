@@ -10,8 +10,7 @@ import { Reveal } from "@/components/reveal";
 import type { Locale } from "@/lib/i18n";
 import type { ProductCaseStudy, ProjectCaseStudy } from "@/lib/site-data";
 
-const IMG = "/projects/installpros-app/shots";
-const BOARDS = `${IMG}/boards`;
+const BOARDS = "/projects/installpros-app/boards";
 
 // Same reading paragraph as AgencyHub: ~24px desktop, scaling down on mobile.
 const PARA = "text-[1.125rem] leading-[1.55] text-muted sm:text-[1.5rem] sm:leading-[1.5]";
@@ -19,18 +18,23 @@ const PARA = "text-[1.125rem] leading-[1.55] text-muted sm:text-[1.5rem] sm:lead
 // Overview walkthrough: the full board set, so the Overview reads as a complete
 // field operating system rather than one screen.
 const overviewSlides: ProductSlide[] = [
-  { src: `${BOARDS}/overview.webp`, alt: "Field Operations Platform overview board", label: "Overview" },
-  { src: `${BOARDS}/problem-statement.webp`, alt: "Problem statement board", label: "Problem Statement" },
-  { src: `${BOARDS}/personas.webp`, alt: "Technician personas board", label: "User Personas" },
-  { src: `${BOARDS}/access-security.webp`, alt: "Access and security board", label: "Access & Security" },
-  { src: `${BOARDS}/identity-verification.webp`, alt: "Identity verification board", label: "Identity Verification" },
-  { src: `${BOARDS}/onboarding.webp`, alt: "Onboarding and personalization board", label: "Onboarding" },
-  { src: `${BOARDS}/job-management.webp`, alt: "Job management board", label: "Job Management" },
-  { src: `${BOARDS}/installation-workflow.webp`, alt: "Guided installation workflow board", label: "Installation Workflow" },
-  { src: `${BOARDS}/payment.webp`, alt: "Payment and payout flow board", label: "Payment Flow" },
-  { src: `${BOARDS}/completion.webp`, alt: "Job completion and feedback board", label: "Completion & Feedback" },
-  { src: `${BOARDS}/operational-context.webp`, alt: "Operational context board with network scale", label: "Operational Context" },
-  { src: `${BOARDS}/final-reflection.webp`, alt: "Final reflection board", label: "Final Reflection" }
+  { src: `${BOARDS}/01-overview.webp`, alt: "Field Operations Platform overview board", label: "Overview" },
+  { src: `${BOARDS}/02-problem-statement.webp`, alt: "Problem statement board", label: "Problem Statement" },
+  { src: `${BOARDS}/03-user-personas.webp`, alt: "Technician personas board", label: "User Personas" },
+  { src: `${BOARDS}/04-access-security.webp`, alt: "Access and security board", label: "Access & Security" },
+  { src: `${BOARDS}/05-identity-verification.webp`, alt: "Identity verification board", label: "Identity Verification" },
+  { src: `${BOARDS}/06-onboarding-personalization.webp`, alt: "Onboarding and personalization board", label: "Onboarding" },
+  { src: `${BOARDS}/07-job-management.webp`, alt: "Job management board", label: "Job Management" },
+  { src: `${BOARDS}/08-decision-address.webp`, alt: "Decision board: who sees the address, and when", label: "Decision: Address" },
+  { src: `${BOARDS}/09-installation-workflow.webp`, alt: "Guided installation workflow board", label: "Installation Workflow" },
+  { src: `${BOARDS}/10-decision-dead-zone.webp`, alt: "Decision board: what happens when the signal drops", label: "Decision: Dead Zone" },
+  { src: `${BOARDS}/11-edge-cases.webp`, alt: "Edge cases board: offline, empty and rejected states", label: "Edge Cases" },
+  { src: `${BOARDS}/12-payment-flow.webp`, alt: "Payment and payout flow board", label: "Payment Flow" },
+  { src: `${BOARDS}/13-decision-on-site-cost.webp`, alt: "Decision board: who can change the price on site", label: "Decision: On-Site Cost" },
+  { src: `${BOARDS}/14-completion-feedback.webp`, alt: "Job completion and feedback board", label: "Completion & Feedback" },
+  { src: `${BOARDS}/15-decision-photo-proof.webp`, alt: "Decision board: what closes a job", label: "Decision: Photo Proof" },
+  { src: `${BOARDS}/16-operational-context.webp`, alt: "Operational context board with network scale", label: "Operational Context" },
+  { src: `${BOARDS}/17-final-reflection.webp`, alt: "Final reflection board", label: "Final Reflection" }
 ];
 
 // Spanish labels for the overview walkthrough (same boards, localized captions).
@@ -42,9 +46,14 @@ const overviewLabelsEs = [
   "Verificación de identidad",
   "Onboarding",
   "Gestión de trabajos",
+  "Decisión: la dirección",
   "Flujo de instalación",
+  "Decisión: sin cobertura",
+  "Casos límite",
   "Flujo de pago",
+  "Decisión: coste in situ",
   "Cierre y valoración",
+  "Decisión: foto como prueba",
   "Contexto operativo",
   "Reflexión final"
 ];
@@ -73,7 +82,7 @@ const decisionsEn: Decision[] = [
       "Every workflow is offline-first: progress, photo evidence, and completion are captured locally and reconciled when a connection returns. A technician never loses state or stares at a spinner mid-install: the app confirms the action and syncs later.",
     tradeoff:
       "More engineering complexity in local state and conflict resolution, accepted so the tool works where the job actually happens.",
-    image: { src: `${BOARDS}/completion.webp`, alt: "Completion flow capturing photo evidence offline" }
+    image: { src: `${BOARDS}/14-completion-feedback.webp`, alt: "Completion flow capturing photo evidence offline" }
   },
   {
     decision: "Installation runs as a recoverable state machine.",
@@ -83,7 +92,7 @@ const decisionsEn: Decision[] = [
       "The workflow models progress as discrete states a technician can complete, pause, annotate, or flag, and the flow knows how to resume from any of them. A deviation becomes structured data instead of a phone call to dispatch.",
     tradeoff:
       "Modeled states cost more design and engineering than a free-form checklist and constrain edge cases not yet mapped. We accepted that rigidity because recoverability was worth more than flexibility.",
-    image: { src: `${BOARDS}/installation-workflow.webp`, alt: "Installation workflow showing step states" }
+    image: { src: `${BOARDS}/09-installation-workflow.webp`, alt: "Installation workflow showing step states" }
   },
   {
     decision: "Trust is verified before the first job.",
@@ -93,7 +102,7 @@ const decisionsEn: Decision[] = [
       "Access, identity verification, and onboarding were designed as one gated sequence: a technician proves who they are, then is personalized into the work, not dropped into a feature set. Dispatch can't assign a job to an unverified installer.",
     tradeoff:
       "A heavier first-run experience, accepted because a failed-trust install costs far more than a few extra onboarding minutes.",
-    image: { src: `${BOARDS}/identity-verification.webp`, alt: "Identity verification flow for technicians" }
+    image: { src: `${BOARDS}/05-identity-verification.webp`, alt: "Identity verification flow for technicians" }
   },
   {
     decision: "The pocket holds action; dispatch holds control.",
@@ -101,8 +110,8 @@ const decisionsEn: Decision[] = [
     rationale:
       "Job views were stripped to what a technician acts on: today's sequence, each job's state, and completion evidence. Assignment logic and exception handling stayed with dispatch, which kept the mobile scope shippable by a small team.",
     tradeoff:
-      "Some technician autonomy (reordering jobs, self-assignment) was deliberately left out of the first release to protect operational consistency.",
-    image: { src: `${BOARDS}/job-management.webp`, alt: "Job management screens with status hierarchy" }
+      "Some technician autonomy (reordering jobs, self-assignment) was deliberately scoped out to protect operational consistency.",
+    image: { src: `${BOARDS}/07-job-management.webp`, alt: "Job management screens with status hierarchy" }
   },
   {
     decision: "Payment closes the job, inside the job.",
@@ -112,7 +121,7 @@ const decisionsEn: Decision[] = [
       "Earnings, payment capture, and payout status (Stripe, PayPal) live inside the job, not in a separate tool. The transaction becomes the natural last step of the work rather than an errand afterward, so nothing is left uncollected on site.",
     tradeoff:
       "Embedding payments widened compliance and integration scope, accepted because a job isn't done until it's paid, and splitting that across tools is where money and technicians get lost.",
-    image: { src: `${BOARDS}/payment.webp`, alt: "Payment and payout flow with Stripe and PayPal" }
+    image: { src: `${BOARDS}/12-payment-flow.webp`, alt: "Payment and payout flow with Stripe and PayPal" }
   }
 ];
 
@@ -153,7 +162,7 @@ const decisionsEs: Decision[] = [
     rationale:
       "Las vistas de trabajo se redujeron a aquello sobre lo que el técnico actúa: la secuencia de hoy, el estado de cada trabajo y la evidencia de cierre. La lógica de asignación y la gestión de excepciones se quedaron en el despacho, lo que mantuvo el alcance móvil abordable para un equipo pequeño.",
     tradeoff:
-      "Parte de la autonomía del técnico (reordenar trabajos, autoasignarse) se dejó fuera de la primera versión a propósito para proteger la consistencia operativa.",
+      "Parte de la autonomía del técnico (reordenar trabajos, autoasignarse) se dejó fuera del alcance a propósito para proteger la consistencia operativa.",
     image: decisionsEn[3].image
   },
   {
@@ -185,7 +194,7 @@ const COPY = {
     systemLabel: "System & workflows",
     systemTitle: "One pattern set, reused across every surface.",
     outcomeLabel: "Outcome",
-    outcomeTitle: "What the design made possible.",
+    outcomeTitle: "What the design proposes.",
     measureNext: "What I'd measure next",
     viewPdf: "View Full Case Study (PDF) →",
     nextProject: "Next project"
@@ -205,7 +214,7 @@ const COPY = {
     systemLabel: "Sistema y flujos",
     systemTitle: "Un único conjunto de patrones, reutilizado en cada superficie.",
     outcomeLabel: "Resultado",
-    outcomeTitle: "Lo que el diseño hizo posible.",
+    outcomeTitle: "Lo que el diseño propone.",
     measureNext: "Qué mediría a continuación",
     viewPdf: "Ver el caso de estudio completo (PDF) →",
     nextProject: "Siguiente proyecto"
@@ -216,10 +225,10 @@ const COPY = {
 const narrativeEs = {
   title: "Plataforma de Operaciones de Campo",
   summary:
-    "Una plataforma móvil que guía a los técnicos de instalación de Starlink en la programación, los flujos de trabajo in situ y el cierre de cada instalación en condiciones reales de campo.",
+    "Un concepto de producto interno, encargado por Install Pros, para el lado del técnico en una red de instalaciones de Starlink: aceptar trabajos, documentar el trabajo in situ y cobrar.",
   role: "Diseñador de Producto",
-  period: "2024 - Actualidad",
-  scope: "App móvil para técnicos: programación, instalaciones y cierre de trabajos",
+  period: "2024",
+  scope: "Concepto de producto interno · App móvil para técnicos: trabajos, instalaciones y cobros",
   context: [
     "Install Pros realiza instalaciones de internet Starlink en los sectores residencial, comercial y móvil. La economía unitaria no perdona: desplazar a un técnico cuesta lo mismo tanto si la instalación sale bien como si falla, y cada llamada para resolver dudas pasa por un pequeño equipo de despacho.",
     "El negocio necesitaba que los técnicos completaran más instalaciones al día con menos escalados. No un portal, sino una herramienta operativa que mantenga el estado del trabajo para que el técnico no tenga que hacerlo."
@@ -229,16 +238,16 @@ const narrativeEs = {
     "La conectividad es poco fiable por definición: el cliente compra internet por satélite precisamente porque la cobertura allí es mala. El producto tiene que dar por hecho que no habrá señal justo en el momento de trabajar."
   ],
   system: [
-    "Los patrones de pantalla (chips de estado, action rows y step headers) se definieron una sola vez y se reutilizaron en las vistas de programación, instalación y trabajos. La intención era económica: ingeniería construye a partir de reglas en lugar de mockups, y el técnico nunca tiene que volver a aprender qué significa un color o una posición.",
-    "Diseñar pensando en la implementación es lo que mantuvo el producto construible: desde entonces, cada pantalla nueva se ha montado a partir del conjunto de patrones existente en lugar de diseñarse desde cero."
+    "Los patrones de pantalla (chips de estado, action rows y step headers) se definieron una sola vez y se reutilizaron en las vistas de programación, instalación y trabajos. La intención era económica: ingeniería construiría a partir de reglas en lugar de mockups, y el técnico nunca tiene que volver a aprender qué significa un color o una posición.",
+    "Diseñar pensando en la implementación es lo que hace que el concepto sea construible y no aspiracional: cada superficie nueva se monta a partir del conjunto de patrones existente en lugar de diseñarse desde cero."
   ],
   results: [
-    "Los técnicos tienen una única acción siguiente, legible en cualquier estado del trabajo. El esfuerzo de búsqueda que exigía el proceso anterior desaparece del propio flujo.",
-    "Las situaciones que se salen del guion se convierten en estados estructurados en lugar de llamadas al despacho, que es la diferencia entre una herramienta y una centralita.",
-    "Ingeniería lanza nuevas pantallas a partir del conjunto de patrones establecido, sin un ciclo de diseño por pantalla."
+    "Cualquier estado del trabajo se resuelve en una única acción siguiente, legible. El esfuerzo de búsqueda deja de recaer en la cabeza del técnico y pasa al producto.",
+    "Las situaciones que se salen del guion se modelan como estados estructurados y recuperables en lugar de llamadas al despacho, que es la diferencia entre una herramienta y una centralita.",
+    "El conjunto de patrones es tanto el entregable como las propias pantallas: un equipo pequeño podría añadir superficies sin un ciclo de diseño por cada una."
   ],
   reflection:
-    "Los trabajos ya se completan un 25% más rápido. Lo que todavía me falta medir es la tasa de revisitas (cuántas instalaciones obligan a volver), porque esa es la prueba real de si los flujos guiados evitan errores y no solo aceleran el trabajo. También repensaría si los técnicos deberían poder reordenar sus propios trabajos: lo dejé fuera para mantener la consistencia, pero con equipos con experiencia quizá no tenga sentido."
+    "Todavía no hay resultados, y ese es el final honesto. Mediría tres cosas: el tiempo de cierre, la tasa de revisitas y el tiempo hasta el primer cobro. La tasa de revisitas es la que más importa. Dice si los flujos guiados evitan errores o solo los aceleran."
 };
 
 function Figure({
@@ -397,7 +406,7 @@ export function FieldOperationsCaseStudy({
         </div>
         <Reveal delay={0.06} className="mt-14">
           <Figure
-            src={`${BOARDS}/personas.webp`}
+            src={`${BOARDS}/03-user-personas.webp`}
             alt="Technician personas across the digital-fluency range"
             width={2000}
             height={3281}
@@ -450,7 +459,7 @@ export function FieldOperationsCaseStudy({
         <SectionHead label={t.outcomeLabel} title={t.outcomeTitle} />
         <Reveal delay={0.06} className="mt-12">
           <Figure
-            src={`${BOARDS}/operational-context.webp`}
+            src={`${BOARDS}/16-operational-context.webp`}
             alt="Operational context: 9,163 installations and over $7M processed across the network"
             width={2000}
             height={1787}
