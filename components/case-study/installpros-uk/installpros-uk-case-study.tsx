@@ -310,14 +310,14 @@ export function InstallProsUkCaseStudy({
           />
         ))}
 
-        <Reveal className="mt-12 max-w-[44rem]">
+        <Reveal className="mt-16 max-w-[44rem] sm:mt-20">
           <p className={PARA}>{c.comparisons.consentIntro}</p>
         </Reveal>
-        <div className="mt-10">
+        <div className="mt-14">
           <ExplainerColumns items={c.comparisons.consentExplainers} />
         </div>
 
-        <Reveal className="mt-20 max-w-[44rem]">
+        <Reveal className="mt-24 max-w-[44rem] sm:mt-32">
           <h2 className={H2}>{c.comparisons.mapTitle}</h2>
           <p className={cn("mt-6", PARA)}>{c.comparisons.mapIntro}</p>
         </Reveal>
@@ -327,11 +327,11 @@ export function InstallProsUkCaseStudy({
           before={c.comparisons.mapPair[0]}
           after={c.comparisons.mapPair[1]}
         />
-        <div className="mt-12">
+        <div className="mt-16 sm:mt-20">
           <ExplainerColumns items={c.comparisons.mapExplainers} />
         </div>
 
-        <Reveal className="mt-20 max-w-[44rem]">
+        <Reveal className="mt-24 max-w-[44rem] sm:mt-32">
           <h2 className={H2}>{c.comparisons.speedTitle}</h2>
         </Reveal>
         <div className="mt-10 max-w-[52rem]">

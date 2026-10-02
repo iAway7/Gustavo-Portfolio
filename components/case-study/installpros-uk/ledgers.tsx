@@ -157,11 +157,11 @@ export type Explainer = { heading: string; body: string };
 /** Three unbordered columns that unpack the panel above them. */
 export function ExplainerColumns({ items }: { items: Explainer[] }) {
   return (
-    <div className="grid gap-10 md:grid-cols-3">
+    <div className="grid gap-12 md:grid-cols-3 md:gap-x-12 lg:gap-x-16">
       {items.map((item, index) => (
         <Reveal key={item.heading} delay={index * 0.05}>
           <p className="section-label">{item.heading}</p>
-          <p className="mt-4 text-base leading-[1.75] text-muted">{item.body}</p>
+          <p className="mt-2.5 max-w-[26rem] text-base leading-[1.75] text-muted">{item.body}</p>
         </Reveal>
       ))}
     </div>
