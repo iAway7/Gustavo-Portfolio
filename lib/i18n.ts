@@ -207,6 +207,45 @@ const en = {
     flagshipHeading: "A closer look at my product design process.",
     viewFeatured: "View featured case study"
   },
+  about: {
+    caption: "About",
+    h1: "Product designer who stays close to the build.",
+    intro:
+      "I’m Gustavo, a product designer based in Valencia, Spain. Nine years designing SaaS platforms, B2B tools and operational software, most of it for teams where the designer also ships. Today I design AI-assisted products and build with AI in the loop.",
+    facts: ["Valencia · Remote", "EN · ES", "9+ years"],
+    portraitAlt: "Dithered portrait of Gustavo Polin",
+    lookingCaption: "What I’m looking for",
+    lookingHeading: "Roles where design and build sit together.",
+    looking: [
+      {
+        label: "Role",
+        value: "Product Designer, UX/UI Designer or UX Research. Full-time, contract or freelance."
+      },
+      {
+        label: "Company",
+        value: "B2B SaaS, operational tools, early to growth stage. Teams of 5 to 50 where decisions are traceable."
+      },
+      { label: "Where", value: "Remote, any time zone. Hybrid in Valencia works too." }
+    ],
+    howCaption: "How I work",
+    howHeading: "Four principles, each one with a receipt.",
+    toolsCaption: "Tools",
+    toolsHeading: "What’s actually open on my screen.",
+    tools: [
+      { label: "Design", value: "Figma" },
+      { label: "Build", value: "Next.js, Tailwind, HTML/CSS, Supabase, GitHub, Vercel" },
+      { label: "AI", value: "Claude Code, Codex, ChatGPT, Lovable, MCPs" },
+      {
+        label: "Research & data",
+        value: "PostHog, Hotjar, Google Analytics, Google Ads, Search Console, Ahrefs, PageSpeed, Cloudflare"
+      },
+      { label: "Ops & comms", value: "Superchat / WhatsApp Business, Trustpilot, Google Business Profile" }
+    ],
+    contactCaption: "Contact",
+    contactHeading: "Let’s talk.",
+    getInTouch: "Get in touch",
+    viewWork: "View work"
+  },
   contact: {
     caption: "Contact",
     h1: "Have a project in mind?",
@@ -322,6 +361,49 @@ const es: Dict = {
     startWork: "Empieza por el trabajo",
     flagshipHeading: "Una mirada más cercana a mi proceso de diseño de producto.",
     viewFeatured: "Ver caso de estudio destacado"
+  },
+  about: {
+    caption: "Sobre mí",
+    h1: "Diseñador de producto que trabaja pegado a la implementación.",
+    intro:
+      "Soy Gustavo, diseñador de producto con base en Valencia, España. Nueve años diseñando plataformas SaaS, herramientas B2B y software operativo, casi siempre en equipos donde el diseñador también lanza. Hoy diseño productos asistidos por IA y construyo con la IA dentro del proceso.",
+    facts: ["Valencia · Remoto", "EN · ES", "+9 años"],
+    portraitAlt: "Retrato tramado de Gustavo Polin",
+    lookingCaption: "Qué busco",
+    lookingHeading: "Roles donde diseño y desarrollo van juntos.",
+    looking: [
+      {
+        label: "Rol",
+        value: "Product Designer, UX/UI Designer o UX Research. Indefinido, contrato o freelance."
+      },
+      {
+        label: "Empresa",
+        value:
+          "SaaS B2B y herramientas operativas, de etapa temprana a crecimiento. Equipos de 5 a 50 personas donde las decisiones son trazables."
+      },
+      { label: "Dónde", value: "En remoto, cualquier zona horaria. También híbrido en Valencia." }
+    ],
+    howCaption: "Cómo trabajo",
+    howHeading: "Cuatro principios, cada uno con su prueba.",
+    toolsCaption: "Herramientas",
+    toolsHeading: "Lo que de verdad tengo abierto en pantalla.",
+    tools: [
+      { label: "Diseño", value: "Figma" },
+      { label: "Desarrollo", value: "Next.js, Tailwind, HTML/CSS, Supabase, GitHub, Vercel" },
+      { label: "IA", value: "Claude Code, Codex, ChatGPT, Lovable, MCPs" },
+      {
+        label: "Research y datos",
+        value: "PostHog, Hotjar, Google Analytics, Google Ads, Search Console, Ahrefs, PageSpeed, Cloudflare"
+      },
+      {
+        label: "Operaciones y comunicación",
+        value: "Superchat / WhatsApp Business, Trustpilot, Google Business Profile"
+      }
+    ],
+    contactCaption: "Contacto",
+    contactHeading: "Hablemos.",
+    getInTouch: "Escríbeme",
+    viewWork: "Ver proyectos"
   },
   contact: {
     caption: "Contacto",
