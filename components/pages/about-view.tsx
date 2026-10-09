@@ -22,7 +22,7 @@ const aiTools = [
   { src: "/logos/ai/lovable.svg", label: "Lovable" }
 ];
 
-/** Label / value rows, shared by "What I'm looking for" and "Tools". */
+/** Label / value rows for "What I'm looking for". */
 function InfoRows({ rows }: { rows: { label: string; value: string }[] }) {
   return (
     <dl className="mt-10 max-w-4xl">
@@ -137,21 +137,6 @@ export function AboutView({ locale }: { locale: Locale }) {
                 );
               })}
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Tools */}
-      <section className="section-space pt-0">
-        <div className="shell">
-          <div className="section-rule">
-            <Reveal className="max-w-3xl">
-              <p className="caption">{t.toolsCaption}</p>
-              <h2 className="section-title mt-4">{t.toolsHeading}</h2>
-            </Reveal>
-            <Reveal delay={0.06}>
-              <InfoRows rows={t.tools} />
-            </Reveal>
           </div>
         </div>
       </section>

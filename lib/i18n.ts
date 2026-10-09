@@ -229,18 +229,6 @@ const en = {
     ],
     howCaption: "How I work",
     howHeading: "Four principles, each one with a receipt.",
-    toolsCaption: "Tools",
-    toolsHeading: "What’s actually open on my screen.",
-    tools: [
-      { label: "Design", value: "Figma" },
-      { label: "Build", value: "Next.js, Tailwind, HTML/CSS, Supabase, GitHub, Vercel" },
-      { label: "AI", value: "Claude Code, Codex, ChatGPT, Lovable, MCPs" },
-      {
-        label: "Research & data",
-        value: "PostHog, Hotjar, Google Analytics, Google Ads, Search Console, Ahrefs, PageSpeed, Cloudflare"
-      },
-      { label: "Ops & comms", value: "Superchat / WhatsApp Business, Trustpilot, Google Business Profile" }
-    ],
     contactCaption: "Contact",
     contactHeading: "Let’s talk.",
     getInTouch: "Get in touch",
@@ -385,21 +373,6 @@ const es: Dict = {
     ],
     howCaption: "Cómo trabajo",
     howHeading: "Cuatro principios, cada uno con su prueba.",
-    toolsCaption: "Herramientas",
-    toolsHeading: "Lo que de verdad tengo abierto en pantalla.",
-    tools: [
-      { label: "Diseño", value: "Figma" },
-      { label: "Desarrollo", value: "Next.js, Tailwind, HTML/CSS, Supabase, GitHub, Vercel" },
-      { label: "IA", value: "Claude Code, Codex, ChatGPT, Lovable, MCPs" },
-      {
-        label: "Research y datos",
-        value: "PostHog, Hotjar, Google Analytics, Google Ads, Search Console, Ahrefs, PageSpeed, Cloudflare"
-      },
-      {
-        label: "Operaciones y comunicación",
-        value: "Superchat / WhatsApp Business, Trustpilot, Google Business Profile"
-      }
-    ],
     contactCaption: "Contacto",
     contactHeading: "Hablemos.",
     getInTouch: "Escríbeme",
