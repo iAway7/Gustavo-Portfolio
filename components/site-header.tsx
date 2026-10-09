@@ -15,15 +15,14 @@ export function SiteHeader() {
   const canonicalPath = stripLocale(pathname);
 
   const items = [
-    { href: "/", label: dict.nav.home },
     { href: "/work", label: dict.nav.work },
     { href: "/experience", label: dict.nav.experience },
-    { href: "/approach", label: dict.nav.approach },
+    { href: "/about", label: dict.nav.about },
     { href: "/contact", label: dict.nav.contact }
   ];
 
   return (
-    <header className="sticky top-0 z-50 border-b border-line bg-white/92 backdrop-blur-md">
+    <header className="sticky top-0 z-50 border-b border-line bg-white/[0.92] backdrop-blur-md">
       <div className="shell flex items-center justify-between gap-4 py-4">
         <Link
           href={localizedPath("/", locale)}

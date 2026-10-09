@@ -25,6 +25,13 @@ const securityHeaders = [
 ];
 
 const nextConfig: NextConfig = {
+  // Approach was replaced by About.
+  async redirects() {
+    return [
+      { source: "/approach", destination: "/about", permanent: true },
+      { source: "/es/approach", destination: "/es/about", permanent: true }
+    ];
+  },
   async headers() {
     if (process.env.NODE_ENV !== "production") {
       return [];

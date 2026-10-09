@@ -13,7 +13,7 @@ import {
 } from "@/lib/site-data";
 import { getDict, type Locale, localizedPath } from "@/lib/i18n";
 
-// Same workflow stack shown under the AI principle on the Approach page.
+// Workflow stack shown under the AI principle.
 const aiTools = [
   { src: "/logos/ai/claude.svg", label: "Claude" },
   { src: "/logos/ai/claude-code.svg", label: "Claude Code" },
@@ -48,18 +48,31 @@ export function AboutView({ locale }: { locale: Locale }) {
   const framework = locale === "es" ? frameworkStepsEs : frameworkSteps;
 
   return (
-    <main id="main-content" tabIndex={-1} className="pb-8 pt-10 sm:pt-14">
-      {/* Who */}
-      <section className="section-space">
-        <div className="shell">
+    <main id="main-content" tabIndex={-1} className="pb-8">
+      {/* Who: dark band so the light-dot portrait reads at full contrast */}
+      <section
+        className="relative overflow-hidden bg-[#0d0d0f]"
+        style={{ backgroundImage: "radial-gradient(ellipse 70% 90% at 78% 40%, #1d1e24 0%, #0d0d0f 70%)" }}
+      >
+        {/* Grid texture: 1px lines every 20px, as in the TextureOverlay "grid" pattern */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0"
+          style={{
+            backgroundImage:
+              "linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px)",
+            backgroundSize: "20px 20px"
+          }}
+        />
+        <div className="shell section-space relative">
           <div className="section-rule grid gap-12 lg:grid-cols-[minmax(0,1fr)_26rem] lg:items-end lg:gap-16">
             <Reveal className="max-w-3xl">
-              <p className="caption">{t.caption}</p>
-              <h1 className="page-title mt-4">{t.h1}</h1>
-              <p className="body-copy mt-6 max-w-2xl">{t.intro}</p>
+              <p className="caption text-white/55">{t.caption}</p>
+              <h1 className="page-title mt-4 text-white">{t.h1}</h1>
+              <p className="body-copy mt-6 max-w-2xl text-white/65">{t.intro}</p>
               <ul role="list" className="mt-8 flex flex-wrap gap-3">
                 {t.facts.map((fact) => (
-                  <li key={fact} className="pill">
+                  <li key={fact} className="pill border-white/15 text-white/65">
                     {fact}
                   </li>
                 ))}
@@ -68,7 +81,7 @@ export function AboutView({ locale }: { locale: Locale }) {
 
             <Reveal delay={0.08} className="w-full max-w-[20rem] lg:max-w-none">
               <Image
-                src="/portrait-dither-3-ink.png"
+                src="/portrait-dither-3-transparent.png"
                 alt={t.portraitAlt}
                 width={960}
                 height={976}
@@ -83,7 +96,7 @@ export function AboutView({ locale }: { locale: Locale }) {
       </section>
 
       {/* What I'm looking for */}
-      <section className="section-space pt-0">
+      <section className="section-space">
         <div className="shell">
           <div className="section-rule">
             <Reveal className="max-w-3xl">
@@ -141,7 +154,7 @@ export function AboutView({ locale }: { locale: Locale }) {
         </div>
       </section>
 
-      {/* The framework (identical to Approach) */}
+      {/* The framework */}
       <section className="section-space pt-0">
         <div className="shell">
           <div className="section-rule">
@@ -169,7 +182,7 @@ export function AboutView({ locale }: { locale: Locale }) {
         </div>
       </section>
 
-      {/* Core expertise + certifications (identical to Approach) */}
+      {/* Core expertise + certifications */}
       <section className="section-space pt-0">
         <div className="shell">
           <div className="section-rule grid gap-10 lg:grid-cols-2">

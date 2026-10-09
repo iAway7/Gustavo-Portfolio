@@ -150,7 +150,7 @@ export const navItems: NavItem[] = [
   { href: "/", label: "Home" },
   { href: "/work", label: "Work" },
   { href: "/experience", label: "Experience" },
-  { href: "/approach", label: "Approach" },
+  { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" }
 ];
 
@@ -223,7 +223,7 @@ export const capabilityTagsEs = [
 
 export type FrameworkStep = { phase: string; goal: string; questions: string[] };
 
-/** The question sequence applied to any product problem (shown on Approach). */
+/** The question sequence applied to any product problem (shown on About). */
 export const frameworkSteps: FrameworkStep[] = [
   {
     phase: "Why",

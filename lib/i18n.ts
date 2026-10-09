@@ -126,7 +126,7 @@ const en = {
     home: "Home",
     work: "Work",
     experience: "Experience",
-    approach: "Approach",
+    about: "About",
     contact: "Contact"
   },
   language: {
@@ -269,7 +269,7 @@ const es: Dict = {
     home: "Inicio",
     work: "Proyectos",
     experience: "Experiencia",
-    approach: "Enfoque",
+    about: "Sobre mí",
     contact: "Contacto"
   },
   language: {

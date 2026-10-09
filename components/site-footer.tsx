@@ -16,7 +16,7 @@ export function SiteFooter() {
     { href: "/", label: dict.nav.home },
     { href: "/work", label: dict.nav.work },
     { href: "/experience", label: dict.nav.experience },
-    { href: "/approach", label: dict.nav.approach },
+    { href: "/about", label: dict.nav.about },
     { href: "/contact", label: dict.nav.contact }
   ];
 
