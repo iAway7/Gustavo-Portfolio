@@ -7,6 +7,8 @@ import {
   credibilityPointsEs,
   experienceEntries,
   experienceEntriesEs,
+  frameworkSteps,
+  frameworkStepsEs,
   projectIndex
 } from "@/lib/site-data";
 import { getDict, type Locale, localizedPath } from "@/lib/i18n";
@@ -26,6 +28,7 @@ export function HomeView({ locale }: { locale: Locale }) {
   const t = getDict(locale).home;
   const credibility = locale === "es" ? credibilityPointsEs : credibilityPoints;
   const snapshotEntries = locale === "es" ? experienceEntriesEs : experienceEntries;
+  const framework = locale === "es" ? frameworkStepsEs : frameworkSteps;
 
   return (
     <main id="main-content" tabIndex={-1} className="pb-8 sm:pt-14">
@@ -85,6 +88,45 @@ export function HomeView({ locale }: { locale: Locale }) {
                 />
               </Reveal>
             ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="process" className="section-space">
+        <div className="shell">
+          <div className="section-rule">
+            <Reveal className="grid gap-6 lg:grid-cols-2 lg:items-end lg:gap-16">
+              <div>
+                <p className="caption">{t.processCaption}</p>
+                <h2 className="section-title mt-4">{t.processHeading}</h2>
+              </div>
+              <p className="body-copy max-w-xl">{t.processIntro}</p>
+            </Reveal>
+
+            <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">
+              {framework.map((step, index) => (
+                <Reveal
+                  key={step.phase}
+                  delay={index * 0.05}
+                  className="editorial-card group h-full p-6 transition-colors duration-300 hover:border-accent"
+                >
+                  <div>
+                    <span aria-hidden="true" className="step-outline">
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
+                    <p className="mt-8 text-lg font-semibold tracking-[-0.02em] text-text">{step.phase}</p>
+                    <p className="mt-3 text-base leading-7 text-muted">{step.goal}</p>
+                  </div>
+                </Reveal>
+              ))}
+            </div>
+
+            <MagneticLink
+              href={localizedPath("/about", locale)}
+              className="link-chip link-chip--secondary mt-10"
+            >
+              {t.processLink}
+            </MagneticLink>
           </div>
         </div>
       </section>
