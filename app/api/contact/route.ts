@@ -7,7 +7,12 @@ import { SITE_URL } from "@/lib/seo";
 export const runtime = "nodejs";
 
 const resendApiKey = process.env.RESEND_API_KEY;
-const fromEmail = process.env.RESEND_FROM_EMAIL ?? process.env.CONTACT_FROM_EMAIL ?? "";
+// Sender, as "Name <address>" or a bare address. Sent from emmvi.com so the
+// portfolio domain is not needed in Resend. Each email below keeps its own
+// display name; only the address is taken from this value.
+const DEFAULT_FROM = "Gustavo Polin <contacto@emmvi.com>";
+const fromSetting = process.env.CONTACT_FROM_EMAIL?.trim() || DEFAULT_FROM;
+const fromEmail = fromSetting.match(/<([^<>\s]+)>\s*$/)?.[1] ?? fromSetting;
 const toEmail = process.env.CONTACT_TO_EMAIL ?? "";
 const turnstileSecretKey = process.env.TURNSTILE_SECRET_KEY ?? "";
 
@@ -43,8 +48,9 @@ type ValidationResult =
   | { ok: true; values: ContactPayload }
   | { ok: false; error: string };
 
+/** One address only: no whitespace or line breaks, and no list or header separators. */
 function isValidEmail(value: string) {
-  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+  return /^[^\s@,;:<>()"]+@[^\s@,;:<>()"]+\.[^\s@,;:<>()"]+$/.test(value);
 }
 
 function normalizeText(value: string) {
@@ -292,6 +298,8 @@ export async function POST(request: Request) {
       const confirmation = await resend.emails.send({
         from: `Gustavo Polin <${fromEmail}>`,
         to: [email],
+        // Replies to the confirmation go to the inbox that receives inquiries.
+        replyTo: toEmail,
         subject: "Thanks for reaching out",
         react: ContactConfirmationEmail({ name }),
         text: [
