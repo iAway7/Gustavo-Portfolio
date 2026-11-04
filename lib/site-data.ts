@@ -202,7 +202,7 @@ export const credibilityPointsEs = [
 export const capabilityTags = [
   "Product Design",
   "UX/UI Design",
-  "Design Systems",
+  "Conversion Optimization (CRO)",
   "AI-Assisted Workflows",
   "Information Architecture",
   "Usability Testing",
@@ -214,7 +214,7 @@ export const capabilityTags = [
 export const capabilityTagsEs = [
   "Diseño de Producto",
   "Diseño UX/UI",
-  "Sistemas de Diseño",
+  "Optimización de conversión (CRO)",
   "Flujos asistidos por IA",
   "Arquitectura de Información",
   "Tests de Usabilidad",
@@ -661,6 +661,10 @@ export const contactChannels: ContactChannel[] = [
 ];
 
 export const certifications: Certification[] = [
+  {
+    title: "Foundations of User Experience (UX) Design · Google",
+    href: "https://www.coursera.org/account/accomplishments/verify/EUFLA582TXCK"
+  },
   {
     title: "UX/UI Designer",
     href: "https://platzi.com/p/gusaway/learning-path/7768-uxui/diploma/detalle/"
