@@ -397,6 +397,19 @@ export function InstallProsUkCaseStudy({
         <div className="mt-12">
           <PullStatement lead={c.part04.pull} />
         </div>
+
+        <Reveal className="mt-24 max-w-[44rem] sm:mt-32">
+          <h2 className={H2}>{c.part04.heatmapTitle}</h2>
+          <p className={cn("mt-6", PARA)}>{c.part04.heatmapIntro}</p>
+        </Reveal>
+        <ComparisonPanel
+          className="mt-10"
+          before={c.part04.heatmapPair[0]}
+          after={c.part04.heatmapPair[1]}
+        />
+        <Reveal className="mt-6 max-w-[44rem]">
+          <p className="text-[0.9375rem] leading-6 text-muted">{c.part04.heatmapNote}</p>
+        </Reveal>
       </Band>
 
       {/* Closing */}

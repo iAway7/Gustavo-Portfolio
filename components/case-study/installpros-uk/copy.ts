@@ -28,7 +28,8 @@ export const SHOT = {
   afterCoverage: { src: `${IMG}/after-coverage-section.webp`, width: 2400, height: 1546 },
   afterSpeed: { src: `${IMG}/after-speed-comparison.webp`, width: 2400, height: 1603 },
   psiBefore: { src: `${IMG}/psi-before-mobile.webp`, width: 1400, height: 1089 },
-  psiAfter: { src: `${IMG}/psi-after-mobile.webp`, width: 1400, height: 1102 }
+  psiAfter: { src: `${IMG}/psi-after-mobile.webp`, width: 1400, height: 1102 },
+  afterHeatmap: { src: `${IMG}/after-heatmap-clicks.webp`, width: 768, height: 559 }
 } as const;
 
 /** Source wordmarks. Hotjar sets its lettering larger inside the same box. */
@@ -130,6 +131,10 @@ type Copy = {
     columns: [string, string, string, string];
     results: ResultRow[];
     pull: string;
+    heatmapTitle: string;
+    heatmapIntro: string;
+    heatmapPair: [ComparisonSide, ComparisonSide];
+    heatmapNote: string;
   };
   closing: {
     nextProject: string;
@@ -559,7 +564,29 @@ export const COPY: Record<Locale, Copy> = {
           actual: "32.8%"
         }
       ],
-      pull: "Visitor to lead more than tripled in the first week, from 10.7% to 34.4%. The step that moved most is the one the diagnosis pointed at: two out of three visits used to leave without typing a character, and it is fewer than one in three now."
+      pull: "Visitor to lead more than tripled in the first week, from 10.7% to 34.4%. The step that moved most is the one the diagnosis pointed at: two out of three visits used to leave without typing a character, and it is fewer than one in three now.",
+      heatmapTitle: "Where the clicks go now",
+      heatmapIntro:
+        "A month of PostHog data on the live landing, October 2026, once it carried all the paid traffic. The same question the Hotjar heatmap answered in the audit, asked again of the new page.",
+      heatmapPair: [
+        {
+          label: "Before · Hotjar, the quote page",
+          figure: "Fig. 11",
+          lead: "The menu wins",
+          body: "The two most-clicked elements are menu entries, and where the form should be the heatmap reads “iframe: this zone can't be recorded”.",
+          alt: "Hotjar click heatmap of the original quote page: clicks concentrate on the menu and the form area is marked as unrecordable",
+          ...SHOT.heatmapClicks
+        },
+        {
+          label: "After · PostHog, the landing",
+          figure: "Fig. 12",
+          lead: "The form wins",
+          body: "The four most-clicked elements are the postcode field, the hero button, Next and the submit: 351 people pressed the hero button and 155 sent the form. WhatsApp, once the primary conversion, took 3 clicks in the month. The phone number, 4.",
+          alt: "PostHog click heatmap of the new landing: clicks concentrate on the postcode field and the hero button",
+          ...SHOT.afterHeatmap
+        }
+      ],
+      heatmapNote: "PostHog counts visitors who accepted cookies, so these are sample figures rather than totals."
     },
     closing: {
       nextProject: "Next project",
@@ -990,7 +1017,29 @@ export const COPY: Record<Locale, Copy> = {
           actual: "32,8%"
         }
       ],
-      pull: "Visitante a lead se triplicó con creces en la primera semana, de 10,7% a 34,4%. El paso que más se movió es el que señalaba el diagnóstico: dos de cada tres visitas se iban sin escribir un carácter, y ahora son menos de una de cada tres."
+      pull: "Visitante a lead se triplicó con creces en la primera semana, de 10,7% a 34,4%. El paso que más se movió es el que señalaba el diagnóstico: dos de cada tres visitas se iban sin escribir un carácter, y ahora son menos de una de cada tres.",
+      heatmapTitle: "A dónde van los clics ahora",
+      heatmapIntro:
+        "Un mes de datos de PostHog sobre la landing en vivo, octubre de 2026, ya con todo el tráfico de pago. La misma pregunta que respondía el mapa de calor de Hotjar en la auditoría, hecha otra vez a la página nueva.",
+      heatmapPair: [
+        {
+          label: "Antes · Hotjar, la página de presupuesto",
+          figure: "Fig. 11",
+          lead: "Gana el menú",
+          body: "Los dos elementos más clicados son entradas del menú, y donde debería estar el formulario el mapa dice “iframe: esta zona no se puede grabar”.",
+          alt: "Mapa de calor de clics de Hotjar en la página original: los clics se concentran en el menú y el área del formulario aparece como no grabable",
+          ...SHOT.heatmapClicks
+        },
+        {
+          label: "Después · PostHog, la landing",
+          figure: "Fig. 12",
+          lead: "Gana el formulario",
+          body: "Los cuatro elementos más clicados son el campo del código postal, el botón del hero, Next y el envío: 351 personas pulsaron el botón del hero y 155 enviaron el formulario. WhatsApp, antes la conversión principal, recibió 3 clics en el mes. El teléfono, 4.",
+          alt: "Mapa de calor de clics de PostHog en la landing nueva: los clics se concentran en el campo del código postal y el botón del hero",
+          ...SHOT.afterHeatmap
+        }
+      ],
+      heatmapNote: "PostHog cuenta a quien aceptó cookies, así que son cifras de muestra y no totales."
     },
     closing: {
       nextProject: "Siguiente proyecto",
