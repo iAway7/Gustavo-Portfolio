@@ -206,6 +206,7 @@ export const capabilityTags = [
   "AI-Assisted Workflows",
   "Information Architecture",
   "Usability Testing",
+  "Data-Informed Design",
   "HTML/CSS",
   "SEO & Infrastructure"
 ] as const;
@@ -217,6 +218,7 @@ export const capabilityTagsEs = [
   "Flujos asistidos por IA",
   "Arquitectura de Información",
   "Tests de Usabilidad",
+  "Diseño informado por datos",
   "HTML/CSS",
   "SEO e Infraestructura"
 ] as const;
@@ -1140,7 +1142,7 @@ export const projectCaseStudies: ProjectCaseStudy[] = [
     scope: "Funnel audit, UX/UI, front-end & analytics",
     summary:
       "A funnel audit and redesign for InstallPros in the U.K., where two out of three visits left the landing page without typing a character.",
-    tags: ["CRO", "Funnel Redesign"],
+    tags: ["CRO", "Funnel Redesign", "Analytics"],
     featured: false,
     href: "/work/installpros-uk-landing",
     cardVisual: {
