@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useId, useMemo, useRef, useState, type CSSProperties, type KeyboardEvent } from "react";
+import { useEffect, useId, useMemo, useRef, useState, type CSSProperties } from "react";
 import { useReducedMotion } from "motion/react";
 
 import { Reveal } from "@/components/reveal";
@@ -9,16 +9,9 @@ import { cn } from "@/lib/utils";
 import { type Locale } from "@/lib/i18n";
 import { testimonials as testimonialsEn, testimonialsEs, type TestimonialEntry } from "@/lib/site-data";
 
-const CAROUSEL_GAP = 24;
+const GAP = 24;
+export const LINKEDIN_URL = "https://www.linkedin.com/in/gustavo-polin/details/recommendations/";
 const QUOTE_CLAMP_LINES = 7;
-
-function getVisibleCount(width: number) {
-  if (width >= 1280) {
-    return 2;
-  }
-
-  return 1;
-}
 
 function getInitials(name: string) {
   return name
@@ -29,7 +22,7 @@ function getInitials(name: string) {
     .join("");
 }
 
-function TestimonialAvatar({ testimonial }: { testimonial: TestimonialEntry }) {
+export function TestimonialAvatar({ testimonial }: { testimonial: TestimonialEntry }) {
   if (testimonial.image) {
     return (
       <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded-full border border-line">
@@ -51,7 +44,19 @@ function TestimonialAvatar({ testimonial }: { testimonial: TestimonialEntry }) {
   );
 }
 
-function TestimonialQuote({ name, quote, locale }: { name: string; quote: string; locale: Locale }) {
+export function TestimonialQuote({
+  name,
+  quote,
+  locale,
+  className = "text-[1.5rem] leading-[1.42] tracking-[-0.02em]",
+  lines = QUOTE_CLAMP_LINES
+}: {
+  name: string;
+  quote: string;
+  locale: Locale;
+  className?: string;
+  lines?: number;
+}) {
   const [expanded, setExpanded] = useState(false);
   const moreLabel = locale === "es" ? "Leer más" : "Read more";
   const lessLabel = locale === "es" ? "Leer menos" : "Read less";
@@ -75,14 +80,14 @@ function TestimonialQuote({ name, quote, locale }: { name: string; quote: string
     observer.observe(element);
 
     return () => observer.disconnect();
-  }, []);
+  }, [quote, lines]);
 
   const clampStyle: CSSProperties | undefined = expanded
     ? undefined
     : {
         display: "-webkit-box",
         WebkitBoxOrient: "vertical",
-        WebkitLineClamp: QUOTE_CLAMP_LINES,
+        WebkitLineClamp: lines,
         overflow: "hidden"
       };
 
@@ -92,7 +97,7 @@ function TestimonialQuote({ name, quote, locale }: { name: string; quote: string
         id={quoteId}
         ref={quoteRef}
         style={clampStyle}
-        className="text-[1.5rem] leading-[1.42] tracking-[-0.02em] text-text"
+        className={cn(className, "text-text")}
       >
         {quote}
       </p>
@@ -121,181 +126,147 @@ function TestimonialQuote({ name, quote, locale }: { name: string; quote: string
   );
 }
 
-export function TestimonialsCarousel({ locale = "en" }: { locale?: Locale }) {
-  const testimonials = locale === "es" ? testimonialsEs : testimonialsEn;
-  const [visibleCount, setVisibleCount] = useState(2);
-  const [currentIndex, setCurrentIndex] = useState(0);
+export function ArrowButton({ direction, disabled, onClick }: { direction: "prev" | "next"; disabled: boolean; onClick: () => void }) {
+  return (
+    <button
+      type="button"
+      aria-label={direction === "prev" ? "Previous testimonials" : "Next testimonials"}
+      onClick={onClick}
+      disabled={disabled}
+      className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-line bg-white text-text transition-colors duration-200 [-webkit-tap-highlight-color:transparent] hover:border-black/15 disabled:cursor-not-allowed disabled:opacity-40"
+    >
+      <svg viewBox="0 0 24 24" className="h-4 w-4" aria-hidden="true">
+        <path
+          d={direction === "prev" ? "M14.5 5.5L8 12l6.5 6.5" : "M9.5 5.5L16 12l-6.5 6.5"}
+          fill="none"
+          stroke="currentColor"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="1.8"
+        />
+      </svg>
+    </button>
+  );
+}
+
+/* Centered title + intro, LinkedIn link over every reviewer's face, then a three-up carousel.
+   With three cards in view the middle one is highlighted. */
+export function TestimonialsCarousel({
+  locale,
+  title,
+  intro,
+  viewAll
+}: {
+  locale: Locale;
+  title: string;
+  intro: string;
+  viewAll: string;
+}) {
+  const items = locale === "es" ? testimonialsEs : testimonialsEn;
   const reduceMotion = useReducedMotion();
+  const [visible, setVisible] = useState(1);
+  const [index, setIndex] = useState(0);
 
   useEffect(() => {
-    const updateVisibleCount = () => {
-      setVisibleCount(getVisibleCount(window.innerWidth));
+    const update = () => {
+      const w = window.innerWidth;
+      setVisible(w >= 1280 ? 3 : w >= 768 ? 2 : 1);
     };
-
-    updateVisibleCount();
-    window.addEventListener("resize", updateVisibleCount);
-
-    return () => window.removeEventListener("resize", updateVisibleCount);
+    update();
+    window.addEventListener("resize", update);
+    return () => window.removeEventListener("resize", update);
   }, []);
 
-  const maxIndex = Math.max(0, testimonials.length - visibleCount);
+  const maxIndex = Math.max(0, items.length - visible);
+  useEffect(() => setIndex((i) => Math.min(i, maxIndex)), [maxIndex]);
 
-  useEffect(() => {
-    setCurrentIndex((index) => Math.min(index, maxIndex));
-  }, [maxIndex]);
-
-  const translate = useMemo(() => {
-    // Each step moves one card width plus its share of the gap:
-    // step = 100% / visibleCount + gap / visibleCount
-    const percent = (currentIndex * 100) / visibleCount;
-    const gapOffset = (currentIndex * CAROUSEL_GAP) / visibleCount;
-
-    return `calc(-${percent}% - ${gapOffset}px)`;
-  }, [currentIndex, visibleCount]);
-
-  const activeIndices = useMemo(() => {
-    return new Set(
-      Array.from({ length: visibleCount }, (_, offset) => currentIndex + offset).filter(
-        (index) => index < testimonials.length
-      )
-    );
-  }, [currentIndex, visibleCount, testimonials.length]);
-
-  const currentLabel = testimonials[currentIndex]
-    ? `${currentIndex + 1} of ${testimonials.length}: ${testimonials[currentIndex].name}`
-    : `0 of ${testimonials.length}`;
-
-  const handleKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
-    if (event.key === "ArrowLeft") {
-      event.preventDefault();
-      setCurrentIndex((index) => Math.max(0, index - 1));
-    }
-
-    if (event.key === "ArrowRight") {
-      event.preventDefault();
-      setCurrentIndex((index) => Math.min(maxIndex, index + 1));
-    }
-  };
+  const translate = `calc(-${(index * 100) / visible}% - ${(index * GAP) / visible}px)`;
+  const shown = useMemo(() => new Set(Array.from({ length: visible }, (_, o) => index + o)), [index, visible]);
+  // With three cards in view, the middle one carries the highlight, as in the reference.
+  const highlighted = visible === 3 ? index + 1 : -1;
+  const compact = visible === 3;
 
   return (
-    <div
-      role="region"
-      aria-roledescription="carousel"
-      aria-label="Testimonials"
-      tabIndex={0}
-      onKeyDown={handleKeyDown}
-      className="space-y-8 overflow-x-clip"
-    >
-      <div className="-mx-px overflow-hidden px-px">
-        <div
-          className={cn("flex items-start ease-out", reduceMotion ? "transition-none" : "transition-transform duration-500")}
-          style={{ gap: `${CAROUSEL_GAP}px`, transform: `translate3d(${translate}, 0, 0)` }}
-        >
-          {testimonials.map((testimonial, index) => (
-            <Reveal
-              key={testimonial.name}
-              delay={index * 0.04}
-              className="editorial-card flex min-h-[27rem] shrink-0 flex-col p-8 sm:min-h-[30rem] sm:p-10"
-              style={{ width: `calc((100% - ${(visibleCount - 1) * CAROUSEL_GAP}px) / ${visibleCount})` } as CSSProperties}
-            >
-              <article
-                role="group"
-                aria-roledescription="slide"
-                aria-label={`${index + 1} of ${testimonials.length}: ${testimonial.name}`}
-                aria-hidden={!activeIndices.has(index)}
-                style={{ visibility: activeIndices.has(index) ? "visible" : "hidden" }}
-                className="flex h-full flex-col"
-              >
-                <TestimonialQuote name={testimonial.name} quote={testimonial.quote} locale={locale} />
+    <div className="pt-8">
+      <Reveal className="mx-auto max-w-3xl text-center">
+        <h2 className="section-title">{title}</h2>
+        <p className="body-copy mx-auto mt-6 max-w-2xl">{intro}</p>
+      </Reveal>
 
-                <div className="mt-auto flex items-center gap-4 pt-10">
-                  <TestimonialAvatar testimonial={testimonial} />
-                  <div>
-                    <p className="text-[1.1rem] font-medium text-text">{testimonial.name}</p>
-                    <p className="text-[1rem] text-muted">{testimonial.role}</p>
+      <Reveal delay={0.06} className="mt-10 flex flex-col items-center">
+        <span aria-hidden="true" className="block h-10 w-px bg-line" />
+        <a
+          href={LINKEDIN_URL}
+          target="_blank"
+          rel="noreferrer"
+          aria-label="View all testimonials on LinkedIn (opens in a new tab)"
+          className="mt-10 inline-flex items-center gap-2 text-sm text-muted transition-colors duration-200 hover:text-accent"
+        >
+          {viewAll}
+          <span aria-hidden="true">-&gt;</span>
+        </a>
+        <ul role="list" aria-hidden="true" className="mt-4 flex -space-x-3">
+          {items.map((t) => (
+            <li key={t.name} className="relative h-12 w-12 overflow-hidden rounded-full border-2 border-white bg-[#f2f2f0]">
+              {t.image ? <Image src={t.image} alt="" fill sizes="48px" className="object-cover" /> : null}
+            </li>
+          ))}
+        </ul>
+      </Reveal>
+
+      <div
+        role="region"
+        aria-roledescription="carousel"
+        aria-label="Testimonials"
+        className="mt-14 overflow-x-clip"
+      >
+        <div className="-mx-px overflow-hidden px-px py-1">
+          <div
+            className={cn("flex items-stretch ease-out", reduceMotion ? "transition-none" : "transition-transform duration-500")}
+            style={{ gap: `${GAP}px`, transform: `translate3d(${translate}, 0, 0)` }}
+          >
+            {items.map((t, i) => (
+              <article
+                key={t.name}
+                aria-hidden={!shown.has(i)}
+                style={
+                  {
+                    width: `calc((100% - ${(visible - 1) * GAP}px) / ${visible})`,
+                    visibility: shown.has(i) ? "visible" : "hidden"
+                  } as CSSProperties
+                }
+                className={cn(
+                  "editorial-card flex shrink-0 flex-col p-8 transition-colors duration-300 sm:p-10",
+                  i === highlighted && "border-accent"
+                )}
+              >
+                <TestimonialQuote
+                  name={t.name}
+                  quote={t.quote}
+                  locale={locale}
+                  className={
+                    compact
+                      ? "text-[1.2rem] leading-[1.5] tracking-[-0.015em]"
+                      : "text-[1.5rem] leading-[1.42] tracking-[-0.02em]"
+                  }
+                />
+                <div className="mt-auto pt-8">
+                  <div className="flex items-center gap-4 border-t border-line pt-8">
+                    <TestimonialAvatar testimonial={t} />
+                    <div>
+                      <p className="text-[1.1rem] font-medium text-text">{t.name}</p>
+                      <p className="text-[1rem] text-muted">{t.role}</p>
+                    </div>
                   </div>
                 </div>
               </article>
-            </Reveal>
-          ))}
-        </div>
-      </div>
-
-      <div className="flex flex-wrap items-center justify-between gap-4">
-        <div className="flex items-center gap-4">
-          <p role="status" aria-live="polite" aria-atomic="true" className="text-sm text-muted">
-            <span className="font-medium text-text">
-              {String(Math.min(currentIndex + 1, testimonials.length)).padStart(2, "0")}
-            </span>
-            <span className="mx-2 text-black/20">/</span>
-            <span>{String(testimonials.length).padStart(2, "0")}</span>
-            <span className="sr-only">{currentLabel}</span>
-          </p>
-
-          <div className="flex items-center gap-2" aria-label="Choose testimonial">
-            {testimonials.map((testimonial, index) => {
-              const isActive = activeIndices.has(index);
-
-              return (
-                <button
-                  key={testimonial.name}
-                  type="button"
-                  aria-label={`Go to testimonial ${index + 1}: ${testimonial.name}`}
-                  aria-current={isActive ? "true" : undefined}
-                  onClick={() => setCurrentIndex(Math.min(index, maxIndex))}
-                  className="inline-flex h-10 w-10 items-center justify-center rounded-full transition-all duration-200"
-                >
-                  <span
-                    aria-hidden="true"
-                    className={cn(
-                      "block h-2.5 rounded-full transition-all duration-200",
-                      isActive ? "w-8 bg-text" : "w-2.5 bg-black/12"
-                    )}
-                  />
-                </button>
-              );
-            })}
+            ))}
           </div>
         </div>
 
-        <div className="flex items-center gap-3">
-          <button
-            type="button"
-            aria-label="Previous testimonials"
-            onClick={() => setCurrentIndex((index) => Math.max(0, index - 1))}
-            disabled={currentIndex === 0}
-            className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-line bg-white text-text transition-colors duration-200 [-webkit-tap-highlight-color:transparent] hover:border-black/15 active:bg-white disabled:cursor-not-allowed disabled:opacity-40"
-          >
-            <svg viewBox="0 0 24 24" className="h-4 w-4" aria-hidden="true">
-              <path
-                d="M14.5 5.5L8 12l6.5 6.5"
-                fill="none"
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="1.8"
-              />
-            </svg>
-          </button>
-
-          <button
-            type="button"
-            aria-label="Next testimonials"
-            onClick={() => setCurrentIndex((index) => Math.min(maxIndex, index + 1))}
-            disabled={currentIndex === maxIndex}
-            className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-line bg-white text-text transition-colors duration-200 [-webkit-tap-highlight-color:transparent] hover:border-black/15 active:bg-white disabled:cursor-not-allowed disabled:opacity-40"
-          >
-            <svg viewBox="0 0 24 24" className="h-4 w-4" aria-hidden="true">
-              <path
-                d="M9.5 5.5L16 12l-6.5 6.5"
-                fill="none"
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="1.8"
-              />
-            </svg>
-          </button>
+        <div className="mt-10 flex justify-center gap-3">
+          <ArrowButton direction="prev" disabled={index === 0} onClick={() => setIndex((i) => Math.max(0, i - 1))} />
+          <ArrowButton direction="next" disabled={index === maxIndex} onClick={() => setIndex((i) => Math.min(maxIndex, i + 1))} />
         </div>
       </div>
     </div>

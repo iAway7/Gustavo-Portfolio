@@ -3,6 +3,7 @@ import Image from "next/image";
 import { CertificationsList } from "@/components/certifications-list";
 import { MagneticLink } from "@/components/magnetic-link";
 import { Reveal } from "@/components/reveal";
+import { TestimonialsSpotlight } from "@/components/testimonials-spotlight";
 import {
   approachPrinciples,
   approachPrinciplesEs,
@@ -178,6 +179,15 @@ export function AboutView({ locale }: { locale: Locale }) {
                 </Reveal>
               ))}
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials */}
+      <section className="section-space pt-0">
+        <div className="shell">
+          <div className="section-rule">
+            <TestimonialsSpotlight locale={locale} title={dict.home.testimonials} viewAll={dict.home.viewAll} />
           </div>
         </div>
       </section>

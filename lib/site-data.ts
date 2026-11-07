@@ -365,7 +365,7 @@ export const testimonials: TestimonialEntry[] = [
   },
   {
     name: "Kelsey Rogers",
-    role: "Operations Manager @ InstallPros | Operations Management, Project Coordination",
+    role: "Operations Manager @ InstallPros",
     image: "/Kelsey.jpeg",
     quote:
       "I had the pleasure of working with Gustavo at InstallPros, where he served as our UX/UI Designer. What set Gustavo apart was his ability to take complex, multi-layered processes and distill them into intuitive, user-friendly experiences. He had a deep understanding of not just design, but the operational workflows behind it, which made him an incredibly effective collaborator across teams. He worked closely with developers and stakeholders alike, translating business needs and technical requirements into designs that were both functional and thoughtful. Gustavo approached every project with clarity and intention. He wasn't just focused on how something looked, but on how it worked and how it could work better. His contributions genuinely improved the way our teams operated and made systems easier for everyone to navigate. He is the kind of designer who makes the people around him better at their jobs. Any team would be lucky to have him."
@@ -438,7 +438,7 @@ export const testimonialsEs: TestimonialEntry[] = [
   },
   {
     name: "Kelsey Rogers",
-    role: "Operations Manager @ InstallPros | Gestión de Operaciones, Coordinación de Proyectos",
+    role: "Operations Manager @ InstallPros",
     image: "/Kelsey.jpeg",
     quote:
       "Tuve el placer de trabajar con Gustavo en InstallPros, donde fue nuestro diseñador UX/UI. Lo que lo distinguía era su capacidad de tomar procesos complejos y de múltiples capas y destilarlos en experiencias intuitivas y fáciles de usar. Tenía una comprensión profunda no solo del diseño, sino también de los flujos de trabajo operativos que hay detrás, lo que lo hacía un colaborador muy eficaz entre equipos. Trabajaba codo con codo tanto con desarrolladores como con stakeholders, traduciendo las necesidades del negocio y los requisitos técnicos en diseños funcionales y bien pensados. Gustavo abordaba cada proyecto con claridad e intención: no se centraba solo en cómo se veía algo, sino en cómo funcionaba y en cómo podía funcionar mejor. Sus aportaciones mejoraron de verdad la forma en que operaban nuestros equipos y facilitaron los sistemas para todos. Es el tipo de diseñador que hace mejores en su trabajo a quienes lo rodean. Cualquier equipo tendría suerte de contar con él."

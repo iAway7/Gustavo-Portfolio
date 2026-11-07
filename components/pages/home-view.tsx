@@ -159,25 +159,7 @@ export function HomeView({ locale }: { locale: Locale }) {
       <section id="testimonials" className="section-space">
         <div className="shell">
           <div className="section-rule">
-            <div className="mb-10 flex items-end justify-between gap-6 pt-8">
-              <Reveal>
-                <h2 className="section-title">{t.testimonials}</h2>
-              </Reveal>
-              <Reveal delay={0.04}>
-                <a
-                  href="https://www.linkedin.com/in/gustavo-polin/details/recommendations/"
-                  target="_blank"
-                  rel="noreferrer"
-                  aria-label="View all testimonials on LinkedIn (opens in a new tab)"
-                  className="inline-flex items-center gap-2 text-lg text-text transition-colors duration-200 hover:text-accent"
-                >
-                  {t.viewAll}
-                  <span aria-hidden="true">-&gt;</span>
-                </a>
-              </Reveal>
-            </div>
-
-            <TestimonialsCarousel locale={locale} />
+            <TestimonialsCarousel locale={locale} title={t.testimonials} intro={t.testimonialsIntro} viewAll={t.viewAll} />
           </div>
         </div>
       </section>

@@ -304,3 +304,13 @@ summary:focus-visible {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* Testimonials trial 2: the active row's underline fills over the rotation interval; its end advances the story. */
+@keyframes testimonial-progress {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
